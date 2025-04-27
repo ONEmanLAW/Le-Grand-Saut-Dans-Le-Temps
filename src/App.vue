@@ -1,24 +1,45 @@
 <template>
   <div id="app">
+    <!-- Écran d'accueil -->
     <StartScreen v-if="screen === 'start'" @start="handleStart" />
+
+    <!-- Écran d'attente (pour badge) -->
     <WaitingScreen v-if="screen === 'waiting'" />
+
+    <!-- Écran de bienvenue (après scan de badge) -->
     <WelcomeScreen v-if="screen === 'welcome'" />
+
+    <!-- Écran vidéo -->
     <VideoScreen v-if="screen === 'video'" ref="videoScreen" @ended="handleVideoEnded" />
+
+    <!-- Écran de sélection du nombre de questions -->
     <QuestionCountScreen v-if="screen === 'questionCount'" @selected="handleQuestionCount" />
+
+    <!-- Écran de sélection du thème -->
     <ThemeChoiceScreen v-if="screen === 'themeChoice'" @themeSelected="handleThemeSelected" />
+
+    <!-- Écran de questions -->
+    <QuestionScreen 
+      v-if="screen === 'question'"
+      :selectedTheme="selectedTheme" 
+      :selectedQuestionCount="selectedQuestionCount" 
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
+
+// Composants importés
 import StartScreen from './components/StartScreen.vue'
 import WaitingScreen from './components/WaitingScreen.vue'
 import WelcomeScreen from './components/WelcomeScreen.vue'
 import VideoScreen from './components/VideoScreen.vue'
 import QuestionCountScreen from './components/QuestionCountScreen.vue'
 import ThemeChoiceScreen from './components/ThemeChoiceScreen.vue'
+import QuestionScreen from './components/QuestionScreen.vue' // Assurez-vous d'importer le bon fichier
 
-// ⏺️ Musiques
+// Musiques
 const waitingMusic = new Audio('/sounds/1.wav')
 waitingMusic.loop = true
 
@@ -30,6 +51,10 @@ videoMusic.loop = true
 
 const backgroundMusic = new Audio('/sounds/4.wav') // 🎶 musique pour les choix
 backgroundMusic.loop = true
+
+// Musique des questions
+const questionMusic = new Audio('/sounds/5.mp3')
+questionMusic.loop = true
 
 // État
 const screen = ref('start')
@@ -104,13 +129,21 @@ function handleThemeSelected(theme) {
   selectedTheme.value = theme
   console.log(`✅ Thème choisi : ${theme}`)
 
-  stopAllMusic()
-  // → continue logique ici (écran quiz par ex)
+  stopAllMusic() // Arrêter toute musique en cours
+
+  // Passer à l'écran des questions
+  screen.value = 'question'
+  questionMusic.play() // Lancer la musique de question
 }
 
 // 🧹 Reset complet
 function resetInterface() {
-  stopAllMusic()
+  stopAllMusic()  // Arrêter toute musique
+
+  // Réinitialiser la musique de question (5.ogg)
+  questionMusic.pause()
+  questionMusic.currentTime = 0  // Revenir au début
+
   screen.value = 'waiting'
   videoScreen.value?.reset()
   welcomeMusic.muted = false
@@ -118,9 +151,10 @@ function resetInterface() {
   canTriggerLongScan.value = true
 }
 
+
 // 🔇 Stop toutes les musiques
 function stopAllMusic() {
-  for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic]) {
+  for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic, questionMusic]) {
     music.pause()
     music.currentTime = 0
   }
@@ -135,10 +169,17 @@ watch(screen, (newScreen) => {
     }
   } 
   // Sinon, on arrête la musique de fond seulement si on sort de ces écrans
-  else if (newScreen !== 'waiting' && newScreen !== 'start') {
-    // On arrête la musique de fond dès qu'on quitte les écrans de choix (questionCount, themeChoice)
-    backgroundMusic.pause()
-    backgroundMusic.currentTime = 0
+  else {
+    if (backgroundMusic.currentTime === backgroundMusic.duration) {
+      backgroundMusic.currentTime = 0
+    }
   }
 })
 </script>
+
+<style>
+/* Style global pour la page */
+#app {
+  font-family: Arial, sans-serif;
+}
+</style>
