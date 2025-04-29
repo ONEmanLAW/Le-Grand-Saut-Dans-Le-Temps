@@ -64,7 +64,7 @@ const canTriggerLongScan = ref(true)
 const selectedQuestionCount = ref(null)
 const selectedTheme = ref(null)
 
-const ws = new WebSocket('ws://192.168.224.50:8080')
+const ws = new WebSocket('ws://172.28.59.20:8080')
 
 // 📡 WebSocket setup
 onMounted(() => {
