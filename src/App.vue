@@ -6,8 +6,9 @@
     <!-- Écran d'attente (pour badge) -->
     <WaitingScreen v-if="screen === 'waiting'" />
 
-    <!-- Écran de bienvenue (après scan de badge) -->
-    <WelcomeScreen v-if="screen === 'welcome'" />
+    <!-- Écrans de bienvenue personnalisés -->
+    <Welcome70 v-if="screen === 'welcome70'" />
+    <Welcome80 v-if="screen === 'welcome80'" />
 
     <!-- Écran vidéo -->
     <VideoScreen v-if="screen === 'video'" ref="videoScreen" @ended="handleVideoEnded" />
@@ -23,6 +24,7 @@
       v-if="screen === 'question'"
       :selectedTheme="selectedTheme" 
       :selectedQuestionCount="selectedQuestionCount" 
+      :selectedEra="selectedEra"
     />
   </div>
 </template>
@@ -30,14 +32,15 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
-// Composants importés
+// Composants
 import StartScreen from './components/StartScreen.vue'
 import WaitingScreen from './components/WaitingScreen.vue'
-import WelcomeScreen from './components/WelcomeScreen.vue'
+import Welcome70 from './components/Welcome70.vue'
+import Welcome80 from './components/Welcome80.vue'
 import VideoScreen from './components/VideoScreen.vue'
 import QuestionCountScreen from './components/QuestionCountScreen.vue'
 import ThemeChoiceScreen from './components/ThemeChoiceScreen.vue'
-import QuestionScreen from './components/QuestionScreen.vue' // Assurez-vous d'importer le bon fichier
+import QuestionScreen from './components/QuestionScreen.vue'
 
 // Musiques
 const waitingMusic = new Audio('/sounds/1.wav')
@@ -49,10 +52,9 @@ welcomeMusic.loop = false
 const videoMusic = new Audio('/sounds/3.mp3')
 videoMusic.loop = true
 
-const backgroundMusic = new Audio('/sounds/4.wav') // 🎶 musique pour les choix
+const backgroundMusic = new Audio('/sounds/4.wav')
 backgroundMusic.loop = true
 
-// Musique des questions
 const questionMusic = new Audio('/sounds/5.mp3')
 questionMusic.loop = true
 
@@ -60,13 +62,15 @@ questionMusic.loop = true
 const screen = ref('start')
 const videoScreen = ref(null)
 const canTriggerLongScan = ref(true)
+const currentRFID = ref(null)
 
 const selectedQuestionCount = ref(null)
 const selectedTheme = ref(null)
+const selectedEra = ref('70')  // Valeur par défaut pour selectedEra
 
-const ws = new WebSocket('ws://172.28.59.20:8080')
+// WebSocket
+const ws = new WebSocket('ws://192.168.1.96:8080') // ← Remplace si besoin
 
-// 📡 WebSocket setup
 onMounted(() => {
   ws.onopen = () => {
     ws.send(JSON.stringify({ client_name: 'browser', target: 'raspberry' }))
@@ -75,13 +79,19 @@ onMounted(() => {
   ws.onmessage = (event) => {
     const message = JSON.parse(event.data)
 
-    if (message.data === 'LONG_SCAN_OK' && canTriggerLongScan.value) {
+    // ✅ Vérifie que message.data est une string avant de faire startsWith
+    if (typeof message.data === 'string' && message.data.startsWith('LONG_SCAN_OK_') && canTriggerLongScan.value) {
       canTriggerLongScan.value = false
+
+      const rfidId = message.data.replace('LONG_SCAN_OK_', '')
+      currentRFID.value = rfidId
 
       stopAllMusic()
       welcomeMusic.play()
 
-      screen.value = 'welcome'
+      if (rfidId === 'RFID_1') screen.value = 'welcome70'
+      else if (rfidId === 'RFID_2') screen.value = 'welcome80'
+      else screen.value = 'waiting' // fallback
 
       setTimeout(() => {
         screen.value = 'video'
@@ -96,13 +106,13 @@ onMounted(() => {
       if (waitingMusic.paused) waitingMusic.play()
     }
 
-    if (message.data === 'BADGE_REMOVED') {
+    if (typeof message.data === 'string' && message.data.startsWith('BADGE_REMOVED_')) {
       resetInterface()
     }
   }
 })
 
-// 🎬 Start button
+// 🎬 Bouton démarrer
 function handleStart() {
   screen.value = 'waiting'
   canTriggerLongScan.value = true
@@ -110,7 +120,7 @@ function handleStart() {
   waitingMusic.play()
 }
 
-// 📽️ Fin vidéo → choix nombre de questions
+// 🎥 Fin vidéo
 function handleVideoEnded() {
   videoMusic.pause()
   videoMusic.currentTime = 0
@@ -118,32 +128,26 @@ function handleVideoEnded() {
   screen.value = 'questionCount'
 }
 
-// 🔢 Choix nombre questions → choix thème
+// 🔢 Choix du nombre de questions
 function handleQuestionCount(count) {
   selectedQuestionCount.value = count
   screen.value = 'themeChoice'
 }
 
-// 🎯 Thème choisi → prêt pour la suite
+// 🎯 Thème choisi
 function handleThemeSelected(theme) {
   selectedTheme.value = theme
   console.log(`✅ Thème choisi : ${theme}`)
-
-  stopAllMusic() // Arrêter toute musique en cours
-
-  // Passer à l'écran des questions
+  stopAllMusic()
   screen.value = 'question'
-  questionMusic.play() // Lancer la musique de question
+  questionMusic.play()
 }
 
-// 🧹 Reset complet
+// ♻️ Réinitialisation complète
 function resetInterface() {
-  stopAllMusic()  // Arrêter toute musique
-
-  // Réinitialiser la musique de question (5.ogg)
+  stopAllMusic()
   questionMusic.pause()
-  questionMusic.currentTime = 0  // Revenir au début
-
+  questionMusic.currentTime = 0
   screen.value = 'waiting'
   videoScreen.value?.reset()
   welcomeMusic.muted = false
@@ -151,8 +155,7 @@ function resetInterface() {
   canTriggerLongScan.value = true
 }
 
-
-// 🔇 Stop toutes les musiques
+// 🔇 Stop toute musique
 function stopAllMusic() {
   for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic, questionMusic]) {
     music.pause()
@@ -160,16 +163,11 @@ function stopAllMusic() {
   }
 }
 
-// 🎵 Réagit quand l'écran change
+// 🎵 Musique de fond selon écran
 watch(screen, (newScreen) => {
-  // Si on arrive sur questionCount ou themeChoice, on démarre la musique de fond
   if (newScreen === 'questionCount' || newScreen === 'themeChoice') {
-    if (backgroundMusic.paused) {
-      backgroundMusic.play()
-    }
-  } 
-  // Sinon, on arrête la musique de fond seulement si on sort de ces écrans
-  else {
+    if (backgroundMusic.paused) backgroundMusic.play()
+  } else {
     if (backgroundMusic.currentTime === backgroundMusic.duration) {
       backgroundMusic.currentTime = 0
     }
@@ -178,7 +176,6 @@ watch(screen, (newScreen) => {
 </script>
 
 <style>
-/* Style global pour la page */
 #app {
   font-family: Arial, sans-serif;
 }

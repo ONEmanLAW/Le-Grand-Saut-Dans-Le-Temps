@@ -1,3 +1,5 @@
+# ws_client.py
+
 import websocket
 import json
 import threading
@@ -57,18 +59,18 @@ class WSClient:
                 print("⚠️ Erreur d'envoi:", e)
                 self.connected = False
 
-    def send_long_scan(self):
+    def send_long_scan(self, reader_label):
         self.send({
             "src": CLIENT_NAME,
             "dest": TARGET,
-            "data": "LONG_SCAN_OK"
+            "data": f"LONG_SCAN_OK_{reader_label}"
         })
 
-    def send_badge_removed(self):
+    def send_badge_removed(self, reader_label):
         self.send({
             "src": CLIENT_NAME,
             "dest": TARGET,
-            "data": "BADGE_REMOVED"
+            "data": f"BADGE_REMOVED_{reader_label}"
         })
 
 # Instance globale

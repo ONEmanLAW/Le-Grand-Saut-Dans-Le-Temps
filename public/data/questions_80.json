@@ -1,0 +1,12 @@
+{
+    "Musique": [
+      {
+        "question": "Quel chanteur a interprété 'Imagine' dans les années 70 ?",
+        "answers": ["John Lennon", "Bob Dylan", "David Bowie", "Freddie Mercury"],
+        "correctIndex": 0
+      }
+      
+    ]
+    
+  }
+  

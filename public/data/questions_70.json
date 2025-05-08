@@ -1,0 +1,111 @@
+{
+    "Musique": [
+      {
+        "question": "Quel groupe a sorti l'album 'The Dark Side of the Moon' en 1973 ?",
+        "answers": ["Pink Floyd", "The Beatles", "Queen", "Led Zeppelin"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quelle chanteuse a interprété 'I Will Survive' en 1978 ?",
+        "answers": ["Gloria Gaynor", "Diana Ross", "Aretha Franklin", "Donna Summer"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel genre musical a émergé à New York dans les années 70 ?",
+        "answers": ["Hip-hop", "Jazz", "Reggae", "Rock"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel groupe a sorti 'Stairway to Heaven' en 1971 ?",
+        "answers": ["Led Zeppelin", "AC/DC", "The Who", "Deep Purple"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quelle icône pop a sorti 'Imagine' en 1971 ?",
+        "answers": ["John Lennon", "Paul McCartney", "David Bowie", "Bob Dylan"],
+        "correctIndex": 0
+      }
+    ],
+    "Politique": [
+      {
+        "question": "Qui a été président de la France de 1969 à 1974 ?",
+        "answers": ["Georges Pompidou", "Valéry Giscard d’Estaing", "François Mitterrand", "Jacques Chirac"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel président américain a démissionné en 1974 ?",
+        "answers": ["Richard Nixon", "Gerald Ford", "Jimmy Carter", "Ronald Reagan"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel événement politique majeur a eu lieu en 1971 en Chine ?",
+        "answers": ["Entrée à l'ONU", "Révolution culturelle", "Mort de Mao", "Coup d'État"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quelle guerre a pris fin en 1975 ?",
+        "answers": ["Guerre du Viêt Nam", "Guerre de Corée", "Guerre froide", "Guerre Iran-Irak"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel dictateur chilien a pris le pouvoir en 1973 ?",
+        "answers": ["Augusto Pinochet", "Fidel Castro", "Hugo Chávez", "Juan Perón"],
+        "correctIndex": 0
+      }
+    ],
+    "Animaux": [
+      {
+        "question": "Quel animal est connu pour son long cou ?",
+        "answers": ["Girafe", "Éléphant", "Lion", "Tigre"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel animal peut voler la nuit sans faire de bruit ?",
+        "answers": ["Chauve-souris", "Aigle", "Hibou", "Faucon"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Quel animal marin est connu pour ses huit bras ?",
+        "answers": ["Pieuvre", "Méduse", "Crabe", "Hippocampe"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Lequel est un mammifère marin ?",
+        "answers": ["Dauphin", "Requin", "Raie", "Thon"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel animal est réputé pour sa lenteur ?",
+        "answers": ["Paresseux", "Tortue", "Escargot", "Koala"],
+        "correctIndex": 0
+      }
+    ],
+    "Sport": [
+      {
+        "question": "Quel pays a organisé les Jeux olympiques d'été en 1972 ?",
+        "answers": ["Allemagne", "États-Unis", "URSS", "Japon"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel boxeur célèbre a repris sa ceinture en 1974 lors du 'Rumble in the Jungle' ?",
+        "answers": ["Muhammad Ali", "Mike Tyson", "Joe Frazier", "George Foreman"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel footballeur néerlandais était une star dans les années 70 ?",
+        "answers": ["Johan Cruyff", "Marco van Basten", "Ruud Gullit", "Dennis Bergkamp"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel sport est associé à Björn Borg ?",
+        "answers": ["Tennis", "Football", "Cyclisme", "Ski"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quelle course cycliste française célèbre a lieu chaque année ?",
+        "answers": ["Tour de France", "Paris-Roubaix", "Dakar", "Le Mans"],
+        "correctIndex": 0
+      }
+    ]
+  }
+  
