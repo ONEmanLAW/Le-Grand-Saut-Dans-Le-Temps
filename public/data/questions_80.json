@@ -1,12 +1,110 @@
 {
-    "Musique": [
-      {
-        "question": "Quel chanteur a interprété 'Imagine' dans les années 70 ?",
-        "answers": ["John Lennon", "Bob Dylan", "David Bowie", "Freddie Mercury"],
-        "correctIndex": 0
-      }
-      
-    ]
-    
-  }
-  
+  "Musique": [
+    {
+      "question": "Quel groupe a sorti l'album 'Thriller' en 1982 ?",
+      "answers": ["Michael Jackson", "Prince", "Madonna", "Bruce Springsteen"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Qui a interprété le tube 'Like a Virgin' en 1984 ?",
+      "answers": ["Madonna", "Cyndi Lauper", "Whitney Houston", "Cher"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel groupe a sorti l'album 'The Joshua Tree' en 1987 ?",
+      "answers": ["U2", "The Rolling Stones", "Queen", "The Police"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel chanteur a popularisé le style 'new wave' avec l'album 'Let's Dance' ?",
+      "answers": ["David Bowie", "Elton John", "Prince", "George Michael"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel groupe a sorti l'album 'Back in Black' en 1980 ?",
+      "answers": ["AC/DC", "Led Zeppelin", "Van Halen", "Kiss"],
+      "correctIndex": 0
+    }
+  ],
+  "Politique": [
+    {
+      "question": "Qui était le président des États-Unis de 1981 à 1989 ?",
+      "answers": ["Ronald Reagan", "Jimmy Carter", "George H. W. Bush", "Bill Clinton"],
+      "correctIndex": 0
+    },
+    {
+      "question": "En 1985, quel leader soviétique a introduit la politique de la 'glasnost' ?",
+      "answers": ["Mikhaïl Gorbatchev", "Leonid Brejnev", "Nikita Khrouchtchev", "Joseph Staline"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel pays a connu une révolution en 1989 menant à la chute du mur de Berlin ?",
+      "answers": ["Allemagne de l'Est", "Pologne", "Hongrie", "Tchécoslovaquie"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel événement majeur a eu lieu en 1982 au Liban ?",
+      "answers": ["L'invasion israélienne", "La guerre civile", "Le massacre de Sabra et Chatila", "La création du Hezbollah"],
+      "correctIndex": 0
+    },
+    {
+      "question": "En 1984, quel dirigeant chinois a lancé une série de réformes économiques ?",
+      "answers": ["Deng Xiaoping", "Mao Zedong", "Zhou Enlai", "Jiang Zemin"],
+      "correctIndex": 0
+    }
+  ],
+  "Animaux": [
+    {
+      "question": "Quel animal est souvent associé à l'image du 'safari' africain ?",
+      "answers": ["Lion", "Girafe", "Zèbre", "Éléphant"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel animal marin est connu pour sa capacité à produire de l'encre pour se défendre ?",
+      "answers": ["Pieuvre", "Dauphin", "Requin", "Baleine"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel animal est le plus grand mammifère terrestre ?",
+      "answers": ["Éléphant", "Rhinocéros", "Girafe", "Hippopotame"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel petit rongeur est souvent un animal de compagnie dans les années 80 ?",
+      "answers": ["Hamster", "Cochon d'Inde", "Lapin", "Chinchilla"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel oiseau est célèbre pour sa capacité à imiter la parole humaine ?",
+      "answers": ["Perroquet", "Canari", "Moineau", "Pie"],
+      "correctIndex": 0
+    }
+  ],
+  "Sport": [
+    {
+      "question": "Quel footballeur argentin a marqué le célèbre but de la main de Dieu lors de la Coupe du Monde 1986 ?",
+      "answers": ["Diego Maradona", "Pelé", "Michel Platini", "Zico"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel boxeur a remporté la médaille d'or aux Jeux Olympiques de 1984 ?",
+      "answers": ["Sugar Ray Leonard", "Muhammad Ali", "Mike Tyson", "Evander Holyfield"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel joueur de tennis a remporté Wimbledon en 1981 et 1984 ?",
+      "answers": ["John McEnroe", "Björn Borg", "Jimmy Connors", "Ivan Lendl"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel événement a marqué la fin de la carrière de la légende de la Formule 1, Ayrton Senna ?",
+      "answers": ["Son accident fatal en 1994", "Sa victoire au Grand Prix de Monaco en 1990", "Sa rivalité avec Alain Prost", "Son premier championnat en 1988"],
+      "correctIndex": 0
+    },
+    {
+      "question": "Quel joueur de basket-ball américain a dominé la NBA dans les années 80 ?",
+      "answers": ["Magic Johnson", "Larry Bird", "Michael Jordan", "Kareem Abdul-Jabbar"],
+      "correctIndex": 0
+    }
+  ]
+}

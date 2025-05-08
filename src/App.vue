@@ -3,7 +3,7 @@
     <!-- Écran d'accueil -->
     <StartScreen v-if="screen === 'start'" @start="handleStart" />
 
-    <!-- Écran d'attente (pour badge) -->
+    <!-- Écran d'attente -->
     <WaitingScreen v-if="screen === 'waiting'" />
 
     <!-- Écrans de bienvenue personnalisés -->
@@ -13,10 +13,10 @@
     <!-- Écran vidéo -->
     <VideoScreen v-if="screen === 'video'" ref="videoScreen" @ended="handleVideoEnded" />
 
-    <!-- Écran de sélection du nombre de questions -->
+    <!-- Choix du nombre de questions -->
     <QuestionCountScreen v-if="screen === 'questionCount'" @selected="handleQuestionCount" />
 
-    <!-- Écran de sélection du thème -->
+    <!-- Choix du thème -->
     <ThemeChoiceScreen v-if="screen === 'themeChoice'" @themeSelected="handleThemeSelected" />
 
     <!-- Écran de questions -->
@@ -32,7 +32,6 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
-// Composants
 import StartScreen from './components/StartScreen.vue'
 import WaitingScreen from './components/WaitingScreen.vue'
 import Welcome70 from './components/Welcome70.vue'
@@ -66,10 +65,10 @@ const currentRFID = ref(null)
 
 const selectedQuestionCount = ref(null)
 const selectedTheme = ref(null)
-const selectedEra = ref('70')  // Valeur par défaut pour selectedEra
+const selectedEra = ref('70') // Valeur par défaut
 
 // WebSocket
-const ws = new WebSocket('ws://192.168.1.96:8080') // ← Remplace si besoin
+const ws = new WebSocket('ws://192.168.1.96:8080')
 
 onMounted(() => {
   ws.onopen = () => {
@@ -79,7 +78,6 @@ onMounted(() => {
   ws.onmessage = (event) => {
     const message = JSON.parse(event.data)
 
-    // ✅ Vérifie que message.data est une string avant de faire startsWith
     if (typeof message.data === 'string' && message.data.startsWith('LONG_SCAN_OK_') && canTriggerLongScan.value) {
       canTriggerLongScan.value = false
 
@@ -89,9 +87,15 @@ onMounted(() => {
       stopAllMusic()
       welcomeMusic.play()
 
-      if (rfidId === 'RFID_1') screen.value = 'welcome70'
-      else if (rfidId === 'RFID_2') screen.value = 'welcome80'
-      else screen.value = 'waiting' // fallback
+      if (rfidId === 'RFID_1') {
+        selectedEra.value = '70'
+        screen.value = 'welcome70'
+      } else if (rfidId === 'RFID_2') {
+        selectedEra.value = '80'
+        screen.value = 'welcome80'
+      } else {
+        screen.value = 'waiting'
+      }
 
       setTimeout(() => {
         screen.value = 'video'
@@ -112,7 +116,7 @@ onMounted(() => {
   }
 })
 
-// 🎬 Bouton démarrer
+// Lancement
 function handleStart() {
   screen.value = 'waiting'
   canTriggerLongScan.value = true
@@ -120,7 +124,7 @@ function handleStart() {
   waitingMusic.play()
 }
 
-// 🎥 Fin vidéo
+// Fin de vidéo
 function handleVideoEnded() {
   videoMusic.pause()
   videoMusic.currentTime = 0
@@ -128,22 +132,24 @@ function handleVideoEnded() {
   screen.value = 'questionCount'
 }
 
-// 🔢 Choix du nombre de questions
+// Choix du nombre de questions
 function handleQuestionCount(count) {
   selectedQuestionCount.value = count
   screen.value = 'themeChoice'
 }
 
-// 🎯 Thème choisi
+// Choix du thème
 function handleThemeSelected(theme) {
   selectedTheme.value = theme
   console.log(`✅ Thème choisi : ${theme}`)
+  console.log(`Époque sélectionnée : ${selectedEra.value}`)
+
   stopAllMusic()
   screen.value = 'question'
   questionMusic.play()
 }
 
-// ♻️ Réinitialisation complète
+// Reset
 function resetInterface() {
   stopAllMusic()
   questionMusic.pause()
@@ -155,7 +161,7 @@ function resetInterface() {
   canTriggerLongScan.value = true
 }
 
-// 🔇 Stop toute musique
+// Stop toutes les musiques
 function stopAllMusic() {
   for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic, questionMusic]) {
     music.pause()
@@ -163,7 +169,7 @@ function stopAllMusic() {
   }
 }
 
-// 🎵 Musique de fond selon écran
+// Musique de fond selon écran
 watch(screen, (newScreen) => {
   if (newScreen === 'questionCount' || newScreen === 'themeChoice') {
     if (backgroundMusic.paused) backgroundMusic.play()

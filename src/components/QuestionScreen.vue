@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 // Props
 const props = defineProps({
@@ -31,7 +31,6 @@ const props = defineProps({
   selectedEra: { type: String, required: true }
 })
 
-// États
 const questions = ref([])
 const currentQuestion = ref({})
 const currentQuestionIndex = ref(0)
@@ -41,13 +40,29 @@ const timer = ref(60)
 const totalQuestions = ref(0)
 let countdown = null
 
+// Watch sur selectedEra pour recharger les questions quand l'époque change
+watch(() => props.selectedEra, async (newEra) => {
+  console.log(`L'époque a changé, nouvelle époque : ${newEra}`)
+  await loadQuestions()
+})
+
 onMounted(async () => {
+  await loadQuestions()
+})
+
+async function loadQuestions() {
   try {
+    // Vérifier quelle époque est sélectionnée
+    console.log(`Chargement des questions pour l'époque : ${props.selectedEra}, thème : ${props.selectedTheme}`)
+    
+    // Charger les questions selon l'époque
     const res = await fetch(`/data/questions_${props.selectedEra}.json`)
     if (!res.ok) {
       throw new Error('Erreur lors du chargement du fichier JSON')
     }
     const data = await res.json()
+
+    // Vérifier que le thème est dans les données
     const selectedQuestions = data[props.selectedTheme] || []
   
     questions.value = selectedQuestions.sort(() => 0.5 - Math.random()).slice(0, props.selectedQuestionCount)
@@ -57,7 +72,7 @@ onMounted(async () => {
   } catch (error) {
     console.error('Erreur de chargement des questions :', error)
   }
-})
+}
 
 function startTimer() {
   countdown = setInterval(() => {
@@ -94,6 +109,7 @@ function goToNextQuestion() {
     window.location.reload()
   }
 }
+
 </script>
 
 <style scoped>
