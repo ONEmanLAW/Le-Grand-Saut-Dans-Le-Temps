@@ -66,16 +66,31 @@ import ExpertVideoScreen from './components/ExpertVideoScreen.vue'
 // Musiques
 const waitingMusic = new Audio('/sounds/1.wav')
 waitingMusic.loop = true
+
 const welcomeMusic = new Audio('/sounds/2.wav')
 welcomeMusic.loop = false
+
 const videoMusic = new Audio('/sounds/3.mp3')
 videoMusic.loop = true
+
 const backgroundMusic = new Audio('/sounds/4.wav')
 backgroundMusic.loop = true
+
 const questionMusic = new Audio('/sounds/5.mp3')
 questionMusic.loop = true
+
 const levelMusic = new Audio('/sounds/6.mp3')
 levelMusic.loop = true
+
+// Nouvelles musiques par niveau
+const mediumLevelMusic = new Audio('/sounds/medium.mp3')
+mediumLevelMusic.loop = true
+
+const hardLevelMusic = new Audio('/sounds/hard.mp3')
+hardLevelMusic.loop = true
+
+const expertLevelMusic = new Audio('/sounds/expert.mp3')
+expertLevelMusic.loop = true
 
 // États
 const screen = ref('start')
@@ -212,6 +227,20 @@ async function handleThemeSelected(theme) {
       questionMusic.play()
     } else {
       screen.value = `${selectedDifficulty.value}Video`
+
+      // 🎵 Musique par niveau
+      switch (selectedDifficulty.value) {
+        case 'medium':
+          mediumLevelMusic.play()
+          break
+        case 'hard':
+          hardLevelMusic.play()
+          break
+        case 'expert':
+          expertLevelMusic.play()
+          break
+      }
+
       setTimeout(() => {
         getVideoRef().value?.play()
       }, 100)
@@ -233,24 +262,42 @@ function handleLevelCompleted() {
 
   selectedDifficulty.value = levelOrder[currentLevelIndex.value]
   screen.value = `${selectedDifficulty.value}Video`
+
+  // 🎵 Lancer la musique correspondante
+  stopAllMusic()
+  switch (selectedDifficulty.value) {
+    case 'medium':
+      mediumLevelMusic.play()
+      break
+    case 'hard':
+      hardLevelMusic.play()
+      break
+    case 'expert':
+      expertLevelMusic.play()
+      break
+  }
+
   setTimeout(() => {
     getVideoRef().value?.play()
   }, 100)
 }
 
 function handleMediumVideoEnded() {
+  stopAllMusic()
   screen.value = 'loadingQuestions'
-  loadQuestionsForDifficulty('medium') // On charge les questions medium
+  loadQuestionsForDifficulty('medium')
 }
 
 function handleHardVideoEnded() {
+  stopAllMusic()
   screen.value = 'loadingQuestions'
-  loadQuestionsForDifficulty('hard') // On charge les questions hard
+  loadQuestionsForDifficulty('hard')
 }
 
 function handleExpertVideoEnded() {
+  stopAllMusic()
   screen.value = 'loadingQuestions'
-  loadQuestionsForDifficulty('expert') // On charge les questions expert
+  loadQuestionsForDifficulty('expert')
 }
 
 async function loadQuestionsForDifficulty(difficulty) {
@@ -268,7 +315,7 @@ async function loadQuestionsForDifficulty(difficulty) {
     }
 
     const themeQuestions = allQuestions[selectedTheme.value]
-    const difficultyQuestions = themeQuestions[levelMap[difficulty]] // On utilise le niveau dynamique ici
+    const difficultyQuestions = themeQuestions[levelMap[difficulty]]
 
     const selected = difficultyQuestions.slice(0, selectedQuestionsPerLevel.value)
 
@@ -280,7 +327,7 @@ async function loadQuestionsForDifficulty(difficulty) {
 
     selectedQuestions.value = selected
 
-    screen.value = 'question'  // Affiche l'écran des questions
+    screen.value = 'question'
     questionMusic.play()
 
   } catch (err) {
@@ -304,7 +351,17 @@ function resetInterface() {
 }
 
 function stopAllMusic() {
-  for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic, questionMusic, levelMusic]) {
+  for (const music of [
+    waitingMusic,
+    welcomeMusic,
+    videoMusic,
+    backgroundMusic,
+    questionMusic,
+    levelMusic,
+    mediumLevelMusic,
+    hardLevelMusic,
+    expertLevelMusic
+  ]) {
     music.pause()
     music.currentTime = 0
   }
@@ -322,10 +379,6 @@ function getVideoRef() {
 watch(screen, (newScreen) => {
   if (newScreen === 'questionCount' || newScreen === 'themeChoice') {
     if (backgroundMusic.paused) backgroundMusic.play()
-  } else {
-    if (backgroundMusic.currentTime === backgroundMusic.duration) {
-      backgroundMusic.currentTime = 0
-    }
   }
 })
 </script>
