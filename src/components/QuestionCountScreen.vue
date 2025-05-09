@@ -1,21 +1,21 @@
 <template>
-    <div class="screen">
-      <h1>Choisissez le nombre de questions</h1>
-      <div class="choices">
-        <button v-for="count in [2, 3, 4, 5]" :key="count" @click="select(count)">
-          {{ count }}
-        </button>
-      </div>
+  <div class="screen">
+    <h1>Choisissez le nombre de questions</h1>
+    <div class="choices">
+      <button v-for="count in [4, 8]" :key="count" @click="select(count)">
+        {{ count }}
+      </button>
     </div>
-  </template>
-  
-  <script setup>
-  const emit = defineEmits(['selected'])
-  
-  function select(count) {
-    emit('selected', count)
-  }
-  </script>
+  </div>
+</template>
+
+<script setup>
+const emit = defineEmits(['selected'])
+function select(count) {
+  emit('selected', count)
+}
+</script>
+
   
   <style scoped>
   .choices {

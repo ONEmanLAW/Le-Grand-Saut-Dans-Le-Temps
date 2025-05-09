@@ -1,5 +1,6 @@
 {
-    "Musique": [
+  "Musique": {
+    "facile": [
       {
         "question": "Quel groupe a sorti l'album 'The Dark Side of the Moon' en 1973 ?",
         "answers": ["Pink Floyd", "The Beatles", "Queen", "Led Zeppelin"],
@@ -9,15 +10,12 @@
         "question": "Quelle chanteuse a interprété 'I Will Survive' en 1978 ?",
         "answers": ["Gloria Gaynor", "Diana Ross", "Aretha Franklin", "Donna Summer"],
         "correctIndex": 0
-      },
+      }
+    ],
+    "moyen": [
       {
         "question": "Quel genre musical a émergé à New York dans les années 70 ?",
         "answers": ["Hip-hop", "Jazz", "Reggae", "Rock"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel groupe a sorti 'Stairway to Heaven' en 1971 ?",
-        "answers": ["Led Zeppelin", "AC/DC", "The Who", "Deep Purple"],
         "correctIndex": 0
       },
       {
@@ -26,7 +24,33 @@
         "correctIndex": 0
       }
     ],
-    "Politique": [
+    "difficile": [
+      {
+        "question": "Quel groupe a sorti 'Stairway to Heaven' en 1971 ?",
+        "answers": ["Led Zeppelin", "AC/DC", "The Who", "Deep Purple"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel style musical disco a dominé les clubs dans les années 70 ?",
+        "answers": ["Funk", "Soul", "House", "Disco"],
+        "correctIndex": 3
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel producteur est derrière les Jackson 5 dans les années 70 ?",
+        "answers": ["Berry Gordy", "Quincy Jones", "Rick Rubin", "Dr. Dre"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel groupe allemand a influencé la musique électronique dès les années 70 ?",
+        "answers": ["Kraftwerk", "Scorpions", "Rammstein", "Can"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "Politique": {
+    "facile": [
       {
         "question": "Qui a été président de la France de 1969 à 1974 ?",
         "answers": ["Georges Pompidou", "Valéry Giscard d’Estaing", "François Mitterrand", "Jacques Chirac"],
@@ -36,7 +60,9 @@
         "question": "Quel président américain a démissionné en 1974 ?",
         "answers": ["Richard Nixon", "Gerald Ford", "Jimmy Carter", "Ronald Reagan"],
         "correctIndex": 0
-      },
+      }
+    ],
+    "moyen": [
       {
         "question": "Quel événement politique majeur a eu lieu en 1971 en Chine ?",
         "answers": ["Entrée à l'ONU", "Révolution culturelle", "Mort de Mao", "Coup d'État"],
@@ -46,14 +72,35 @@
         "question": "Quelle guerre a pris fin en 1975 ?",
         "answers": ["Guerre du Viêt Nam", "Guerre de Corée", "Guerre froide", "Guerre Iran-Irak"],
         "correctIndex": 0
-      },
+      }
+    ],
+    "difficile": [
       {
         "question": "Quel dictateur chilien a pris le pouvoir en 1973 ?",
         "answers": ["Augusto Pinochet", "Fidel Castro", "Hugo Chávez", "Juan Perón"],
         "correctIndex": 0
+      },
+      {
+        "question": "Quel pays d’Afrique a obtenu son indépendance du Portugal en 1975 ?",
+        "answers": ["Angola", "Mozambique", "Cap-Vert", "Guinée-Bissau"],
+        "correctIndex": 0
       }
     ],
-    "Animaux": [
+    "expert": [
+      {
+        "question": "Quel traité a marqué la détente entre les USA et l’URSS dans les années 70 ?",
+        "answers": ["SALT I", "START", "INF", "Traité de Varsovie"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Qui a été le chancelier de l'Allemagne de l'Ouest durant la majeure partie des années 70 ?",
+        "answers": ["Helmut Schmidt", "Willy Brandt", "Angela Merkel", "Konrad Adenauer"],
+        "correctIndex": 1
+      }
+    ]
+  },
+  "Animaux": {
+    "facile": [
       {
         "question": "Quel animal est connu pour son long cou ?",
         "answers": ["Girafe", "Éléphant", "Lion", "Tigre"],
@@ -63,7 +110,9 @@
         "question": "Quel animal peut voler la nuit sans faire de bruit ?",
         "answers": ["Chauve-souris", "Aigle", "Hibou", "Faucon"],
         "correctIndex": 2
-      },
+      }
+    ],
+    "moyen": [
       {
         "question": "Quel animal marin est connu pour ses huit bras ?",
         "answers": ["Pieuvre", "Méduse", "Crabe", "Hippocampe"],
@@ -73,39 +122,81 @@
         "question": "Lequel est un mammifère marin ?",
         "answers": ["Dauphin", "Requin", "Raie", "Thon"],
         "correctIndex": 0
-      },
+      }
+    ],
+    "difficile": [
       {
         "question": "Quel animal est réputé pour sa lenteur ?",
         "answers": ["Paresseux", "Tortue", "Escargot", "Koala"],
         "correctIndex": 0
+      },
+      {
+        "question": "Quel oiseau court mais ne vole pas et vit en Afrique ?",
+        "answers": ["Autruche", "Émeu", "Manchot", "Dodo"],
+        "correctIndex": 0
       }
     ],
-    "Sport": [
+    "expert": [
+      {
+        "question": "Quel insecte est capable de reconnaître son reflet dans un miroir ?",
+        "answers": ["Abeille", "Fourmi", "Libellule", "Moustique"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel animal possède un cerveau plus gros que son corps proportionnellement ?",
+        "answers": ["Pieuvre", "Chat", "Chien", "Singe"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "Sport": {
+    "facile": [
       {
         "question": "Quel pays a organisé les Jeux olympiques d'été en 1972 ?",
         "answers": ["Allemagne", "États-Unis", "URSS", "Japon"],
         "correctIndex": 0
       },
       {
+        "question": "Quel sport est associé à Björn Borg ?",
+        "answers": ["Tennis", "Football", "Cyclisme", "Ski"],
+        "correctIndex": 0
+      }
+    ],
+    "moyen": [
+      {
         "question": "Quel boxeur célèbre a repris sa ceinture en 1974 lors du 'Rumble in the Jungle' ?",
         "answers": ["Muhammad Ali", "Mike Tyson", "Joe Frazier", "George Foreman"],
         "correctIndex": 0
       },
+      {
+        "question": "Quel sport d'équipe utilise un ballon ovale ?",
+        "answers": ["Rugby", "Football", "Basketball", "Handball"],
+        "correctIndex": 0
+      }
+    ],
+    "difficile": [
       {
         "question": "Quel footballeur néerlandais était une star dans les années 70 ?",
         "answers": ["Johan Cruyff", "Marco van Basten", "Ruud Gullit", "Dennis Bergkamp"],
         "correctIndex": 0
       },
       {
-        "question": "Quel sport est associé à Björn Borg ?",
-        "answers": ["Tennis", "Football", "Cyclisme", "Ski"],
+        "question": "Quel pays a remporté la Coupe du Monde de football en 1978 ?",
+        "answers": ["Argentine", "Allemagne", "Brésil", "Pays-Bas"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quelle patineuse artistique a gagné l’or aux JO de 1976 ?",
+        "answers": ["Dorothy Hamill", "Katarina Witt", "Peggy Fleming", "Tara Lipinski"],
         "correctIndex": 0
       },
       {
-        "question": "Quelle course cycliste française célèbre a lieu chaque année ?",
-        "answers": ["Tour de France", "Paris-Roubaix", "Dakar", "Le Mans"],
+        "question": "Quel athlète a remporté 3 médailles d’or aux JO de 1976 ?",
+        "answers": ["Alberto Juantorena", "Carl Lewis", "Usain Bolt", "Jesse Owens"],
         "correctIndex": 0
       }
     ]
   }
-  
+}

@@ -28,3 +28,15 @@
   defineExpose({ play, reset })
   </script>
   
+  <style scoped>
+  #video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #video-element {
+    width: 100%;
+    max-width: 800px;
+  }
+  </style>
+  

@@ -1,110 +1,202 @@
 {
-  "Musique": [
-    {
-      "question": "Quel groupe a sorti l'album 'Thriller' en 1982 ?",
-      "answers": ["Michael Jackson", "Prince", "Madonna", "Bruce Springsteen"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Qui a interprété le tube 'Like a Virgin' en 1984 ?",
-      "answers": ["Madonna", "Cyndi Lauper", "Whitney Houston", "Cher"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel groupe a sorti l'album 'The Joshua Tree' en 1987 ?",
-      "answers": ["U2", "The Rolling Stones", "Queen", "The Police"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel chanteur a popularisé le style 'new wave' avec l'album 'Let's Dance' ?",
-      "answers": ["David Bowie", "Elton John", "Prince", "George Michael"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel groupe a sorti l'album 'Back in Black' en 1980 ?",
-      "answers": ["AC/DC", "Led Zeppelin", "Van Halen", "Kiss"],
-      "correctIndex": 0
-    }
-  ],
-  "Politique": [
-    {
-      "question": "Qui était le président des États-Unis de 1981 à 1989 ?",
-      "answers": ["Ronald Reagan", "Jimmy Carter", "George H. W. Bush", "Bill Clinton"],
-      "correctIndex": 0
-    },
-    {
-      "question": "En 1985, quel leader soviétique a introduit la politique de la 'glasnost' ?",
-      "answers": ["Mikhaïl Gorbatchev", "Leonid Brejnev", "Nikita Khrouchtchev", "Joseph Staline"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel pays a connu une révolution en 1989 menant à la chute du mur de Berlin ?",
-      "answers": ["Allemagne de l'Est", "Pologne", "Hongrie", "Tchécoslovaquie"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel événement majeur a eu lieu en 1982 au Liban ?",
-      "answers": ["L'invasion israélienne", "La guerre civile", "Le massacre de Sabra et Chatila", "La création du Hezbollah"],
-      "correctIndex": 0
-    },
-    {
-      "question": "En 1984, quel dirigeant chinois a lancé une série de réformes économiques ?",
-      "answers": ["Deng Xiaoping", "Mao Zedong", "Zhou Enlai", "Jiang Zemin"],
-      "correctIndex": 0
-    }
-  ],
-  "Animaux": [
-    {
-      "question": "Quel animal est souvent associé à l'image du 'safari' africain ?",
-      "answers": ["Lion", "Girafe", "Zèbre", "Éléphant"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel animal marin est connu pour sa capacité à produire de l'encre pour se défendre ?",
-      "answers": ["Pieuvre", "Dauphin", "Requin", "Baleine"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel animal est le plus grand mammifère terrestre ?",
-      "answers": ["Éléphant", "Rhinocéros", "Girafe", "Hippopotame"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel petit rongeur est souvent un animal de compagnie dans les années 80 ?",
-      "answers": ["Hamster", "Cochon d'Inde", "Lapin", "Chinchilla"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel oiseau est célèbre pour sa capacité à imiter la parole humaine ?",
-      "answers": ["Perroquet", "Canari", "Moineau", "Pie"],
-      "correctIndex": 0
-    }
-  ],
-  "Sport": [
-    {
-      "question": "Quel footballeur argentin a marqué le célèbre but de la main de Dieu lors de la Coupe du Monde 1986 ?",
-      "answers": ["Diego Maradona", "Pelé", "Michel Platini", "Zico"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel boxeur a remporté la médaille d'or aux Jeux Olympiques de 1984 ?",
-      "answers": ["Sugar Ray Leonard", "Muhammad Ali", "Mike Tyson", "Evander Holyfield"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel joueur de tennis a remporté Wimbledon en 1981 et 1984 ?",
-      "answers": ["John McEnroe", "Björn Borg", "Jimmy Connors", "Ivan Lendl"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel événement a marqué la fin de la carrière de la légende de la Formule 1, Ayrton Senna ?",
-      "answers": ["Son accident fatal en 1994", "Sa victoire au Grand Prix de Monaco en 1990", "Sa rivalité avec Alain Prost", "Son premier championnat en 1988"],
-      "correctIndex": 0
-    },
-    {
-      "question": "Quel joueur de basket-ball américain a dominé la NBA dans les années 80 ?",
-      "answers": ["Magic Johnson", "Larry Bird", "Michael Jordan", "Kareem Abdul-Jabbar"],
-      "correctIndex": 0
-    }
-  ]
+  "Musique": {
+    "facile": [
+      {
+        "question": "Quel groupe a sorti l'album 'Thriller' en 1982 ?",
+        "answers": ["Michael Jackson", "Madonna", "Prince", "Queen"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quelle chanson de Whitney Houston est sortie en 1985 ?",
+        "answers": ["I Wanna Dance with Somebody", "Greatest Love of All", "How Will I Know", "The Greatest Love of All"],
+        "correctIndex": 0
+      }
+    ],
+    "moyen": [
+      {
+        "question": "Quel groupe britannique a sorti l'album 'Like a Virgin' en 1984 ?",
+        "answers": ["Madonna", "The Cure", "Duran Duran", "The Rolling Stones"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quelle chanson de Michael Jackson est devenue un hymne des années 80 ?",
+        "answers": ["Billie Jean", "Beat It", "Smooth Criminal", "Thriller"],
+        "correctIndex": 0
+      }
+    ],
+    "difficile": [
+      {
+        "question": "Quel album de Prince est sorti en 1984 et a marqué la culture pop ?",
+        "answers": ["Purple Rain", "1999", "Controversy", "Sign 'O' the Times"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel groupe a sorti le single 'Sweet Child O' Mine' en 1988 ?",
+        "answers": ["Guns N' Roses", "Aerosmith", "Led Zeppelin", "Bon Jovi"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel producteur a collaboré avec Michael Jackson sur l'album 'Thriller' ?",
+        "answers": ["Quincy Jones", "George Martin", "Phil Spector", "Brian Wilson"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel artiste de new wave a sorti l'album 'Faith' en 1987 ?",
+        "answers": ["George Michael", "David Bowie", "Brian Eno", "Depeche Mode"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "Politique": {
+    "facile": [
+      {
+        "question": "Qui était le président des États-Unis au début des années 80 ?",
+        "answers": ["Ronald Reagan", "Jimmy Carter", "George H. W. Bush", "Bill Clinton"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel président français a été élu en 1981 ?",
+        "answers": ["François Mitterrand", "Jacques Chirac", "Valéry Giscard d'Estaing", "Nicolas Sarkozy"],
+        "correctIndex": 0
+      }
+    ],
+    "moyen": [
+      {
+        "question": "Quel événement a marqué la fin de la guerre froide en 1989 ?",
+        "answers": ["Chute du Mur de Berlin", "Révolution hongroise", "Accords de Camp David", "Révolution de velours"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel dirigeant soviétique a succédé à Léonid Brejnev en 1982 ?",
+        "answers": ["Youri Andropov", "Mikhaïl Gorbatchev", "Konstantin Tchernenko", "Vladimir Poutine"],
+        "correctIndex": 0
+      }
+    ],
+    "difficile": [
+      {
+        "question": "Quel événement a déclenché la guerre des Malouines en 1982 ?",
+        "answers": ["Invasion des îles Malouines par l'Argentine", "La guerre entre Iran et Irak", "La guerre de la drogue en Colombie", "L'invasion du Liban par Israël"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel pays a été le premier à élire une femme présidente dans les années 80 ?",
+        "answers": ["Sri Lanka", "Pakistan", "Bangladesh", "Inde"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel dirigeant a mis fin à l'apartheid en 1990 en Afrique du Sud ?",
+        "answers": ["Nelson Mandela", "F. W. de Klerk", "Thabo Mbeki", "Desmond Tutu"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Quel traité a été signé en 1987 pour limiter la production de missiles nucléaires ?",
+        "answers": ["Traité INF", "Traité de non-prolifération", "Traité de Paris", "Accord START"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "Animaux": {
+    "facile": [
+      {
+        "question": "Quel animal est connu pour sa lenteur ?",
+        "answers": ["Paresseux", "Tortue", "Escargot", "Koala"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel animal peut voler la nuit sans faire de bruit ?",
+        "answers": ["Chauve-souris", "Aigle", "Hibou", "Faucon"],
+        "correctIndex": 2
+      }
+    ],
+    "moyen": [
+      {
+        "question": "Quel est l'animal terrestre le plus rapide ?",
+        "answers": ["Guépard", "Léopard", "Lion", "Antilope"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel est le plus grand mammifère marin ?",
+        "answers": ["Baleine bleue", "Orque", "Dauphin", "Mégaptère"],
+        "correctIndex": 0
+      }
+    ],
+    "difficile": [
+      {
+        "question": "Quel animal marin est capable de changer de couleur ?",
+        "answers": ["Pieuvre", "Méduse", "Raie", "Crabe"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel est l'animal le plus toxique du monde ?",
+        "answers": ["Grenouille dart-poison", "Scorpion", "Serpent taipan", "Méduse Irukandji"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel animal peut hiberner pendant plusieurs années ?",
+        "answers": ["Grizzly", "Tortue", "Crocodile", "Marmotte"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel insecte a la capacité de faire du 'vol stationnaire' ?",
+        "answers": ["Colibri", "Libellule", "Mouette", "Vautour"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "Sport": {
+    "facile": [
+      {
+        "question": "Quel pays a remporté la Coupe du Monde de football en 1982 ?",
+        "answers": ["Italie", "Brésil", "Allemagne de l'Ouest", "Argentine"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel boxeur américain a été invaincu dans les années 80 ?",
+        "answers": ["Mike Tyson", "Muhammad Ali", "George Foreman", "Larry Holmes"],
+        "correctIndex": 0
+      }
+    ],
+    "moyen": [
+      {
+        "question": "Quel joueur de tennis a remporté Wimbledon en 1980 et 1981 ?",
+        "answers": ["Björn Borg", "John McEnroe", "Rod Laver", "Ivan Lendl"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel athlète a établi un record mondial en saut en hauteur en 1980 ?",
+        "answers": ["Javier Sotomayor", "Carl Lewis", "Sergey Bubka", "Bubka"],
+        "correctIndex": 0
+      }
+    ],
+    "difficile": [
+      {
+        "question": "Qui a gagné les Jeux Olympiques de Moscou en 1980 ?",
+        "answers": ["URSS", "États-Unis", "Allemagne de l'Ouest", "Chine"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Qui a remporté le Tour de France en 1986 ?",
+        "answers": ["Greg LeMond", "Bernard Hinault", "Jacques Anquetil", "Eddy Merckx"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Qui a remporté l'Open d'Australie en 1985 chez les hommes ?",
+        "answers": ["Mats Wilander", "Ivan Lendl", "Boris Becker", "Stefan Edberg"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel joueur de basketball a marqué le plus de points en 1984 ?",
+        "answers": ["Michael Jordan", "Larry Bird", "Magic Johnson", "Kareem Abdul-Jabbar"],
+        "correctIndex": 0
+      }
+    ]
+  }
 }
