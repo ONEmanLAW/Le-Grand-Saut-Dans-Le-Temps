@@ -3,23 +3,26 @@
     <!-- Écran d'accueil -->
     <StartScreen v-if="screen === 'start'" @start="handleStart" />
 
-    <!-- Écran d'attente -->
+    <!-- Écran d'attente (badge) -->
     <WaitingScreen v-if="screen === 'waiting'" />
 
-    <!-- Écrans de bienvenue personnalisés -->
+    <!-- Bienvenue selon badge -->
     <Welcome70 v-if="screen === 'welcome70'" />
     <Welcome80 v-if="screen === 'welcome80'" />
 
-    <!-- Écran vidéo -->
-    <VideoScreen v-if="screen === 'video'" ref="videoScreen" @ended="handleVideoEnded" />
+    <!-- Première vidéo d’intro -->
+    <GeneriqueVideoScreen v-if="screen === 'video'" ref="videoScreen" @ended="handleVideoEnded" />
 
-    <!-- Choix du nombre de questions -->
+    <!-- Sélection du nombre de questions -->
     <QuestionCountScreen v-if="screen === 'questionCount'" @selected="handleQuestionCount" />
+
+    <!-- Vidéo de présentation des niveaux -->
+    <EasyVideoScreen v-if="screen === 'introLevels'" ref="levelVideo" @ended="handleLevelVideoEnded" />
 
     <!-- Choix du thème -->
     <ThemeChoiceScreen v-if="screen === 'themeChoice'" @themeSelected="handleThemeSelected" />
 
-    <!-- Écran de questions -->
+    <!-- Questions -->
     <QuestionScreen 
       v-if="screen === 'question'"
       :selectedTheme="selectedTheme" 
@@ -32,11 +35,13 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
+// Composants
 import StartScreen from './components/StartScreen.vue'
 import WaitingScreen from './components/WaitingScreen.vue'
 import Welcome70 from './components/Welcome70.vue'
 import Welcome80 from './components/Welcome80.vue'
-import VideoScreen from './components/VideoScreen.vue'
+import GeneriqueVideoScreen from './components/GeneriqueVideoScreen.vue'
+import EasyVideoScreen from './components/EasyVideoScreen.vue'
 import QuestionCountScreen from './components/QuestionCountScreen.vue'
 import ThemeChoiceScreen from './components/ThemeChoiceScreen.vue'
 import QuestionScreen from './components/QuestionScreen.vue'
@@ -57,15 +62,20 @@ backgroundMusic.loop = true
 const questionMusic = new Audio('/sounds/5.mp3')
 questionMusic.loop = true
 
-// État
-const screen = ref('start')
-const videoScreen = ref(null)
-const canTriggerLongScan = ref(true)
-const currentRFID = ref(null)
+const levelMusic = new Audio('/sounds/6.mp3') // musique de video1.mp4
+levelMusic.loop = true
 
+// États
+const screen = ref('start')
 const selectedQuestionCount = ref(null)
 const selectedTheme = ref(null)
-const selectedEra = ref('70') // Valeur par défaut
+const selectedEra = ref('70')  // Valeur par défaut
+
+const videoScreen = ref(null)
+const levelVideo = ref(null)
+
+const canTriggerLongScan = ref(true)
+const currentRFID = ref(null)
 
 // WebSocket
 const ws = new WebSocket('ws://192.168.1.96:8080')
@@ -88,11 +98,11 @@ onMounted(() => {
       welcomeMusic.play()
 
       if (rfidId === 'RFID_1') {
-        selectedEra.value = '70'
         screen.value = 'welcome70'
+        selectedEra.value = '70'
       } else if (rfidId === 'RFID_2') {
-        selectedEra.value = '80'
         screen.value = 'welcome80'
+        selectedEra.value = '80'
       } else {
         screen.value = 'waiting'
       }
@@ -116,7 +126,7 @@ onMounted(() => {
   }
 })
 
-// Lancement
+// 👇 Cette fonction déclenchée au lancement depuis l'écran d’accueil
 function handleStart() {
   screen.value = 'waiting'
   canTriggerLongScan.value = true
@@ -124,7 +134,7 @@ function handleStart() {
   waitingMusic.play()
 }
 
-// Fin de vidéo
+// 👇 Quand la vidéo époque est terminée
 function handleVideoEnded() {
   videoMusic.pause()
   videoMusic.currentTime = 0
@@ -132,24 +142,29 @@ function handleVideoEnded() {
   screen.value = 'questionCount'
 }
 
-// Choix du nombre de questions
+// 👇 Quand l'utilisateur choisit le nombre de questions
 function handleQuestionCount(count) {
   selectedQuestionCount.value = count
+  stopAllMusic()
+  screen.value = 'introLevels'
+  levelMusic.play()
+}
+
+// 👇 Quand la vidéo d’intro des niveaux est terminée
+function handleLevelVideoEnded() {
+  levelMusic.pause()
   screen.value = 'themeChoice'
 }
 
-// Choix du thème
+// 👇 Quand un thème est sélectionné
 function handleThemeSelected(theme) {
   selectedTheme.value = theme
-  console.log(`✅ Thème choisi : ${theme}`)
-  console.log(`Époque sélectionnée : ${selectedEra.value}`)
-
   stopAllMusic()
   screen.value = 'question'
   questionMusic.play()
 }
 
-// Reset
+// 👇 Réinitialisation complète
 function resetInterface() {
   stopAllMusic()
   questionMusic.pause()
@@ -161,15 +176,15 @@ function resetInterface() {
   canTriggerLongScan.value = true
 }
 
-// Stop toutes les musiques
+// 👇 Arrêter toutes les musiques
 function stopAllMusic() {
-  for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic, questionMusic]) {
+  for (const music of [waitingMusic, welcomeMusic, videoMusic, backgroundMusic, questionMusic, levelMusic]) {
     music.pause()
     music.currentTime = 0
   }
 }
 
-// Musique de fond selon écran
+// 👇 Musique de fond pour certains écrans
 watch(screen, (newScreen) => {
   if (newScreen === 'questionCount' || newScreen === 'themeChoice') {
     if (backgroundMusic.paused) backgroundMusic.play()
