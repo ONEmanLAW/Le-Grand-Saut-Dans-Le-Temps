@@ -34,6 +34,7 @@ const selectedAnswer = ref(null)
 const answerSelected = ref(false)
 
 function selectAnswer(index) {
+  if (answerSelected.value) return
   selectedAnswer.value = index
   answerSelected.value = true
 
@@ -48,6 +49,19 @@ function selectAnswer(index) {
     }
   }, 1000)
 }
+
+// Permet de recevoir A, B, C, D depuis WebSocket (depuis App.vue)
+function selectAnswerFromHardware(letter) {
+  const index = ['A', 'B', 'C', 'D'].indexOf(letter.toUpperCase())
+  if (index !== -1 && !answerSelected.value) {
+    selectAnswer(index)
+  }
+}
+
+// Rendre accessible la fonction depuis App.vue
+defineExpose({
+  selectAnswerFromHardware
+})
 </script>
 
 <style scoped>

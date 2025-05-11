@@ -2,7 +2,6 @@
   <div id="app">
     <StartScreen v-if="screen === 'start'" @start="handleStart" />
     <WaitingScreen v-if="screen === 'waiting'" />
-
     <Welcome70 v-if="screen === 'welcome70'" />
     <Welcome80 v-if="screen === 'welcome80'" />
 
@@ -22,21 +21,25 @@
     <!-- Questions -->
     <EasyQuestionScreen 
       v-if="screen === 'question' && selectedDifficulty === 'easy'"
+      ref="easyQuestionRef"
       :questions="selectedQuestions"
       @finished="handleLevelCompleted"
     />
     <MediumQuestionScreen 
       v-if="screen === 'question' && selectedDifficulty === 'medium'"
+      ref="mediumQuestionRef"
       :questions="selectedQuestions"
       @finished="handleLevelCompleted"
     />
     <HardQuestionScreen 
       v-if="screen === 'question' && selectedDifficulty === 'hard'"
+      ref="hardQuestionRef"
       :questions="selectedQuestions"
       @finished="handleLevelCompleted"
     />
     <ExpertQuestionScreen 
       v-if="screen === 'question' && selectedDifficulty === 'expert'"
+      ref="expertQuestionRef"
       :questions="selectedQuestions"
       @finished="handleLevelCompleted"
     />
@@ -82,7 +85,6 @@ questionMusic.loop = true
 const levelMusic = new Audio('/sounds/6.mp3')
 levelMusic.loop = true
 
-// Nouvelles musiques par niveau
 const mediumLevelMusic = new Audio('/sounds/medium.mp3')
 mediumLevelMusic.loop = true
 
@@ -112,6 +114,12 @@ const expertVideo = ref(null)
 const canTriggerLongScan = ref(true)
 const currentRFID = ref(null)
 
+// ✅ Réfs pour chaque niveau de question
+const easyQuestionRef = ref(null)
+const mediumQuestionRef = ref(null)
+const hardQuestionRef = ref(null)
+const expertQuestionRef = ref(null)
+
 // WebSocket
 const ws = new WebSocket('ws://192.168.1.96:8080')
 
@@ -122,6 +130,19 @@ onMounted(() => {
 
   ws.onmessage = (event) => {
     const message = JSON.parse(event.data)
+
+    // ✅ Gérer les réponses A, B, C, D pour tous les niveaux
+    if (typeof message.data === 'string' && ['A', 'B', 'C', 'D'].includes(message.data)) {
+      if (selectedDifficulty.value === 'easy') {
+        easyQuestionRef.value?.selectAnswerFromHardware(message.data)
+      } else if (selectedDifficulty.value === 'medium') {
+        mediumQuestionRef.value?.selectAnswerFromHardware(message.data)
+      } else if (selectedDifficulty.value === 'hard') {
+        hardQuestionRef.value?.selectAnswerFromHardware(message.data)
+      } else if (selectedDifficulty.value === 'expert') {
+        expertQuestionRef.value?.selectAnswerFromHardware(message.data)
+      }
+    }
 
     if (typeof message.data === 'string' && message.data.startsWith('LONG_SCAN_OK_') && canTriggerLongScan.value) {
       canTriggerLongScan.value = false
@@ -228,7 +249,6 @@ async function handleThemeSelected(theme) {
     } else {
       screen.value = `${selectedDifficulty.value}Video`
 
-      // 🎵 Musique par niveau
       switch (selectedDifficulty.value) {
         case 'medium':
           mediumLevelMusic.play()
@@ -263,7 +283,6 @@ function handleLevelCompleted() {
   selectedDifficulty.value = levelOrder[currentLevelIndex.value]
   screen.value = `${selectedDifficulty.value}Video`
 
-  // 🎵 Lancer la musique correspondante
   stopAllMusic()
   switch (selectedDifficulty.value) {
     case 'medium':
@@ -395,26 +414,21 @@ watch(screen, (newScreen) => {
   height: 100%;
 }
 
-/* Titres */
 h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 52px;
   margin: 20px 0;
 }
-
 h2 {
   font-family: 'Open Sans', sans-serif;
   font-size: 48px;
   margin: 18px 0;
 }
-
 h3 {
   font-family: 'Open Sans', sans-serif;
   font-size: 36px;
   margin: 16px 0;
 }
-
-/* Paragraphes */
 p {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
@@ -422,4 +436,3 @@ p {
   margin: 12px 0;
 }
 </style>
-
