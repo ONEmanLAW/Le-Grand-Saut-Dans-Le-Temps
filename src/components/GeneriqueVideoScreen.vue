@@ -27,3 +27,24 @@ function handleEnded() {
 
 defineExpose({ play, reset })
 </script>
+
+<style scoped>
+#video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  z-index: 9999;
+}
+
+#video-element {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+</style>

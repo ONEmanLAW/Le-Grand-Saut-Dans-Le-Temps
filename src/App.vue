@@ -384,7 +384,42 @@ watch(screen, (newScreen) => {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@700&display=swap');
+
 #app {
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FFC800;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Titres */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 52px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  margin: 18px 0;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  margin: 16px 0;
+}
+
+/* Paragraphes */
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 12px 0;
 }
 </style>
+

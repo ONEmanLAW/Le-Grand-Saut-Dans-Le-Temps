@@ -4,3 +4,14 @@
     </div>
   </template>
   
+  <style scoped>
+  #welcome-container {
+    color: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  </style>
