@@ -10,15 +10,16 @@
     <EasyVideoScreen v-if="screen === 'introLevels'" ref="levelVideo" @ended="handleLevelVideoEnded" />
     <ThemeChoiceScreen v-if="screen === 'themeChoice'" @themeSelected="handleThemeSelected" />
 
-    <!-- Vidéos intermédiaires -->
     <MediumVideoScreen v-if="screen === 'mediumVideo'" ref="mediumVideo" @ended="handleMediumVideoEnded" />
     <HardVideoScreen v-if="screen === 'hardVideo'" ref="hardVideo" @ended="handleHardVideoEnded" />
     <ExpertVideoScreen v-if="screen === 'expertVideo'" ref="expertVideo" @ended="handleExpertVideoEnded" />
+    <EndVideo v-if="screen === 'endVideo'" @videoEnded="handleEndVideoFinished" />
 
-    <!-- Écran de chargement -->
+
+    
+
     <div v-if="screen === 'loadingQuestions'">Chargement des questions...</div>
 
-    <!-- Questions -->
     <EasyQuestionScreen 
       v-if="screen === 'question' && selectedDifficulty === 'easy'"
       ref="easyQuestionRef"
@@ -43,13 +44,23 @@
       :questions="selectedQuestions"
       @finished="handleLevelCompleted"
     />
+
+    
+
+    <EndVideo v-if="screen === 'endVideo'" @videoEnded="handleEndVideoFinished" />
+    <ScoreScreen 
+      v-if="screen === 'score'" 
+      :score="finalScore" 
+      :total="selectedQuestionCount" 
+      @restart="resetInterface" 
+    />
+
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
-// Composants
 import StartScreen from './components/StartScreen.vue'
 import WaitingScreen from './components/WaitingScreen.vue'
 import Welcome70 from './components/Welcome70.vue'
@@ -65,36 +76,10 @@ import ExpertQuestionScreen from './components/ExpertQuestionScreen.vue'
 import MediumVideoScreen from './components/MediumVideoScreen.vue'
 import HardVideoScreen from './components/HardVideoScreen.vue'
 import ExpertVideoScreen from './components/ExpertVideoScreen.vue'
+import ScoreScreen from './components/ScoreScreen.vue' // ✅
+import EndVideo from './components/EndVideo.vue'
 
-// Musiques
-const waitingMusic = new Audio('/sounds/1.wav')
-waitingMusic.loop = true
 
-const welcomeMusic = new Audio('/sounds/2.wav')
-welcomeMusic.loop = false
-
-const videoMusic = new Audio('/sounds/3.mp3')
-videoMusic.loop = true
-
-const backgroundMusic = new Audio('/sounds/4.wav')
-backgroundMusic.loop = true
-
-const questionMusic = new Audio('/sounds/5.mp3')
-questionMusic.loop = true
-
-const levelMusic = new Audio('/sounds/6.mp3')
-levelMusic.loop = true
-
-const mediumLevelMusic = new Audio('/sounds/medium.mp3')
-mediumLevelMusic.loop = true
-
-const hardLevelMusic = new Audio('/sounds/hard.mp3')
-hardLevelMusic.loop = true
-
-const expertLevelMusic = new Audio('/sounds/expert.mp3')
-expertLevelMusic.loop = true
-
-// États
 const screen = ref('start')
 const selectedQuestionCount = ref(null)
 const selectedQuestionsPerLevel = ref(0)
@@ -104,6 +89,7 @@ const selectedDifficulty = ref('easy')
 const selectedQuestions = ref([])
 const currentLevelIndex = ref(0)
 const levelOrder = ['easy', 'medium', 'hard', 'expert']
+const finalScore = ref(0) // ✅
 
 const videoScreen = ref(null)
 const levelVideo = ref(null)
@@ -111,21 +97,34 @@ const mediumVideo = ref(null)
 const hardVideo = ref(null)
 const expertVideo = ref(null)
 
-const canTriggerLongScan = ref(true)
-const currentRFID = ref(null)
-
-// ✅ Réfs pour chaque niveau de question
 const easyQuestionRef = ref(null)
 const mediumQuestionRef = ref(null)
 const hardQuestionRef = ref(null)
 const expertQuestionRef = ref(null)
 
-// WebSocket
-// const ws = new WebSocket('ws://192.168.1.96:8080')  // chez moi
-//const ws = new WebSocket('ws://172.28.59.65:8080') // Ecole
+const canTriggerLongScan = ref(true)
+const currentRFID = ref(null)
+
+const waitingMusic = new Audio('/sounds/1.wav')
+waitingMusic.loop = true
+const welcomeMusic = new Audio('/sounds/2.wav')
+welcomeMusic.loop = false
+const videoMusic = new Audio('/sounds/3.mp3')
+videoMusic.loop = true
+const backgroundMusic = new Audio('/sounds/4.wav')
+backgroundMusic.loop = true
+const questionMusic = new Audio('/sounds/5.mp3')
+questionMusic.loop = true
+const levelMusic = new Audio('/sounds/6.mp3')
+levelMusic.loop = true
+const mediumLevelMusic = new Audio('/sounds/medium.mp3')
+mediumLevelMusic.loop = true
+const hardLevelMusic = new Audio('/sounds/hard.mp3')
+hardLevelMusic.loop = true
+const expertLevelMusic = new Audio('/sounds/expert.mp3')
+expertLevelMusic.loop = true
+
 const ws = new WebSocket('ws://192.168.208.50:8080') // Partage
-
-
 
 onMounted(() => {
   ws.onopen = () => {
@@ -135,7 +134,6 @@ onMounted(() => {
   ws.onmessage = (event) => {
     const message = JSON.parse(event.data)
 
-    // ✅ Gérer les réponses A, B, C, D pour tous les niveaux
     if (typeof message.data === 'string' && ['A', 'B', 'C', 'D'].includes(message.data)) {
       if (selectedDifficulty.value === 'easy') {
         easyQuestionRef.value?.selectAnswerFromHardware(message.data)
@@ -232,15 +230,15 @@ async function handleThemeSelected(theme) {
     }
 
     const themeQuestions = allQuestions[theme]
-    if (!themeQuestions) throw new Error("Thème non trouvé dans les données.")
+    if (!themeQuestions) throw new Error("Thème non trouvé.")
 
     const difficultyQuestions = themeQuestions[levelMap[selectedDifficulty.value]]
-    if (!difficultyQuestions) throw new Error("Niveau non trouvé pour ce thème.")
+    if (!difficultyQuestions) throw new Error("Niveau non trouvé.")
 
     const selected = difficultyQuestions.slice(0, selectedQuestionsPerLevel.value)
 
     if (selected.length === 0) {
-      alert("Aucune question disponible pour ce thème et niveau.")
+      alert("Aucune question trouvée.")
       screen.value = 'themeChoice'
       return
     }
@@ -254,33 +252,27 @@ async function handleThemeSelected(theme) {
       screen.value = `${selectedDifficulty.value}Video`
 
       switch (selectedDifficulty.value) {
-        case 'medium':
-          mediumLevelMusic.play()
-          break
-        case 'hard':
-          hardLevelMusic.play()
-          break
-        case 'expert':
-          expertLevelMusic.play()
-          break
+        case 'medium': mediumLevelMusic.play(); break
+        case 'hard': hardLevelMusic.play(); break
+        case 'expert': expertLevelMusic.play(); break
       }
 
-      setTimeout(() => {
-        getVideoRef().value?.play()
-      }, 100)
+      setTimeout(() => getVideoRef().value?.play(), 100)
     }
   } catch (err) {
-    console.error("Erreur lors du chargement des questions :", err)
+    console.error("Erreur chargement :", err)
     alert("Erreur de chargement.")
     screen.value = 'themeChoice'
   }
 }
 
-function handleLevelCompleted() {
+function handleLevelCompleted(score) {
+  finalScore.value += score
   currentLevelIndex.value++
 
   if (currentLevelIndex.value >= levelOrder.length) {
-    screen.value = 'waiting'
+    screen.value = 'endVideo'
+    questionMusic.pause()
     return
   }
 
@@ -289,20 +281,12 @@ function handleLevelCompleted() {
 
   stopAllMusic()
   switch (selectedDifficulty.value) {
-    case 'medium':
-      mediumLevelMusic.play()
-      break
-    case 'hard':
-      hardLevelMusic.play()
-      break
-    case 'expert':
-      expertLevelMusic.play()
-      break
+    case 'medium': mediumLevelMusic.play(); break
+    case 'hard': hardLevelMusic.play(); break
+    case 'expert': expertLevelMusic.play(); break
   }
 
-  setTimeout(() => {
-    getVideoRef().value?.play()
-  }, 100)
+  setTimeout(() => getVideoRef().value?.play(), 100)
 }
 
 function handleMediumVideoEnded() {
@@ -323,6 +307,11 @@ function handleExpertVideoEnded() {
   loadQuestionsForDifficulty('expert')
 }
 
+function handleEndVideoFinished() {
+  screen.value = 'score'
+}
+
+
 async function loadQuestionsForDifficulty(difficulty) {
   try {
     const era = selectedEra.value
@@ -339,22 +328,19 @@ async function loadQuestionsForDifficulty(difficulty) {
 
     const themeQuestions = allQuestions[selectedTheme.value]
     const difficultyQuestions = themeQuestions[levelMap[difficulty]]
-
     const selected = difficultyQuestions.slice(0, selectedQuestionsPerLevel.value)
 
     if (selected.length === 0) {
-      alert("Aucune question disponible pour ce thème et niveau.")
+      alert("Aucune question pour ce niveau.")
       screen.value = 'themeChoice'
       return
     }
 
     selectedQuestions.value = selected
-
     screen.value = 'question'
     questionMusic.play()
-
   } catch (err) {
-    console.error("Erreur lors du chargement des questions :", err)
+    console.error("Erreur chargement questions :", err)
     alert("Erreur de chargement.")
     screen.value = 'themeChoice'
   }
@@ -371,6 +357,7 @@ function resetInterface() {
   canTriggerLongScan.value = true
   currentLevelIndex.value = 0
   selectedDifficulty.value = 'easy'
+  finalScore.value = 0
 }
 
 function stopAllMusic() {

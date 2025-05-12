@@ -32,11 +32,17 @@ const currentQuestionIndex = ref(0)
 const currentQuestion = ref(props.questions[0])
 const selectedAnswer = ref(null)
 const answerSelected = ref(false)
+const score = ref(0) // ✅ Score initialisé à 0
 
 function selectAnswer(index) {
   if (answerSelected.value) return
   selectedAnswer.value = index
   answerSelected.value = true
+
+  // ✅ Incrémentation du score si réponse correcte
+  if (index === currentQuestion.value.correctIndex) {
+    score.value++
+  }
 
   setTimeout(() => {
     if (currentQuestionIndex.value + 1 < props.questions.length) {
@@ -45,12 +51,12 @@ function selectAnswer(index) {
       selectedAnswer.value = null
       answerSelected.value = false
     } else {
-      emit('finished')
+      emit('finished', score.value) // ✅ On émet le score final
     }
   }, 1000)
 }
 
-// Permet de recevoir A, B, C, D depuis WebSocket (depuis App.vue)
+// ✅ Fonction utilisée depuis App.vue pour répondre par WebSocket
 function selectAnswerFromHardware(letter) {
   const index = ['A', 'B', 'C', 'D'].indexOf(letter.toUpperCase())
   if (index !== -1 && !answerSelected.value) {
@@ -58,7 +64,7 @@ function selectAnswerFromHardware(letter) {
   }
 }
 
-// Rendre accessible la fonction depuis App.vue
+// ✅ On expose cette fonction à App.vue
 defineExpose({
   selectAnswerFromHardware
 })
