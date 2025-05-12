@@ -121,7 +121,11 @@ const hardQuestionRef = ref(null)
 const expertQuestionRef = ref(null)
 
 // WebSocket
-const ws = new WebSocket('ws://192.168.1.96:8080')
+// const ws = new WebSocket('ws://192.168.1.96:8080')  // chez moi
+//const ws = new WebSocket('ws://172.28.59.65:8080') // Ecole
+const ws = new WebSocket('ws://192.168.208.50:8080') // Partage
+
+
 
 onMounted(() => {
   ws.onopen = () => {

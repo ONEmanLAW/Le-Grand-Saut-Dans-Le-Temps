@@ -1,4 +1,4 @@
-# Code pour le serveur WebSocket
+# ws_server.py
 
 import asyncio
 import websockets
@@ -46,7 +46,7 @@ class WSServer:
                             "data": data["data"]
                         }
                         # Si le message vient du navigateur, on ajoute speak:true
-                        if data["src"] == "browser" and dest == "raspi_ui":
+                        if data["src"] == "browser" and dest == "raspberry":
                             payload["speak"] = True
 
                         await self.clients[dest].send(json.dumps(payload))
@@ -54,6 +54,7 @@ class WSServer:
                         print(f"📤 Message de {data['src']} envoyé à {dest}")
                     else:
                         print(f"⚠️ Destinataire {dest} non trouvé")
+                        await websocket.send(json.dumps({"status": "DESTINATAIRE_NON_TROUVE"}))
 
         except websockets.exceptions.ConnectionClosed:
             print(f"🔴 Client {client_id} déconnecté")
@@ -69,5 +70,7 @@ class WSServer:
 
 # Lancement du serveur
 if __name__ == "__main__":
-    ws_server = WSServer(host="192.168.1.96", port=8080)  # Mets à jour l'IP si nécessaire
+    # ws_server = WSServer(host="192.168.1.96", port=8080)  # chez moi
+    # ws_server = WSServer(host="172.28.59.65", port=8080)   # Ecole
+    ws_server = WSServer(host="192.168.208.50", port=8080) # Partage
     asyncio.run(ws_server.start())

@@ -2,8 +2,14 @@ import network
 import time
 
 
-SSID = "Bbox-4EC72811"
-PASSWORD = "GRWchTt56FfkC2nsCM"
+#SSID = "Bbox-4EC72811"
+#PASSWORD = "GRWchTt56FfkC2nsCM"
+
+#SSID = "WIFI Pedagogie"
+#PASSWORD = "8bcaud7d2h"
+
+SSID = "POURSDFTKT"
+PASSWORD = "CodePromo2004"
 
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
