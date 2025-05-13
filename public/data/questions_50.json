@@ -2,81 +2,87 @@
   "Musique": {
     "facile": [
       {
-        "question": "Quel groupe a sorti l'album 'The Dark Side of the Moon' en 1973 ?",
-        "answers": ["Pink Floyd", "The Beatles", "Queen", "Led Zeppelin"],
-        "correctIndex": 0,
+        "question": "« Je t'offrirai des perles de pluie… »",
+        "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas", "Cueillies dans les cieux", "Brillant sous le soleil"],
+        "correctIndex": 1,
+        "beforeMusic": "/sounds/brelDebut.mp3",
+        "afterMusic": "/sounds/brelFin.mp3",
         "feedback": {
-          "text": "Pink Floyd a sorti cet album emblématique en 1973, qui est devenu un classique du rock.",
-          "image": "logo.jpg"
+          "text": "Jacques Brel",
+          "image": "50musique1.png"
         }
       },
       {
-        "question": "Quelle chanteuse a interprété 'I Will Survive' en 1978 ?",
-        "answers": ["Gloria Gaynor", "Diana Ross", "Aretha Franklin", "Donna Summer"],
-        "correctIndex": 0,
+        "question": "« Mon petit Bambino… »",
+        "answers": ["Ta jolie guitare", "Elle est jolie pourtant", "Ta musique est plus jolie", "La musique que tu joues"],
+        "correctIndex": 2,
+        "beforeMusic": "/sounds/dalidaDebut.mp3",
+        "afterMusic": "/sounds/dalidaFin.mp3",
         "feedback": {
-          "text": "Machalaa",
-          "image": "logo.jpg"
+          "text": "Dalida",
+          "image": "50musique2.png"
         }
       }
     ],
     "moyen": [
       {
-        "question": "Quel genre musical a émergé à New York dans les années 70 ?",
-        "answers": ["Hip-hop", "Jazz", "Reggae", "Rock"],
-        "correctIndex": 0,
+        "question": "« La bohème, la bohème... »",
+        "answers": ["C'est l'amour et la joie", "Nous étions pauvres, mais heureux", "Nous vivions tous les deux", "Et nous avions tous du génie"],
+        "correctIndex": 3,
+        "beforeMusic": "/sounds/aznavourDebut.mp3",
+        "afterMusic": "/sounds/aznavourFin.mp3",
         "feedback": {
-          "text": "Coucou",
-          "image": "logo.jpg"
+          "text": "Charles Aznavour",
+          "image": "50musique3.png"
         }
       },
       {
-        "question": "Quelle icône pop a sorti 'Imagine' en 1971 ?",
-        "answers": ["John Lennon", "Paul McCartney", "David Bowie", "Bob Dylan"],
-        "correctIndex": 0,
+        "question": "Quelle chanteuse a chanté Ne me quitte pas en 1959 ?",
+        "answers": ["Édith Piaf", "Juliette Gréco", "Jacqueline François", "Mireille Mathieu"],
+        "correctIndex": 2,
         "feedback": {
-          "text": "oui",
-          "image": "logo.jpg"
+          "text": "Jacqueline François",
+          "image": "50musique4.png"
         }
       }
     ],
     "difficile": [
       {
-        "question": "Quel groupe a sorti 'Stairway to Heaven' en 1971 ?",
-        "answers": ["Led Zeppelin", "AC/DC", "The Who", "Deep Purple"],
-        "correctIndex": 0,
+        "question": "Vrai ou Faux : Charles Aznavour a commencé sa carrière comme chanteur principal.",
+        "answers": ["Vrai", "Faux"],
+        "correctIndex": 1,
         "feedback": {
-          "text": "plop",
-          "image": "logo.jpg"
+          "text": "Faux - Il a d'abord été auteur-compositeur et a chanté dans l'ombre d'autres stars.",
+          "image": "50musique5.png"
         }
       },
       {
-        "question": "Quel style musical disco a dominé les clubs dans les années 70 ?",
-        "answers": ["Funk", "Soul", "House", "Disco"],
-        "correctIndex": 3,
+        "question": "Quel artiste était à la fois chanteur, humoriste, acteur, et pionnier de l'animation française ",
+        "answers": ["Jean Nohain", " Henri Salvador", "Pierre Dac", "Bourvil"],
+        "correctIndex": 1,
         "feedback": {
-          "text": "dzadazd",
-          "image": "logo.jpg"
+          "text": "Henry Salvador",
+          "image": "50musique6.png"
         }
       }
     ],
     "expert": [
       {
-        "question": "Quel producteur est derrière les Jackson 5 dans les années 70 ?",
-        "answers": ["Berry Gordy", "Quincy Jones", "Rick Rubin", "Dr. Dre"],
-        "correctIndex": 0,
+        "question": "Quel chanteur de charme est devenu une star de la chanson dans les années 50 grâce à sa voix grave ?",
+        "answers": ["Georges Guétary", "Sasha Distel", "Jean Sablon", "André Claveau"],
+        "correctIndex": 3,
         "feedback": {
-          "text": "rock.",
-          "image": "logo.jpg"
+          "text": "André Claveau.",
+          "image": "50musique7.png"
         }
       },
       {
-        "question": "Quel groupe allemand a influencé la musique électronique dès les années 70 ?",
-        "answers": ["Kraftwerk", "Scorpions", "Rammstein", "Can"],
-        "correctIndex": 0,
+        "question": "Quel était le surnom affectueux donné à Georges Brassens par ses amis ?",
+        "answers": ["Le poète du port", " L'ours à guitare", "Le moustachu tendre", "Le sage rebelle"],
+        "correctIndex": 2,
         "feedback": {
-          "text": "Pink",
-          "image": "logo.jpg"
+          "text": "Georges Brassens",
+          "image": "50musique8.png"
         }
       }
     ]
@@ -155,7 +161,7 @@
       {
         "question": "Quel parti politique, proche du général de Gaulle est créé en 1947 ?",
         "answers": ["SFIO", "MRP", "UNR", "RPF"],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "feedback": {
           "text": "Rassemblement Peuple Français",
           "image": "50histoire8.png"

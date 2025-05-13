@@ -134,8 +134,10 @@ hardLevelMusic.loop = true
 const expertLevelMusic = new Audio('/sounds/expert.mp3')
 expertLevelMusic.loop = true
 
- const ws = new WebSocket('ws://192.168.208.50:8080') // Partage
+//const ws = new WebSocket('ws://192.168.208.50:8080') // Partage
+const ws = new WebSocket('ws://192.168.1.96:8080') // Chez moi
 //const ws = new WebSocket('ws://192.168.10.109:8080') // cudy
+
 
 
 onMounted(() => {
@@ -259,14 +261,14 @@ async function handleThemeSelected(theme) {
 
     if (selectedDifficulty.value === 'easy') {
       screen.value = 'question'
-      questionMusic.play()
+      //questionMusic.play()
     } else {
       screen.value = `${selectedDifficulty.value}Video`
 
       switch (selectedDifficulty.value) {
-        case 'medium': mediumLevelMusic.play(); break
-        case 'hard': hardLevelMusic.play(); break
-        case 'expert': expertLevelMusic.play(); break
+        //case 'medium': mediumLevelMusic.play(); break
+        //case 'hard': hardLevelMusic.play(); break
+        //case 'expert': expertLevelMusic.play(); break
       }
 
       setTimeout(() => getVideoRef().value?.play(), 100)
@@ -284,7 +286,7 @@ function handleLevelCompleted(score) {
 
   if (currentLevelIndex.value >= levelOrder.length) {
     screen.value = 'endVideo'
-    questionMusic.pause()
+    //questionMusic.pause()
     return
   }
 
@@ -350,7 +352,7 @@ async function loadQuestionsForDifficulty(difficulty) {
 
     selectedQuestions.value = selected
     screen.value = 'question'
-    questionMusic.play()
+    //questionMusic.play()
   } catch (err) {
     console.error("Erreur chargement questions :", err)
     alert("Erreur de chargement.")
