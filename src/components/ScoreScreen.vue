@@ -1,9 +1,9 @@
 <template>
     <div class="score-screen">
-      <h1>🎉 Fin de la partie !</h1>
-      <p>Votre score : <strong>{{ score }}/{{ total }}</strong></p>
+      <h1 class="title">🎉 Fin de la partie !</h1>
+      <p class="score">Votre score : <strong>{{ score }}/{{ total }}</strong></p>
   
-      <div v-if="score === total">
+      <div v-if="score === total" class="score-message">
         <h2>💯 Parfait ! Bravo !</h2>
       </div>
       <div v-else-if="score / total >= 0.75">
@@ -34,6 +34,11 @@
     text-align: center;
     padding: 2rem;
     font-family: 'Open Sans', sans-serif;
+    color: black;
+  }
+
+  .score {
+    font-size: 38px;
   }
   
   button {

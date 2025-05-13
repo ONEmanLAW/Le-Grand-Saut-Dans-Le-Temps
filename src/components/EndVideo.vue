@@ -39,11 +39,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .video-player {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 800px;
   }
   </style>
   

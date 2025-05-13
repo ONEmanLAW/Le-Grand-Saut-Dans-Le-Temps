@@ -18,7 +18,7 @@
 #logo {
   width: 300px;
   height: 300px;
-  background-image: url('/images/logo.jpg'); 
+  background-image: url('/images/logo.png'); 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
