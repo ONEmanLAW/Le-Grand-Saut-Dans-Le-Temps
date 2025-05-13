@@ -80,6 +80,7 @@ import ScoreScreen from './components/ScoreScreen.vue'
 import EndVideo from './components/EndVideo.vue'
 
 
+
 const screen = ref('start')
 const selectedQuestionCount = ref(null)
 const selectedQuestionsPerLevel = ref(0)
@@ -113,7 +114,7 @@ const videoMusic = new Audio('/sounds/3.mp3')
 videoMusic.loop = true
 const backgroundMusic = new Audio('/sounds/4.wav')
 backgroundMusic.loop = true
-const questionMusic = new Audio('/sounds/5.mp3')
+const questionMusic = new Audio('/sounds/hard.mp3')
 questionMusic.loop = true
 const levelMusic = new Audio('/sounds/6.mp3')
 levelMusic.loop = true
@@ -168,7 +169,7 @@ onMounted(() => {
         screen.value = 'video'
         videoScreen.value?.play()
         welcomeMusic.muted = true
-        videoMusic.play()
+        //videoMusic.play()
       }, 5000)
     }
 
@@ -202,7 +203,7 @@ function handleQuestionCount(count) {
   selectedQuestionsPerLevel.value = Math.floor(count / 4)
   stopAllMusic()
   screen.value = 'introLevels'
-  levelMusic.play()
+  //levelMusic.play()
 }
 
 function handleLevelVideoEnded() {
@@ -281,9 +282,9 @@ function handleLevelCompleted(score) {
 
   stopAllMusic()
   switch (selectedDifficulty.value) {
-    case 'medium': mediumLevelMusic.play(); break
-    case 'hard': hardLevelMusic.play(); break
-    case 'expert': expertLevelMusic.play(); break
+    //case 'medium': mediumLevelMusic.play(); break
+    //case 'hard': hardLevelMusic.play(); break
+    //case 'expert': expertLevelMusic.play(); break
   }
 
   setTimeout(() => getVideoRef().value?.play(), 100)
@@ -391,6 +392,12 @@ watch(screen, (newScreen) => {
     if (backgroundMusic.paused) backgroundMusic.play()
   }
 })
+
+
+
+
+// Avoir un gameFlow qui va permettre de juste appelle le fichier json au lieu d'écrire tout ce code.
+
 </script>
 
 <style>
