@@ -5,21 +5,19 @@
   </div>
 </template>
 
-
 <style scoped>
 #start-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #FFC800;
+  justify-content: center; /* alignement vertical */
+  align-items: center;     /* alignement horizontal */
   text-align: center;
+  height: 100vh;           /* toute la hauteur de la page */
 }
 
 #logo {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   background-image: url('/images/logo.jpg'); 
   background-size: contain;
   background-repeat: no-repeat;
@@ -29,6 +27,7 @@
 }
 
 h2 {
-  color: #000; 
+  color: #000;
+  font-size: 48px;
 }
 </style>

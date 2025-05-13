@@ -93,72 +93,72 @@
         }
       },
       {
-        "question": "Quel président américain a démissionné en 1974 ?",
-        "answers": ["Richard Nixon", "Gerald Ford", "Jimmy Carter", "Ronald Reagan"],
-        "correctIndex": 0,
+        "question": "Quelle Constitution est en vigueur en France dans les années 50 ?",
+        "answers": ["La Cinquième République", "La Troisième République", "La constitution de 1789", "La Quatrième République"],
+        "correctIndex": 3,
         "feedback": {
-          "text": "hOLA",
-          "image": "logo.jpg"
+          "text": "",
+          "image": "50histoire2.png"
         }
       }
     ],
     "moyen": [
       {
-        "question": "Quel événement politique majeur a eu lieu en 1971 en Chine ?",
-        "answers": ["Entrée à l'ONU", "Révolution culturelle", "Mort de Mao", "Coup d'État"],
-        "correctIndex": 0,
+        "question": "Vrai ou Faux : Les femmes obtiennent le droit de vote en 1955.",
+        "answers": ["Vrai", "Faux"],
+        "correctIndex": 1,
         "feedback": {
-          "text": "ZZZ",
-          "image": "logo.jpg"
+          "text": "Faux – Elles ont obtenu ce droit en 1944 et voté pour la première fois en 1945.",
+          "image": "50histoire3.png"
         }
       },
       {
-        "question": "Quelle guerre a pris fin en 1975 ?",
-        "answers": ["Guerre du Viêt Nam", "Guerre de Corée", "Guerre froide", "Guerre Iran-Irak"],
+        "question": "Quel célèbre résistant devient ministres des Affaires étrangères en 1954 ?",
+        "answers": ["Georges Bidaut", "Jean Moulin", "Robert Schuman", "Pierre Mendès France"],
         "correctIndex": 0,
         "feedback": {
-          "text": "Pnk",
-          "image": "logo.jpg"
+          "text": "Georges Bidaut",
+          "image": "50histoire4.png"
         }
       }
     ],
     "difficile": [
       {
-        "question": "Quel dictateur chilien a pris le pouvoir en 1973 ?",
-        "answers": ["Augusto Pinochet", "Fidel Castro", "Hugo Chávez", "Juan Perón"],
-        "correctIndex": 0,
+        "question": "Quelle conférence de 1954 met fin à la guerre d’Indochine ?",
+        "answers": ["Conférence de Bandung", "Conférence de Yalta", "Conférence de Genève", "Conférence de Paris"],
+        "correctIndex": 2,
         "feedback": {
-          "text": "PiADAZk",
-          "image": "logo.jpg"
+          "text": "Conférence de Genève",
+          "image": "50histoire5.png"
         }
       },
       {
-        "question": "Quel pays d’Afrique a obtenu son indépendance du Portugal en 1975 ?",
-        "answers": ["Angola", "Mozambique", "Cap-Vert", "Guinée-Bissau"],
+        "question": "Quel philosophe et intellectuel français prend position contre la torture pendant la guerre d’Algérie ?",
+        "answers": ["Jean-Paul Sartre", "Raymond Aron", "Albert Camus", "André Malraux"],
         "correctIndex": 0,
         "feedback": {
-          "text": "PAZDZADnk",
-          "image": "logo.jpg"
+          "text": "Jean-Paul Sartre",
+          "image": "50histoire6.png"
         }
       }
     ],
     "expert": [
       {
-        "question": "Quel traité a marqué la détente entre les USA et l’URSS dans les années 70 ?",
-        "answers": ["SALT I", "START", "INF", "Traité de Varsovie"],
-        "correctIndex": 0,
+        "question": "Quel plan économique est lancé en 1954 pour moderniser l’économie française ?",
+        "answers": ["Plan Pinay", "Plan Monnet", "Deuxième plan Quinquennal", "Plan Hirsch"],
+        "correctIndex": 3,
         "feedback": {
-          "text": "PZDAZDnk",
-          "image": "logo.jpg"
+          "text": "Plan Hirsch",
+          "image": "50histoire7.png"
         }
       },
       {
-        "question": "Qui a été le chancelier de l'Allemagne de l'Ouest durant la majeure partie des années 70 ?",
-        "answers": ["Helmut Schmidt", "Willy Brandt", "Angela Merkel", "Konrad Adenauer"],
+        "question": "Quel parti politique, proche du général de Gaulle est créé en 1947 ?",
+        "answers": ["SFIO", "MRP", "UNR", "RPF"],
         "correctIndex": 1,
         "feedback": {
-          "text": "ZADAZ",
-          "image": "logo.jpg"
+          "text": "Rassemblement Peuple Français",
+          "image": "50histoire8.png"
         }
       }
     ]

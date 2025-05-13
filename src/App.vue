@@ -134,7 +134,9 @@ hardLevelMusic.loop = true
 const expertLevelMusic = new Audio('/sounds/expert.mp3')
 expertLevelMusic.loop = true
 
-const ws = new WebSocket('ws://192.168.208.50:8080') // Partage
+ const ws = new WebSocket('ws://192.168.208.50:8080') // Partage
+//const ws = new WebSocket('ws://192.168.10.109:8080') // cudy
+
 
 onMounted(() => {
   ws.onopen = () => {
