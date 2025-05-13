@@ -84,12 +84,12 @@
   "Histoire": {
     "facile": [
       {
-        "question": "Qui a été président de la France de 1969 à 1974 ?",
-        "answers": ["Georges Pompidou", "Valéry Giscard d’Estaing", "François Mitterrand", "Jacques Chirac"],
-        "correctIndex": 0,
+        "question": "Quelle guerre de décolonisation commence en 1954 ?",
+        "answers": ["La guerre du Golfe", "La guerre d’Algérie", "La guerre de Corée", "La guerre du Vietnam"],
+        "correctIndex": 1,
         "feedback": {
-          "text": "AZDJAZHDZIAJD",
-          "image": "logo.jpg"
+          "text": "",
+          "image": "50histoire1.png"
         }
       },
       {

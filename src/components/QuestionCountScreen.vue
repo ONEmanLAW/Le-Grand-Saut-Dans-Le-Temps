@@ -2,8 +2,8 @@
   <div class="screen">
     <h1>Choisissez le nombre de questions</h1>
     <div class="choices">
-      <button v-for="(count, index) in [4, 8]" :key="count" @click="select(count)">
-        <span class="label">{{ letters[index] }}</span> {{ count }}
+      <button v-for="(count, index) in [4, 8, 16, 20]" :key="count" @click="select(count)" :class="colorClasses[index]">
+        {{ count }} 
       </button>
     </div>
   </div>
@@ -15,17 +15,15 @@ function select(count) {
   emit('selected', count)
 }
 
-const letters = ['A', 'B', 'C', 'D'] // on peut aller jusqu’à D
+const colorClasses = ['red', 'blue', 'yellow', 'green']
 </script>
 
 <style scoped>
-.screen {
+ .screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #ffc800;
   text-align: center;
 }
 
@@ -33,6 +31,8 @@ h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 52px;
   margin-bottom: 40px;
+  color: black;
+  padding: 50px;
 }
 
 .choices {
@@ -42,36 +42,37 @@ h1 {
 
 button {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   font-size: 2rem;
-  padding: 30px 60px;
-  width: 280px;
-  height: 150px;
+  padding: 30px 50px;
+  width: 175px;
+  height: 175px;
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 50%;
   cursor: pointer;
   transition: 0.2s;
-  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-button:hover {
-  background-color: #555;
+.red {
+  background-color: red;
 }
 
-.label {
-  font-weight: bold;
-  font-size: 2rem;
-  background-color: white;
-  color: #333;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.blue {
+  background-color: blue;
 }
+
+.yellow {
+  background-color: #C89214;
+}
+
+.green {
+  background-color: green;
+}
+
 </style>

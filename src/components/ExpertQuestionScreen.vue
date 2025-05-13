@@ -29,12 +29,17 @@
 
     <!-- PARTIE FEEDBACK -->
     <div v-else class="feedback-screen">
-      <img
-        :src="`/images/${currentQuestion.feedback.image}`"
-        class="feedback-image"
-        alt="Feedback"
-      />
-      <div class="feedback-text">{{ currentQuestion.feedback.text }}</div>
+      <div class="top-bar">
+        <div class="question-progress">Question : {{ currentQuestionIndex + 1 }}/{{ questions.length }}</div>
+      </div>
+      <div class="feedback-content">
+        <img
+          :src="`/images/${currentQuestion.feedback.image}`"
+          class="feedback-image"
+          alt="Feedback"
+        />
+        <div class="feedback-text">{{ currentQuestion.feedback.text }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -189,12 +194,21 @@ defineExpose({
   justify-content: center;
   height: 100%;
 }
+
+.feedback-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .feedback-image {
-  max-width: 300px;
+  max-width: 600px;
   margin-bottom: 20px;
 }
+
 .feedback-text {
-  font-size: 18px;
+  font-size: 38px;
   font-weight: bold;
   max-width: 80%;
   padding: 0 20px;
