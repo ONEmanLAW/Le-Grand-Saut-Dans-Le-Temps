@@ -76,7 +76,7 @@ import ExpertQuestionScreen from './components/ExpertQuestionScreen.vue'
 import MediumVideoScreen from './components/MediumVideoScreen.vue'
 import HardVideoScreen from './components/HardVideoScreen.vue'
 import ExpertVideoScreen from './components/ExpertVideoScreen.vue'
-import ScoreScreen from './components/ScoreScreen.vue' // ✅
+import ScoreScreen from './components/ScoreScreen.vue'
 import EndVideo from './components/EndVideo.vue'
 
 
