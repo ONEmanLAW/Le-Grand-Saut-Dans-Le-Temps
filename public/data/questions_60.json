@@ -49,7 +49,7 @@
       }
     ]
   },
-  "Politique": {
+  "Histoire": {
     "facile": [
       {
         "question": "Qui était le président des États-Unis au début des années 80 ?",
@@ -95,106 +95,6 @@
       {
         "question": "Quel traité a été signé en 1987 pour limiter la production de missiles nucléaires ?",
         "answers": ["Traité INF", "Traité de non-prolifération", "Traité de Paris", "Accord START"],
-        "correctIndex": 0
-      }
-    ]
-  },
-  "Animaux": {
-    "facile": [
-      {
-        "question": "Quel animal est connu pour sa lenteur ?",
-        "answers": ["Paresseux", "Tortue", "Escargot", "Koala"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel animal peut voler la nuit sans faire de bruit ?",
-        "answers": ["Chauve-souris", "Aigle", "Hibou", "Faucon"],
-        "correctIndex": 2
-      }
-    ],
-    "moyen": [
-      {
-        "question": "Quel est l'animal terrestre le plus rapide ?",
-        "answers": ["Guépard", "Léopard", "Lion", "Antilope"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel est le plus grand mammifère marin ?",
-        "answers": ["Baleine bleue", "Orque", "Dauphin", "Mégaptère"],
-        "correctIndex": 0
-      }
-    ],
-    "difficile": [
-      {
-        "question": "Quel animal marin est capable de changer de couleur ?",
-        "answers": ["Pieuvre", "Méduse", "Raie", "Crabe"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel est l'animal le plus toxique du monde ?",
-        "answers": ["Grenouille dart-poison", "Scorpion", "Serpent taipan", "Méduse Irukandji"],
-        "correctIndex": 0
-      }
-    ],
-    "expert": [
-      {
-        "question": "Quel animal peut hiberner pendant plusieurs années ?",
-        "answers": ["Grizzly", "Tortue", "Crocodile", "Marmotte"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel insecte a la capacité de faire du 'vol stationnaire' ?",
-        "answers": ["Colibri", "Libellule", "Mouette", "Vautour"],
-        "correctIndex": 0
-      }
-    ]
-  },
-  "Sport": {
-    "facile": [
-      {
-        "question": "Quel pays a remporté la Coupe du Monde de football en 1982 ?",
-        "answers": ["Italie", "Brésil", "Allemagne de l'Ouest", "Argentine"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel boxeur américain a été invaincu dans les années 80 ?",
-        "answers": ["Mike Tyson", "Muhammad Ali", "George Foreman", "Larry Holmes"],
-        "correctIndex": 0
-      }
-    ],
-    "moyen": [
-      {
-        "question": "Quel joueur de tennis a remporté Wimbledon en 1980 et 1981 ?",
-        "answers": ["Björn Borg", "John McEnroe", "Rod Laver", "Ivan Lendl"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel athlète a établi un record mondial en saut en hauteur en 1980 ?",
-        "answers": ["Javier Sotomayor", "Carl Lewis", "Sergey Bubka", "Bubka"],
-        "correctIndex": 0
-      }
-    ],
-    "difficile": [
-      {
-        "question": "Qui a gagné les Jeux Olympiques de Moscou en 1980 ?",
-        "answers": ["URSS", "États-Unis", "Allemagne de l'Ouest", "Chine"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Qui a remporté le Tour de France en 1986 ?",
-        "answers": ["Greg LeMond", "Bernard Hinault", "Jacques Anquetil", "Eddy Merckx"],
-        "correctIndex": 0
-      }
-    ],
-    "expert": [
-      {
-        "question": "Qui a remporté l'Open d'Australie en 1985 chez les hommes ?",
-        "answers": ["Mats Wilander", "Ivan Lendl", "Boris Becker", "Stefan Edberg"],
-        "correctIndex": 0
-      },
-      {
-        "question": "Quel joueur de basketball a marqué le plus de points en 1984 ?",
-        "answers": ["Michael Jordan", "Larry Bird", "Magic Johnson", "Kareem Abdul-Jabbar"],
         "correctIndex": 0
       }
     ]

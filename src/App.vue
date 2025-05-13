@@ -106,14 +106,23 @@ const expertQuestionRef = ref(null)
 const canTriggerLongScan = ref(true)
 const currentRFID = ref(null)
 
+
+// Ce que j'utilise en son
 const waitingMusic = new Audio('/sounds/1.wav')
 waitingMusic.loop = true
+
 const welcomeMusic = new Audio('/sounds/2.wav')
 welcomeMusic.loop = false
+
+
+
+
 const videoMusic = new Audio('/sounds/3.mp3')
 videoMusic.loop = true
+
 const backgroundMusic = new Audio('/sounds/4.wav')
 backgroundMusic.loop = true
+
 const questionMusic = new Audio('/sounds/hard.mp3')
 questionMusic.loop = true
 const levelMusic = new Audio('/sounds/6.mp3')
@@ -405,7 +414,7 @@ watch(screen, (newScreen) => {
 
 #app {
   font-family: 'Open Sans', sans-serif;
-  background-color: #FFC800;
+  background-color: #FFF2E0;
   margin: 0;
   padding: 0;
   width: 100%;

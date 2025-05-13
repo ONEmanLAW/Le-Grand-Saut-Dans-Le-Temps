@@ -7,8 +7,7 @@
         "correctIndex": 0,
         "feedback": {
           "text": "Pink Floyd a sorti cet album emblématique en 1973, qui est devenu un classique du rock.",
-          "image": "logo.jpg",
-          "music": "billie_jean_excerpt.mp3"
+          "image": "logo.jpg"
         }
       },
       {
@@ -82,53 +81,85 @@
       }
     ]
   },
-  "Politique": {
+  "Histoire": {
     "facile": [
       {
         "question": "Qui a été président de la France de 1969 à 1974 ?",
         "answers": ["Georges Pompidou", "Valéry Giscard d’Estaing", "François Mitterrand", "Jacques Chirac"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "AZDJAZHDZIAJD",
+          "image": "logo.jpg"
+        }
       },
       {
         "question": "Quel président américain a démissionné en 1974 ?",
         "answers": ["Richard Nixon", "Gerald Ford", "Jimmy Carter", "Ronald Reagan"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "hOLA",
+          "image": "logo.jpg"
+        }
       }
     ],
     "moyen": [
       {
         "question": "Quel événement politique majeur a eu lieu en 1971 en Chine ?",
         "answers": ["Entrée à l'ONU", "Révolution culturelle", "Mort de Mao", "Coup d'État"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "ZZZ",
+          "image": "logo.jpg"
+        }
       },
       {
         "question": "Quelle guerre a pris fin en 1975 ?",
         "answers": ["Guerre du Viêt Nam", "Guerre de Corée", "Guerre froide", "Guerre Iran-Irak"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "Pnk",
+          "image": "logo.jpg"
+        }
       }
     ],
     "difficile": [
       {
         "question": "Quel dictateur chilien a pris le pouvoir en 1973 ?",
         "answers": ["Augusto Pinochet", "Fidel Castro", "Hugo Chávez", "Juan Perón"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "PiADAZk",
+          "image": "logo.jpg"
+        }
       },
       {
         "question": "Quel pays d’Afrique a obtenu son indépendance du Portugal en 1975 ?",
         "answers": ["Angola", "Mozambique", "Cap-Vert", "Guinée-Bissau"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "PAZDZADnk",
+          "image": "logo.jpg"
+        }
       }
     ],
     "expert": [
       {
         "question": "Quel traité a marqué la détente entre les USA et l’URSS dans les années 70 ?",
         "answers": ["SALT I", "START", "INF", "Traité de Varsovie"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": {
+          "text": "PZDAZDnk",
+          "image": "logo.jpg"
+        }
       },
       {
         "question": "Qui a été le chancelier de l'Allemagne de l'Ouest durant la majeure partie des années 70 ?",
         "answers": ["Helmut Schmidt", "Willy Brandt", "Angela Merkel", "Konrad Adenauer"],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "feedback": {
+          "text": "ZADAZ",
+          "image": "logo.jpg"
+        }
       }
     ]
   }

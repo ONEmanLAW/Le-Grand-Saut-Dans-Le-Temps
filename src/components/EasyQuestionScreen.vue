@@ -3,7 +3,7 @@
     <!-- PARTIE QUESTION / REPONSE -->
     <div v-if="!showFeedback">
       <div class="top-bar">
-        <div class="question-progress">{{ currentQuestionIndex + 1 }}/{{ questions.length }}</div>
+        <div class="question-progress">Question : {{ currentQuestionIndex + 1 }}/{{ questions.length }}</div>
       </div>
 
       <div class="question-intitule">{{ currentQuestion.question }}</div>
@@ -16,7 +16,8 @@
             'answer',
             (answerSelected && index === currentQuestion.correctIndex) ? 'correct' : '',
             (selectedAnswer === index && index !== currentQuestion.correctIndex) ? 'wrong' : '',
-            (answerSelected && index !== selectedAnswer && index !== currentQuestion.correctIndex) ? 'fade-out' : ''
+            (answerSelected && index !== selectedAnswer && index !== currentQuestion.correctIndex) ? 'fade-out' : '',
+            index === 0 ? 'red' : index === 1 ? 'blue' : index === 2 ? 'yellow' : 'green'
           ]"
           @click="selectAnswer(index)"
           :disabled="answerSelected"
@@ -98,26 +99,82 @@ defineExpose({
 .question-screen {
   font-size: 18px;
   text-align: center;
+  color: black;
 }
+.top-bar {
+  font-size: 18px;
+  margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  justify-self: center;
+}
+.question-progress {
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  padding: 30px 45px;
+  margin-top: 40px;
+  font-size: 52px;
+
+}
+
+.question-intitule {
+  font-size: 48px;
+  margin-bottom: 40px;
+  padding: 0 75px 0 75px;
+  font-weight: bold;
+}
+
 .answers-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 50px;
   margin-top: 20px;
+  padding: 0 50px 0 50px;
 }
+
 .answer {
-  padding: 12px;
-  font-size: 16px;
-  transition: opacity 1s ease, transform 1s ease;
+  color: white;
+  font-weight: 800;
+  font-size: 38px;
+  padding: 30px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 1s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
 }
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: #C89214;
+}
+
+.green {
+  background-color: green;
+}
+
+
+
 .correct {
   background-color: #4caf50;
   color: white;
 }
+
 .wrong {
   background-color: #f44336;
   color: white;
 }
+
 .fade-out {
   opacity: 0;
   transform: scale(0.9);
