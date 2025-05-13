@@ -2,8 +2,8 @@
   <div id="app">
     <StartScreen v-if="screen === 'start'" @start="handleStart" />
     <WaitingScreen v-if="screen === 'waiting'" />
-    <Welcome70 v-if="screen === 'welcome70'" />
-    <Welcome80 v-if="screen === 'welcome80'" />
+    <Welcome50 v-if="screen === 'welcome50'" />
+    <Welcome60 v-if="screen === 'welcome60'" />
 
     <GeneriqueVideoScreen v-if="screen === 'video'" ref="videoScreen" @ended="handleVideoEnded" />
     <QuestionCountScreen v-if="screen === 'questionCount'" @selected="handleQuestionCount" />
@@ -63,8 +63,8 @@ import { ref, onMounted, watch } from 'vue'
 
 import StartScreen from './components/StartScreen.vue'
 import WaitingScreen from './components/WaitingScreen.vue'
-import Welcome70 from './components/Welcome70.vue'
-import Welcome80 from './components/Welcome80.vue'
+import Welcome50 from './components/Welcome50.vue'
+import Welcome60 from './components/Welcome60.vue'
 import GeneriqueVideoScreen from './components/GeneriqueVideoScreen.vue'
 import EasyVideoScreen from './components/EasyVideoScreen.vue'
 import QuestionCountScreen from './components/QuestionCountScreen.vue'
@@ -156,11 +156,11 @@ onMounted(() => {
       welcomeMusic.play()
 
       if (rfidId === 'RFID_1') {
-        screen.value = 'welcome70'
-        selectedEra.value = '70'
+        screen.value = 'welcome50'
+        selectedEra.value = '50'
       } else if (rfidId === 'RFID_2') {
-        screen.value = 'welcome80'
-        selectedEra.value = '80'
+        screen.value = 'welcome60'
+        selectedEra.value = '60'
       } else {
         screen.value = 'waiting'
       }
