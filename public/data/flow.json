@@ -1,0 +1,17 @@
+[
+  {
+    "objectId": "StartScreen",
+    "props": {
+      "src": "/assets/intro.gif"
+    }
+  },
+  {
+    "objectId": "GenericScreen",
+    "props": {
+      "src": "/videos/sample-video.mp4"
+    }
+  },
+  {
+    "objectId": "WaitingScan"
+  }
+]
