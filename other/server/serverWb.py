@@ -66,7 +66,8 @@ class WSServer:
 
 # Lancement du serveur avec gestion propre de Ctrl+C
 if __name__ == "__main__":
-    ws_server = WSServer(host="172.28.59.61", port=8080)
+    #ws_server = WSServer(host="172.28.59.61", port=8080) # Adresse IP de l'école
+    ws_server = WSServer(host="192.168.254.50", port=8080) # Adresse IP du partage
     try:
         asyncio.run(ws_server.start())
     except KeyboardInterrupt:
