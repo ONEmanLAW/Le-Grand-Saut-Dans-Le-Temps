@@ -1,5 +1,5 @@
 <template>
-  <div @touchstart="handleTouch" class="app-container">
+  <div @touchstart.passive="handleTouch" class="app-container">
     <WebSocketClient />
     <component
       v-if="currentStep"
@@ -17,6 +17,7 @@ import GenericScreen from './components/GenericScreen.vue'
 import WaitingScan from './components/WaitingScan.vue'
 import EraVideoScreen from './components/EraVideoScreen.vue'
 import GameRulesIntro from './components/GameRulesIntro.vue'
+import QuestionCount from './components/QuestionCount.vue'
 
 export default {
   name: 'App',
@@ -26,7 +27,8 @@ export default {
     GenericScreen,
     WaitingScan,
     EraVideoScreen,
-    GameRulesIntro
+    GameRulesIntro,
+    QuestionCount
   },
   data() {
     return {

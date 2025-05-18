@@ -1,5 +1,5 @@
 <template>
-  <div class="video-screen">
+  <div class="game-rules-intro-screen">
     <video
       ref="videoPlayer"
       class="video-player"
@@ -15,8 +15,22 @@
 export default {
   name: 'GameRulesIntro',
   props: {
-    nextStep: Function,
-    src: String
+    src: String,
+    nextStep: Function
   }
 }
 </script>
+
+<style scoped>
+.game-rules-intro-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.video-player {
+  max-width: 100%;
+  max-height: 100%;
+}
+</style>

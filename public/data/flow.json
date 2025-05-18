@@ -28,5 +28,11 @@
     "props": {
       "src": "/videos/game-rules.mp4"
     }
+  },
+  {
+    "objectId": "QuestionCount",
+    "props": {
+      "options": [4, 8, 16, 20]
+    }
   }
 ]
