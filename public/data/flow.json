@@ -40,5 +40,15 @@
     "props": {
       "themes": ["cinema", "musique", "histoire"]
     }
+  },
+  {
+  "objectId": "ThemeIntroVideo",
+    "props": {
+      "videoSources": {
+        "cinema": "/videos/introCinema.mp4",
+        "musique": "/videos/introMusic.mp4",
+        "histoire": "/videos/introHistory.mp4"
+      }
+    }
   }
 ]
