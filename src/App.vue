@@ -18,6 +18,7 @@ import WaitingScan from './components/WaitingScan.vue'
 import EraVideoScreen from './components/EraVideoScreen.vue'
 import GameRulesIntro from './components/GameRulesIntro.vue'
 import QuestionCount from './components/QuestionCount.vue'
+import ThemeCount from './components/ThemeCount.vue'
 
 export default {
   name: 'App',
@@ -28,7 +29,8 @@ export default {
     WaitingScan,
     EraVideoScreen,
     GameRulesIntro,
-    QuestionCount
+    QuestionCount,
+    ThemeCount
   },
   data() {
     return {
