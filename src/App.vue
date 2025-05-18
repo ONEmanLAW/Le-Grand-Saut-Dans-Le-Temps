@@ -16,6 +16,7 @@ import StartScreen from './components/StartScreen.vue'
 import GenericScreen from './components/GenericScreen.vue'
 import WaitingScan from './components/WaitingScan.vue'
 import EraVideoScreen from './components/EraVideoScreen.vue'
+import GameRulesIntro from './components/GameRulesIntro.vue'
 
 export default {
   name: 'App',
@@ -25,6 +26,7 @@ export default {
     GenericScreen,
     WaitingScan,
     EraVideoScreen,
+    GameRulesIntro
   },
   data() {
     return {

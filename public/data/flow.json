@@ -8,7 +8,7 @@
   {
     "objectId": "GenericScreen",
     "props": {
-      "src": "/videos/sample-video.mp4"
+      "src": "/videos/introVideo.mp4"
     }
   },
   {
@@ -21,6 +21,12 @@
         "50": "/videos/era50.mp4",
         "80": "/videos/era80.mp4"
       }
+    }
+  },
+  {
+    "objectId": "GameRulesIntro",
+    "props": {
+      "src": "/videos/game-rules.mp4"
     }
   }
 ]
