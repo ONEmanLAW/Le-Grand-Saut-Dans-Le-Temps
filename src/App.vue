@@ -19,6 +19,7 @@ import EraVideoScreen from './components/EraVideoScreen.vue'
 import GameRulesIntro from './components/GameRulesIntro.vue'
 import QuestionCount from './components/QuestionCount.vue'
 import ThemeCount from './components/ThemeCount.vue'
+import ThemeIntroVideo from './components/ThemeIntroVideo.vue'
 
 export default {
   name: 'App',
@@ -30,7 +31,8 @@ export default {
     EraVideoScreen,
     GameRulesIntro,
     QuestionCount,
-    ThemeCount
+    ThemeCount,
+    ThemeIntroVideo
   },
   data() {
     return {
