@@ -13,5 +13,14 @@
   },
   {
     "objectId": "WaitingScan"
+  },
+  {
+    "objectId": "EraVideoScreen",
+    "props": {
+      "videoSources": {
+        "50": "/videos/era50.mp4",
+        "80": "/videos/era80.mp4"
+      }
+    }
   }
 ]

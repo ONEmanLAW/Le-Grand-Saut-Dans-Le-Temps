@@ -1,3 +1,7 @@
+<template>
+  
+</template>
+
 <script>
 export default {
   name: 'WebSocketClient',
@@ -5,12 +9,16 @@ export default {
     return {
       ws: null,
       //wsUrl: 'ws://172.28.59.61:8080' // IP École
-      wsUrl: 'ws://192.168.254.50:8080' // IP Partage
+      //wsUrl: 'ws://192.168.254.50:8080' // IP Partage
+      wsUrl: 'ws://192.168.1.96:8080' // IP Maison
     }
   },
   methods: {
     connectWebSocket() {
       this.ws = new WebSocket(this.wsUrl)
+
+      // Provide la connexion WebSocket pour les composants enfants
+      this.$.appContext.provides.ws = this.ws
 
       this.ws.onopen = () => {
         console.log('✅ WebSocket connecté')

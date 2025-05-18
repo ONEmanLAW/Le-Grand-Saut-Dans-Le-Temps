@@ -15,6 +15,7 @@ import WebSocketClient from './components/WebSocketClient.vue'
 import StartScreen from './components/StartScreen.vue'
 import GenericScreen from './components/GenericScreen.vue'
 import WaitingScan from './components/WaitingScan.vue'
+import EraVideoScreen from './components/EraVideoScreen.vue'
 
 export default {
   name: 'App',
@@ -23,6 +24,7 @@ export default {
     StartScreen,
     GenericScreen,
     WaitingScan,
+    EraVideoScreen,
   },
   data() {
     return {
@@ -71,5 +73,3 @@ export default {
   }
 }
 </script>
-
-
