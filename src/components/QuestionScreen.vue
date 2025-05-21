@@ -1,3 +1,46 @@
+<template>
+  <div class="question-screen" :class="{'answered-state': answered}">
+    <div v-if="loading">Chargement des questions...</div>
+    <div v-else-if="error">Erreur : {{ error }}</div>
+    <div v-else-if="preparingQuestion">
+      <div class="fullscreen-message">
+        <h1>{{ questionNumberDisplay }}</h1>
+      </div>
+    </div>
+    <div v-else-if="transitionVideo && transitionVideoSource">
+      <h2>Préparation du niveau suivant...</h2>
+      <video ref="transitionVideoPlayer" @ended="nextLevel" autoplay>
+        <source :src="transitionVideoSource" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos.
+      </video>
+    </div>
+    <div v-else-if="currentQuestion">
+      <p v-if="totalQuestionsToAsk > 0" class="question-number">Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}</p>
+      <h2>{{ currentQuestion.question }}</h2>
+      <ul class="answers-grid">
+        <li
+          v-for="(answer, index) in currentQuestion.answers"
+          :key="index"
+          :class="{
+            'correct': answered && index === currentQuestion.correctIndex,
+            'incorrect': answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
+            'hidden': answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
+          }"
+        >
+          <button
+            @click="selectAnswer(index)"
+            :disabled="answered"
+            :style="{ backgroundColor: answerColors[index % answerColors.length] }"
+          >{{ answer }}</button>
+        </li>
+      </ul>
+    </div>
+    <div v-else>
+      <p>{{ feedback || 'Fin de la partie !' }}</p>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
   props: ['flowObject'],
@@ -24,7 +67,10 @@ export default {
       transitionVideoSource: '',
       questionsPerLevel: 0,
       totalQuestionsAsked: 0,
-      totalQuestionsToAsk: 0
+      totalQuestionsToAsk: 0,
+      preparingQuestion: false,
+      questionNumberDisplay: '',
+      answerColors: ['#FF6B6B', '#4ECDC4', '#FFD166', '#80ED99'] // Tableau de couleurs pour les boutons
     };
   },
   async mounted() {
@@ -47,7 +93,7 @@ export default {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         this.questionsData = await response.json();
-        this.loadQuestionForLevel();
+        this.prepareNextQuestionDisplay();
         this.loading = false;
       } catch (e) {
         this.error = e;
@@ -68,6 +114,14 @@ export default {
     }
   },
   methods: {
+    prepareNextQuestionDisplay() {
+      this.preparingQuestion = true;
+      this.questionNumberDisplay = `QUESTION ${this.totalQuestionsAsked + 1}`;
+      setTimeout(() => {
+        this.preparingQuestion = false;
+        this.loadQuestionForLevel();
+      }, 2000);
+    },
     loadQuestionForLevel() {
       clearTimeout(this.timeoutId);
       this.transitionVideo = false;
@@ -87,9 +141,9 @@ export default {
         this.answered = true;
         const isCorrect = index === this.currentQuestion.correctIndex;
         this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
-        this.totalQuestionsAsked++; // Incrémenter immédiatement après la réponse
 
         this.timeoutId = setTimeout(() => {
+          this.totalQuestionsAsked++;
           this.moveToNextStep();
         }, 2000);
       }
@@ -97,7 +151,7 @@ export default {
     moveToNextStep() {
       if (this.currentQuestionIndexInLevel < this.questionsPerLevel - 1) {
         this.currentQuestionIndexInLevel++;
-        this.loadQuestionForLevel();
+        this.prepareNextQuestionDisplay();
       } else {
         this.startTransitionOrEnd();
       }
@@ -121,120 +175,97 @@ export default {
     nextLevel() {
       this.currentDifficultyIndex++;
       this.currentQuestionIndexInLevel = 0;
-      this.loadQuestionForLevel();
+      this.prepareNextQuestionDisplay();
     }
   }
 };
 </script>
-
-<template>
-  <div class="question-screen">
-    <div v-if="loading">Chargement des questions...</div>
-    <div v-else-if="error">Erreur : {{ error }}</div>
-    <div v-else-if="transitionVideo && transitionVideoSource">
-      <h2>Préparation du niveau suivant...</h2>
-      <video ref="transitionVideoPlayer" @ended="nextLevel" autoplay>
-        <source :src="transitionVideoSource" type="video/mp4">
-        Votre navigateur ne supporte pas la lecture de vidéos.
-      </video>
-    </div>
-    <div v-else-if="currentQuestion">
-      <h2>{{ currentQuestion.question }}</h2>
-      <ul>
-        <li
-          v-for="(answer, index) in currentQuestion.answers"
-          :key="index"
-          :class="{
-            'correct': answered && index === currentQuestion.correctIndex,
-            'incorrect': answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
-            'hidden': answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
-          }"
-        >
-          <button
-            @click="selectAnswer(index)"
-            :disabled="answered"
-          >{{ answer }}</button>
-        </li>
-      </ul>
-      <p v-if="totalQuestionsToAsk > 0">Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}</p>
-    </div>
-    <div v-else>
-      <p>{{ feedback || 'Fin de la partie !' }}</p>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .question-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Centrer verticalement le contenu principal */
+  min-height: 100vh;
   padding: 40px;
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+  text-align: center; /* Centrer le texte des éléments enfants par défaut */
+}
+
+.question-number {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  align-self: flex-start; /* Aligner à gauche */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
   color: #333;
   margin-bottom: 30px;
-  text-align: center;
 }
 
-ul {
+.answers-grid {
   list-style: none;
   padding: 0;
   margin-bottom: 30px;
   width: 100%;
-  max-width: 500px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
-li {
-  margin: 10px 0;
+.answers-grid li {
+  margin: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
-button {
+.answers-grid button {
   display: block;
   width: 100%;
   padding: 15px 25px;
   font-size: 18px;
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 8px;
-  background-color: white;
-  color: #333;
-  transition: background-color 0.3s ease;
+  color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-sizing: border-box;
+  background-color: inherit; /* Hérite de la couleur définie par :style */
 }
 
-button:hover:not(:disabled) {
-  background-color: #e0e0e0;
-}
-
-button:disabled {
+.answers-grid button:disabled {
   cursor: not-allowed;
   opacity: 0.7;
 }
 
-.correct button {
-  background-color: #aaff80; /* Vert clair */
+.answers-grid li.correct {
+  grid-column: 1 / -1; /* Prend toute la largeur de la grille */
+  justify-self: center; /* Se centre horizontalement dans la grille */
+  animation: moveToCenter 0.5s ease-out forwards;
+}
+
+.answers-grid li.correct button {
   color: #333;
   font-weight: bold;
 }
 
-.incorrect button {
-  background-color: #ff8080; /* Rouge clair */
-  color: white;
+.answers-grid li.incorrect {
+  opacity: 0;
 }
 
 .hidden {
-  opacity: 0.5;
-}
-
-.feedback {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #555;
+  display: none;
 }
 
 video {
@@ -249,5 +280,46 @@ p {
   color: #555;
   margin-top: 15px;
   text-align: center;
+}
+
+.fullscreen-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+@keyframes moveToCenter {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Styles spécifiques après la réponse */
+.question-screen.answered-state .answers-grid {
+  /* La disposition est gérée par les styles ci-dessus */
+}
+
+.question-screen.answered-state .answers-grid li:not(.correct) {
+  opacity: 0;
+  display: block; /* Pour que l'animation d'opacité fonctionne */
+}
+
+.question-screen.answered-state h2 {
+  opacity: 0.5; /* Légèrement estompé après la réponse */
 }
 </style>
