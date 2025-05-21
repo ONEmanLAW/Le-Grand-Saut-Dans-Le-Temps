@@ -35,14 +35,14 @@
       "options": [4, 8, 16, 20]
     }
   },
-   {
+  {
     "objectId": "ThemeCount",
     "props": {
       "themes": ["cinema", "musique", "histoire"]
     }
   },
   {
-  "objectId": "ThemeIntroVideo",
+    "objectId": "ThemeIntroVideo",
     "props": {
       "videoSources": {
         "cinema": "/videos/introCinema.mp4",
@@ -50,5 +50,8 @@
         "histoire": "/videos/introHistory.mp4"
       }
     }
+  },
+  {
+    "objectId": "QuestionScreen"
   }
 ]

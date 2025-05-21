@@ -1,0 +1,152 @@
+{
+  "cinema": {
+    "easy": [
+      {
+        "question": "Quel film de science-fiction de 1982 met en scène un extra-terrestre attachant ?",
+        "answers": ["E.T. l'extra-terrestre", "Blade Runner", "Tron", "The Thing"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Qui joue Indiana Jones dans 'Les Aventuriers de l'arche perdue' (1981) ?",
+        "answers": ["Harrison Ford", "Sean Connery", "Tom Selleck", "Mel Gibson"],
+        "correctIndex": 0
+      }
+    ],
+    "medium": [
+      {
+        "question": "Quel film de 1980 de Stanley Kubrick est une adaptation d'un roman de Stephen King ?",
+        "answers": ["Shining (The Shining)", "Full Metal Jacket", "2001: L'Odyssée de l'espace", "Orange Mécanique"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Dans 'Retour vers le futur' (1985), quelle voiture est utilisée comme machine à voyager dans le temps ?",
+        "answers": ["DeLorean DMC-12", "Ford Mustang", "Chevrolet Camaro", "Pontiac Trans Am"],
+        "correctIndex": 0
+      }
+    ],
+    "hard": [
+      {
+        "question": "Quel réalisateur a dirigé 'Blade Runner' en 1982 ?",
+        "answers": ["Ridley Scott", "Steven Spielberg", "George Lucas", "James Cameron"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel film de 1984 raconte l'histoire d'un robot tueur envoyé du futur ?",
+        "answers": ["Terminator", "RoboCop", "Short Circuit", "Aliens"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel film de 1988, réalisé par Hayao Miyazaki, est un classique de l'animation japonaise ?",
+        "answers": ["Mon voisin Totoro (Tonari no Totoro)", "Akira", "Le Tombeau des lucioles (Hotaru no Haka)", "Kiki la petite sorcière (Majo no Takkyūbin)"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Pour quel film Miloš Forman a-t-il remporté l'Oscar du meilleur réalisateur en 1985 ?",
+        "answers": ["Amadeus", "Hair", "Ragtime", "Vol au-dessus d'un nid de coucou (One Flew Over the Cuckoo's Nest)"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "musique": {
+    "easy": [
+      {
+        "question": "Quel artiste est connu comme le 'Roi de la Pop' dans les années 80 ?",
+        "answers": ["Michael Jackson", "Prince", "Madonna", "Stevie Wonder"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Quel groupe a sorti l'album 'The Joshua Tree' en 1987 ?",
+        "answers": ["U2", "R.E.M.", "The Police", "Bon Jovi"],
+        "correctIndex": 0
+      }
+    ],
+    "medium": [
+      {
+        "question": "Quelle chanteuse a popularisé le look 'punk-pop' et a sorti 'Like a Virgin' en 1984 ?",
+        "answers": ["Madonna", "Cyndi Lauper", "Whitney Houston", "Janet Jackson"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Le 'Live Aid' était un concert caritatif majeur organisé en quelle année ?",
+        "answers": ["1985", "1983", "1987", "1989"],
+        "correctIndex": 0
+      }
+    ],
+    "hard": [
+      {
+        "question": "Quel genre musical électronique, originaire de Detroit, a gagné en popularité à la fin des années 80 ?",
+        "answers": ["Techno", "House", "Hip-hop", "New Wave"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Le clip de quelle chanson de Michael Jackson, sorti en 1983, a révolutionné la production de clips musicaux ?",
+        "answers": ["Thriller", "Billie Jean", "Beat It", "Smooth Criminal"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel groupe de rap pionnier a sorti l'album 'Raising Hell' en 1986, incluant une collaboration avec Aerosmith ?",
+        "answers": ["Run-D.M.C.", "Public Enemy", "N.W.A.", "Beastie Boys"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Le 'Fairlight CMI' était un instrument emblématique des années 80. Qu'était-ce ?",
+        "answers": ["Un synthétiseur/sampler numérique", "Une guitare électrique", "Une boîte à rythmes", "Un type de microphone"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  "histoire": {
+    "easy": [
+      {
+        "question": "Quel mur symbolique de la Guerre Froide est tombé en 1989 ?",
+        "answers": ["Le Mur de Berlin", "Le Rideau de Fer", "La Grande Muraille de Chine", "Le Mur d'Hadrien"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Qui était président des États-Unis pendant la majeure partie des années 80 (1981-1989) ?",
+        "answers": ["Ronald Reagan", "George H.W. Bush", "Jimmy Carter", "Gerald Ford"],
+        "correctIndex": 0
+      }
+    ],
+    "medium": [
+      {
+        "question": "Quel pays l'URSS a-t-elle envahi en 1979, menant à une guerre qui a duré toutes les années 80 ?",
+        "answers": ["L'Afghanistan", "L'Iran", "La Pologne", "La Tchécoslovaquie"],
+        "correctIndex": 0
+      },
+      {
+        "question": "La catastrophe nucléaire de Tchernobyl a eu lieu en quelle année ?",
+        "answers": ["1986", "1983", "1989", "1981"],
+        "correctIndex": 0
+      }
+    ],
+    "hard": [
+      {
+        "question": "Quel nom a été donné à l'initiative de défense stratégique proposée par Ronald Reagan, surnommée 'Star Wars' ?",
+        "answers": ["Initiative de Défense Stratégique (IDS)", "Programme Apollo", "Projet Manhattan", "Bouclier de la Paix"],
+        "correctIndex": 0
+      },
+      {
+        "question": "En quelle année le Royaume-Uni et l'Argentine se sont-ils affrontés lors de la Guerre des Malouines (Falklands War) ?",
+        "answers": ["1982", "1980", "1985", "1987"],
+        "correctIndex": 0
+      }
+    ],
+    "expert": [
+      {
+        "question": "Quel mouvement de protestation mené par des étudiants a eu lieu sur la place Tian'anmen en Chine en 1989 ?",
+        "answers": ["Les manifestations de la place Tian'anmen", "La Révolution Culturelle", "Le Grand Bond en avant", "Le mouvement du 4 Mai"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Le terme 'Glasnost', signifiant 'transparence', était une politique introduite par quel dirigeant soviétique dans les années 80 ?",
+        "answers": ["Mikhaïl Gorbatchev", "Leonid Brejnev", "Iouri Andropov", "Constantin Tchernenko"],
+        "correctIndex": 0
+      }
+    ]
+  }
+}

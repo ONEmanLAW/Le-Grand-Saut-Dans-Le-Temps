@@ -20,6 +20,7 @@ import GameRulesIntro from './components/GameRulesIntro.vue'
 import QuestionCount from './components/QuestionCount.vue'
 import ThemeCount from './components/ThemeCount.vue'
 import ThemeIntroVideo from './components/ThemeIntroVideo.vue'
+import QuestionScreen from './components/QuestionScreen.vue'
 
 export default {
   name: 'App',
@@ -32,7 +33,8 @@ export default {
     GameRulesIntro,
     QuestionCount,
     ThemeCount,
-    ThemeIntroVideo
+    ThemeIntroVideo,
+    QuestionScreen,
   },
   data() {
     return {
