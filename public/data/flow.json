@@ -2,7 +2,7 @@
   {
     "objectId": "StartScreen",
     "props": {
-      "src": "/assets/intro.gif"
+      "src": "/images/intro.gif"
     }
   },
   {

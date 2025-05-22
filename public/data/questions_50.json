@@ -4,98 +4,122 @@
       {
         "question": "Quel acteur célèbre a joué dans 'Chantons sous la pluie' (1952) ?",
         "answers": ["Gene Kelly", "Fred Astaire", "Humphrey Bogart", "Marlon Brando"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Gene Kelly était la star de 'Chantons sous la pluie'." }
       },
       {
         "question": "Quel film de 1950 met en scène Gloria Swanson dans le rôle de Norma Desmond ?",
         "answers": ["Sunset Boulevard", "All About Eve", "The Asphalt Jungle", "Born Yesterday"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "'Sunset Boulevard' met en scène Gloria Swanson." }
       }
     ],
     "medium": [
       {
         "question": "Quel réalisateur a dirigé 'Les Sept Samouraïs' (1954) ?",
         "answers": ["Akira Kurosawa", "Yasujirō Ozu", "Kenji Mizoguchi", "Ingmar Bergman"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Le réalisateur des 'Sept Samouraïs' est Akira Kurosawa." }
       },
       {
         "question": "Dans 'Sur les quais' (1954), quel métier exerce le personnage de Marlon Brando avant de devenir docker ?",
         "answers": ["Boxeur", "Chanteur", "Policier", "Chauffeur de taxi"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Marlon Brando jouait un boxeur avant de devenir docker dans 'Sur les quais'." }
       }
     ],
     "hard": [
       {
         "question": "Quel est le titre original du film 'À bout de souffle' (1960), souvent associé à la Nouvelle Vague et sorti à la toute fin des années 50 ?",
         "answers": ["Breathless", "The 400 Blows", "Hiroshima Mon Amour", "Pickpocket"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Le titre original de 'À bout de souffle' est 'Breathless'." }
       },
       {
         "question": "Quel film de 1959 a remporté l'Oscar du meilleur film étranger et est connu pour sa séquence de descente aux enfers ?",
         "answers": ["Orfeu Negro (Black Orpheus)", "Les Fraises sauvages (Wild Strawberries)", "Le Septième Sceau (The Seventh Seal)", "Les Quatre Cents Coups (The 400 Blows)"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "'Orfeu Negro' a remporté l'Oscar du meilleur film étranger en 1959." }
       }
     ],
     "expert": [
       {
         "question": "Quel monteur est crédité pour le film 'Ben-Hur' (1959), un travail colossal pour l'époque ?",
         "answers": ["Ralph E. Winters", "Margaret Booth", "William Hornbeck", "Anne Bauchens"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Le monteur crédité pour 'Ben-Hur' (1959) est Ralph E. Winters." }
       },
       {
         "question": "Pour quel film de 1957 Ingmar Bergman a-t-il utilisé une narration introspective et des flashbacks complexes pour explorer les souvenirs d'un professeur âgé ?",
         "answers": ["Les Fraises sauvages (Smultronstället)", "Le Septième Sceau (Det sjunde inseglet)", "Sourires d'une nuit d'été (Sommarnattens leende)", " Monika (Sommaren med Monika)"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Ingmar Bergman a utilisé une narration introspective dans 'Les Fraises sauvages'." }
       }
     ]
   },
   "musique": {
     "easy": [
       {
+        "beforeQuestion": { "audio": "/audio/brelDebut.mp3", "text": "Écoutez l'introduction..." },
         "question": "Qui est surnommé 'The King of Rock and Roll' dans les années 50 ?",
         "answers": ["Elvis Presley", "Chuck Berry", "Little Richard", "Fats Domino"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/brelFin.mp3", "text": "C'était Elvis Presley !", "image": "/images/50musique1.png" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
         "question": "Quel genre musical a émergé avec force dans les années 50, popularisé par des artistes comme Bill Haley & His Comets ?",
         "answers": ["Rock 'n' roll", "Jazz Bebop", "Blues électrique", "Country"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
       }
     ],
     "medium": [
       {
+        "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
         "question": "Quel pianiste et chanteur de 'Great Balls of Fire' était connu pour son style de jeu énergique au piano ?",
         "answers": ["Jerry Lee Lewis", "Little Richard", "Fats Domino", "Ray Charles"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/milesdavis_intro.mp3", "text": "Laissez-vous emporter par le son de..." },
         "question": "Miles Davis est une figure emblématique de quel sous-genre du jazz, particulièrement influent dans les années 50 ?",
         "answers": ["Cool Jazz / Modal Jazz", "Swing", "Dixieland", "Free Jazz"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/milesdavis_outro.mp3", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique4.png" }
       }
     ],
     "hard": [
-       {
+      {
+        "beforeQuestion": { "audio": "/audio/chuckberry_intro.mp3", "text": "Reconnaissez-vous ce riff ?" },
         "question": "Quel single de Chuck Berry, sorti en 1958, est célèbre pour son intro de guitare iconique ?",
         "answers": ["Johnny B. Goode", "Maybellene", "Roll Over Beethoven", "Sweet Little Sixteen"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/chuckberry_outro.mp3", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique5.png" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
         "question": "Comment s'appelait le studio d'enregistrement de Memphis où Elvis Presley, Johnny Cash et Jerry Lee Lewis ont débuté ?",
         "answers": ["Sun Studio", "Chess Records", "Motown Records", "Stax Records"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
       }
     ],
     "expert": [
       {
+        "beforeQuestion": { "audio": "/audio/bernardherrmann_intro.mp3", "text": "Plongez dans l'ambiance de ce film..." },
         "question": "Quel compositeur de musique de film a créé la bande originale mémorable pour 'Vertigo' (Sueurs Froides) d'Alfred Hitchcock en 1958 ?",
         "answers": ["Bernard Herrmann", "Max Steiner", "Franz Waxman", "Dimitri Tiomkin"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/bernardherrmann_outro.mp3", "text": "La musique était de Bernard Herrmann.", "image": "/images/50musique7.png" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
         "question": "La technique de 'slapback echo' était caractéristique du son de quel label des années 50 ?",
         "answers": ["Sun Records", "Capitol Records", "RCA Victor", "Columbia Records"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
       }
     ]
   },
@@ -104,48 +128,56 @@
       {
         "question": "Quelle guerre majeure s'est terminée au début des années 50 (1953) ?",
         "answers": ["La Guerre de Corée", "La Première Guerre mondiale", "La Guerre du Vietnam", "La Seconde Guerre mondiale"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "La Guerre de Corée s'est terminée en 1953." }
       },
       {
         "question": "Quel pays a lancé le premier satellite artificiel, Spoutnik 1, en 1957 ?",
         "answers": ["L'Union Soviétique", "Les États-Unis", "La France", "Le Royaume-Uni"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "L'Union Soviétique a lancé Spoutnik 1." }
       }
     ],
     "medium": [
       {
         "question": "Qui est devenu président des États-Unis en 1953 ?",
         "answers": ["Dwight D. Eisenhower", "Harry S. Truman", "John F. Kennedy", "Richard Nixon"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Dwight D. Eisenhower est devenu président en 1953." }
       },
       {
         "question": "Quel événement marquant pour les droits civiques aux USA a eu lieu en 1955 à Montgomery, Alabama ?",
         "answers": ["Le boycott des bus de Montgomery", "La marche sur Washington", "L'affaire Brown v. Board of Education", "Les sit-ins de Greensboro"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Le boycott des bus de Montgomery en 1955." }
       }
     ],
     "hard": [
       {
         "question": "En quelle année la Communauté Économique Européenne (CEE) a-t-elle été créée par le Traité de Rome ?",
         "answers": ["1957", "1951", "1960", "1949"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "La CEE a été créée en 1957." }
       },
       {
         "question": "Quel leader a pris le pouvoir à Cuba en 1959 ?",
         "answers": ["Fidel Castro", "Fulgencio Batista", "Che Guevara", "Raul Castro"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Fidel Castro a pris le pouvoir à Cuba en 1959." }
       }
     ],
     "expert": [
-       {
+      {
         "question": "La crise de Suez en 1956 impliquait principalement quels pays contre l'Égypte ?",
         "answers": ["Le Royaume-Uni, la France et Israël", "Les États-Unis et l'Union Soviétique", "L'Allemagne et l'Italie", "La Chine et l'Inde"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "La crise de Suez impliquait le Royaume-Uni, la France et Israël contre l'Égypte." }
       },
       {
         "question": "Quel physicien a développé la théorie de la relativité générale, dont les implications ont continué d'être explorées dans les années 50 ?",
         "answers": ["Albert Einstein", "Niels Bohr", "Max Planck", "Werner Heisenberg"],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "feedback": { "text": "Albert Einstein a développé la théorie de la relativité générale." }
       }
     ]
   }

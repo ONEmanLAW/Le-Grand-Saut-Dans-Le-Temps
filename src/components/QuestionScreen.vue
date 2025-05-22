@@ -1,46 +1,3 @@
-<template>
-  <div class="question-screen" :class="{'answered-state': answered}">
-    <div v-if="loading">Chargement des questions...</div>
-    <div v-else-if="error">Erreur : {{ error }}</div>
-    <div v-else-if="preparingQuestion">
-      <div class="fullscreen-message">
-        <h1>{{ questionNumberDisplay }}</h1>
-      </div>
-    </div>
-    <div v-else-if="transitionVideo && transitionVideoSource">
-      <h2>Préparation du niveau suivant...</h2>
-      <video ref="transitionVideoPlayer" @ended="nextLevel" autoplay>
-        <source :src="transitionVideoSource" type="video/mp4">
-        Votre navigateur ne supporte pas la lecture de vidéos.
-      </video>
-    </div>
-    <div v-else-if="currentQuestion">
-      <p v-if="totalQuestionsToAsk > 0" class="question-number">Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}</p>
-      <h2>{{ currentQuestion.question }}</h2>
-      <ul class="answers-grid">
-        <li
-          v-for="(answer, index) in currentQuestion.answers"
-          :key="index"
-          :class="{
-            'correct': answered && index === currentQuestion.correctIndex,
-            'incorrect': answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
-            'hidden': answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
-          }"
-        >
-          <button
-            @click="selectAnswer(index)"
-            :disabled="answered"
-            :style="{ backgroundColor: answerColors[index % answerColors.length] }"
-          >{{ answer }}</button>
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      <p>{{ feedback || 'Fin de la partie !' }}</p>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   props: ['flowObject'],
@@ -70,7 +27,9 @@ export default {
       totalQuestionsToAsk: 0,
       preparingQuestion: false,
       questionNumberDisplay: '',
-      answerColors: ['#FF6B6B', '#4ECDC4', '#FFD166', '#80ED99'] // Tableau de couleurs pour les boutons
+      answerColors: ['#FF6B6B', '#4ECDC4', '#FFD166', '#80ED99'],
+      isBeforeQuestion: false,
+      isFeedback: false
     };
   },
   async mounted() {
@@ -93,7 +52,7 @@ export default {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         this.questionsData = await response.json();
-        this.prepareNextQuestionDisplay();
+        this.startNextQuestionCycle();
         this.loading = false;
       } catch (e) {
         this.error = e;
@@ -114,22 +73,43 @@ export default {
     }
   },
   methods: {
-    prepareNextQuestionDisplay() {
+    startNextQuestionCycle() {
+      this.isFeedback = false;
+      this.prepareQuestionDisplay();
+    },
+    prepareQuestionDisplay() {
       this.preparingQuestion = true;
       this.questionNumberDisplay = `QUESTION ${this.totalQuestionsAsked + 1}`;
       setTimeout(() => {
         this.preparingQuestion = false;
-        this.loadQuestionForLevel();
+        this.loadBeforeQuestionOrQuestion();
       }, 2000);
     },
-    loadQuestionForLevel() {
+    loadBeforeQuestionOrQuestion() {
+      const currentQuestionData = this.questionsInCurrentDifficulty[this.currentQuestionIndexInLevel];
+      if (currentQuestionData?.beforeQuestion) {
+        this.currentQuestion = currentQuestionData;
+        this.isBeforeQuestion = true;
+      } else {
+        this.isBeforeQuestion = false;
+        this.loadQuestion();
+      }
+    },
+    startQuestion() {
+      this.isBeforeQuestion = false;
+      this.loadQuestion();
+      if (this.$refs.beforeQuestionAudio) {
+        this.$refs.beforeQuestionAudio.pause();
+        this.$refs.beforeQuestionAudio.currentTime = 0;
+      }
+    },
+    loadQuestion() {
       clearTimeout(this.timeoutId);
       this.transitionVideo = false;
       const questions = this.questionsInCurrentDifficulty;
       if (questions && this.currentQuestionIndexInLevel < questions.length && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         this.currentQuestion = questions[this.currentQuestionIndexInLevel];
         this.selectedAnswer = null;
-        this.feedback = '';
         this.answered = false;
       } else {
         this.startTransitionOrEnd();
@@ -143,15 +123,22 @@ export default {
         this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
         this.timeoutId = setTimeout(() => {
-          this.totalQuestionsAsked++;
-          this.moveToNextStep();
+          this.isFeedback = true;
+          if (this.currentQuestion?.feedback?.audio && this.$refs.feedbackAudio) {
+            this.$refs.feedbackAudio.play();
+          }
         }, 2000);
       }
+    },
+    nextStepAfterFeedback() {
+      this.isFeedback = false;
+      this.totalQuestionsAsked++;
+      this.moveToNextStep();
     },
     moveToNextStep() {
       if (this.currentQuestionIndexInLevel < this.questionsPerLevel - 1) {
         this.currentQuestionIndexInLevel++;
-        this.prepareNextQuestionDisplay();
+        this.startNextQuestionCycle();
       } else {
         this.startTransitionOrEnd();
       }
@@ -175,18 +162,76 @@ export default {
     nextLevel() {
       this.currentDifficultyIndex++;
       this.currentQuestionIndexInLevel = 0;
-      this.prepareNextQuestionDisplay();
+      this.startNextQuestionCycle();
     }
   }
 };
 </script>
 
+<template>
+  <div class="question-screen" :class="{'answered-state': answered, 'before-question-state': isBeforeQuestion, 'feedback-state': isFeedback}">
+    <div v-if="loading">Chargement des questions...</div>
+    <div v-else-if="error">Erreur : {{ error }}</div>
+
+    <div v-else-if="preparingQuestion">
+      <div class="fullscreen-message">
+        <h1>{{ questionNumberDisplay }}</h1>
+      </div>
+    </div>
+
+    <div v-else-if="isBeforeQuestion && currentQuestion?.beforeQuestion">
+      <div class="before-question-content">
+        <h2 v-if="currentQuestion.beforeQuestion.text">{{ currentQuestion.beforeQuestion.text }}</h2>
+        <audio v-if="currentQuestion.beforeQuestion.audio" ref="beforeQuestionAudio" :src="currentQuestion.beforeQuestion.audio" controls autoplay @ended="startQuestion"></audio>
+        <button v-else @click="startQuestion" class="start-button">Commencer la question</button>
+      </div>
+    </div>
+
+    <div v-else-if="isFeedback && currentQuestion?.feedback">
+      <div class="feedback-content">
+        <h2>Feedback</h2>
+        <img v-if="currentQuestion.feedback.image" :src="currentQuestion.feedback.image" alt="Feedback Image" class="feedback-image">
+        <p v-if="currentQuestion.feedback.text" class="feedback-text">{{ currentQuestion.feedback.text }}</p>
+        <audio v-if="currentQuestion.feedback.audio" ref="feedbackAudio" :src="currentQuestion.feedback.audio" controls autoplay @ended="nextStepAfterFeedback"></audio>
+        <button v-else @click="nextStepAfterFeedback" class="next-button">Suivant</button>
+      </div>
+    </div>
+
+    <div v-else-if="currentQuestion">
+      <p v-if="totalQuestionsToAsk > 0" class="question-number">Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}</p>
+      <h2>{{ currentQuestion.question }}</h2>
+      <ul class="answers-grid">
+        <li
+          v-for="(answer, index) in currentQuestion.answers"
+          :key="index"
+          :class="{
+            'correct': answered && index === currentQuestion.correctIndex,
+            'incorrect': answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
+            'hidden': answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
+          }"
+        >
+          <button
+            @click="selectAnswer(index)"
+            :disabled="answered"
+            :style="{ backgroundColor: answerColors[index % answerColors.length] }"
+          >{{ answer }}</button>
+        </li>
+      </ul>
+    </div>
+
+    <div v-else>
+      <p>{{ feedback || 'Fin de la partie !' }}</p>
+    </div>
+  </div>
+</template>
+
 <style scoped>
+/* Styles existants */
 .question-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centrer verticalement le contenu principal */
+  justify-content: center;
   min-height: 100vh;
   padding: 40px;
   font-family: 'Arial', sans-serif;
@@ -195,14 +240,14 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: all 0.3s ease;
-  text-align: center; /* Centrer le texte des éléments enfants par défaut */
+  text-align: center;
 }
 
 .question-number {
   color: #555;
   margin-bottom: 10px;
   font-size: 1.1em;
-  align-self: flex-start; /* Aligner à gauche */
+  align-self: flex-start;
   margin-left: auto;
   margin-right: auto;
 }
@@ -241,7 +286,7 @@ h2 {
   color: white;
   transition: transform 0.3s ease, opacity 0.3s ease;
   box-sizing: border-box;
-  background-color: inherit; /* Hérite de la couleur définie par :style */
+  background-color: inherit;
 }
 
 .answers-grid button:disabled {
@@ -250,8 +295,8 @@ h2 {
 }
 
 .answers-grid li.correct {
-  grid-column: 1 / -1; /* Prend toute la largeur de la grille */
-  justify-self: center; /* Se centre horizontalement dans la grille */
+  grid-column: 1 / -1;
+  justify-self: center;
   animation: moveToCenter 0.5s ease-out forwards;
 }
 
@@ -316,10 +361,81 @@ p {
 
 .question-screen.answered-state .answers-grid li:not(.correct) {
   opacity: 0;
-  display: block; /* Pour que l'animation d'opacité fonctionne */
+  display: block;
 }
 
 .question-screen.answered-state h2 {
-  opacity: 0.5; /* Légèrement estompé après la réponse */
+  opacity: 0.5;
+}
+
+/* Styles pour l'écran "Before Question" */
+.before-question-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.before-question-content h2 {
+  margin-bottom: 20px;
+}
+
+.before-question-content audio {
+  margin-bottom: 20px;
+}
+
+.before-question-content .start-button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.before-question-content .start-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles pour l'écran de feedback */
+.feedback-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback-content h2 {
+  margin-bottom: 20px;
+}
+
+.feedback-content img {
+  max-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.feedback-content p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.feedback-content audio {
+  margin-bottom: 20px;
+}
+
+.feedback-content .next-button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-content .next-button:hover {
+  background-color: #1e7e34;
 }
 </style>
