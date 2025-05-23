@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['flowObject'],
+  props: ['flowObject', 'nextStep'], // on récupère nextStep en prop
   data() {
     return {
       questionsData: null,
@@ -29,7 +29,9 @@ export default {
       questionNumberDisplay: '',
       answerColors: ['#FF6B6B', '#4ECDC4', '#FFD166', '#80ED99'],
       isBeforeQuestion: false,
-      isFeedback: false
+      isFeedback: false,
+      gameFinished: false, // flag fin du jeu
+      score: 0 // AJOUT DU COMPTEUR DE SCORE
     };
   },
   async mounted() {
@@ -120,12 +122,19 @@ export default {
         this.selectedAnswer = index;
         this.answered = true;
         const isCorrect = index === this.currentQuestion.correctIndex;
+        if (isCorrect) this.score++;  // INCRÉMENTATION DU SCORE SI BONNE RÉPONSE
         this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
           if (this.currentQuestion?.feedback?.audio && this.$refs.feedbackAudio) {
             this.$refs.feedbackAudio.play();
+            // La prochaine question sera déclenchée à la fin de l'audio (événement @ended dans le template)
+          } else {
+            // Pas d'audio feedback, passe automatiquement à la question suivante après 3 secondes
+            setTimeout(() => {
+              this.nextStepAfterFeedback();
+            }, 3000);
           }
         }, 2000);
       }
@@ -133,7 +142,12 @@ export default {
     nextStepAfterFeedback() {
       this.isFeedback = false;
       this.totalQuestionsAsked++;
-      this.moveToNextStep();
+      // Si on a fini toutes les questions, on termine le jeu et on avance l'écran
+      if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
+        this.finishGame();
+      } else {
+        this.moveToNextStep();
+      }
     },
     moveToNextStep() {
       if (this.currentQuestionIndexInLevel < this.questionsPerLevel - 1) {
@@ -155,14 +169,29 @@ export default {
           }
         });
       } else {
-        this.currentQuestion = null;
-        this.feedback = 'Fin de la partie !';
+        this.finishGame();
       }
     },
     nextLevel() {
       this.currentDifficultyIndex++;
       this.currentQuestionIndexInLevel = 0;
       this.startNextQuestionCycle();
+    },
+    finishGame() {
+      this.gameFinished = true;
+      this.currentQuestion = null;
+      this.feedback = 'Fin de la partie !';
+
+      // SAUVEGARDE DU SCORE ET DU NOMBRE DE QUESTIONS DANS localStorage
+      localStorage.setItem('score', this.score.toString());
+      localStorage.setItem('questionCount', this.totalQuestionsAsked.toString());
+
+      // Appeler la méthode nextStep passée en prop pour passer à l'écran suivant
+      if (this.nextStep) {
+        this.nextStep();
+      } else {
+        console.warn('nextStep() non défini dans QuestionScreen');
+      }
     }
   }
 };
@@ -192,8 +221,8 @@ export default {
         <h2>Feedback</h2>
         <img v-if="currentQuestion.feedback.image" :src="currentQuestion.feedback.image" alt="Feedback Image" class="feedback-image">
         <p v-if="currentQuestion.feedback.text" class="feedback-text">{{ currentQuestion.feedback.text }}</p>
-        <audio v-if="currentQuestion.feedback.audio" ref="feedbackAudio" :src="currentQuestion.feedback.audio" controls autoplay @ended="nextStepAfterFeedback"></audio>
-        <button v-else @click="nextStepAfterFeedback" class="next-button">Suivant</button>
+        <audio v-if="currentQuestion.feedback.audio" ref="feedbackAudio" :src="currentQuestion.feedback.audio" autoplay @ended="nextStepAfterFeedback"></audio>
+        <!-- Bouton supprimé, transition auto -->
       </div>
     </div>
 
@@ -224,6 +253,8 @@ export default {
     </div>
   </div>
 </template>
+
+
 
 <style scoped>
 /* Styles existants */

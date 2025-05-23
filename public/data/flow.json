@@ -32,7 +32,7 @@
   {
     "objectId": "QuestionCount",
     "props": {
-      "options": [4, 8, 16, 20]
+      "options": [8, 12, 16, 20]
     }
   },
   {
@@ -53,5 +53,16 @@
   },
   {
     "objectId": "QuestionScreen"
+  },
+  {
+    "objectId": "TropheeVideo",
+    "props": {
+      "videoSources": {
+        "or": "/videos/trophee_or.mp4",
+        "argent": "/videos/trophee_argent.mp4",
+        "bronze": "/videos/trophee_bronze.mp4",
+        "none": "/videos/trophee_none.mp4"
+      }
+    }
   }
 ]
