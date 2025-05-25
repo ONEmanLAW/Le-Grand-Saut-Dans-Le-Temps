@@ -2,150 +2,266 @@
   "cinema": {
     "easy": [
       {
-        "question": "Quel film de science-fiction de 1982 met en scène un extra-terrestre attachant ?",
-        "answers": ["E.T. l'extra-terrestre", "Blade Runner", "Tron", "The Thing"],
-        "correctIndex": 0
+        "question": "Quel acteur célèbre a joué dans 'Chantons sous la pluie' (1952) ?",
+        "answers": ["Gene Kelly", "Fred Astaire", "Humphrey Bogart", "Marlon Brando"],
+        "correctIndex": 0,
+        "feedback": { "text": "Gene Kelly était la star de 'Chantons sous la pluie'." }
       },
       {
-        "question": "Qui joue Indiana Jones dans 'Les Aventuriers de l'arche perdue' (1981) ?",
-        "answers": ["Harrison Ford", "Sean Connery", "Tom Selleck", "Mel Gibson"],
-        "correctIndex": 0
+        "question": "Quel film de 1950 met en scène Gloria Swanson dans le rôle de Norma Desmond ?",
+        "answers": ["Sunset Boulevard", "All About Eve", "The Asphalt Jungle", "Born Yesterday"],
+        "correctIndex": 0,
+        "feedback": { "text": "'Sunset Boulevard' met en scène Gloria Swanson." }
       }
     ],
     "medium": [
       {
-        "question": "Quel film de 1980 de Stanley Kubrick est une adaptation d'un roman de Stephen King ?",
-        "answers": ["Shining (The Shining)", "Full Metal Jacket", "2001: L'Odyssée de l'espace", "Orange Mécanique"],
-        "correctIndex": 0
+        "question": "Quel réalisateur a dirigé 'Les Sept Samouraïs' (1954) ?",
+        "answers": ["Akira Kurosawa", "Yasujirō Ozu", "Kenji Mizoguchi", "Ingmar Bergman"],
+        "correctIndex": 0,
+        "feedback": { "text": "Le réalisateur des 'Sept Samouraïs' est Akira Kurosawa." }
       },
       {
-        "question": "Dans 'Retour vers le futur' (1985), quelle voiture est utilisée comme machine à voyager dans le temps ?",
-        "answers": ["DeLorean DMC-12", "Ford Mustang", "Chevrolet Camaro", "Pontiac Trans Am"],
-        "correctIndex": 0
+        "question": "Dans 'Sur les quais' (1954), quel métier exerce le personnage de Marlon Brando avant de devenir docker ?",
+        "answers": ["Boxeur", "Chanteur", "Policier", "Chauffeur de taxi"],
+        "correctIndex": 0,
+        "feedback": { "text": "Marlon Brando jouait un boxeur avant de devenir docker dans 'Sur les quais'." }
       }
     ],
     "hard": [
       {
-        "question": "Quel réalisateur a dirigé 'Blade Runner' en 1982 ?",
-        "answers": ["Ridley Scott", "Steven Spielberg", "George Lucas", "James Cameron"],
-        "correctIndex": 0
+        "question": "Quel est le titre original du film 'À bout de souffle' (1960), souvent associé à la Nouvelle Vague et sorti à la toute fin des années 50 ?",
+        "answers": ["Breathless", "The 400 Blows", "Hiroshima Mon Amour", "Pickpocket"],
+        "correctIndex": 0,
+        "feedback": { "text": "Le titre original de 'À bout de souffle' est 'Breathless'." }
       },
       {
-        "question": "Quel film de 1984 raconte l'histoire d'un robot tueur envoyé du futur ?",
-        "answers": ["Terminator", "RoboCop", "Short Circuit", "Aliens"],
-        "correctIndex": 0
+        "question": "Quel film de 1959 a remporté l'Oscar du meilleur film étranger et est connu pour sa séquence de descente aux enfers ?",
+        "answers": ["Orfeu Negro (Black Orpheus)", "Les Fraises sauvages (Wild Strawberries)", "Le Septième Sceau (The Seventh Seal)", "Les Quatre Cents Coups (The 400 Blows)"],
+        "correctIndex": 0,
+        "feedback": { "text": "'Orfeu Negro' a remporté l'Oscar du meilleur film étranger en 1959." }
       }
     ],
     "expert": [
       {
-        "question": "Quel film de 1988, réalisé par Hayao Miyazaki, est un classique de l'animation japonaise ?",
-        "answers": ["Mon voisin Totoro (Tonari no Totoro)", "Akira", "Le Tombeau des lucioles (Hotaru no Haka)", "Kiki la petite sorcière (Majo no Takkyūbin)"],
-        "correctIndex": 0
+        "question": "Quel monteur est crédité pour le film 'Ben-Hur' (1959), un travail colossal pour l'époque ?",
+        "answers": ["Ralph E. Winters", "Margaret Booth", "William Hornbeck", "Anne Bauchens"],
+        "correctIndex": 0,
+        "feedback": { "text": "Le monteur crédité pour 'Ben-Hur' (1959) est Ralph E. Winters." }
       },
       {
-        "question": "Pour quel film Miloš Forman a-t-il remporté l'Oscar du meilleur réalisateur en 1985 ?",
-        "answers": ["Amadeus", "Hair", "Ragtime", "Vol au-dessus d'un nid de coucou (One Flew Over the Cuckoo's Nest)"],
-        "correctIndex": 0
+        "question": "Pour quel film de 1957 Ingmar Bergman a-t-il utilisé une narration introspective et des flashbacks complexes pour explorer les souvenirs d'un professeur âgé ?",
+        "answers": ["Les Fraises sauvages (Smultronstället)", "Le Septième Sceau (Det sjunde inseglet)", "Sourires d'une nuit d'été (Sommarnattens leende)", " Monika (Sommaren med Monika)"],
+        "correctIndex": 0,
+        "feedback": { "text": "Ingmar Bergman a utilisé une narration introspective dans 'Les Fraises sauvages'." }
       }
     ]
   },
   "musique": {
     "easy": [
       {
-        "question": "Quel artiste est connu comme le 'Roi de la Pop' dans les années 80 ?",
-        "answers": ["Michael Jackson", "Prince", "Madonna", "Stevie Wonder"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/brelDebut.mp3", "text": "Écoutez l'introduction..." },
+        "question": "« Je t'offrirai des perles de pluie… »",
+        "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/brelFin.mp3", "text": "C'était Elvis Presley !", "image": "/images/50musique1.png" }
       },
       {
-        "question": "Quel groupe a sorti l'album 'The Joshua Tree' en 1987 ?",
-        "answers": ["U2", "R.E.M.", "The Police", "Bon Jovi"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
+        "question": "Quel chanteur français est célèbre pour la chanson “Petit papa Noël” ?",
+        "answers": ["Marcel Amont","Tino Rossi"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/brelDebut.mp3", "text": "Écoutez l'introduction..." },
+        "question": "Quel chanteur français a popularisé le tube “C'est si bon” ?",
+        "answers": ["Yves Montand", "Charles Aznavour"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/brelFin.mp3", "text": "C'était Elvis Presley !", "image": "/images/50musique1.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
+        "question": "« La bohème, la bohème... »",
+        "answers": ["Ta musique est plus jolie", "Et nous vivions heureux"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
+      },
+       {
+        "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
+        "question": "« Mon petit Bambino… »",
+        "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
       }
     ],
     "medium": [
       {
-        "question": "Quelle chanteuse a popularisé le look 'punk-pop' et a sorti 'Like a Virgin' en 1984 ?",
-        "answers": ["Madonna", "Cyndi Lauper", "Whitney Houston", "Janet Jackson"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/milesdavis_intro.mp3", "text": "Laissez-vous emporter par le son de..." },
+        "question": "« Dans les bars à la tombée du jour… » - Charles Aznavour",
+        "answers": ["Avec les copains", "Avec les marins"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/milesdavis_outro.mp3", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique4.png" }
       },
       {
-        "question": "Le 'Live Aid' était un concert caritatif majeur organisé en quelle année ?",
-        "answers": ["1985", "1983", "1987", "1989"],
-        "correctIndex": 0
-      }
+        "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
+        "question": "Qui a popularisé la chanson “Gondolier” en 1957 ?",
+        "answers": ["Dalida", "Mireille Mathieu"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/milesdavis_intro.mp3", "text": "Laissez-vous emporter par le son de..." },
+        "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
+        "answers": ["Vrai", "Faux"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/milesdavis_outro.mp3", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique4.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
+        "question": "« Il est cinq heures, Paris se lève… » - Jacques Dutronc",
+        "answers": ["Les rues sont vides", "Je n'ai pas sommeil"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
+        "question": "Quel chanteur a écrit la chanson “Et maintenant”, reprise par de nombreux artistes ?",
+        "answers": ["Gilbert Bécaud", "Charles Aznavour"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
+      }    
     ],
     "hard": [
       {
-        "question": "Quel genre musical électronique, originaire de Detroit, a gagné en popularité à la fin des années 80 ?",
-        "answers": ["Techno", "House", "Hip-hop", "New Wave"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/chuckberry_intro.mp3", "text": "Reconnaissez-vous ce riff ?" },
+        "question": "« Padam, padam, padam… Il arrive en courant derrière moi… »",
+        "answers": ["Avec ses souvenirs que je ne veux plus", "Avec ses souvenirs que je reconnais", "Il me fait le coup du souvient toi", "Et me chante encore ce que je fuis"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/chuckberry_outro.mp3", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique5.png" }
       },
       {
-        "question": "Le clip de quelle chanson de Michael Jackson, sorti en 1983, a révolutionné la production de clips musicaux ?",
-        "answers": ["Thriller", "Billie Jean", "Beat It", "Smooth Criminal"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
+        "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
+        "answers": ["Gilbert Bécaud", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/chuckberry_intro.mp3", "text": "Reconnaissez-vous ce riff ?" },
+        "question": "« J'aime mieux m'en aller… » - Barbara",
+        "answers": ["Sans rien dire", "Dans un souffle, dans un cri", "Du temps que je suis belle", "Dans l'ombre de la nuit"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/chuckberry_outro.mp3", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique5.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
+        "question": "« Quand un soldat » - Yves Montand - Phrase à compléter : « A la guerre, à la guerre »",
+        "answers": ["C'est un drôle de petit jeu", "Part sans peur et sans espoir", "Part, on l'attend chaque jour ", "Part vers un avenir flou"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
+        "question": "Quel chanteur a composé la musique du film “Les Parapluies de Cherbourg” en 1964 ?",
+        "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
       }
     ],
     "expert": [
       {
-        "question": "Quel groupe de rap pionnier a sorti l'album 'Raising Hell' en 1986, incluant une collaboration avec Aerosmith ?",
-        "answers": ["Run-D.M.C.", "Public Enemy", "N.W.A.", "Beastie Boys"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/bernardherrmann_intro.mp3", "text": "Plongez dans l'ambiance de ce film..." },
+        "question": "« La chanson de Prévert » - Serge Gainsbourg - Phrase à compléter : « Et chaque fois les feuilles mortes… »",
+        "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "Te rappellent à mon souvenir"],
+        "correctIndex": 3,
+        "feedback": { "audio": "/audio/bernardherrmann_outro.mp3", "text": "La musique était de Bernard Herrmann.", "image": "/images/50musique7.png" }
       },
       {
-        "question": "Le 'Fairlight CMI' était un instrument emblématique des années 80. Qu'était-ce ?",
-        "answers": ["Un synthétiseur/sampler numérique", "Une guitare électrique", "Une boîte à rythmes", "Un type de microphone"],
-        "correctIndex": 0
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "Qui a interprété “Ma p'tite chanson” avec succès en 1953 ?",
+        "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
+        "answers": ["Charles Trenet", "Hubert Giraud", "Hubert Salentin", "Hubert Giraud"],
+        "correctIndex": 3,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "« Ne me quitte pas » - Jacques Brel - Phrase à compléter : « Moi je t'offrirais des perles de pluie.. »",
+        "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "« Milord » - Édith Piaf Phrase à compléter : « Allez venez Milord… »",
+        "answers": ["Je serai là, toute à vous", "Vous avez l'air d'un môme…", "Je chanterai nos jours heureux", "Le temps n'aura pas de prise"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
       }
     ]
   },
   "histoire": {
     "easy": [
       {
-        "question": "Quel mur symbolique de la Guerre Froide est tombé en 1989 ?",
-        "answers": ["Le Mur de Berlin", "Le Rideau de Fer", "La Grande Muraille de Chine", "Le Mur d'Hadrien"],
-        "correctIndex": 0
+        "question": "Quelle guerre majeure s'est terminée au début des années 50 (1953) ?",
+        "answers": ["La Guerre de Corée", "La Première Guerre mondiale", "La Guerre du Vietnam", "La Seconde Guerre mondiale"],
+        "correctIndex": 0,
+        "feedback": { "text": "La Guerre de Corée s'est terminée en 1953." }
       },
       {
-        "question": "Qui était président des États-Unis pendant la majeure partie des années 80 (1981-1989) ?",
-        "answers": ["Ronald Reagan", "George H.W. Bush", "Jimmy Carter", "Gerald Ford"],
-        "correctIndex": 0
+        "question": "Quel pays a lancé le premier satellite artificiel, Spoutnik 1, en 1957 ?",
+        "answers": ["L'Union Soviétique", "Les États-Unis", "La France", "Le Royaume-Uni"],
+        "correctIndex": 0,
+        "feedback": { "text": "L'Union Soviétique a lancé Spoutnik 1." }
       }
     ],
     "medium": [
       {
-        "question": "Quel pays l'URSS a-t-elle envahi en 1979, menant à une guerre qui a duré toutes les années 80 ?",
-        "answers": ["L'Afghanistan", "L'Iran", "La Pologne", "La Tchécoslovaquie"],
-        "correctIndex": 0
+        "question": "Qui est devenu président des États-Unis en 1953 ?",
+        "answers": ["Dwight D. Eisenhower", "Harry S. Truman", "John F. Kennedy", "Richard Nixon"],
+        "correctIndex": 0,
+        "feedback": { "text": "Dwight D. Eisenhower est devenu président en 1953." }
       },
       {
-        "question": "La catastrophe nucléaire de Tchernobyl a eu lieu en quelle année ?",
-        "answers": ["1986", "1983", "1989", "1981"],
-        "correctIndex": 0
+        "question": "Quel événement marquant pour les droits civiques aux USA a eu lieu en 1955 à Montgomery, Alabama ?",
+        "answers": ["Le boycott des bus de Montgomery", "La marche sur Washington", "L'affaire Brown v. Board of Education", "Les sit-ins de Greensboro"],
+        "correctIndex": 0,
+        "feedback": { "text": "Le boycott des bus de Montgomery en 1955." }
       }
     ],
     "hard": [
       {
-        "question": "Quel nom a été donné à l'initiative de défense stratégique proposée par Ronald Reagan, surnommée 'Star Wars' ?",
-        "answers": ["Initiative de Défense Stratégique (IDS)", "Programme Apollo", "Projet Manhattan", "Bouclier de la Paix"],
-        "correctIndex": 0
+        "question": "En quelle année la Communauté Économique Européenne (CEE) a-t-elle été créée par le Traité de Rome ?",
+        "answers": ["1957", "1951", "1960", "1949"],
+        "correctIndex": 0,
+        "feedback": { "text": "La CEE a été créée en 1957." }
       },
       {
-        "question": "En quelle année le Royaume-Uni et l'Argentine se sont-ils affrontés lors de la Guerre des Malouines (Falklands War) ?",
-        "answers": ["1982", "1980", "1985", "1987"],
-        "correctIndex": 0
+        "question": "Quel leader a pris le pouvoir à Cuba en 1959 ?",
+        "answers": ["Fidel Castro", "Fulgencio Batista", "Che Guevara", "Raul Castro"],
+        "correctIndex": 0,
+        "feedback": { "text": "Fidel Castro a pris le pouvoir à Cuba en 1959." }
       }
     ],
     "expert": [
       {
-        "question": "Quel mouvement de protestation mené par des étudiants a eu lieu sur la place Tian'anmen en Chine en 1989 ?",
-        "answers": ["Les manifestations de la place Tian'anmen", "La Révolution Culturelle", "Le Grand Bond en avant", "Le mouvement du 4 Mai"],
-        "correctIndex": 0
+        "question": "La crise de Suez en 1956 impliquait principalement quels pays contre l'Égypte ?",
+        "answers": ["Le Royaume-Uni, la France et Israël", "Les États-Unis et l'Union Soviétique", "L'Allemagne et l'Italie", "La Chine et l'Inde"],
+        "correctIndex": 0,
+        "feedback": { "text": "La crise de Suez impliquait le Royaume-Uni, la France et Israël contre l'Égypte." }
       },
       {
-        "question": "Le terme 'Glasnost', signifiant 'transparence', était une politique introduite par quel dirigeant soviétique dans les années 80 ?",
-        "answers": ["Mikhaïl Gorbatchev", "Leonid Brejnev", "Iouri Andropov", "Constantin Tchernenko"],
-        "correctIndex": 0
+        "question": "Quel physicien a développé la théorie de la relativité générale, dont les implications ont continué d'être explorées dans les années 50 ?",
+        "answers": ["Albert Einstein", "Niels Bohr", "Max Planck", "Werner Heisenberg"],
+        "correctIndex": 0,
+        "feedback": { "text": "Albert Einstein a développé la théorie de la relativité générale." }
       }
     ]
   }

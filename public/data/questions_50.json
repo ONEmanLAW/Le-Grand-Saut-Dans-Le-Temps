@@ -61,47 +61,110 @@
     "easy": [
       {
         "beforeQuestion": { "audio": "/audio/brelDebut.mp3", "text": "Écoutez l'introduction..." },
-        "question": "Qui est surnommé 'The King of Rock and Roll' dans les années 50 ?",
-        "answers": ["Elvis Presley", "Chuck Berry", "Little Richard", "Fats Domino"],
+        "question": "« Je t'offrirai des perles de pluie… »",
+        "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/brelFin.mp3", "text": "C'était Elvis Presley !", "image": "/images/50musique1.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
+        "question": "Quel chanteur français est célèbre pour la chanson “Petit papa Noël” ?",
+        "answers": ["Marcel Amont","Tino Rossi"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/brelDebut.mp3", "text": "Écoutez l'introduction..." },
+        "question": "Quel chanteur français a popularisé le tube “C'est si bon” ?",
+        "answers": ["Yves Montand", "Charles Aznavour"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/brelFin.mp3", "text": "C'était Elvis Presley !", "image": "/images/50musique1.png" }
       },
       {
         "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
-        "question": "Quel genre musical a émergé avec force dans les années 50, popularisé par des artistes comme Bill Haley & His Comets ?",
-        "answers": ["Rock 'n' roll", "Jazz Bebop", "Blues électrique", "Country"],
+        "question": "« La bohème, la bohème... »",
+        "answers": ["Ta musique est plus jolie", "Et nous vivions heureux"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
+      },
+       {
+        "beforeQuestion": { "audio": "/audio/aznavourDebut.mp3", "text": "Préparez-vous au son du..." },
+        "question": "« Mon petit Bambino… »",
+        "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/aznavourFin.mp3", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.png" }
       }
     ],
     "medium": [
       {
+        "beforeQuestion": { "audio": "/audio/milesdavis_intro.mp3", "text": "Laissez-vous emporter par le son de..." },
+        "question": "« Dans les bars à la tombée du jour… » - Charles Aznavour",
+        "answers": ["Avec les copains", "Avec les marins"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/milesdavis_outro.mp3", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique4.png" }
+      },
+      {
         "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
-        "question": "Quel pianiste et chanteur de 'Great Balls of Fire' était connu pour son style de jeu énergique au piano ?",
-        "answers": ["Jerry Lee Lewis", "Little Richard", "Fats Domino", "Ray Charles"],
+        "question": "Qui a popularisé la chanson “Gondolier” en 1957 ?",
+        "answers": ["Dalida", "Mireille Mathieu"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
       },
       {
         "beforeQuestion": { "audio": "/audio/milesdavis_intro.mp3", "text": "Laissez-vous emporter par le son de..." },
-        "question": "Miles Davis est une figure emblématique de quel sous-genre du jazz, particulièrement influent dans les années 50 ?",
-        "answers": ["Cool Jazz / Modal Jazz", "Swing", "Dixieland", "Free Jazz"],
+        "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
+        "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/milesdavis_outro.mp3", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique4.png" }
-      }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
+        "question": "« Il est cinq heures, Paris se lève… » - Jacques Dutronc",
+        "answers": ["Les rues sont vides", "Je n'ai pas sommeil"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/dalidaDebut.mp3", "text": "Écoutez ce piano endiablé..." },
+        "question": "Quel chanteur a écrit la chanson “Et maintenant”, reprise par de nombreux artistes ?",
+        "answers": ["Gilbert Bécaud", "Charles Aznavour"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/dalidaFin.mp3", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique3.png" }
+      }    
     ],
     "hard": [
       {
         "beforeQuestion": { "audio": "/audio/chuckberry_intro.mp3", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "Quel single de Chuck Berry, sorti en 1958, est célèbre pour son intro de guitare iconique ?",
-        "answers": ["Johnny B. Goode", "Maybellene", "Roll Over Beethoven", "Sweet Little Sixteen"],
-        "correctIndex": 0,
+        "question": "« Padam, padam, padam… Il arrive en courant derrière moi… »",
+        "answers": ["Avec ses souvenirs que je ne veux plus", "Avec ses souvenirs que je reconnais", "Il me fait le coup du souvient toi", "Et me chante encore ce que je fuis"],
+        "correctIndex": 2,
         "feedback": { "audio": "/audio/chuckberry_outro.mp3", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique5.png" }
       },
       {
         "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
-        "question": "Comment s'appelait le studio d'enregistrement de Memphis où Elvis Presley, Johnny Cash et Jerry Lee Lewis ont débuté ?",
-        "answers": ["Sun Studio", "Chess Records", "Motown Records", "Stax Records"],
+        "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
+        "answers": ["Gilbert Bécaud", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/chuckberry_intro.mp3", "text": "Reconnaissez-vous ce riff ?" },
+        "question": "« J'aime mieux m'en aller… » - Barbara",
+        "answers": ["Sans rien dire", "Dans un souffle, dans un cri", "Du temps que je suis belle", "Dans l'ombre de la nuit"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/chuckberry_outro.mp3", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique5.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
+        "question": "« Quand un soldat » - Yves Montand - Phrase à compléter : « A la guerre, à la guerre »",
+        "answers": ["C'est un drôle de petit jeu", "Part sans peur et sans espoir", "Part, on l'attend chaque jour ", "Part vers un avenir flou"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunstudio_intro.mp3", "text": "Un son qui a marqué l'histoire..." },
+        "question": "Quel chanteur a composé la musique du film “Les Parapluies de Cherbourg” en 1964 ?",
+        "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/sunstudio_outro.mp3", "text": "Le célèbre Sun Studio.", "image": "/images/50musique6.png" }
       }
@@ -109,16 +172,37 @@
     "expert": [
       {
         "beforeQuestion": { "audio": "/audio/bernardherrmann_intro.mp3", "text": "Plongez dans l'ambiance de ce film..." },
-        "question": "Quel compositeur de musique de film a créé la bande originale mémorable pour 'Vertigo' (Sueurs Froides) d'Alfred Hitchcock en 1958 ?",
-        "answers": ["Bernard Herrmann", "Max Steiner", "Franz Waxman", "Dimitri Tiomkin"],
-        "correctIndex": 0,
+        "question": "« La chanson de Prévert » - Serge Gainsbourg - Phrase à compléter : « Et chaque fois les feuilles mortes… »",
+        "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "Te rappellent à mon souvenir"],
+        "correctIndex": 3,
         "feedback": { "audio": "/audio/bernardherrmann_outro.mp3", "text": "La musique était de Bernard Herrmann.", "image": "/images/50musique7.png" }
       },
       {
         "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
-        "question": "La technique de 'slapback echo' était caractéristique du son de quel label des années 50 ?",
-        "answers": ["Sun Records", "Capitol Records", "RCA Victor", "Columbia Records"],
+        "question": "Qui a interprété “Ma p'tite chanson” avec succès en 1953 ?",
+        "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
         "correctIndex": 0,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
+        "answers": ["Charles Trenet", "Hubert Giraud", "Hubert Salentin", "Hubert Giraud"],
+        "correctIndex": 3,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "« Ne me quitte pas » - Jacques Brel - Phrase à compléter : « Moi je t'offrirais des perles de pluie.. »",
+        "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/sunrecords_intro.mp3", "text": "Le son caractéristique de..." },
+        "question": "« Milord » - Édith Piaf Phrase à compléter : « Allez venez Milord… »",
+        "answers": ["Je serai là, toute à vous", "Vous avez l'air d'un môme…", "Je chanterai nos jours heureux", "Le temps n'aura pas de prise"],
+        "correctIndex": 1,
         "feedback": { "audio": "/audio/sunrecords_outro.mp3", "text": "C'était le son de Sun Records.", "image": "/images/50musique8.png" }
       }
     ]
