@@ -22,6 +22,8 @@ import ThemeCount from './components/ThemeCount.vue'
 import ThemeIntroVideo from './components/ThemeIntroVideo.vue'
 import QuestionScreen from './components/QuestionScreen.vue'
 import TropheeVideo from './components/TropheeVideo.vue'
+import EndVideoScreen from './components/EndVideoScreen.vue'
+import EndGameScreen from './components/EndGameScreen.vue'
 
 export default {
   name: 'App',
@@ -36,7 +38,9 @@ export default {
     ThemeCount,
     ThemeIntroVideo,
     QuestionScreen,
-    TropheeVideo
+    TropheeVideo,
+    EndVideoScreen,
+    EndGameScreen
   },
   data() {
     return {

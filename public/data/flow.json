@@ -64,5 +64,15 @@
         "none": "/videos/trophee_none.mp4"
       }
     }
+  },
+  {
+    "objectId": "EndVideoScreen",
+    "props": {
+      "src": "/videos/endVideo.mp4"
+    }
+  },
+  {
+    "objectId": "EndGameScreen"
   }
+
 ]

@@ -1,40 +1,28 @@
 <template>
-  <div class="trophee-video-screen">
-    <h2 v-if="trophee">{{ getTropheeTitle }} !</h2>
-    <p v-else>Fin de la partie.</p>
-    <video
-      v-if="tropheeVideoSource"
-      ref="tropheeVideoPlayer"
-      :src="tropheeVideoSource"
-      autoplay
-      playsinline
-      muted
-      @ended="onTropheeVideoEnded"
-    >
-      Votre navigateur ne supporte pas la lecture de vidéos.
-    </video>
+  <div class="end-game-screen">
+    <h1>Résultat final</h1>
+    <p class="score">Score : {{ score }} / {{ questions }}</p>
+    <p class="trophee" v-if="trophee">{{ tropheeMessage }}</p>
+    <p v-else>Aucun trophée obtenu.</p>
+    <button @click="replayGame">Rejouer</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['totalQuestions', 'videoSources', 'nextStep'],
   data() {
     return {
-      trophee: null,
       score: 0,
       questions: 0,
+      trophee: ''
     }
   },
   computed: {
-    tropheeVideoSource() {
-      return this.trophee ? this.videoSources[this.trophee] : this.videoSources['none']
-    },
-    getTropheeTitle() {
-      if (this.trophee === 'or') return "Trophée d'or"
-      if (this.trophee === 'argent') return "Trophée d'argent"
-      if (this.trophee === 'bronze') return "Trophée de bronze"
-      return ""
+    tropheeMessage() {
+      if (this.trophee === 'or') return "Trophée d'or 🎉"
+      if (this.trophee === 'argent') return "Trophée d'argent 🥈"
+      if (this.trophee === 'bronze') return "Trophée de bronze 🥉"
+      return ''
     }
   },
   mounted() {
@@ -51,62 +39,63 @@ export default {
         if (correctAnswers >= 7) this.trophee = 'or'
         else if (correctAnswers >= 5) this.trophee = 'argent'
         else if (correctAnswers >= 4) this.trophee = 'bronze'
-        else this.trophee = 'none'
+        else this.trophee = ''
       } else if (questions === 12) {
         if (correctAnswers >= 10) this.trophee = 'or'
         else if (correctAnswers >= 8) this.trophee = 'argent'
         else if (correctAnswers >= 6) this.trophee = 'bronze'
-        else this.trophee = 'none'
+        else this.trophee = ''
       } else if (questions === 16) {
         if (correctAnswers >= 13) this.trophee = 'or'
         else if (correctAnswers >= 10) this.trophee = 'argent'
         else if (correctAnswers >= 8) this.trophee = 'bronze'
-        else this.trophee = 'none'
+        else this.trophee = ''
       } else if (questions === 20) {
         if (correctAnswers >= 16) this.trophee = 'or'
         else if (correctAnswers >= 13) this.trophee = 'argent'
         else if (correctAnswers >= 10) this.trophee = 'bronze'
-        else this.trophee = 'none'
+        else this.trophee = ''
       } else {
-        this.trophee = 'none'
+        this.trophee = ''
       }
     },
-    onTropheeVideoEnded() {
-      if (typeof this.nextStep === 'function') {
-        this.nextStep()
-      }
+    replayGame() {
+      localStorage.removeItem('score')
+      localStorage.removeItem('questionCount')
+      window.location.reload()
     }
   }
 }
 </script>
 
-
 <style scoped>
-.trophee-video-screen {
+.end-game-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 40px;
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #fafafa;
+  padding: 20px;
+  text-align: center;
 }
-
-h2 {
-  color: gold;
-  margin-bottom: 20px;
+.score {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 20px 0;
 }
-
-p {
-  font-size: 1.2em;
-  color: #555;
-  margin-bottom: 20px;
+.trophee {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: goldenrod;
 }
-
-video {
-  max-width: 80%;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+button {
+  font-size: 1.5rem;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #eee;
 }
 </style>
