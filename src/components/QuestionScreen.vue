@@ -198,7 +198,14 @@ export default {
 </script>
 
 <template>
-  <div class="question-screen" :class="{'answered-state': answered, 'before-question-state': isBeforeQuestion, 'feedback-state': isFeedback}">
+  <div
+    class="question-screen"
+    :class="{
+      'answered-state': answered,
+      'before-question-state': isBeforeQuestion,
+      'feedback-state': isFeedback
+    }"
+  >
     <div v-if="loading">Chargement des questions...</div>
     <div v-else-if="error">Erreur : {{ error }}</div>
 
@@ -211,39 +218,65 @@ export default {
     <div v-else-if="isBeforeQuestion && currentQuestion?.beforeQuestion">
       <div class="before-question-content">
         <h2 v-if="currentQuestion.beforeQuestion.text">{{ currentQuestion.beforeQuestion.text }}</h2>
-        <audio v-if="currentQuestion.beforeQuestion.audio" ref="beforeQuestionAudio" :src="currentQuestion.beforeQuestion.audio" controls autoplay @ended="startQuestion"></audio>
-        <button v-else @click="startQuestion" class="start-button">Commencer la question</button>
+        <audio
+          v-if="currentQuestion.beforeQuestion.audio"
+          ref="beforeQuestionAudio"
+          :src="currentQuestion.beforeQuestion.audio"
+          controls
+          autoplay
+          @ended="startQuestion"
+        ></audio>
+        <button v-else @click="startQuestion" class="start-button">
+          Commencer la question
+        </button>
       </div>
     </div>
 
     <div v-else-if="isFeedback && currentQuestion?.feedback">
       <div class="feedback-content">
         <h2>Feedback</h2>
-        <img v-if="currentQuestion.feedback.image" :src="currentQuestion.feedback.image" alt="Feedback Image" class="feedback-image">
-        <p v-if="currentQuestion.feedback.text" class="feedback-text">{{ currentQuestion.feedback.text }}</p>
-        <audio v-if="currentQuestion.feedback.audio" ref="feedbackAudio" :src="currentQuestion.feedback.audio" autoplay @ended="nextStepAfterFeedback"></audio>
+        <img
+          v-if="currentQuestion.feedback.image"
+          :src="currentQuestion.feedback.image"
+          alt="Feedback Image"
+          class="feedback-image"
+        />
+        <p v-if="currentQuestion.feedback.text" class="feedback-text">
+          {{ currentQuestion.feedback.text }}
+        </p>
+        <audio
+          v-if="currentQuestion.feedback.audio"
+          ref="feedbackAudio"
+          :src="currentQuestion.feedback.audio"
+          autoplay
+          @ended="nextStepAfterFeedback"
+        ></audio>
         <!-- Bouton supprimé, transition auto -->
       </div>
     </div>
 
     <div v-else-if="currentQuestion">
-      <p v-if="totalQuestionsToAsk > 0" class="question-number">Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}</p>
+      <p v-if="totalQuestionsToAsk > 0" class="question-number">
+        Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}
+      </p>
       <h2>{{ currentQuestion.question }}</h2>
-      <ul class="answers-grid">
+      <ul class="answers-grid" :data-count="currentQuestion.answers.length">
         <li
           v-for="(answer, index) in currentQuestion.answers"
           :key="index"
           :class="{
-            'correct': answered && index === currentQuestion.correctIndex,
-            'incorrect': answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
-            'hidden': answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
+            correct: answered && index === currentQuestion.correctIndex,
+            incorrect: answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
+            hidden: answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
           }"
         >
           <button
             @click="selectAnswer(index)"
             :disabled="answered"
             :style="{ backgroundColor: answerColors[index % answerColors.length] }"
-          >{{ answer }}</button>
+          >
+            {{ answer }}
+          </button>
         </li>
       </ul>
     </div>
@@ -257,7 +290,6 @@ export default {
 
 
 <style scoped>
-/* Styles existants */
 .question-screen {
   display: flex;
   flex-direction: column;
@@ -266,7 +298,6 @@ export default {
   min-height: 100vh;
   padding: 40px;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -292,70 +323,79 @@ h2 {
   list-style: none;
   padding: 0;
   margin-bottom: 30px;
-  width: 100%;
   display: grid;
+  justify-content: center; /* centre la grille horizontale */
+  gap: 20px;
+}
+
+.answers-grid[data-count="2"] {
+  grid-template-columns: 1fr;
+  width: fit-content; /* largeur juste ce qu'il faut */
+  margin: 0 auto; /* centre horizontalement le container */
+}
+
+.answers-grid[data-count="4"] {
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  width: fit-content;
+  margin: 0 auto; /* centre horizontalement */
+  gap: 20px 40px;
 }
 
 .answers-grid li {
-  margin: 0;
-  opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* centre horizontalement le bouton dans son li */
+  width: auto; /* pas de largeur fixe, prend la largeur du bouton */
 }
 
 .answers-grid button {
-  display: block;
-  width: 100%;
-  padding: 15px 25px;
-  font-size: 18px;
+  width: 454px;
+  height: 180px;
+  font-size: 48px;
+  font-weight: bold;
   cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 3px solid black;
+  border-radius: 16px;
+  color: black;
+  background-color: transparent;
+  transition: filter 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
   box-sizing: border-box;
-  background-color: inherit;
+}
+
+
+.answers-grid button:hover:not(:disabled) {
+  filter: brightness(85%);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .answers-grid button:disabled {
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-.answers-grid li.correct {
-  grid-column: 1 / -1;
-  justify-self: center;
-  animation: moveToCenter 0.5s ease-out forwards;
-}
-
+/* États correct / incorrect */
 .answers-grid li.correct button {
-  color: #333;
-  font-weight: bold;
+  border-color: #28a745;
+  color: #28a745;
 }
 
-.answers-grid li.incorrect {
+.answers-grid li.incorrect button {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+/* Après réponse, cacher les boutons non corrects */
+.question-screen.answered-state .answers-grid li:not(.correct) {
   opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .hidden {
   display: none;
-}
-
-video {
-  width: 80%;
-  max-width: 600px;
-  margin-top: 30px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-p {
-  color: #555;
-  margin-top: 15px;
-  text-align: center;
 }
 
 .fullscreen-message {
@@ -374,32 +414,7 @@ p {
   font-weight: bold;
 }
 
-@keyframes moveToCenter {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Styles spécifiques après la réponse */
-.question-screen.answered-state .answers-grid {
-  /* La disposition est gérée par les styles ci-dessus */
-}
-
-.question-screen.answered-state .answers-grid li:not(.correct) {
-  opacity: 0;
-  display: block;
-}
-
-.question-screen.answered-state h2 {
-  opacity: 0.5;
-}
-
-/* Styles pour l'écran "Before Question" */
+/* Styles "Before Question" */
 .before-question-content {
   display: flex;
   flex-direction: column;
@@ -429,7 +444,7 @@ p {
   background-color: #0056b3;
 }
 
-/* Styles pour l'écran de feedback */
+/* Styles Feedback */
 .feedback-content {
   display: flex;
   flex-direction: column;
@@ -453,20 +468,5 @@ p {
 
 .feedback-content audio {
   margin-bottom: 20px;
-}
-
-.feedback-content .next-button {
-  padding: 15px 30px;
-  font-size: 1.2em;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  background-color: #28a745;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.feedback-content .next-button:hover {
-  background-color: #1e7e34;
 }
 </style>
