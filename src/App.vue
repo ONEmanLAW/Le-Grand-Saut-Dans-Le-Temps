@@ -1,11 +1,16 @@
 <template>
-  <div @touchstart.passive="handleTouch" class="app-container">
+  <!-- Ajout d'une classe dynamique selon l'époque -->
+  <div
+    @touchstart.passive="handleTouch"
+    :class="['app-container', backgroundEraClass]"
+  >
     <WebSocketClient />
     <component
       v-if="currentStep"
       :is="currentStep.objectId"
       v-bind="currentStep.props"
       :next-step="nextStep"
+      @era-selected="onEraSelected"
     />
   </div>
 </template>
@@ -48,11 +53,18 @@ export default {
       currentIndex: 0,
       tapCount: 0,
       tapTimer: null,
+      selectedEra: null,  // Pas d'époque choisie au départ
     }
   },
   computed: {
     currentStep() {
       return this.flow[this.currentIndex] || null
+    },
+    backgroundEraClass() {
+      console.log('selectedEra:', this.selectedEra)
+      if (this.selectedEra === '50') return 'bg-era-50'
+      if (this.selectedEra === '80') return 'bg-era-80'
+      return 'bg-default'
     }
   },
   methods: {
@@ -82,10 +94,45 @@ export default {
         }
         this.tapCount = 0
       }, 500)
+    },
+    onEraSelected(era) {
+      // Ne change le fond que si l'utilisateur a fait un vrai choix (ignore '50' par défaut sans localStorage)
+      if (era === '50' && !localStorage.getItem('selectedEra')) {
+        // Ignore cette valeur par défaut automatique
+        return
+      }
+      this.selectedEra = era
+      localStorage.setItem('selectedEra', era)
     }
   },
   mounted() {
     this.loadFlow()
+    // Ne pas précharger selectedEra depuis localStorage pour éviter le changement automatique
+    // this.selectedEra = localStorage.getItem('selectedEra') || null
   }
 }
 </script>
+
+<style>
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: red; /* pour test */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Classes pour fond selon époque */
+.bg-default {
+  background-image: url('/images/default.png');
+}
+.bg-era-50 {
+  background-image: url('/images/era50.png');
+}
+.bg-era-80 {
+  background-image: url('/images/era80.png');
+}
+</style>
