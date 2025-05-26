@@ -7,6 +7,7 @@
       autoplay
       playsinline
       @ended="nextStep"
+      muted="false"
     ></video>
   </div>
 </template>
@@ -33,17 +34,23 @@ export default {
 
 <style scoped>
 .theme-intro-video-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .video-player {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="question-count-screen">
-    <h2 class="title fade-in" style="animation-delay: 0s;">Choisissez le nombre de questions</h2>
+    <h1 class="title fade-in" style="animation-delay: 0s;">Choisissez le nombre de questions</h1>
     
     <div class="button-row">
       <button
@@ -72,37 +72,36 @@ export default {
 }
 
 .title {
-  font-size: 40px;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   text-align: center;
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
+  width: 600px;
 }
 
 .button-row {
   display: flex;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 60px;
+  margin-bottom: 60px;
   justify-content: center;
 }
 
 button {
-  width: 140px;
-  height: 80px;
-  font-size: 28px;
-  border: none;
-  border-radius: 12px;
-  color: white;
+  width: 454px;
+  height: 180px;
+  font-size: 48px;
+  border: 3px solid black;
+  border-radius: 16px;
+  color: black;
+  font-weight: bold;
   cursor: pointer;
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
   transition: filter 0.3s;
 }
 
-button:hover {
-  filter: brightness(85%);
-}
+
 
 /* Animation fadeInUp */
 @keyframes fadeInUp {

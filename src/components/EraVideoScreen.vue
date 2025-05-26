@@ -6,6 +6,7 @@
       :src="currentVideo"
       autoplay
       playsinline
+      muted
       @ended="handleEnded"
     ></video>
   </div>
@@ -20,7 +21,6 @@ export default {
   },
   data() {
     return {
-      // Ne pas forcer la valeur '50' ici pour ne pas déclencher le fond automatique
       selectedEra: localStorage.getItem('selectedEra') || null
     }
   },
@@ -37,7 +37,6 @@ export default {
           this.nextStep()
         }
       }
-      // Si selectedEra est null, ne rien faire (pas de choix, pas d’émission)
     }
   }
 }
@@ -45,16 +44,22 @@ export default {
 
 <style scoped>
 .video-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  overflow: hidden;
+  z-index: 9999;
+  background: black;
 }
+
 .video-player {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
   display: block;
 }
 </style>

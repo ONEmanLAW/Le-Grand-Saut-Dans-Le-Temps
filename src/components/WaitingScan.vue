@@ -62,7 +62,7 @@ export default {
 
 <template>
   <div class="waiting-scan-container">
-    <p>En attente du scan du badge…</p>
+    <h1>En attente du scan du badge…</h1>
   </div>
 </template>
 

@@ -11,6 +11,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: 'GameRulesIntro',
@@ -23,14 +24,22 @@ export default {
 
 <style scoped>
 .game-rules-intro-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 9999;
+  background: black;
 }
 
 .video-player {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
 </style>

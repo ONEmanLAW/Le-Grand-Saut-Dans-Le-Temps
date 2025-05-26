@@ -1,6 +1,6 @@
 <template>
   <div class="theme-count-screen">
-    <h2 class="title fade-in" style="animation-delay: 0s;">Choisissez un thème</h2>
+    <h1 class="title fade-in" style="animation-delay: 0s;">Choisissez un thème</h1>
     <div class="button-row">
       <button
         v-for="(theme, index) in selectedThemes"
@@ -68,7 +68,6 @@ export default {
 }
 
 .title {
-  font-size: 40px;
   font-weight: bold;
   margin-bottom: 60px;
   text-align: center;
@@ -78,26 +77,26 @@ export default {
 
 .button-row {
   display: flex;
+  flex-direction: column;
   gap: 40px;
   justify-content: center;
+  align-items: center;
 }
 
 button {
-  width: 180px;
-  height: 80px;
-  font-size: 28px;
-  border: none;
-  border-radius: 12px;
-  color: white;
+  width: 900px;
+  height: 180px;
+  font-size: 48px;
+  border: 3px solid black;
+  border-radius: 16px;
+  color: black;
+  font-weight: bold;
   cursor: pointer;
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
   transition: filter 0.3s;
 }
 
-button:hover {
-  filter: brightness(85%);
-}
 
 /* Animation fadeInUp */
 @keyframes fadeInUp {
