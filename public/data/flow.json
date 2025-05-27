@@ -38,7 +38,7 @@
   {
     "objectId": "ThemeCount",
     "props": {
-      "themes": ["cinema", "musique", "histoire"]
+      "themes": ["cinema", "musique"]
     }
   },
   {

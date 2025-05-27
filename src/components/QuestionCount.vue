@@ -8,11 +8,10 @@
         :key="count"
         @click="selectCount(count)"
         :disabled="!buttonsEnabled"
+        :class="{ disabled: !buttonsEnabled }"
         :style="{
           'animation-delay': `${0.3 + index * 0.2}s`,
-          backgroundColor: buttonColors[index],
-          opacity: buttonsEnabled ? 1 : 0.5,
-          cursor: buttonsEnabled ? 'pointer' : 'not-allowed'
+          backgroundColor: buttonColors[index]
         }"
       >
         {{ count }}
@@ -25,11 +24,10 @@
         :key="count"
         @click="selectCount(count)"
         :disabled="!buttonsEnabled"
+        :class="{ disabled: !buttonsEnabled }"
         :style="{
           'animation-delay': `${0.7 + index * 0.2}s`,
-          backgroundColor: buttonColors[index + 2],
-          opacity: buttonsEnabled ? 1 : 0.5,
-          cursor: buttonsEnabled ? 'pointer' : 'not-allowed'
+          backgroundColor: buttonColors[index + 2]
         }"
       >
         {{ count }}
@@ -45,7 +43,7 @@
 </template>
 
 <script>
-import ButtonInputListener from './ButtonInputListener.vue' // ajuste le chemin si besoin
+import ButtonInputListener from './ButtonInputListener.vue'
 
 export default {
   name: 'QuestionCount',
@@ -90,9 +88,6 @@ export default {
       this.nextStep()
     },
     handleButtonPress(buttonId) {
-      // Par exemple, ici tu fais correspondre les boutons A, B, C, D aux options
-      // Ou adapte selon ta logique, ici on suppose juste un mapping simple
-      // Si tu as 4 options, A->options[0], B->options[1], etc.
       const buttonMap = { A: 0, B: 1, C: 2, D: 3 }
       const index = buttonMap[buttonId]
 
@@ -141,7 +136,13 @@ button {
   cursor: pointer;
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
-  transition: filter 0.3s;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+/* Désactivation via classe */
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Animation fadeInUp */

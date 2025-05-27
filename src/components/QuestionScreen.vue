@@ -107,6 +107,17 @@ export default {
       if (currentQuestionData?.beforeQuestion) {
         this.currentQuestion = currentQuestionData;
         this.isBeforeQuestion = true;
+
+        // Dès que la question est chargée, on essaie de lancer la vidéo si elle existe
+        this.$nextTick(() => {
+          const video = this.$refs.beforeQuestionVideo;
+          if (video) {
+            video.play().catch(e => {
+              console.warn("Lecture auto vidéo bloquée :", e);
+            });
+          }
+        });
+
       } else {
         this.isBeforeQuestion = false;
         this.loadQuestion();
@@ -115,11 +126,20 @@ export default {
     startQuestion() {
       this.isBeforeQuestion = false;
       this.loadQuestion();
+
       if (this.$refs.beforeQuestionAudio) {
         this.$refs.beforeQuestionAudio.pause();
         this.$refs.beforeQuestionAudio.currentTime = 0;
       }
+
+      if (this.$refs.beforeQuestionVideo) {
+        this.$refs.beforeQuestionVideo.pause();
+        this.$refs.beforeQuestionVideo.currentTime = 0;
+        this.$refs.beforeQuestionVideo.muted = false;
+        this.$refs.beforeQuestionVideo.play();
+      }
     },
+
     loadQuestion() {
       clearTimeout(this.timeoutId);
       this.transitionVideo = false;
@@ -141,7 +161,7 @@ export default {
     },
     selectAnswer(index) {
       if (!this.answered && this.currentQuestion && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
-        this.buttonsEnabled = false; // ❌ Désactive les boutons dès le clic
+        this.buttonsEnabled = false; // Désactive les boutons dès le clic
         this.selectedAnswer = index;
         this.answered = true;
 
@@ -155,18 +175,15 @@ export default {
           ? 'Correct !'
           : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
+        // Attend 2 secondes puis affiche le feedback
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
-          if (this.currentQuestion?.feedback?.audio && this.$refs.feedbackAudio) {
-            this.$refs.feedbackAudio.play();
-          } else {
-            setTimeout(() => {
-              this.nextStepAfterFeedback();
-            }, 3000);
-          }
+          // Ne pas appeler feedbackAudio.play() manuellement, 
+          // le <audio> dans le template a autoplay et déclenche nextStepAfterFeedback au ended.
         }, 2000);
       }
     },
+
     handleButtonPress(buttonId) {
       const map = { A: 0, B: 1, C: 2, D: 3 };
       const index = map[buttonId];
@@ -301,14 +318,30 @@ export default {
     <div v-else-if="isBeforeQuestion && currentQuestion?.beforeQuestion">
       <div class="before-question-content">
         <h2 v-if="currentQuestion.beforeQuestion.text">{{ currentQuestion.beforeQuestion.text }}</h2>
+
+        <!-- Affiche la vidéo si elle existe -->
+        <video
+            v-if="currentQuestion.beforeQuestion.video"
+          ref="beforeQuestionVideo"
+          :src="currentQuestion.beforeQuestion.video"
+          autoplay
+          playsinline
+          @ended="startQuestion"
+          class="before-question-video"
+        ></video>
+
+
+        <!-- Sinon affiche l'audio si elle existe -->
         <audio
-          v-if="currentQuestion.beforeQuestion.audio"
+          v-else-if="currentQuestion.beforeQuestion.audio"
           ref="beforeQuestionAudio"
           :src="currentQuestion.beforeQuestion.audio"
           controls
           autoplay
           @ended="startQuestion"
         ></audio>
+
+        <!-- Sinon affiche un bouton si pas de média -->
         <button v-else @click="startQuestion" class="start-button">
           Commencer la question
         </button>
@@ -374,6 +407,7 @@ export default {
     />
   </div>
 </template>
+
 
 
 
@@ -543,6 +577,17 @@ h2 {
 
 .before-question-content .start-button:hover {
   background-color: #0056b3;
+}
+
+.before-question-video {
+  max-width: 100%;   /* la vidéo ne dépasse pas la largeur du conteneur */
+  max-height: 300px; /* limite la hauteur à 300px */
+  width: auto;       /* conserve les proportions */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* centre la vidéo horizontalement */
+  border-radius: 8px; /* optionnel, un peu d’arrondi */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* optionnel, une légère ombre */
 }
 
 /* Styles Feedback */

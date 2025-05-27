@@ -7,11 +7,10 @@
         :key="theme"
         @click="selectTheme(theme)"
         :disabled="!buttonsEnabled"
+        :class="{ disabled: !buttonsEnabled }"
         :style="{
           'animation-delay': `${0.3 + index * 0.2}s`,
-          backgroundColor: buttonColors[index],
-          opacity: buttonsEnabled ? 1 : 0.5,
-          cursor: buttonsEnabled ? 'pointer' : 'not-allowed'
+          backgroundColor: buttonColors[index]
         }"
       >
         {{ capitalize(theme) }}
@@ -26,7 +25,7 @@
 </template>
 
 <script>
-import ButtonInputListener from './ButtonInputListener.vue' // adapte le chemin si besoin
+import ButtonInputListener from './ButtonInputListener.vue'
 
 export default {
   name: 'ThemeCount',
@@ -76,7 +75,6 @@ export default {
       return str.charAt(0).toUpperCase() + str.slice(1)
     },
     handleButtonPress(buttonId) {
-      // On mappe A -> selectedThemes[0], B -> selectedThemes[1]
       const buttonMap = { A: 0, B: 1 }
       const index = buttonMap[buttonId]
 
@@ -125,7 +123,13 @@ button {
   font-weight: bold;
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
-  transition: filter 0.3s;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+/* Ajout de la classe disabled pour contrôler via CSS */
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Animation fadeInUp */

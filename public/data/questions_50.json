@@ -60,6 +60,7 @@
   "musique": {
     "easy": [
       {
+        "beforeQuestion": { "video": "/videos/50cinema18Debut.mp4", "text": "Préparez-vous au son du..." },
         "question": "« Dans le port d'Amsterdam… »",
         "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas"],
         "correctIndex": 1,
@@ -85,7 +86,7 @@
         "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "La réponse e50st le Rock 'n' roll.", "image": "/images/50musique4.jpg" }
       },
        {
-        "beforeQuestion": { "audio": "/audio/50musique5Debut.mp4", "text": "Préparez-vous au son du..." },
+        "beforeQuestion": { "video": "/audio/50cinema18Debut.mp4", "text": "Préparez-vous au son du..." },
         "question": "« Mon petit Bambino… »",
         "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
         "correctIndex": 0,
