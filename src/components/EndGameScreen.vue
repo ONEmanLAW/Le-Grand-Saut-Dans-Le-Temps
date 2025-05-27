@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import confetti from 'canvas-confetti'
+
 export default {
   data() {
     return {
@@ -29,6 +31,7 @@ export default {
     this.score = parseInt(localStorage.getItem('score') || '0')
     this.questions = parseInt(localStorage.getItem('questionCount') || '0')
     this.determineTrophee()
+    this.launchConfetti()
   },
   methods: {
     determineTrophee() {
@@ -59,6 +62,35 @@ export default {
         this.trophee = ''
       }
     },
+    launchConfetti() {
+      const duration = 3000
+      const animationEnd = Date.now() + duration
+      const defaults = {
+        startVelocity: 40,    // un peu plus rapide
+        spread: 360,
+        ticks: 60,
+        gravity: 0.5,
+        scalar: 1.5,          // taille 1.5x plus grande
+        origin: { y: 0 }
+      }
+
+      const interval = setInterval(() => {
+        const timeLeft = animationEnd - Date.now()
+
+        if (timeLeft <= 0) {
+          clearInterval(interval)
+          return
+        }
+
+        const particleCount = 100 * (timeLeft / duration)
+
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: Math.random(), y: 0 }
+        }))
+      }, 200)  // un peu plus fréquent aussi
+    },
+
     replayGame() {
       localStorage.removeItem('score')
       localStorage.removeItem('questionCount')
@@ -76,7 +108,6 @@ export default {
   justify-content: center;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
-  background-color: #fafafa;
   padding: 20px;
   text-align: center;
 }
@@ -94,8 +125,5 @@ button {
   font-size: 1.5rem;
   padding: 10px 30px;
   cursor: pointer;
-}
-button:hover {
-  background-color: #eee;
 }
 </style>
