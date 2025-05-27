@@ -58,11 +58,12 @@ export default {
     const era = localStorage.getItem('selectedEra');
     this.currentTheme = localStorage.getItem('selectedTheme');
     this.totalQuestionsToAsk = parseInt(localStorage.getItem('questionCount') || '0');
-
     let questionsFile = era === '80' ? '/data/questions_80.json' : '/data/questions_50.json';
 
     if (this.currentTheme && this.totalQuestionsToAsk > 0) {
       this.questionsPerLevel = Math.floor(this.totalQuestionsToAsk / this.difficulties.length);
+      console.log("🧠 Chargement des questions, questionsParNiveau :", this.questionsPerLevel);
+
       try {
         const response = await fetch(questionsFile);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -72,7 +73,7 @@ export default {
       } catch (e) {
         this.error = e;
         this.loading = false;
-        console.error("Erreur lors du chargement des questions :", e);
+        console.error("❌ Erreur de chargement des questions :", e);
       }
     } else {
       this.error = 'Thème ou nombre de questions non défini.';
@@ -123,11 +124,20 @@ export default {
       this.transitionVideo = false;
       this.isEndVideoPlaying = false;
       const questions = this.questionsInCurrentDifficulty;
-      if (questions && this.currentQuestionIndexInLevel < questions.length && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
-        this.currentQuestion = questions[this.currentQuestionIndexInLevel];
+      if (
+        this.currentQuestionIndexInLevel < this.questionsPerLevel &&
+        this.totalQuestionsAsked < this.totalQuestionsToAsk
+      ) {
+        const questions = this.questionsInCurrentDifficulty;
+
+        // Si la question demandée dépasse les questions disponibles, recycle depuis le début
+        const index = this.currentQuestionIndexInLevel % questions.length;
+        this.currentQuestion = questions[index];
+
         this.selectedAnswer = null;
         this.answered = false;
       } else {
+        console.log("🔄 Fin de niveau ou de questions, transition...");
         this.startTransitionOrEnd();
       }
     },
@@ -140,6 +150,7 @@ export default {
           this.score++;
           this.levelScores[this.currentDifficulty]++;
         }
+
         this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
         this.timeoutId = setTimeout(() => {
@@ -157,22 +168,27 @@ export default {
     nextStepAfterFeedback() {
       this.isFeedback = false;
       this.totalQuestionsAsked++;
+      console.log("✅ Réponse terminée, totalQuestionsAsked :", this.totalQuestionsAsked);
+
       if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
-        this.playEndVideo();  // On lance la vidéo de fin ici, PAS nextStep()
+        this.playEndVideo();
       } else {
         this.moveToNextStep();
       }
     },
     moveToNextStep() {
-      if (this.currentQuestionIndexInLevel < this.questionsPerLevel - 1) {
-        this.currentQuestionIndexInLevel++;
+      this.currentQuestionIndexInLevel++;
+      if (this.currentQuestionIndexInLevel < this.questionsPerLevel) {
+        console.log("➡️ Question suivante dans le même niveau :", this.currentDifficulty);
         this.startNextQuestionCycle();
       } else {
+        console.log("🏁 Niveau terminé :", this.currentDifficulty);
         this.startTransitionOrEnd();
       }
     },
     startTransitionOrEnd() {
       if (this.currentDifficulty === 'expert') {
+        console.log("🎬 Fin de partie : lecture de la vidéo de fin");
         this.playEndVideo();
         return;
       }
@@ -182,50 +198,54 @@ export default {
       if (this.currentDifficultyIndex < this.difficulties.length - 1 && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         this.transitionVideo = true;
 
-        const questionsParNiveau = this.questionsPerLevel;
-        const seuilMoyen = Math.ceil(questionsParNiveau / 2);
-
+        const seuilMoyen = Math.ceil(this.questionsPerLevel / 2);
         const scoreNiveauPrecedent = this.levelScores[this.currentDifficulty];
 
-        if (scoreNiveauPrecedent >= seuilMoyen) {
-          this.transitionVideoSource = this.transitionVideos[nextDifficulty]?.bien || '';
-        } else {
-          this.transitionVideoSource = this.transitionVideos[nextDifficulty]?.pasBien || '';
-        }
+        this.transitionVideoSource =
+          scoreNiveauPrecedent >= seuilMoyen
+            ? this.transitionVideos[nextDifficulty]?.bien
+            : this.transitionVideos[nextDifficulty]?.pasBien;
+
+        console.log("🎥 Transition vers :", nextDifficulty, "| Vidéo :", this.transitionVideoSource);
 
         this.$nextTick(() => {
           if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
+            console.log("▶️ Lecture de la vidéo de transition...");
             this.$refs.transitionVideoPlayer.play();
           } else {
+            console.warn("⚠️ Vidéo de transition manquante ou ref non trouvé");
             this.nextLevel();
           }
         });
       } else {
-        this.playEndVideo();  // Dernière vidéo avant fin de partie
+        console.log("🎬 Plus de niveaux ou questions, vidéo de fin");
+        this.playEndVideo();
       }
     },
     nextLevel() {
       this.currentDifficultyIndex++;
       this.currentQuestionIndexInLevel = 0;
+      console.log("⬆️ Passage au niveau suivant :", this.currentDifficulty);
       this.startNextQuestionCycle();
     },
     playEndVideo() {
       this.transitionVideo = true;
       this.isEndVideoPlaying = true;
-      const questionsParNiveau = this.questionsPerLevel;
-      const seuilMoyen = Math.ceil(questionsParNiveau / 2);
+
+      const seuilMoyen = Math.ceil(this.questionsPerLevel / 2);
       const scoreExpert = this.levelScores.expert;
 
-      if (scoreExpert >= seuilMoyen) {
-        this.transitionVideoSource = this.endVideos.bien;
-      } else {
-        this.transitionVideoSource = this.endVideos.pasBien;
-      }
+      this.transitionVideoSource =
+        scoreExpert >= seuilMoyen ? this.endVideos.bien : this.endVideos.pasBien;
+
+      console.log("🎬 Vidéo de fin choisie :", this.transitionVideoSource);
 
       this.$nextTick(() => {
         if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
+          console.log("▶️ Lecture de la vidéo de fin...");
           this.$refs.transitionVideoPlayer.play();
         } else {
+          console.warn("⚠️ Vidéo de fin non trouvée");
           this.finishGame();
         }
       });
@@ -233,8 +253,10 @@ export default {
     onTransitionVideoEnded() {
       if (this.isEndVideoPlaying) {
         this.isEndVideoPlaying = false;
-        this.finishGame();  // Appelle nextStep() après la vidéo de fin
+        console.log("✅ Vidéo de fin terminée");
+        this.finishGame();
       } else {
+        console.log("✅ Vidéo de transition terminée, passage au niveau suivant");
         this.transitionVideo = false;
         this.nextLevel();
       }
@@ -245,8 +267,10 @@ export default {
       this.feedback = 'Fin de la partie !';
       localStorage.setItem('score', this.score.toString());
       localStorage.setItem('questionCount', this.totalQuestionsAsked.toString());
+      console.log("🏁 Fin du jeu. Score :", this.score);
+
       if (this.nextStep) {
-        this.nextStep();  // Lancement ici après la vidéo de fin
+        this.nextStep();
       } else {
         console.warn('nextStep() non défini dans QuestionScreen');
       }
@@ -254,6 +278,8 @@ export default {
   }
 };
 </script>
+
+
 
 
 
