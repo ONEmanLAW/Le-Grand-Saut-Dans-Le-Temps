@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['flowObject', 'nextStep'], // on récupère nextStep en prop
+  props: ['flowObject', 'nextStep'],
   data() {
     return {
       questionsData: null,
@@ -8,9 +8,9 @@ export default {
       currentDifficultyIndex: 0,
       difficulties: ['easy', 'medium', 'hard', 'expert'],
       transitionVideos: {
-        'easy': '/videos/medium.mp4',
-        'medium': '/videos/hard.mp4',
-        'hard': '/videos/expert.mp4'
+        'medium': '/videos/medium.mp4',
+        'hard': '/videos/hard.mp4',
+        'expert': '/videos/expert.mp4'
       },
       currentQuestion: null,
       selectedAnswer: null,
@@ -30,8 +30,8 @@ export default {
       answerColors: ['#FF6B6B', '#4ECDC4', '#FFD166', '#80ED99'],
       isBeforeQuestion: false,
       isFeedback: false,
-      gameFinished: false, // flag fin du jeu
-      score: 0 // AJOUT DU COMPTEUR DE SCORE
+      gameFinished: false,
+      score: 0
     };
   },
   async mounted() {
@@ -39,20 +39,13 @@ export default {
     this.currentTheme = localStorage.getItem('selectedTheme');
     this.totalQuestionsToAsk = parseInt(localStorage.getItem('questionCount') || '0');
 
-    let questionsFile = '';
-    if (era === '80') {
-      questionsFile = '/data/questions_80.json';
-    } else {
-      questionsFile = '/data/questions_50.json';
-    }
+    let questionsFile = era === '80' ? '/data/questions_80.json' : '/data/questions_50.json';
 
     if (this.currentTheme && this.totalQuestionsToAsk > 0) {
       this.questionsPerLevel = Math.floor(this.totalQuestionsToAsk / this.difficulties.length);
       try {
         const response = await fetch(questionsFile);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         this.questionsData = await response.json();
         this.startNextQuestionCycle();
         this.loading = false;
@@ -122,16 +115,14 @@ export default {
         this.selectedAnswer = index;
         this.answered = true;
         const isCorrect = index === this.currentQuestion.correctIndex;
-        if (isCorrect) this.score++;  // INCRÉMENTATION DU SCORE SI BONNE RÉPONSE
+        if (isCorrect) this.score++;
         this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
           if (this.currentQuestion?.feedback?.audio && this.$refs.feedbackAudio) {
             this.$refs.feedbackAudio.play();
-            // La prochaine question sera déclenchée à la fin de l'audio (événement @ended dans le template)
           } else {
-            // Pas d'audio feedback, passe automatiquement à la question suivante après 3 secondes
             setTimeout(() => {
               this.nextStepAfterFeedback();
             }, 3000);
@@ -142,7 +133,6 @@ export default {
     nextStepAfterFeedback() {
       this.isFeedback = false;
       this.totalQuestionsAsked++;
-      // Si on a fini toutes les questions, on termine le jeu et on avance l'écran
       if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
         this.finishGame();
       } else {
@@ -158,9 +148,10 @@ export default {
       }
     },
     startTransitionOrEnd() {
+      const nextDifficulty = this.difficulties[this.currentDifficultyIndex + 1];
       if (this.currentDifficultyIndex < this.difficulties.length - 1 && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         this.transitionVideo = true;
-        this.transitionVideoSource = this.transitionVideos[this.difficulties[this.currentDifficultyIndex]] || '';
+        this.transitionVideoSource = this.transitionVideos[nextDifficulty] || '';
         this.$nextTick(() => {
           if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
             this.$refs.transitionVideoPlayer.play();
@@ -181,12 +172,8 @@ export default {
       this.gameFinished = true;
       this.currentQuestion = null;
       this.feedback = 'Fin de la partie !';
-
-      // SAUVEGARDE DU SCORE ET DU NOMBRE DE QUESTIONS DANS localStorage
       localStorage.setItem('score', this.score.toString());
       localStorage.setItem('questionCount', this.totalQuestionsAsked.toString());
-
-      // Appeler la méthode nextStep passée en prop pour passer à l'écran suivant
       if (this.nextStep) {
         this.nextStep();
       } else {
@@ -213,6 +200,16 @@ export default {
       <div class="fullscreen-message">
         <h1>{{ questionNumberDisplay }}</h1>
       </div>
+    </div>
+
+    <div v-else-if="transitionVideo && transitionVideoSource">
+      <video
+        ref="transitionVideoPlayer"
+        :src="transitionVideoSource"
+        autoplay
+        @ended="nextLevel"
+        class="transition-video"
+      ></video>
     </div>
 
     <div v-else-if="isBeforeQuestion && currentQuestion?.beforeQuestion">
@@ -251,7 +248,6 @@ export default {
           autoplay
           @ended="nextStepAfterFeedback"
         ></audio>
-        <!-- Bouton supprimé, transition auto -->
       </div>
     </div>
 
