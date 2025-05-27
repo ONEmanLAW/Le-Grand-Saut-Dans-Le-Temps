@@ -90,7 +90,6 @@ export default {
 button {
   width: 454px;
   height: 180px;
-  font-size: 48px;
   border: 3px solid black;
   border-radius: 16px;
   color: black;
