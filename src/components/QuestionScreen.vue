@@ -8,9 +8,22 @@ export default {
       currentDifficultyIndex: 0,
       difficulties: ['easy', 'medium', 'hard', 'expert'],
       transitionVideos: {
-        'medium': '/videos/medium.mp4',
-        'hard': '/videos/hard.mp4',
-        'expert': '/videos/expert.mp4'
+        medium: {
+          bien: '/videos/medium_bien.mp4',
+          pasBien: '/videos/introHistory.mp4',
+        },
+        hard: {
+          bien: '/videos/hard_bien.mp4',
+          pasBien: '/videos/introHistory.mp4',
+        },
+        expert: {
+          bien: '/videos/expert_bien.mp4',
+          pasBien: '/videos/introHistory.mp4',
+        }
+      },
+      endVideos: {
+        bien: '/videos/endVideo.mp4',
+        pasBien: '/videos/introHistory.mp4',
       },
       currentQuestion: null,
       selectedAnswer: null,
@@ -32,8 +45,13 @@ export default {
       isFeedback: false,
       gameFinished: false,
       score: 0,
-      endVideoPlaying: false,
-      endVideoSource: '/videos/hard.mp4'
+      levelScores: {
+        easy: 0,
+        medium: 0,
+        hard: 0,
+        expert: 0
+      },
+      isEndVideoPlaying: false
     };
   },
   async mounted() {
@@ -103,6 +121,7 @@ export default {
     loadQuestion() {
       clearTimeout(this.timeoutId);
       this.transitionVideo = false;
+      this.isEndVideoPlaying = false;
       const questions = this.questionsInCurrentDifficulty;
       if (questions && this.currentQuestionIndexInLevel < questions.length && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         this.currentQuestion = questions[this.currentQuestionIndexInLevel];
@@ -117,7 +136,10 @@ export default {
         this.selectedAnswer = index;
         this.answered = true;
         const isCorrect = index === this.currentQuestion.correctIndex;
-        if (isCorrect) this.score++;
+        if (isCorrect) {
+          this.score++;
+          this.levelScores[this.currentDifficulty]++;
+        }
         this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
         this.timeoutId = setTimeout(() => {
@@ -136,7 +158,7 @@ export default {
       this.isFeedback = false;
       this.totalQuestionsAsked++;
       if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
-        this.finishGame();
+        this.playEndVideo();  // On lance la vidéo de fin ici, PAS nextStep()
       } else {
         this.moveToNextStep();
       }
@@ -150,10 +172,27 @@ export default {
       }
     },
     startTransitionOrEnd() {
+      if (this.currentDifficulty === 'expert') {
+        this.playEndVideo();
+        return;
+      }
+
       const nextDifficulty = this.difficulties[this.currentDifficultyIndex + 1];
+
       if (this.currentDifficultyIndex < this.difficulties.length - 1 && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         this.transitionVideo = true;
-        this.transitionVideoSource = this.transitionVideos[nextDifficulty] || '';
+
+        const questionsParNiveau = this.questionsPerLevel;
+        const seuilMoyen = Math.ceil(questionsParNiveau / 2);
+
+        const scoreNiveauPrecedent = this.levelScores[this.currentDifficulty];
+
+        if (scoreNiveauPrecedent >= seuilMoyen) {
+          this.transitionVideoSource = this.transitionVideos[nextDifficulty]?.bien || '';
+        } else {
+          this.transitionVideoSource = this.transitionVideos[nextDifficulty]?.pasBien || '';
+        }
+
         this.$nextTick(() => {
           if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
             this.$refs.transitionVideoPlayer.play();
@@ -162,7 +201,7 @@ export default {
           }
         });
       } else {
-        this.finishGame();
+        this.playEndVideo();  // Dernière vidéo avant fin de partie
       }
     },
     nextLevel() {
@@ -170,27 +209,44 @@ export default {
       this.currentQuestionIndexInLevel = 0;
       this.startNextQuestionCycle();
     },
+    playEndVideo() {
+      this.transitionVideo = true;
+      this.isEndVideoPlaying = true;
+      const questionsParNiveau = this.questionsPerLevel;
+      const seuilMoyen = Math.ceil(questionsParNiveau / 2);
+      const scoreExpert = this.levelScores.expert;
+
+      if (scoreExpert >= seuilMoyen) {
+        this.transitionVideoSource = this.endVideos.bien;
+      } else {
+        this.transitionVideoSource = this.endVideos.pasBien;
+      }
+
+      this.$nextTick(() => {
+        if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
+          this.$refs.transitionVideoPlayer.play();
+        } else {
+          this.finishGame();
+        }
+      });
+    },
+    onTransitionVideoEnded() {
+      if (this.isEndVideoPlaying) {
+        this.isEndVideoPlaying = false;
+        this.finishGame();  // Appelle nextStep() après la vidéo de fin
+      } else {
+        this.transitionVideo = false;
+        this.nextLevel();
+      }
+    },
     finishGame() {
       this.gameFinished = true;
       this.currentQuestion = null;
       this.feedback = 'Fin de la partie !';
       localStorage.setItem('score', this.score.toString());
       localStorage.setItem('questionCount', this.totalQuestionsAsked.toString());
-
-      // ▶️ Lancer la vidéo de fin
-      this.endVideoPlaying = true;
-      this.$nextTick(() => {
-        if (this.$refs.endVideoPlayer) {
-          this.$refs.endVideoPlayer.play();
-        } else {
-          this.nextStepAfterEndVideo();
-        }
-      });
-    },
-    nextStepAfterEndVideo() {
-      this.endVideoPlaying = false;
       if (this.nextStep) {
-        this.nextStep();
+        this.nextStep();  // Lancement ici après la vidéo de fin
       } else {
         console.warn('nextStep() non défini dans QuestionScreen');
       }
@@ -198,6 +254,8 @@ export default {
   }
 };
 </script>
+
+
 
 <template>
   <div
@@ -217,23 +275,16 @@ export default {
       </div>
     </div>
 
-    <div v-else-if="transitionVideo && transitionVideoSource">
+    <!-- Video de transition ou de fin -->
+    <div v-if="transitionVideo && transitionVideoSource">
       <video
         ref="transitionVideoPlayer"
         :src="transitionVideoSource"
         autoplay
-        @ended="nextLevel"
+        playsinline
         class="transition-video"
-      ></video>
-    </div>
-
-    <div v-else-if="endVideoPlaying">
-      <video
-        ref="endVideoPlayer"
-        :src="endVideoSource"
-        autoplay
-        @ended="nextStepAfterEndVideo"
-        class="transition-video"
+        @ended="onTransitionVideoEnded"
+        controls="false"
       ></video>
     </div>
 
