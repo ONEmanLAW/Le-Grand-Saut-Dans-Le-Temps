@@ -7,8 +7,13 @@
         v-for="(count, index) in firstRow"
         :key="count"
         @click="selectCount(count)"
-        class="fade-in"
-        :style="{ 'animation-delay': `${0.3 + index * 0.2}s`, backgroundColor: buttonColors[index] }"
+        :disabled="!buttonsEnabled"
+        :style="{
+          'animation-delay': `${0.3 + index * 0.2}s`,
+          backgroundColor: buttonColors[index],
+          opacity: buttonsEnabled ? 1 : 0.5,
+          cursor: buttonsEnabled ? 'pointer' : 'not-allowed'
+        }"
       >
         {{ count }}
       </button>
@@ -19,23 +24,43 @@
         v-for="(count, index) in secondRow"
         :key="count"
         @click="selectCount(count)"
-        class="fade-in"
-        :style="{ 'animation-delay': `${0.7 + index * 0.2}s`, backgroundColor: buttonColors[index + 2] }"
+        :disabled="!buttonsEnabled"
+        :style="{
+          'animation-delay': `${0.7 + index * 0.2}s`,
+          backgroundColor: buttonColors[index + 2],
+          opacity: buttonsEnabled ? 1 : 0.5,
+          cursor: buttonsEnabled ? 'pointer' : 'not-allowed'
+        }"
       >
         {{ count }}
       </button>
     </div>
+
+    <!-- Composant ButtonInputListener -->
+    <ButtonInputListener
+      :active="buttonsEnabled"
+      :onButtonPress="handleButtonPress"
+    />
   </div>
 </template>
 
 <script>
+import ButtonInputListener from './ButtonInputListener.vue' // ajuste le chemin si besoin
+
 export default {
   name: 'QuestionCount',
+  components: { ButtonInputListener },
   props: {
     nextStep: Function,
     options: {
       type: Array,
       required: true
+    }
+  },
+  data() {
+    return {
+      buttonColors: ['#FF6B6B', '#4ECDC4', '#556270', '#C7F464'],
+      buttonsEnabled: false,
     }
   },
   computed: {
@@ -46,15 +71,34 @@ export default {
       return this.options.slice(2)
     }
   },
-  data() {
-    return {
-      buttonColors: ['#FF6B6B', '#4ECDC4', '#556270', '#C7F464']
-    }
+  mounted() {
+    this.enableButtons()
   },
   methods: {
+    enableButtons() {
+      this.buttonsEnabled = true
+    },
+    disableButtons() {
+      this.buttonsEnabled = false
+    },
     selectCount(count) {
+      if (!this.buttonsEnabled) return
+
+      this.disableButtons()
+
       localStorage.setItem('questionCount', count)
       this.nextStep()
+    },
+    handleButtonPress(buttonId) {
+      // Par exemple, ici tu fais correspondre les boutons A, B, C, D aux options
+      // Ou adapte selon ta logique, ici on suppose juste un mapping simple
+      // Si tu as 4 options, A->options[0], B->options[1], etc.
+      const buttonMap = { A: 0, B: 1, C: 2, D: 3 }
+      const index = buttonMap[buttonId]
+
+      if (index !== undefined && index < this.options.length) {
+        this.selectCount(this.options[index])
+      }
     }
   }
 }
@@ -99,8 +143,6 @@ button {
   animation: fadeInUp 0.6s forwards;
   transition: filter 0.3s;
 }
-
-
 
 /* Animation fadeInUp */
 @keyframes fadeInUp {

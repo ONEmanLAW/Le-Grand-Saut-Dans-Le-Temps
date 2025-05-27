@@ -17,6 +17,7 @@
 
 <script>
 import WebSocketClient from './components/WebSocketClient.vue'
+import ButtonInputListener from './components/ButtonInputListener.vue'
 import StartScreen from './components/StartScreen.vue'
 import GenericScreen from './components/GenericScreen.vue'
 import WaitingScan from './components/WaitingScan.vue'
@@ -34,6 +35,7 @@ export default {
   name: 'App',
   components: {
     WebSocketClient,
+    ButtonInputListener,
     StartScreen,
     GenericScreen,
     WaitingScan,

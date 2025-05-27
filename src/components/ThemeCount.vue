@@ -6,18 +6,31 @@
         v-for="(theme, index) in selectedThemes"
         :key="theme"
         @click="selectTheme(theme)"
-        class="fade-in"
-        :style="{ 'animation-delay': `${0.3 + index * 0.2}s`, backgroundColor: buttonColors[index] }"
+        :disabled="!buttonsEnabled"
+        :style="{
+          'animation-delay': `${0.3 + index * 0.2}s`,
+          backgroundColor: buttonColors[index],
+          opacity: buttonsEnabled ? 1 : 0.5,
+          cursor: buttonsEnabled ? 'pointer' : 'not-allowed'
+        }"
       >
         {{ capitalize(theme) }}
       </button>
     </div>
+
+    <ButtonInputListener
+      :active="buttonsEnabled"
+      :onButtonPress="handleButtonPress"
+    />
   </div>
 </template>
 
 <script>
+import ButtonInputListener from './ButtonInputListener.vue' // adapte le chemin si besoin
+
 export default {
   name: 'ThemeCount',
+  components: { ButtonInputListener },
   props: {
     nextStep: Function,
     themes: {
@@ -28,11 +41,26 @@ export default {
   data() {
     return {
       selectedThemes: [],
-      buttonColors: ['#FF6B6B', '#4ECDC4']
+      buttonColors: ['#FF6B6B', '#4ECDC4'],
+      buttonsEnabled: false,
     }
   },
+  mounted() {
+    const shuffled = this.shuffleArray(this.themes)
+    this.selectedThemes = shuffled.slice(0, 2)
+    this.enableButtons()
+  },
   methods: {
+    enableButtons() {
+      this.buttonsEnabled = true
+    },
+    disableButtons() {
+      this.buttonsEnabled = false
+    },
     selectTheme(theme) {
+      if (!this.buttonsEnabled) return
+      this.disableButtons()
+
       localStorage.setItem('selectedTheme', theme)
       this.nextStep()
     },
@@ -46,12 +74,16 @@ export default {
     },
     capitalize(str) {
       return str.charAt(0).toUpperCase() + str.slice(1)
+    },
+    handleButtonPress(buttonId) {
+      // On mappe A -> selectedThemes[0], B -> selectedThemes[1]
+      const buttonMap = { A: 0, B: 1 }
+      const index = buttonMap[buttonId]
+
+      if (index !== undefined && index < this.selectedThemes.length) {
+        this.selectTheme(this.selectedThemes[index])
+      }
     }
-  },
-  mounted() {
-    // Sélectionner 2 thèmes aléatoires parmi les props.themes
-    const shuffled = this.shuffleArray(this.themes)
-    this.selectedThemes = shuffled.slice(0, 2)
   }
 }
 </script>
@@ -91,12 +123,10 @@ button {
   border-radius: 16px;
   color: black;
   font-weight: bold;
-  cursor: pointer;
   opacity: 0;
   animation: fadeInUp 0.6s forwards;
   transition: filter 0.3s;
 }
-
 
 /* Animation fadeInUp */
 @keyframes fadeInUp {

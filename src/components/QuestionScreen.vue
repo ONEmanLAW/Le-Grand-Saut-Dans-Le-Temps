@@ -1,5 +1,8 @@
 <script>
+import ButtonInputListener from './ButtonInputListener.vue'
+
 export default {
+  components: { ButtonInputListener },
   props: ['flowObject', 'nextStep'],
   data() {
     return {
@@ -51,7 +54,8 @@ export default {
         hard: 0,
         expert: 0
       },
-      isEndVideoPlaying: false
+      isEndVideoPlaying: false,
+      buttonsEnabled: false // 🔥 Gère l’état actif/inactif des boutons
     };
   },
   async mounted() {
@@ -62,8 +66,6 @@ export default {
 
     if (this.currentTheme && this.totalQuestionsToAsk > 0) {
       this.questionsPerLevel = Math.floor(this.totalQuestionsToAsk / this.difficulties.length);
-      console.log("🧠 Chargement des questions, questionsParNiveau :", this.questionsPerLevel);
-
       try {
         const response = await fetch(questionsFile);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -73,7 +75,6 @@ export default {
       } catch (e) {
         this.error = e;
         this.loading = false;
-        console.error("❌ Erreur de chargement des questions :", e);
       }
     } else {
       this.error = 'Thème ou nombre de questions non défini.';
@@ -123,35 +124,36 @@ export default {
       clearTimeout(this.timeoutId);
       this.transitionVideo = false;
       this.isEndVideoPlaying = false;
-      const questions = this.questionsInCurrentDifficulty;
+
       if (
         this.currentQuestionIndexInLevel < this.questionsPerLevel &&
         this.totalQuestionsAsked < this.totalQuestionsToAsk
       ) {
         const questions = this.questionsInCurrentDifficulty;
-
-        // Si la question demandée dépasse les questions disponibles, recycle depuis le début
         const index = this.currentQuestionIndexInLevel % questions.length;
         this.currentQuestion = questions[index];
-
         this.selectedAnswer = null;
         this.answered = false;
+        this.buttonsEnabled = true; // ✅ Active les boutons
       } else {
-        console.log("🔄 Fin de niveau ou de questions, transition...");
         this.startTransitionOrEnd();
       }
     },
     selectAnswer(index) {
       if (!this.answered && this.currentQuestion && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
+        this.buttonsEnabled = false; // ❌ Désactive les boutons dès le clic
         this.selectedAnswer = index;
         this.answered = true;
+
         const isCorrect = index === this.currentQuestion.correctIndex;
         if (isCorrect) {
           this.score++;
           this.levelScores[this.currentDifficulty]++;
         }
 
-        this.feedback = isCorrect ? 'Correct !' : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
+        this.feedback = isCorrect
+          ? 'Correct !'
+          : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
@@ -165,11 +167,16 @@ export default {
         }, 2000);
       }
     },
+    handleButtonPress(buttonId) {
+      const map = { A: 0, B: 1, C: 2, D: 3 };
+      const index = map[buttonId];
+      if (this.buttonsEnabled && index !== undefined && this.currentQuestion?.answers?.[index]) {
+        this.selectAnswer(index);
+      }
+    },
     nextStepAfterFeedback() {
       this.isFeedback = false;
       this.totalQuestionsAsked++;
-      console.log("✅ Réponse terminée, totalQuestionsAsked :", this.totalQuestionsAsked);
-
       if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
         this.playEndVideo();
       } else {
@@ -179,16 +186,13 @@ export default {
     moveToNextStep() {
       this.currentQuestionIndexInLevel++;
       if (this.currentQuestionIndexInLevel < this.questionsPerLevel) {
-        console.log("➡️ Question suivante dans le même niveau :", this.currentDifficulty);
         this.startNextQuestionCycle();
       } else {
-        console.log("🏁 Niveau terminé :", this.currentDifficulty);
         this.startTransitionOrEnd();
       }
     },
     startTransitionOrEnd() {
       if (this.currentDifficulty === 'expert') {
-        console.log("🎬 Fin de partie : lecture de la vidéo de fin");
         this.playEndVideo();
         return;
       }
@@ -206,26 +210,20 @@ export default {
             ? this.transitionVideos[nextDifficulty]?.bien
             : this.transitionVideos[nextDifficulty]?.pasBien;
 
-        console.log("🎥 Transition vers :", nextDifficulty, "| Vidéo :", this.transitionVideoSource);
-
         this.$nextTick(() => {
           if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
-            console.log("▶️ Lecture de la vidéo de transition...");
             this.$refs.transitionVideoPlayer.play();
           } else {
-            console.warn("⚠️ Vidéo de transition manquante ou ref non trouvé");
             this.nextLevel();
           }
         });
       } else {
-        console.log("🎬 Plus de niveaux ou questions, vidéo de fin");
         this.playEndVideo();
       }
     },
     nextLevel() {
       this.currentDifficultyIndex++;
       this.currentQuestionIndexInLevel = 0;
-      console.log("⬆️ Passage au niveau suivant :", this.currentDifficulty);
       this.startNextQuestionCycle();
     },
     playEndVideo() {
@@ -238,14 +236,10 @@ export default {
       this.transitionVideoSource =
         scoreExpert >= seuilMoyen ? this.endVideos.bien : this.endVideos.pasBien;
 
-      console.log("🎬 Vidéo de fin choisie :", this.transitionVideoSource);
-
       this.$nextTick(() => {
         if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
-          console.log("▶️ Lecture de la vidéo de fin...");
           this.$refs.transitionVideoPlayer.play();
         } else {
-          console.warn("⚠️ Vidéo de fin non trouvée");
           this.finishGame();
         }
       });
@@ -253,10 +247,8 @@ export default {
     onTransitionVideoEnded() {
       if (this.isEndVideoPlaying) {
         this.isEndVideoPlaying = false;
-        console.log("✅ Vidéo de fin terminée");
         this.finishGame();
       } else {
-        console.log("✅ Vidéo de transition terminée, passage au niveau suivant");
         this.transitionVideo = false;
         this.nextLevel();
       }
@@ -267,21 +259,13 @@ export default {
       this.feedback = 'Fin de la partie !';
       localStorage.setItem('score', this.score.toString());
       localStorage.setItem('questionCount', this.totalQuestionsAsked.toString());
-      console.log("🏁 Fin du jeu. Score :", this.score);
-
       if (this.nextStep) {
         this.nextStep();
-      } else {
-        console.warn('nextStep() non défini dans QuestionScreen');
       }
     }
   }
 };
 </script>
-
-
-
-
 
 <template>
   <div
@@ -382,6 +366,12 @@ export default {
     <div v-else>
       <p>{{ feedback || 'Fin de la partie !' }}</p>
     </div>
+
+    <!-- ButtonInputListener : gestion des boutons physiques -->
+    <ButtonInputListener
+      :active="buttonsEnabled"
+      :onButtonPress="handleButtonPress"
+    />
   </div>
 </template>
 
