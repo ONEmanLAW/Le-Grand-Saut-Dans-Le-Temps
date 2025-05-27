@@ -462,8 +462,20 @@ h2 {
   align-items: center;
   padding: 0;
   box-sizing: border-box;
+  position: relative; /* nécessaire pour positionner le trait blanc */
 }
 
+/* Trait blanc sous le bouton */
+.answers-grid button::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 2.5%;
+  width: 95%;
+  height: 8px;
+  background-color: white;
+  opacity: 0.7;
+}
 
 .answers-grid button:hover:not(:disabled) {
   filter: brightness(85%);

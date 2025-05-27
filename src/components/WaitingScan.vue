@@ -61,7 +61,7 @@ export default {
 <!-- Code With Debug here -->
 
 <template>
-  <div class="waiting-scan-container">
+  <div class="waiting-scan-container" @click="handleClickDebug">
     <h1>En attente du scan du badge…</h1>
   </div>
 </template>
@@ -76,7 +76,9 @@ export default {
   data() {
     return {
       canTriggerLongScan: true,
-      debugInput: ''
+      debugInput: '',
+      clickCount: 0,
+      clickTimer: null
     }
   },
   mounted() {
@@ -99,6 +101,7 @@ export default {
   },
   beforeUnmount() {
     window.removeEventListener('keydown', this.handleKeydown)
+    clearTimeout(this.clickTimer)
   },
   methods: {
     handleScan(rfidId) {
@@ -117,16 +120,30 @@ export default {
       }
     },
     handleKeydown(e) {
-      // On construit l'entrée clavier sur 2 chiffres
       this.debugInput += e.key
       if (this.debugInput.length >= 2) {
         const value = this.debugInput.slice(-2)
         if (value === '50' || value === '80') {
-          console.log(`🧪 Mode debug activé : scan simulé pour ${value}`)
+          console.log(`🧪 Mode debug activé (clavier) : scan simulé pour ${value}`)
           this.handleScan(value)
         }
         this.debugInput = ''
       }
+    },
+    handleClickDebug() {
+      this.clickCount++
+      clearTimeout(this.clickTimer)
+
+      this.clickTimer = setTimeout(() => {
+        if (this.clickCount === 3) {
+          console.log('🧪 Mode debug activé (3 clics) : année 50')
+          this.handleScan('50')
+        } else if (this.clickCount === 4) {
+          console.log('🧪 Mode debug activé (4 clics) : année 80')
+          this.handleScan('80')
+        }
+        this.clickCount = 0
+      }, 400) // 400ms pour taper rapidement
     }
   }
 }
@@ -142,5 +159,8 @@ export default {
   color: black;
   height: 100vh;
   user-select: none;
+  text-align: center;
+  padding: 20px;
 }
 </style>
+

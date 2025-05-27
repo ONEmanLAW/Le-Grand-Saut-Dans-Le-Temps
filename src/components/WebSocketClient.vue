@@ -9,8 +9,8 @@ export default {
     return {
       ws: null,
       //wsUrl: 'ws://172.28.59.61:8080' // IP École
-      //wsUrl: 'ws://192.168.254.50:8080' // IP Partage
-      wsUrl: 'ws://192.168.1.96:8080' // IP Maison
+      wsUrl: 'ws://192.168.254.50:8080' // IP Partage
+      //wsUrl: 'ws://192.168.1.96:8080' // IP Maison
     }
   },
   methods: {
