@@ -31,7 +31,9 @@ export default {
       isBeforeQuestion: false,
       isFeedback: false,
       gameFinished: false,
-      score: 0
+      score: 0,
+      endVideoPlaying: false,
+      endVideoSource: '/videos/hard.mp4'
     };
   },
   async mounted() {
@@ -174,6 +176,19 @@ export default {
       this.feedback = 'Fin de la partie !';
       localStorage.setItem('score', this.score.toString());
       localStorage.setItem('questionCount', this.totalQuestionsAsked.toString());
+
+      // ▶️ Lancer la vidéo de fin
+      this.endVideoPlaying = true;
+      this.$nextTick(() => {
+        if (this.$refs.endVideoPlayer) {
+          this.$refs.endVideoPlayer.play();
+        } else {
+          this.nextStepAfterEndVideo();
+        }
+      });
+    },
+    nextStepAfterEndVideo() {
+      this.endVideoPlaying = false;
       if (this.nextStep) {
         this.nextStep();
       } else {
@@ -208,6 +223,16 @@ export default {
         :src="transitionVideoSource"
         autoplay
         @ended="nextLevel"
+        class="transition-video"
+      ></video>
+    </div>
+
+    <div v-else-if="endVideoPlaying">
+      <video
+        ref="endVideoPlayer"
+        :src="endVideoSource"
+        autoplay
+        @ended="nextStepAfterEndVideo"
         class="transition-video"
       ></video>
     </div>
@@ -282,6 +307,7 @@ export default {
     </div>
   </div>
 </template>
+
 
 
 
