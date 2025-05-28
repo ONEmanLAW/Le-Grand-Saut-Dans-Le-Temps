@@ -60,23 +60,25 @@
   "musique": {
     "easy": [
       {
-        "beforeQuestion": { "video": "/videos/50cinema18Debut.mp4", "text": "Préparez-vous au son du..." },
+        "beforeQuestion": { "audio": "/audio/50musique1.mp4", "text": "Préparez-vous au son du..." },
         "question": "« Dans le port d'Amsterdam… »",
         "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique1.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique1.jpg" }
+        "feedback": { "text": "C'était Elvis Presley !", "image": "/images/50musique1.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique2.mp4", "text": "Préparez-vous au son du..." },
         "question": "Quel chanteur français est célèbre pour la chanson “Petit papa Noël” ?",
         "answers": ["Marcel Amont","Tino Rossi"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique2.mp4", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.jpg" }
+        "feedback": { "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique3.mp4", "text": "Préparez-vous au son du..." },
         "question": "Quel chanteur français a popularisé le tube “C'est si bon” ?",
         "answers": ["Yves Montand", "Charles Aznavour"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique3.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique3.jpg" }
+        "feedback": { "text": "C'était Elvis Presley !", "image": "/images/50musique3.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique4Debut.mp4", "text": "Préparez-vous au son du..." },
@@ -102,10 +104,11 @@
         "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique6.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique7.mp4", "text": "Laissez-vous emporter par le son de..." },
         "question": "Qui a popularisé la chanson “Gondolier” en 1957 ?",
         "answers": ["Dalida", "Mireille Mathieu"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique7.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique7.jpg" }
+        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique7.jpg" }
       },
       {
         "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
@@ -121,10 +124,11 @@
         "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique9.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique10.mp4", "text": "Écoutez ce piano endiablé..." },
         "question": "Quel chanteur a écrit la chanson “Et maintenant”, reprise par de nombreux artistes ?",
         "answers": ["Gilbert Bécaud", "Charles Aznavour"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique10.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique10.jpg" }
+        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique10.jpg" }
       }    
     ],
     "hard": [
@@ -136,10 +140,11 @@
         "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique11.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique12.mp4", "text": "Reconnaissez-vous ce riff ?" },
         "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
         "answers": ["Gilbert Bécaud", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique12.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique12.jpg" }
+        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/50musique12.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique13Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
@@ -156,10 +161,11 @@
         "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique14.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique15.mp4", "text": "Un son qui a marqué l'histoire..." },
         "question": "Quel chanteur a composé la musique du film “Les Parapluies de Cherbourg” en 1964 ?",
         "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique15.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique15.jpg" }
+        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/50musique15.jpg" }
       }
     ],
     "expert": [
@@ -171,16 +177,18 @@
         "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "La musique était de Bernard Herrmann.", "image": "/images/50musique16.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique17.mp4", "text": "Plongez dans l'ambiance de ce film..." },
         "question": "Qui a interprété “Ma p'tite chanson” avec succès en 1953 ?",
         "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique17.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique17.jpg" }
+        "feedback": { "text": "C'était le son de Sun Records.", "image": "/images/50musique17.jpg" }
       },
       {
+        "beforeQuestion": { "audio": "/audio/50musique18.mp4", "text": "Plongez dans l'ambiance de ce film..." },
         "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
         "answers": ["Charles Trenet", "Hubert Giraud", "Hubert Salentin", "Hubert Giraud"],
         "correctIndex": 3,
-        "feedback": { "audio": "/audio/50musique18.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique18.jpg" }
+        "feedback": { "text": "C'était le son de Sun Records.", "image": "/images/50musique18.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique19Debut.mp4", "text": "Le son caractéristique de..." },
