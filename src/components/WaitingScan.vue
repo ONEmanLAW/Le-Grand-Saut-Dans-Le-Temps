@@ -62,7 +62,7 @@ export default {
 
 <template>
   <div class="waiting-scan-container" @click="handleClickDebug">
-    <h1>En attente du scan du badge…</h1>
+    <h1>Poser le badge sur l'époque de votre choix !</h1>
   </div>
 </template>
 

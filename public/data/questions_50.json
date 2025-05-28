@@ -62,7 +62,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique1Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
         "question": "« Dans le port d'Amsterdam… »",
-        "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas"],
+        "answers": ["Pour adoucir ton cœur", "Y’a des marins qui dorment"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique1.jpg" }
       },

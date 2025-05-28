@@ -25,3 +25,23 @@ export default {
   }
 }
 </script>
+
+<style>
+.end-video-screen {
+  position: fixed; /* Pour recouvrir toute la fenêtre */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Largeur de la fenêtre */
+  height: 100vh; /* Hauteur de la fenêtre */
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  z-index: 9999; /* Pour s'assurer qu'il est au-dessus des autres éléments */
+}
+
+.end-video-screen video {
+  display: block; /* Empêche un espace en bas de la vidéo */
+  max-width: 100%; /* S'assure que la vidéo ne dépasse pas la largeur */
+  max-height: 100%; /* S'assure que la vidéo ne dépasse pas la hauteur */
+}
+</style>

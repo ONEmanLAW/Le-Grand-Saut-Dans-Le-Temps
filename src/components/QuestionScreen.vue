@@ -13,20 +13,20 @@ export default {
       transitionVideos: {
         medium: {
           bien: '/videos/medium_bien.mp4',
-          pasBien: '/videos/introHistory.mp4',
+          pasBien: '/videos/medium_pasBien.mp4',
         },
         hard: {
           bien: '/videos/hard_bien.mp4',
-          pasBien: '/videos/introHistory.mp4',
+          pasBien: '/videos/hard_pasBien.mp4',
         },
         expert: {
           bien: '/videos/expert_bien.mp4',
-          pasBien: '/videos/introHistory.mp4',
+          pasBien: '/videos/expert_pasBien.mp4',
         }
       },
       endVideos: {
         bien: '/videos/endVideo.mp4',
-        pasBien: '/videos/introHistory.mp4',
+        pasBien: '/videos/endVideoPasBien.mp4',
       },
       currentQuestion: null,
       selectedAnswer: null,
