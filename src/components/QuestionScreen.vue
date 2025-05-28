@@ -161,7 +161,7 @@ export default {
     },
     selectAnswer(index) {
       if (!this.answered && this.currentQuestion && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
-        this.buttonsEnabled = false; // Désactive les boutons dès le clic
+        this.buttonsEnabled = false;
         this.selectedAnswer = index;
         this.answered = true;
 
@@ -175,14 +175,22 @@ export default {
           ? 'Correct !'
           : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
-        // Attend 2 secondes puis affiche le feedback
+        // Attend 2 secondes avant d'afficher le feedback
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
-          // Ne pas appeler feedbackAudio.play() manuellement, 
-          // le <audio> dans le template a autoplay et déclenche nextStepAfterFeedback au ended.
+
+          // Si aucun son à jouer dans le feedback, on passe à l'étape suivante après 5 secondes
+          if (!this.currentQuestion.feedback?.audio) {
+            setTimeout(() => {
+              this.nextStepAfterFeedback();
+            }, 5000);
+          }
+
+          // Sinon, le <audio> déclenchera nextStepAfterFeedback automatiquement via @ended
         }, 2000);
       }
     },
+
 
     handleButtonPress(buttonId) {
       const map = { A: 0, B: 1, C: 2, D: 3 };
@@ -216,7 +224,10 @@ export default {
 
       const nextDifficulty = this.difficulties[this.currentDifficultyIndex + 1];
 
-      if (this.currentDifficultyIndex < this.difficulties.length - 1 && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
+      if (
+        this.currentDifficultyIndex < this.difficulties.length - 1 &&
+        this.totalQuestionsAsked < this.totalQuestionsToAsk
+      ) {
         this.transitionVideo = true;
 
         const seuilMoyen = Math.ceil(this.questionsPerLevel / 2);
@@ -228,8 +239,12 @@ export default {
             : this.transitionVideos[nextDifficulty]?.pasBien;
 
         this.$nextTick(() => {
-          if (this.$refs.transitionVideoPlayer && this.transitionVideoSource) {
-            this.$refs.transitionVideoPlayer.play();
+          const video = this.$refs.transitionVideoPlayer;
+          if (video && this.transitionVideoSource) {
+            video.muted = false; // 👈 ACTIVE LE SON
+            video.play().catch((e) => {
+              console.warn('Lecture vidéo bloquée :', e);
+            });
           } else {
             this.nextLevel();
           }
@@ -238,6 +253,7 @@ export default {
         this.playEndVideo();
       }
     },
+
     nextLevel() {
       this.currentDifficultyIndex++;
       this.currentQuestionIndexInLevel = 0;
