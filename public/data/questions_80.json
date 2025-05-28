@@ -60,140 +60,148 @@
   "musique": {
     "easy": [
       {
-        "question": "« Dans le port d'Amsterdam… »",
-        "answers": ["Pour adoucir ton cœur", "Venues de pays où il ne pleut pas"],
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique1.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique1.jpg" }
-      },
-      {
-        "question": "Quel chanteur français est célèbre pour la chanson “Petit papa Noël” ?",
-        "answers": ["Marcel Amont","Tino Rossi"],
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique2.mp4", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.jpg" }
-      },
-      {
-        "question": "Quel chanteur français a popularisé le tube “C'est si bon” ?",
-        "answers": ["Yves Montand", "Charles Aznavour"],
+        "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "Préparez-vous au son du..." },
+        "question": "« Voyage, voyage » – Desireless Phrase à compléter : « Voyage, voyage… plus loin que la nuit et le jour… » ",
+        "answers": ["Dans l’espace inouï de l’amour", "Plus loin que le vent"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique3.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique3.jpg" }
+        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "C'était Elvis Presley !", "image": "/images/80musique1.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique4Debut.mp4", "text": "Préparez-vous au son du..." },
-        "question": "« La bohème, la bohème... »",
-        "answers": ["Ta musique est plus jolie", "Et nous vivions heureux"],
+        "question": "Vrai ou Faux : Joe Dassin chantait aussi en italien et en espagnol.",
+        "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "La réponse e50st le Rock 'n' roll.", "image": "/images/50musique4.jpg" }
+        "feedback": { "text": "La réponse est le Rock 'n' roll.", "image": "/images/80musique2.jpg" }
+      },
+      {
+         "beforeQuestion": { "audio": "/audio/80musique3.mp4", "text": "Préparez-vous au son du..." },
+        "question": "Qui chantait « Toute première fois » en 1986 ?",
+        "answers": ["Vanessa Paradis", "Jeanne Mas"],
+        "correctIndex": 1,
+        "feedback": {"text": "C'était Elvis Presley !", "image": "/images/80musique3.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique4Debut.mp4", "text": "Préparez-vous au son du..." },
+        "question": "« Joe le taxi » – Vanessa Paradis Phrase à compléter : « Joe le taxi… c’est sa vie le rhum au mambo… »",
+        "answers": ["Embouteillage", "Il est comme ça"],
+        "correctIndex": 0,
+        "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "La réponse e80st le Rock 'n' roll.", "image": "/images/80musique4.jpg" }
       },
        {
-        "beforeQuestion": { "audio": "/audio/50musique5Debut.mp4", "text": "Préparez-vous au son du..." },
-        "question": "« Mon petit Bambino… »",
-        "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
-        "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique5Fin.mp4", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique5.jpg" }
+        "beforeQuestion": { "audio": "/audio/80musique5.mp4", "text": "Préparez-vous au son du..." },
+        "question": "Quel groupe français est célèbre pour la chanson « Les démons de minuit » ?",
+        "answers": ["Indochine", "Images"],
+        "correctIndex": 1,
+        "feedback": {"text": "La réponse est le Rock 'n' roll.", "image": "/images/80musique5.jpg" }
       }
     ],
     "medium": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique6Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
-        "question": "« Dans les bars à la tombée du jour… » - Charles Aznavour",
-        "answers": ["Avec les copains", "Avec les marins"],
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique6.jpg" }
-      },
-      {
-        "question": "Qui a popularisé la chanson “Gondolier” en 1957 ?",
-        "answers": ["Dalida", "Mireille Mathieu"],
+        "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
+        "question": "« L’aventurier » – Indochine Phrase à compléter : « Et soudain surgit face au vent… »",
+        "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique7.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique7.jpg" }
+        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "80musique6.jpg" }
       },
       {
-        "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
+        "beforeQuestion": { "audio": "/audio/80musique7.mp4", "text": "Laissez-vous emporter par le son de..." },
+        "question": "Qui a écrit et interprété « Quand la musique est bonne » ?",
+        "answers": ["Daniel Balavoine", "Jean-Jacques Goldman"],
+        "correctIndex": 1,
+        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique7.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique8.mp4", "text": "Laissez-vous emporter par le son de..." },
+        "question": "Quel duo féminin a popularisé le tube « L’Amour à la plage » ?",
+        "answers": ["Les Rita Mitsouko", "Niagara"],
+        "correctIndex": 1,
+        "feedback": { "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "80musique8.jpg" }
+      },
+      {
+        "question": "« Vrai ou Faux : Mylène Farmer est née au Canada.",
         "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
-        "feedback": { "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique8.jpg" }
+        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique9.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique9Debut.mp4", "text": "Écoutez ce piano endiablé..." },
-        "question": "« Il est cinq heures, Paris se lève… » - Jacques Dutronc",
-        "answers": ["Les rues sont vides", "Je n'ai pas sommeil"],
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique9.jpg" }
-      },
-      {
-        "question": "Quel chanteur a écrit la chanson “Et maintenant”, reprise par de nombreux artistes ?",
-        "answers": ["Gilbert Bécaud", "Charles Aznavour"],
+        "beforeQuestion": { "audio": "/audio/80musique10Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
+        "question": "« En rouge et noir » – Jeanne Mas Phrase à compléter : « En rouge et noir, j'afficherai mon coeur… »",
+        "answers": ["En échange d’une trêve de douceur", "Qui me fait peur"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique10.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique10.jpg" }
+        "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique10.jpg" }
       }    
     ],
     "hard": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique11Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "« Padam, padam, padam… Il arrive en courant derrière moi… »",
-        "answers": ["Avec ses souvenirs que je ne veux plus", "Avec ses souvenirs que je reconnais", "Il me fait le coup du souvient toi", "Et me chante encore ce que je fuis"],
+        "beforeQuestion": { "audio": "/audio/80musique11Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
+        "question": "« Les yeux revolver » – Marc Lavoine Phrase à compléter : « Un peu largée… »",
+        "answers": ["Tu me vises et tu me blesses", "Ils tirent sur mon cœur", "Tu me regardes et tu me dérobes", "un peu seule sur la terre"],
+        "correctIndex": 3,
+        "feedback": { "audio": "/audio/80musique11Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/80musique11.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique12.mp4", "text": "Reconnaissez-vous ce riff ?" },
+        "question": "Quel groupe a lancé le tube « Ça plane pour moi » en 1977 ?",
+        "answers": ["Téléphone", "Plastic Bertrand", "Indochine", "Niagara"],
+        "correctIndex": 1,
+        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/80musique12.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique13Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
+        "question": "« Partenaire particulier » – Partenaire Particulier Phrase à compléter : « J’en ai assez de ce carcan… »",
+        "answers": ["Qui aime danser", "Qui m’enferme dans toutes ses règles", "Fidèle pour l’éternité", "Pour liaison compliquée"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/80musique13Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/80musique13.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "Un son qui a marqué l'histoire..." },
+        "question": "Quel chanteur a écrit « Couleur menthe à l’eau » en 1980 ?",
+        "answers": ["Christophe", "Alain Bashung", "Eddy Mitchell", "Gérard Manset"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique11.jpg" }
+        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/80musique14.jpg" }
       },
       {
-        "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
-        "answers": ["Gilbert Bécaud", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
-        "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique12.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique12.jpg" }
-      },
-      {
-        "beforeQuestion": { "audio": "/audio/50musique13Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "« J'aime mieux m'en aller… » - Barbara",
-        "answers": ["Sans rien dire", "Dans un souffle, dans un cri", "Du temps que je suis belle", "Dans l'ombre de la nuit"],
-        "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique13Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique13.jpg" }
-      },
-      {
-        "beforeQuestion": { "audio": "/audio/50musique14Debut.mp4", "text": "Un son qui a marqué l'histoire..." },
-        "question": "« Quand un soldat » - Yves Montand - Phrase à compléter : « A la guerre, à la guerre »",
-        "answers": ["C'est un drôle de petit jeu", "Part sans peur et sans espoir", "Part, on l'attend chaque jour ", "Part vers un avenir flou"],
-        "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique14.jpg" }
-      },
-      {
-        "question": "Quel chanteur a composé la musique du film “Les Parapluies de Cherbourg” en 1964 ?",
-        "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
-        "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique15.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique15.jpg" }
+        "beforeQuestion": { "audio": "/audio/80musique15Debut.mp4", "text": "Un son qui a marqué l'histoire..." },
+        "question": "« Confidence pour confidence » – Jean Schultheis Phrase à compléter : « Si vous voulez les caresses restez pas… »",
+        "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j’aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j’oublie tout"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/80musique15Fin.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/80musique15.jpg" }
       }
     ],
     "expert": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique16Debut.mp4", "text": "Plongez dans l'ambiance de ce film..." },
-        "question": "« La chanson de Prévert » - Serge Gainsbourg - Phrase à compléter : « Et chaque fois les feuilles mortes… »",
-        "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "Te rappellent à mon souvenir"],
-        "correctIndex": 3,
-        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "La musique était de Bernard Herrmann.", "image": "/images/50musique16.jpg" }
-      },
-      {
-        "question": "Qui a interprété “Ma p'tite chanson” avec succès en 1953 ?",
-        "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
-        "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique17.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique17.jpg" }
-      },
-      {
-        "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
-        "answers": ["Charles Trenet", "Hubert Giraud", "Hubert Salentin", "Hubert Giraud"],
-        "correctIndex": 3,
-        "feedback": { "audio": "/audio/50musique18.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique18.jpg" }
-      },
-      {
-        "beforeQuestion": { "audio": "/audio/50musique19Debut.mp4", "text": "Le son caractéristique de..." },
-        "question": "« Ne me quitte pas » - Jacques Brel - Phrase à compléter : « Moi je t'offrirais des perles de pluie.. »",
-        "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
+        "beforeQuestion": { "audio": "/audio/80musique16Debut.mp4", "text": "Plongez dans l'ambiance de ce film..." },
+        "question": "« Sans contrefaçon » – Mylène Farmer Phrase à compléter : « Tout seul dans mon placard… »",
+        "answers": ["Qui rêve de talons", "Je défie le hasard", "Les yeux cernés de noir", "Je n’en fais qu’a ma tête"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique19.jpg" }
+        "feedback": { "audio": "/audio/80musique16Fin.mp4", "text": "La musique était de Bernard Herrmann.", "image": "/images/80musique16.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique20Debut.mp4", "text": "Le son caractéristique de..." },
-        "question": "« Milord » - Édith Piaf Phrase à compléter : « Allez venez Milord… »",
-        "answers": ["Je serai là, toute à vous", "Vous avez l'air d'un môme…", "Je chanterai nos jours heureux", "Le temps n'aura pas de prise"],
+        "beforeQuestion": { "audio": "/audio/80musique17.mp4", "text": "Plongez dans l'ambiance de ce film..." },
+        "question": "Quel chanteur français a popularisé la chanson « Envole-moi » en 1984 ?",
+        "answers": ["Daniel Balavoine", "Patrick Bruel", "Jean-Jacques Goldman", "Michel Berger"],
+        "correctIndex": 2,
+        "feedback": { "text": "C'était le son de Sun Records.", "image": "/images/80musique17.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique18.mp4", "text": "Plongez dans l'ambiance de ce film..." },
+        "question": "Quel chanteuse est célèbre pour son titre « Eve, lève toi » ?",
+        "answers": ["France Galle", "Barbara", "Julie Pietri", "Lio"],
+        "correctIndex": 2,
+        "feedback": {"text": "C'était le son de Sun Records.", "image": "/images/80musique18.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "Le son caractéristique de..." },
+        "question": "« Duel au soleil » – Étienne Daho Phrase à compléter : « J’ai fais un voeux… »",
+        "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique20Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique20.jpg" }
+        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/80musique19.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique20.mp4", "text": "Le son caractéristique de..." },
+        "question": "Quel chanteur français est connu pour avoir chanté « Le coup de folie » ?",
+        "answers": ["Michel Sardou", "Renaud", "Francis Cabrel", "Gilbert Montagné"],
+        "correctIndex": 3,
+        "feedback": {"text": "C'était le son de Sun Records.", "image": "/images/80musique20.jpg" }
       }
     ]
   },
