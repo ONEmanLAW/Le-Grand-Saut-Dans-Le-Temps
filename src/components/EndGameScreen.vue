@@ -63,7 +63,7 @@ export default {
       }
     },
     launchConfetti() {
-      const duration = 3000
+      const duration = 10000
       const animationEnd = Date.now() + duration
       const defaults = {
         startVelocity: 40,    // un peu plus rapide
