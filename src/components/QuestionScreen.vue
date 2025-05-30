@@ -55,7 +55,11 @@ export default {
         expert: 0
       },
       isEndVideoPlaying: false,
-      buttonsEnabled: false // 🔥 Gère l’état actif/inactif des boutons
+      buttonsEnabled: false, // 🔥 Gère l’état actif/inactif des boutons
+
+      showCountdownBeforeMedia: false,
+      countdownPhase: null, // 'attention', 'countdown', or null
+      countdownValue: 3,
     };
   },
   async mounted() {
@@ -96,7 +100,7 @@ export default {
     },
     prepareQuestionDisplay() {
       this.preparingQuestion = true;
-      this.questionNumberDisplay = `QUESTION ${this.totalQuestionsAsked + 1}`;
+      this.questionNumberDisplay = `QUESTION ${this.totalQuestionsAsked + 1} / ${this.totalQuestionsToAsk}`;
       setTimeout(() => {
         this.preparingQuestion = false;
         this.loadBeforeQuestionOrQuestion();
@@ -108,21 +112,45 @@ export default {
         this.currentQuestion = currentQuestionData;
         this.isBeforeQuestion = true;
 
-        // Dès que la question est chargée, on essaie de lancer la vidéo si elle existe
-        this.$nextTick(() => {
-          const video = this.$refs.beforeQuestionVideo;
-          if (video) {
-            video.play().catch(e => {
-              console.warn("Lecture auto vidéo bloquée :", e);
-            });
-          }
-        });
+        this.showCountdownBeforeMedia = true;
+        this.countdownPhase = 'attention';
 
+        setTimeout(() => {
+          this.countdownPhase = 'countdown';
+          this.countdownValue = 3;
+
+          const countdownInterval = setInterval(() => {
+            this.countdownValue--;
+
+            if (this.countdownValue === 0) {
+              clearInterval(countdownInterval);
+              this.showCountdownBeforeMedia = false;
+              this.countdownPhase = null;
+
+              this.$nextTick(() => {
+                const video = this.$refs.beforeQuestionVideo;
+                const audio = this.$refs.beforeQuestionAudio;
+
+                if (video) {
+                  video.play().catch(e => {
+                    console.warn("Lecture auto vidéo bloquée :", e);
+                  });
+                } else if (audio) {
+                  audio.play().catch(e => {
+                    console.warn("Lecture auto audio bloquée :", e);
+                  });
+                }
+              });
+            }
+          }, 1000);
+
+        }, 1000);
       } else {
         this.isBeforeQuestion = false;
         this.loadQuestion();
       }
     },
+
     startQuestion() {
       this.isBeforeQuestion = false;
       this.loadQuestion();
@@ -335,12 +363,22 @@ export default {
       <div class="before-question-content">
         <h2 v-if="currentQuestion.beforeQuestion.text">{{ currentQuestion.beforeQuestion.text }}</h2>
 
+        <div v-if="showCountdownBeforeMedia" class="countdown-overlay">
+          <div class="countdown-text">
+            <template v-if="countdownPhase === 'attention'">
+              Attention
+            </template>
+            <template v-else-if="countdownPhase === 'countdown'">
+              {{ countdownValue }}
+            </template>
+          </div>
+        </div>
+
         <!-- Affiche la vidéo si elle existe -->
         <video
             v-if="currentQuestion.beforeQuestion.video"
           ref="beforeQuestionVideo"
           :src="currentQuestion.beforeQuestion.video"
-          autoplay
           playsinline
           @ended="startQuestion"
           class="before-question-video"
@@ -353,7 +391,6 @@ export default {
           ref="beforeQuestionAudio"
           :src="currentQuestion.beforeQuestion.audio"
           controls
-          autoplay
           @ended="startQuestion"
         ></audio>
 
@@ -631,4 +668,24 @@ h2 {
 .feedback-content audio {
   margin-bottom: 20px;
 }
+
+.countdown-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.countdown-text {
+  font-size: 5rem;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+  text-align: center;
+}
+
+
 </style>
