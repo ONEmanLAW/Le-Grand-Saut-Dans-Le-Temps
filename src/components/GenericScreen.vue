@@ -1,5 +1,5 @@
 <template>
-  <div class="video-screen">
+  <div class="video-screen" @click="handleScreenClick">
     <video
       ref="videoPlayer"
       class="video-player"
@@ -20,15 +20,39 @@ export default {
     src: { type: String, required: true },
     nextStep: { type: Function, required: true }
   },
+  data() {
+    return {
+      clickCount: 0
+    };
+  },
   mounted() {
-    const video = this.$refs.videoPlayer
+    const video = this.$refs.videoPlayer;
     video.play().catch(() => {
-      video.play()
-    })
+      // This catch block often handles cases where autoplay is blocked
+      // and a user interaction is needed to initiate playback.
+      // We can keep it or remove it if it's not causing issues.
+      video.play();
+    });
+  },
+  methods: {
+    handleScreenClick() {
+      this.clickCount++;
+      if (this.clickCount >= 3) {
+        this.skipVideo();
+      }
+    },
+    skipVideo() {
+      const video = this.$refs.videoPlayer;
+      if (video) {
+        video.pause(); // Pause the video
+        video.currentTime = video.duration; // Jump to the end
+        this.nextStep(); // Trigger the next step
+        this.clickCount = 0; // Reset click count
+      }
+    }
   }
 }
 </script>
-
 
 <style scoped>
 .video-screen {
@@ -40,6 +64,8 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .video-player {
@@ -49,6 +75,6 @@ export default {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+  z-index: 0; 
 }
 </style>
-

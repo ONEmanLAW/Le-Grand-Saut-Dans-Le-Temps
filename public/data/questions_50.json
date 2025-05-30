@@ -2,58 +2,150 @@
   "cinema": {
     "easy": [
       {
-        "question": "Quel acteur célèbre a joué dans 'Chantons sous la pluie' (1952) ?",
-        "answers": ["Gene Kelly", "Fred Astaire", "Humphrey Bogart", "Marlon Brando"],
+        "beforeQuestion": { "video": "/videos/50cinema18Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "Gene Kelly était la star de 'Chantons sous la pluie'." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       },
       {
-        "question": "Quel film de 1950 met en scène Gloria Swanson dans le rôle de Norma Desmond ?",
-        "answers": ["Sunset Boulevard", "All About Eve", "The Asphalt Jungle", "Born Yesterday"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Diaboliques", "Rififi"],
         "correctIndex": 0,
-        "feedback": { "text": "'Sunset Boulevard' met en scène Gloria Swanson." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": [" Les Diaboliques", "Rififi"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       }
     ],
     "medium": [
       {
-        "question": "Quel réalisateur a dirigé 'Les Sept Samouraïs' (1954) ?",
-        "answers": ["Akira Kurosawa", "Yasujirō Ozu", "Kenji Mizoguchi", "Ingmar Bergman"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "Le réalisateur des 'Sept Samouraïs' est Akira Kurosawa." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       },
       {
-        "question": "Dans 'Sur les quais' (1954), quel métier exerce le personnage de Marlon Brando avant de devenir docker ?",
-        "answers": ["Boxeur", "Chanteur", "Policier", "Chauffeur de taxi"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "Marlon Brando jouait un boxeur avant de devenir docker dans 'Sur les quais'." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       }
     ],
     "hard": [
       {
-        "question": "Quel est le titre original du film 'À bout de souffle' (1960), souvent associé à la Nouvelle Vague et sorti à la toute fin des années 50 ?",
-        "answers": ["Breathless", "The 400 Blows", "Hiroshima Mon Amour", "Pickpocket"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "Le titre original de 'À bout de souffle' est 'Breathless'." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       },
       {
-        "question": "Quel film de 1959 a remporté l'Oscar du meilleur film étranger et est connu pour sa séquence de descente aux enfers ?",
-        "answers": ["Orfeu Negro (Black Orpheus)", "Les Fraises sauvages (Wild Strawberries)", "Le Septième Sceau (The Seventh Seal)", "Les Quatre Cents Coups (The 400 Blows)"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "'Orfeu Negro' a remporté l'Oscar du meilleur film étranger en 1959." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       }
     ],
     "expert": [
       {
-        "question": "Quel monteur est crédité pour le film 'Ben-Hur' (1959), un travail colossal pour l'époque ?",
-        "answers": ["Ralph E. Winters", "Margaret Booth", "William Hornbeck", "Anne Bauchens"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "Le monteur crédité pour 'Ben-Hur' (1959) est Ralph E. Winters." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       },
       {
-        "question": "Pour quel film de 1957 Ingmar Bergman a-t-il utilisé une narration introspective et des flashbacks complexes pour explorer les souvenirs d'un professeur âgé ?",
-        "answers": ["Les Fraises sauvages (Smultronstället)", "Le Septième Sceau (Det sjunde inseglet)", "Sourires d'une nuit d'été (Sommarnattens leende)", " Monika (Sommaren med Monika)"],
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
-        "feedback": { "text": "Ingmar Bergman a utilisé une narration introspective dans 'Les Fraises sauvages'." }
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "Regarder l'extrait" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
+        "correctIndex": 0,
+        "feedback": { "text": "Donc c'était ca.", "image": "/images/50musique1.jpg" }
       }
     ]
   },
@@ -62,7 +154,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique1Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
         "question": "« Dans le port d'Amsterdam… »",
-        "answers": ["Pour adoucir ton cœur", "Y’a des marins qui dorment"],
+        "answers": ["Pour adoucir ton cœur", "Y'a des marins qui dorment"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique1.jpg" }
       },

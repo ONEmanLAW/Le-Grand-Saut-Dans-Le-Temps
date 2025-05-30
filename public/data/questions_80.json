@@ -61,8 +61,8 @@
     "easy": [
       {
         "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "Préparez-vous au son du..." },
-        "question": "« Voyage, voyage » – Desireless Phrase à compléter : « Voyage, voyage… plus loin que la nuit et le jour… » ",
-        "answers": ["Dans l’espace inouï de l’amour", "Plus loin que le vent"],
+        "question": "« Voyage, voyage » - Desireless Phrase à compléter : « Voyage, voyage… plus loin que la nuit et le jour… » ",
+        "answers": ["Dans l'espace inouï de l'amour", "Plus loin que le vent"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "C'était Elvis Presley !", "image": "/images/80musique1.jpg" }
       },
@@ -81,7 +81,7 @@
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique4Debut.mp4", "text": "Préparez-vous au son du..." },
-        "question": "« Joe le taxi » – Vanessa Paradis Phrase à compléter : « Joe le taxi… c’est sa vie le rhum au mambo… »",
+        "question": "« Joe le taxi » - Vanessa Paradis Phrase à compléter : « Joe le taxi… c'est sa vie le rhum au mambo… »",
         "answers": ["Embouteillage", "Il est comme ça"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "La réponse e80st le Rock 'n' roll.", "image": "/images/80musique4.jpg" }
@@ -97,7 +97,7 @@
     "medium": [
       {
         "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
-        "question": "« L’aventurier » – Indochine Phrase à compléter : « Et soudain surgit face au vent… »",
+        "question": "« L'aventurier » - Indochine Phrase à compléter : « Et soudain surgit face au vent… »",
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "80musique6.jpg" }
@@ -111,7 +111,7 @@
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique8.mp4", "text": "Laissez-vous emporter par le son de..." },
-        "question": "Quel duo féminin a popularisé le tube « L’Amour à la plage » ?",
+        "question": "Quel duo féminin a popularisé le tube « L'Amour à la plage » ?",
         "answers": ["Les Rita Mitsouko", "Niagara"],
         "correctIndex": 1,
         "feedback": { "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "80musique8.jpg" }
@@ -124,8 +124,8 @@
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique10Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
-        "question": "« En rouge et noir » – Jeanne Mas Phrase à compléter : « En rouge et noir, j'afficherai mon coeur… »",
-        "answers": ["En échange d’une trêve de douceur", "Qui me fait peur"],
+        "question": "« En rouge et noir » - Jeanne Mas Phrase à compléter : « En rouge et noir, j'afficherai mon coeur… »",
+        "answers": ["En échange d'une trêve de douceur", "Qui me fait peur"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique10.jpg" }
       }    
@@ -133,7 +133,7 @@
     "hard": [
       {
         "beforeQuestion": { "audio": "/audio/80musique11Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "« Les yeux revolver » – Marc Lavoine Phrase à compléter : « Un peu largée… »",
+        "question": "« Les yeux revolver » - Marc Lavoine Phrase à compléter : « Un peu largée… »",
         "answers": ["Tu me vises et tu me blesses", "Ils tirent sur mon cœur", "Tu me regardes et tu me dérobes", "un peu seule sur la terre"],
         "correctIndex": 3,
         "feedback": { "audio": "/audio/80musique11Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/80musique11.jpg" }
@@ -147,22 +147,22 @@
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique13Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "« Partenaire particulier » – Partenaire Particulier Phrase à compléter : « J’en ai assez de ce carcan… »",
-        "answers": ["Qui aime danser", "Qui m’enferme dans toutes ses règles", "Fidèle pour l’éternité", "Pour liaison compliquée"],
+        "question": "« Partenaire particulier » - Partenaire Particulier Phrase à compléter : « J'en ai assez de ce carcan… »",
+        "answers": ["Qui aime danser", "Qui m'enferme dans toutes ses règles", "Fidèle pour l'éternité", "Pour liaison compliquée"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique13Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/80musique13.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "Un son qui a marqué l'histoire..." },
-        "question": "Quel chanteur a écrit « Couleur menthe à l’eau » en 1980 ?",
+        "question": "Quel chanteur a écrit « Couleur menthe à l'eau » en 1980 ?",
         "answers": ["Christophe", "Alain Bashung", "Eddy Mitchell", "Gérard Manset"],
         "correctIndex": 2,
         "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/80musique14.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique15Debut.mp4", "text": "Un son qui a marqué l'histoire..." },
-        "question": "« Confidence pour confidence » – Jean Schultheis Phrase à compléter : « Si vous voulez les caresses restez pas… »",
-        "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j’aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j’oublie tout"],
+        "question": "« Confidence pour confidence » - Jean Schultheis Phrase à compléter : « Si vous voulez les caresses restez pas… »",
+        "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j'aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j'oublie tout"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique15Fin.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/80musique15.jpg" }
       }
@@ -170,8 +170,8 @@
     "expert": [
       {
         "beforeQuestion": { "audio": "/audio/80musique16Debut.mp4", "text": "Plongez dans l'ambiance de ce film..." },
-        "question": "« Sans contrefaçon » – Mylène Farmer Phrase à compléter : « Tout seul dans mon placard… »",
-        "answers": ["Qui rêve de talons", "Je défie le hasard", "Les yeux cernés de noir", "Je n’en fais qu’a ma tête"],
+        "question": "« Sans contrefaçon » - Mylène Farmer Phrase à compléter : « Tout seul dans mon placard… »",
+        "answers": ["Qui rêve de talons", "Je défie le hasard", "Les yeux cernés de noir", "Je n'en fais qu'a ma tête"],
         "correctIndex": 2,
         "feedback": { "audio": "/audio/80musique16Fin.mp4", "text": "La musique était de Bernard Herrmann.", "image": "/images/80musique16.jpg" }
       },
@@ -191,7 +191,7 @@
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "Le son caractéristique de..." },
-        "question": "« Duel au soleil » – Étienne Daho Phrase à compléter : « J’ai fais un voeux… »",
+        "question": "« Duel au soleil » - Étienne Daho Phrase à compléter : « J'ai fais un voeux… »",
         "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/80musique19.jpg" }
