@@ -152,55 +152,55 @@
   "musique": {
     "easy": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique1Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique1Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Dans le port d'Amsterdam… »",
         "answers": ["Pour adoucir ton cœur", "Y'a des marins qui dorment"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "C'était Elvis Presley !", "image": "/images/50musique1.jpg" }
+        "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique1.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique2.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique2.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur français est célèbre pour la chanson “Petit papa Noël” ?",
         "answers": ["Marcel Amont","Tino Rossi"],
         "correctIndex": 1,
-        "feedback": { "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique2.jpg" }
+        "feedback": { "text": "Tino Rossi", "image": "/images/50musique2.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique3.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique3.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur français a popularisé le tube “C'est si bon” ?",
         "answers": ["Yves Montand", "Charles Aznavour"],
         "correctIndex": 0,
-        "feedback": { "text": "C'était Elvis Presley !", "image": "/images/50musique3.jpg" }
+        "feedback": { "text": "Yves Montand", "image": "/images/50musique3.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique4Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« La bohème, la bohème... »",
+        "beforeQuestion": { "audio": "/audio/50musique4Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« La bohème, la bohème… »",
         "answers": ["Ta musique est plus jolie", "Et nous vivions heureux"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "La réponse e50st le Rock 'n' roll.", "image": "/images/50musique4.jpg" }
+        "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique4.jpg" }
       },
        {
-        "beforeQuestion": { "audio": "/audio/50musique5Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique5Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Mon petit Bambino… »",
         "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique5Fin.mp4", "text": "La réponse est le Rock 'n' roll.", "image": "/images/50musique5.jpg" }
+        "feedback": { "audio": "/audio/50musique5Fin.mp4", "text": "Dalida", "image": "/images/50musique5.jpg" }
       }
     ],
     "medium": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique6Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« Dans les bars à la tombée du jour… » - Charles Aznavour",
+        "beforeQuestion": { "audio": "/audio/50musique6Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Dans les bars à la tombée du jour… »",
         "answers": ["Avec les copains", "Avec les marins"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique6.jpg" }
+        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "Charles Aznavour", "image": "50musique6.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique7.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Qui a popularisé la chanson “Gondolier” en 1957 ?",
         "answers": ["Dalida", "Mireille Mathieu"],
         "correctIndex": 0,
-        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique7.jpg" }
+        "feedback": { "text": "Dalida", "image": "/images/50musique7.jpg" }
       },
       {
         "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
@@ -209,95 +209,115 @@
         "feedback": { "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique8.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique9Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« Il est cinq heures, Paris se lève… » - Jacques Dutronc",
+        "beforeQuestion": { "audio": "/audio/50musique9Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Il est cinq heures, Paris se lève… »",
         "answers": ["Les rues sont vides", "Je n'ai pas sommeil"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique9.jpg" }
+        "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "Jacques Dutronc", "image": "/images/50musique9.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique10.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique10.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a écrit la chanson “Et maintenant”, reprise par de nombreux artistes ?",
         "answers": ["Gilbert Bécaud", "Charles Aznavour"],
         "correctIndex": 0,
-        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/50musique10.jpg" }
+        "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique10.jpg" }
       }    
     ],
     "hard": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique11Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique11Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Padam, padam, padam… Il arrive en courant derrière moi… »",
         "answers": ["Avec ses souvenirs que je ne veux plus", "Avec ses souvenirs que je reconnais", "Il me fait le coup du souvient toi", "Et me chante encore ce que je fuis"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique11.jpg" }
+        "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique11.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique12.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique12.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
         "answers": ["Francis Cabrel", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
         "correctIndex": 2,
-        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/50musique12.jpg" }
+        "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique12.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique13Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« J'aime mieux m'en aller… » - Barbara",
+        "beforeQuestion": { "audio": "/audio/50musique13Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« J'aime mieux m'en aller… »",
         "answers": ["Sans rien dire", "Dans un souffle, dans un cri", "Du temps que je suis belle", "Dans l'ombre de la nuit"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique13Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/50musique13.jpg" }
+        "feedback": { "audio": "/audio/50musique13Fin.mp4", "text": "Barbara", "image": "/images/50musique13.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique14Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« Quand un soldat » - Yves Montand - Phrase à compléter : « A la guerre, à la guerre »",
+        "beforeQuestion": { "audio": "/audio/50musique14Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« A la guerre, à la guerre »",
         "answers": ["C'est un drôle de petit jeu", "Part sans peur et sans espoir", "Part, on l'attend chaque jour ", "Part vers un avenir flou"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/50musique14.jpg" }
+        "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Yves Montand", "image": "/images/50musique14.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique15.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique15.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a composé la musique du film “Les Parapluies de Cherbourg” en 1964 ?",
         "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
         "correctIndex": 0,
-        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/50musique15.jpg" }
+        "feedback": { "text": "Michel Legrand", "image": "/images/50musique15.jpg" }
       }
     ],
     "expert": [
       {
-        "beforeQuestion": { "audio": "/audio/50musique16Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« La chanson de Prévert » - Serge Gainsbourg - Phrase à compléter : « Et chaque fois les feuilles mortes… »",
+        "beforeQuestion": { "audio": "/audio/50musique16Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Et chaque fois les feuilles mortes… »",
         "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "Te rappellent à mon souvenir"],
         "correctIndex": 3,
-        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "La musique était de Bernard Herrmann.", "image": "/images/50musique16.jpg" }
+        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Serge Gainsbourg", "image": "/images/50musique16.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique17.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique17.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Qui a interprété “Ma p'tite chanson” avec succès en 1953 ?",
         "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
         "correctIndex": 0,
-        "feedback": { "text": "C'était le son de Sun Records.", "image": "/images/50musique17.jpg" }
+        "feedback": { "text": "Bourvil", "image": "/images/50musique17.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique18.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/50musique18.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
         "answers": ["Charles Trenet", "Hubert Giraud", "Hubert Salentin", "Hubert Giraud"],
         "correctIndex": 3,
-        "feedback": { "text": "C'était le son de Sun Records.", "image": "/images/50musique18.jpg" }
+        "feedback": { "text": "Hubert Giraud", "image": "/images/50musique18.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique19Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« Ne me quitte pas » - Jacques Brel - Phrase à compléter : « Moi je t'offrirais des perles de pluie.. »",
+        "beforeQuestion": { "audio": "/audio/50musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Moi je t'offrirais des perles de pluie… »",
         "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique19.jpg" }
+        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique19.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/50musique20Debut.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
-        "question": "« Milord » - Édith Piaf Phrase à compléter : « Allez venez Milord… »",
+        "beforeQuestion": { "audio": "/audio/50musique20Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Allez venez Milord… »",
         "answers": ["Je serai là, toute à vous", "Vous avez l'air d'un môme…", "Je chanterai nos jours heureux", "Le temps n'aura pas de prise"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique20Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/50musique20.jpg" }
+        "feedback": { "audio": "/audio/50musique20Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique20.jpg" }
       }
     ]
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "histoire": {
     "easy": [
       {
