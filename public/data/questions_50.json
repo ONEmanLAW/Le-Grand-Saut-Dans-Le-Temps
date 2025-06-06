@@ -234,7 +234,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique12.mp4", "text": "ECOUTER LA MUSIQUE ET COMPLETER LES PAROLES" },
         "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
-        "answers": ["Gilbert Bécaud", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
+        "answers": ["Francis Cabrel", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
         "correctIndex": 2,
         "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/50musique12.jpg" }
       },

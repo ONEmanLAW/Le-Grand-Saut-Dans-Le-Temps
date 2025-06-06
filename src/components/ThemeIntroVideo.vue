@@ -7,7 +7,6 @@
       autoplay
       playsinline
       @ended="nextStep"
-      muted="false"
     ></video>
   </div>
 </template>

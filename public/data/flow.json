@@ -66,12 +66,6 @@
     }
   },
   {
-    "objectId": "EndVideoScreen",
-    "props": {
-      "src": "/videos/endVideo.mp4"
-    }
-  },
-  {
     "objectId": "EndGameScreen"
   }
 

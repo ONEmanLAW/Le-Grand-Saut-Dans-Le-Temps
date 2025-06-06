@@ -12,21 +12,21 @@ export default {
       difficulties: ['easy', 'medium', 'hard', 'expert'],
       transitionVideos: {
         medium: {
+          bien: '/videos/facile_bien.mp4',
+          pasBien: '/videos/facile_pasBien.mp4',
+        },
+        hard: {
           bien: '/videos/medium_bien.mp4',
           pasBien: '/videos/medium_pasBien.mp4',
         },
-        hard: {
+        expert: {
           bien: '/videos/hard_bien.mp4',
           pasBien: '/videos/hard_pasBien.mp4',
-        },
-        expert: {
-          bien: '/videos/expert_bien.mp4',
-          pasBien: '/videos/expert_pasBien.mp4',
         }
       },
       endVideos: {
-        bien: '/videos/endVideo.mp4',
-        pasBien: '/videos/endVideoPasBien.mp4',
+        bien: '/videos/expert_bien.mp4',
+        pasBien: '/videos/expert_pasBien.mp4',
       },
       currentQuestion: null,
       selectedAnswer: null,
@@ -355,7 +355,7 @@ export default {
         playsinline
         class="transition-video"
         @ended="onTransitionVideoEnded"
-        controls="false"
+        
       ></video>
     </div>
 
@@ -686,6 +686,19 @@ h2 {
   user-select: none;
   text-align: center;
 }
+
+
+.transition-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 9999; /* pour être sûr qu'elle soit au-dessus */
+  pointer-events: none; /* pour ne pas bloquer les clics */
+}
+
 
 
 </style>

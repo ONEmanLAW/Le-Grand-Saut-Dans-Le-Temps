@@ -1,14 +1,11 @@
 <template>
   <div class="trophee-video-screen">
-    <h2 v-if="trophee">{{ getTropheeTitle }} !</h2>
-    <p v-else>Fin de la partie.</p>
     <video
       v-if="tropheeVideoSource"
       ref="tropheeVideoPlayer"
       :src="tropheeVideoSource"
       autoplay
       playsinline
-      muted
       @ended="onTropheeVideoEnded"
     >
       Votre navigateur ne supporte pas la lecture de vidéos.
@@ -29,18 +26,21 @@ export default {
   computed: {
     tropheeVideoSource() {
       return this.trophee ? this.videoSources[this.trophee] : this.videoSources['none']
-    },
-    getTropheeTitle() {
-      if (this.trophee === 'or') return "Trophée d'or"
-      if (this.trophee === 'argent') return "Trophée d'argent"
-      if (this.trophee === 'bronze') return "Trophée de bronze"
-      return ""
     }
   },
   mounted() {
     this.score = parseInt(localStorage.getItem('score') || '0')
     this.questions = parseInt(localStorage.getItem('questionCount') || '0')
     this.determineTrophee()
+    this.$nextTick(() => {
+      const player = this.$refs.tropheeVideoPlayer
+      if (player) {
+        player.volume = 1.0 // Assure que le volume est à fond
+        player.play().catch(err => {
+          console.warn('Lecture auto refusée par le navigateur :', err)
+        })
+      }
+    })
   },
   methods: {
     determineTrophee() {
@@ -80,33 +80,23 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .trophee-video-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 40px;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-}
-
-h2 {
-  color: gold;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1.2em;
-  color: #555;
-  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: black;
+  z-index: 9999;
 }
 
 video {
-  max-width: 80%;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
 }
 </style>
