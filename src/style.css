@@ -22,18 +22,18 @@
 
 h1 {
   font-family: 'Berlin', sans-serif;
-  font-size: 52px;
+  font-size: 55px;
   font-weight: bold;
 }
 
 h2, button {
   font-family: 'NeutraText', sans-serif;
-  font-size: 48px;
+  font-size: 52px;
   font-weight: normal;
 }
 
 h3, p {
   font-family: 'NeutraText', sans-serif;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: normal;
 }

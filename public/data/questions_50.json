@@ -206,7 +206,7 @@
         "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
         "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
-        "feedback": { "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "50musique8.jpg" }
+        "feedback": { "text": "Charles Aznavour", "image": "50musique8.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique9Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -287,7 +287,7 @@
         "question": "« Moi je t'offrirais des perles de pluie… »",
         "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique19.jpg" }
+        "feedback": { "audio": "/audio/50musique19Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique19.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique20Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },

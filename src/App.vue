@@ -127,7 +127,7 @@ export default {
 
 /* Classes pour fond selon époque */
 .bg-default {
-  background-image: url('/images/default.png');
+  background-color: #FFAE59;
 }
 .bg-era-50 {
   background-image: url('/images/era50.png');

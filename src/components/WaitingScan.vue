@@ -62,7 +62,7 @@ export default {
 
 <template>
   <div class="waiting-scan-container" @click="handleClickDebug">
-    <h1>Poser le badge sur l'époque de votre choix !</h1>
+    <h1 class="title">Poser le badge sur l'époque de votre choix !</h1>
   </div>
 </template>
 
@@ -161,6 +161,10 @@ export default {
   user-select: none;
   text-align: center;
   padding: 20px;
+}
+
+.title {
+  text-transform: uppercase;
 }
 </style>
 
