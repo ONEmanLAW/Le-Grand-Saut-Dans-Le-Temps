@@ -10,12 +10,20 @@
       <source :src="src" type="video/mp4" />
       Votre navigateur ne supporte pas la vidéo HTML5.
     </video>
+
+    <ButtonInputListener
+      :active="false"
+      :onButtonPress="() => {}"
+    />
   </div>
 </template>
 
 <script>
+import ButtonInputListener from './ButtonInputListener.vue'
+
 export default {
   name: 'GenericScreen',
+  components: { ButtonInputListener },
   props: {
     src: { type: String, required: true },
     nextStep: { type: Function, required: true }
@@ -23,31 +31,28 @@ export default {
   data() {
     return {
       clickCount: 0
-    };
+    }
   },
   mounted() {
-    const video = this.$refs.videoPlayer;
+    const video = this.$refs.videoPlayer
     video.play().catch(() => {
-      // This catch block often handles cases where autoplay is blocked
-      // and a user interaction is needed to initiate playback.
-      // We can keep it or remove it if it's not causing issues.
-      video.play();
-    });
+      video.play()
+    })
   },
   methods: {
     handleScreenClick() {
-      this.clickCount++;
+      this.clickCount++
       if (this.clickCount >= 3) {
-        this.skipVideo();
+        this.skipVideo()
       }
     },
     skipVideo() {
-      const video = this.$refs.videoPlayer;
+      const video = this.$refs.videoPlayer
       if (video) {
-        video.pause(); // Pause the video
-        video.currentTime = video.duration; // Jump to the end
-        this.nextStep(); // Trigger the next step
-        this.clickCount = 0; // Reset click count
+        video.pause()
+        video.currentTime = video.duration
+        this.nextStep()
+        this.clickCount = 0
       }
     }
   }
@@ -75,6 +80,6 @@ export default {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: 0; 
+  z-index: 0;
 }
 </style>

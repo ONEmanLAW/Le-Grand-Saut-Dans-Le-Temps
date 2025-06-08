@@ -62,7 +62,7 @@ export default {
 
 <template>
   <div class="waiting-scan-container" @click="handleClickDebug">
-    <h1 class="title">Poser le badge sur l'époque de votre choix !</h1>
+    <h1 class="title pulse">Poser le badge sur l'époque de votre choix !</h1>
   </div>
 </template>
 
@@ -76,13 +76,12 @@ export default {
   data() {
     return {
       canTriggerLongScan: true,
-      debugInput: '',
       clickCount: 0,
       clickTimer: null
     }
   },
   mounted() {
-    // Écoute WebSocket
+    // WebSocket listen
     if (this.ws) {
       this.ws.onmessage = (event) => {
         const message = JSON.parse(event.data)
@@ -96,11 +95,9 @@ export default {
       }
     }
 
-    // Mode debug clavier
-    window.addEventListener('keydown', this.handleKeydown)
+    // **Debug clavier et debug 3 clics souris automatique supprimés**
   },
   beforeUnmount() {
-    window.removeEventListener('keydown', this.handleKeydown)
     clearTimeout(this.clickTimer)
   },
   methods: {
@@ -119,22 +116,15 @@ export default {
         this.canTriggerLongScan = true
       }
     },
-    handleKeydown(e) {
-      this.debugInput += e.key
-      if (this.debugInput.length >= 2) {
-        const value = this.debugInput.slice(-2)
-        if (value === '50' || value === '80') {
-          console.log(`🧪 Mode debug activé (clavier) : scan simulé pour ${value}`)
-          this.handleScan(value)
-        }
-        this.debugInput = ''
-      }
-    },
+
+    // Suppression de handleKeydown (debug clavier)
+
     handleClickDebug() {
       this.clickCount++
       clearTimeout(this.clickTimer)
 
       this.clickTimer = setTimeout(() => {
+        // Garder le comportement normal 3 clics rapides pour "debug tactile"
         if (this.clickCount === 3) {
           console.log('🧪 Mode debug activé (3 clics) : année 50')
           this.handleScan('50')
@@ -143,7 +133,7 @@ export default {
           this.handleScan('80')
         }
         this.clickCount = 0
-      }, 400) // 400ms pour taper rapidement
+      }, 400) // 400ms délai pour taper rapidement
     }
   }
 }
@@ -166,5 +156,25 @@ export default {
 .title {
   text-transform: uppercase;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+.pulse {
+  animation: pulse 2.5s ease-in-out infinite;
+}
 </style>
+
 

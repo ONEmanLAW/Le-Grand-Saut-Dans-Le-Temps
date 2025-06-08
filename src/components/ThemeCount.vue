@@ -61,8 +61,13 @@ export default {
       if (!this.buttonsEnabled) return
       this.disableButtons()
 
+      console.log('Theme sélectionné:', theme)
       localStorage.setItem('selectedTheme', theme)
-      this.nextStep()
+      if (typeof this.nextStep === 'function') {
+        this.nextStep()
+      } else {
+        console.warn("nextStep n'est pas une fonction")
+      }
     },
     shuffleArray(arr) {
       let array = arr.slice()
@@ -80,6 +85,7 @@ export default {
       const index = buttonMap[buttonId]
 
       if (index !== undefined && index < this.selectedThemes.length) {
+        console.log('Bouton pressé via input:', buttonId)
         this.selectTheme(this.selectedThemes[index])
       }
     }
@@ -93,15 +99,14 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding: 40px;
+  padding: 70px;
   box-sizing: border-box;
   overflow: visible;
 }
 
 .title {
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   text-align: center;
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
@@ -119,17 +124,16 @@ export default {
 
 .button-wrapper {
   overflow: visible;
-  margin-bottom: 30px; 
+  margin-bottom: 40px; 
   position: relative;
-  width: 1170px; 
+  width: 1160px; 
 }
 
 button {
-  width: 1170px;
+  width: 1160px;
   height: 225px;
   border: none;
   border-radius: 16px;
-  color: black;
   font-weight: bold;
   cursor: pointer;
   opacity: 0;
@@ -145,7 +149,6 @@ button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 
 @keyframes fadeInUp {
   from {

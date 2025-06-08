@@ -592,14 +592,15 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #FFAE59;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
-  color: white;
-  font-size: 48px;
+  color: #330006;
+  font-size: 55px;
   font-weight: bold;
+  font-family: 'Berlin', sans-serif;
 }
 
 /* Styles "Before Question" */
@@ -633,17 +634,17 @@ h2 {
 }
 
 .before-question-video {
-  max-width: 100%;   /* la vidéo ne dépasse pas la largeur du conteneur */
-  max-height: 300px; /* limite la hauteur à 300px */
-  width: auto;       /* conserve les proportions */
+  max-width: 100%; 
+  max-height: 300px; 
+  width: auto;       
   height: auto;
   display: block;
-  margin: 0 auto;    /* centre la vidéo horizontalement */
-  border-radius: 8px; /* optionnel, un peu d’arrondi */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* optionnel, une légère ombre */
+  margin: 0 auto;   
+  border-radius: 8px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
 }
 
-/* Styles Feedback */
+
 .feedback-content {
   display: flex;
   flex-direction: column;
@@ -672,7 +673,7 @@ h2 {
 .countdown-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background-color: #FFAE59;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -680,11 +681,12 @@ h2 {
 }
 
 .countdown-text {
-  font-size: 5rem;
-  color: white;
+  font-size: 55px;
+  color: #330006;;
   font-weight: bold;
   user-select: none;
   text-align: center;
+  font-family: 'Berlin', sans-serif;
 }
 
 

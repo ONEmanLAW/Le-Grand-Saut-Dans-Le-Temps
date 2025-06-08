@@ -105,14 +105,14 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 50px;
   box-sizing: border-box;
   overflow: visible;
 }
 
 .title {
   font-weight: bold;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   text-align: center;
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
@@ -121,15 +121,15 @@ export default {
 
 .button-row {
   display: flex;
-  gap: 130px;
-  margin-bottom: 130px;
+  gap: 40px;
+  margin-bottom: 40px;
   justify-content: center;
   overflow: visible;
 }
 
 .button-wrapper {
   overflow: visible;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   position: relative;
 }
 
@@ -138,7 +138,6 @@ button {
   height: 225px;
   border: none;
   border-radius: 16px;
-  color: black;
   font-weight: bold;
   cursor: pointer;
   opacity: 0;

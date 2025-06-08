@@ -118,7 +118,7 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: red; /* pour test */
+  background-color: #FFAE59;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

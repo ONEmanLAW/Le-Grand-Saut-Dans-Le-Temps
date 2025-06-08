@@ -1,39 +1,30 @@
 <template>
   <div class="start-screen" @click="handleClick">
-    <img :src="src" alt="Start Screen" class="full-image" />
+    <h1 class="start-button">APPUYER POUR COMMENCER</h1>
+
+    <ButtonInputListener
+      :active="true"
+      :onButtonPress="handleButtonPress"
+    />
   </div>
 </template>
 
 <script>
+import ButtonInputListener from './ButtonInputListener.vue'
+
 export default {
   name: 'StartScreen',
+  components: { ButtonInputListener },
   props: {
-    src: { type: String, required: true },
     nextStep: { type: Function, required: true }
   },
   methods: {
     handleClick() {
-      const elem = this.$el
-
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen()
-          .then(() => {
-            // Fullscreen lancé, on passe à l'étape suivante
-            this.nextStep()
-          })
-          .catch(err => {
-            console.warn('Erreur fullscreen:', err)
-            // Même en cas d’erreur, on continue
-            this.nextStep()
-          })
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen()
-        this.nextStep()
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen()
-        this.nextStep()
-      } else {
-        // Pas supporté, on continue quand même
+      this.nextStep()
+    },
+    handleButtonPress(buttonId) {
+      const validButtons = ['A', 'B', 'C', 'D']
+      if (validButtons.includes(buttonId)) {
         this.nextStep()
       }
     }
@@ -43,16 +34,39 @@ export default {
 
 <style scoped>
 .start-screen {
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100vw;
+  background-color: #FFAE59;
   cursor: pointer;
 }
 
-.full-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.start-button {
+  color: #330006;
+  font-size: 64px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 40px 80px;
+  border: 6px solid #330006;
+  border-radius: 20px;
+  animation: pulse 2.5s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
 }
 </style>
