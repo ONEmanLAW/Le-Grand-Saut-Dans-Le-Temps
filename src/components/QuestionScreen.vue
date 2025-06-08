@@ -43,7 +43,7 @@ export default {
       totalQuestionsToAsk: 0,
       preparingQuestion: false,
       questionNumberDisplay: '',
-      answerColors: ['#FF6B6B', '#4ECDC4', '#FFD166', '#80ED99'],
+      answerColors: ['#47DEB1', '#FF8FC3', '#F16565', '#A695FF'],
       isBeforeQuestion: false,
       isFeedback: false,
       gameFinished: false,
@@ -221,9 +221,23 @@ export default {
 
 
     handleButtonPress(buttonId) {
-      const map = { A: 0, B: 1, C: 2, D: 3 };
-      const index = map[buttonId];
-      if (this.buttonsEnabled && index !== undefined && this.currentQuestion?.answers?.[index]) {
+      if (!this.buttonsEnabled || !this.currentQuestion?.answers) return;
+
+      const answerCount = this.currentQuestion.answers.length;
+
+      let index;
+
+      if (answerCount === 2) {
+        // Mapping spécial pour 2 réponses : A = 0, C = 1
+        const map = { A: 0, C: 1 };
+        index = map[buttonId];
+      } else {
+        // Mapping normal pour 3 ou 4 réponses
+        const map = { A: 0, B: 1, C: 2, D: 3 };
+        index = map[buttonId];
+      }
+
+      if (index !== undefined) {
         this.selectAnswer(index);
       }
     },
