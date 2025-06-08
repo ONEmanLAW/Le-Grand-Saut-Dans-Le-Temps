@@ -60,148 +60,148 @@
   "musique": {
     "easy": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "Préparez-vous au son du..." },
-        "question": "« Voyage, voyage » - Desireless Phrase à compléter : « Voyage, voyage… plus loin que la nuit et le jour… » ",
+        "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Voyage, voyage… plus loin que la nuit et le jour… » ",
         "answers": ["Dans l'espace inouï de l'amour", "Plus loin que le vent"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "C'était Elvis Presley !", "image": "/images/80musique1.jpg" }
+        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "Desireless", "image": "/images/80musique1.jpg" }
       },
       {
         "question": "Vrai ou Faux : Joe Dassin chantait aussi en italien et en espagnol.",
         "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
-        "feedback": { "text": "La réponse est le Rock 'n' roll.", "image": "/images/80musique2.jpg" }
+        "feedback": { "text": "Joe Dassin", "image": "/images/80musique2.jpg" }
       },
       {
-         "beforeQuestion": { "audio": "/audio/80musique3.mp4", "text": "Préparez-vous au son du..." },
+         "beforeQuestion": { "audio": "/audio/80musique3.mp4", "text": "TROUVER LA BONNE ARTISTE" },
         "question": "Qui chantait « Toute première fois » en 1986 ?",
         "answers": ["Vanessa Paradis", "Jeanne Mas"],
         "correctIndex": 1,
-        "feedback": {"text": "C'était Elvis Presley !", "image": "/images/80musique3.jpg" }
+        "feedback": {"text": "Jeanne Mas", "image": "/images/80musique3.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique4Debut.mp4", "text": "Préparez-vous au son du..." },
-        "question": "« Joe le taxi » - Vanessa Paradis Phrase à compléter : « Joe le taxi… c'est sa vie le rhum au mambo… »",
+        "beforeQuestion": { "audio": "/audio/80musique4Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Joe le taxi… c'est sa vie le rhum au mambo… »",
         "answers": ["Embouteillage", "Il est comme ça"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "La réponse e80st le Rock 'n' roll.", "image": "/images/80musique4.jpg" }
+        "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "Vanessa Paradis", "image": "/images/80musique4.jpg" }
       },
        {
-        "beforeQuestion": { "audio": "/audio/80musique5.mp4", "text": "Préparez-vous au son du..." },
+        "beforeQuestion": { "audio": "/audio/80musique5.mp4", "text": "TROUVER LE BON GROUPE" },
         "question": "Quel groupe français est célèbre pour la chanson « Les démons de minuit » ?",
         "answers": ["Indochine", "Images"],
         "correctIndex": 1,
-        "feedback": {"text": "La réponse est le Rock 'n' roll.", "image": "/images/80musique5.jpg" }
+        "feedback": {"text": "Images", "image": "/images/80musique5.jpg" }
       }
     ],
     "medium": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
-        "question": "« L'aventurier » - Indochine Phrase à compléter : « Et soudain surgit face au vent… »",
+        "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Et soudain surgit face au vent… »",
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "80musique6.jpg" }
+        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "80musique6.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique7.mp4", "text": "Laissez-vous emporter par le son de..." },
+        "beforeQuestion": { "audio": "/audio/80musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Qui a écrit et interprété « Quand la musique est bonne » ?",
         "answers": ["Daniel Balavoine", "Jean-Jacques Goldman"],
         "correctIndex": 1,
-        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique7.jpg" }
+        "feedback": { "text": "Jean-Jacques Goldman", "image": "/images/80musique7.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique8.mp4", "text": "Laissez-vous emporter par le son de..." },
+        "beforeQuestion": { "audio": "/audio/80musique8.mp4", "text": "TROUVER LE BON GROUPE" },
         "question": "Quel duo féminin a popularisé le tube « L'Amour à la plage » ?",
         "answers": ["Les Rita Mitsouko", "Niagara"],
         "correctIndex": 1,
-        "feedback": { "text": "La réponse est Cool Jazz / Modal Jazz.", "image": "80musique8.jpg" }
+        "feedback": { "text": "Niagara", "image": "80musique8.jpg" }
       },
       {
         "question": "« Vrai ou Faux : Mylène Farmer est née au Canada.",
         "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
-        "feedback": { "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique9.jpg" }
+        "feedback": { "text": "Mylène Farmer", "image": "/images/80musique9.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique10Debut.mp4", "text": "Laissez-vous emporter par le son de..." },
-        "question": "« En rouge et noir » - Jeanne Mas Phrase à compléter : « En rouge et noir, j'afficherai mon coeur… »",
+        "beforeQuestion": { "audio": "/audio/80musique10Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« En rouge et noir, j'afficherai mon coeur… »",
         "answers": ["En échange d'une trêve de douceur", "Qui me fait peur"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "C'était Jerry Lee Lewis !", "image": "/images/80musique10.jpg" }
+        "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "Jeanne Mas", "image": "/images/80musique10.jpg" }
       }    
     ],
     "hard": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique11Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "« Les yeux revolver » - Marc Lavoine Phrase à compléter : « Un peu largée… »",
+        "beforeQuestion": { "audio": "/audio/80musique11Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Un peu largée… »",
         "answers": ["Tu me vises et tu me blesses", "Ils tirent sur mon cœur", "Tu me regardes et tu me dérobes", "un peu seule sur la terre"],
         "correctIndex": 3,
-        "feedback": { "audio": "/audio/80musique11Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/80musique11.jpg" }
+        "feedback": { "audio": "/audio/80musique11Fin.mp4", "text": "Marc Lavoine", "image": "/images/80musique11.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique12.mp4", "text": "Reconnaissez-vous ce riff ?" },
+        "beforeQuestion": { "audio": "/audio/80musique12.mp4", "text": "TROUVER LE BON GROUPE" },
         "question": "Quel groupe a lancé le tube « Ça plane pour moi » en 1977 ?",
         "answers": ["Téléphone", "Plastic Bertrand", "Indochine", "Niagara"],
         "correctIndex": 1,
-        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/80musique12.jpg" }
+        "feedback": { "text": "Plastic Bertrand", "image": "/images/80musique12.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique13Debut.mp4", "text": "Reconnaissez-vous ce riff ?" },
-        "question": "« Partenaire particulier » - Partenaire Particulier Phrase à compléter : « J'en ai assez de ce carcan… »",
+        "beforeQuestion": { "audio": "/audio/80musique13Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« J'en ai assez de ce carcan… »",
         "answers": ["Qui aime danser", "Qui m'enferme dans toutes ses règles", "Fidèle pour l'éternité", "Pour liaison compliquée"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique13Fin.mp4", "text": "C'est 'Johnny B. Goode' !", "image": "/images/80musique13.jpg" }
+        "feedback": { "audio": "/audio/80musique13Fin.mp4", "text": "Partenaire Particulier", "image": "/images/80musique13.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "Un son qui a marqué l'histoire..." },
+        "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a écrit « Couleur menthe à l'eau » en 1980 ?",
         "answers": ["Christophe", "Alain Bashung", "Eddy Mitchell", "Gérard Manset"],
         "correctIndex": 2,
-        "feedback": { "text": "Le célèbre Sun Studio.", "image": "/images/80musique14.jpg" }
+        "feedback": { "text": "Eddy Mitchell", "image": "/images/80musique14.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique15Debut.mp4", "text": "Un son qui a marqué l'histoire..." },
-        "question": "« Confidence pour confidence » - Jean Schultheis Phrase à compléter : « Si vous voulez les caresses restez pas… »",
+        "beforeQuestion": { "audio": "/audio/80musique15Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Si vous voulez les caresses restez pas… »",
         "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j'aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j'oublie tout"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique15Fin.mp4", "text": "Le célèbre Sun Studio.", "image": "/images/80musique15.jpg" }
+        "feedback": { "audio": "/audio/80musique15Fin.mp4", "text": "Jean Schultheis", "image": "/images/80musique15.jpg" }
       }
     ],
     "expert": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique16Debut.mp4", "text": "Plongez dans l'ambiance de ce film..." },
-        "question": "« Sans contrefaçon » - Mylène Farmer Phrase à compléter : « Tout seul dans mon placard… »",
+        "beforeQuestion": { "audio": "/audio/80musique16Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Tout seul dans mon placard… »",
         "answers": ["Qui rêve de talons", "Je défie le hasard", "Les yeux cernés de noir", "Je n'en fais qu'a ma tête"],
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/80musique16Fin.mp4", "text": "La musique était de Bernard Herrmann.", "image": "/images/80musique16.jpg" }
+        "feedback": { "audio": "/audio/80musique16Fin.mp4", "text": "Mylène Farmer", "image": "/images/80musique16.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique17.mp4", "text": "Plongez dans l'ambiance de ce film..." },
+        "beforeQuestion": { "audio": "/audio/80musique17.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur français a popularisé la chanson « Envole-moi » en 1984 ?",
         "answers": ["Daniel Balavoine", "Patrick Bruel", "Jean-Jacques Goldman", "Michel Berger"],
         "correctIndex": 2,
-        "feedback": { "text": "C'était le son de Sun Records.", "image": "/images/80musique17.jpg" }
+        "feedback": { "text": "Jean-Jacques Goldman", "image": "/images/80musique17.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique18.mp4", "text": "Plongez dans l'ambiance de ce film..." },
+        "beforeQuestion": { "audio": "/audio/80musique18.mp4", "text": "TROUVER LA BONNE ARTISTE" },
         "question": "Quel chanteuse est célèbre pour son titre « Eve, lève toi » ?",
         "answers": ["France Galle", "Barbara", "Julie Pietri", "Lio"],
         "correctIndex": 2,
-        "feedback": {"text": "C'était le son de Sun Records.", "image": "/images/80musique18.jpg" }
+        "feedback": {"text": "Julie Pietri", "image": "/images/80musique18.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "Le son caractéristique de..." },
-        "question": "« Duel au soleil » - Étienne Daho Phrase à compléter : « J'ai fais un voeux… »",
+        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« J'ai fais un voeux… »",
         "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "C'était le son de Sun Records.", "image": "/images/80musique19.jpg" }
+        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique20.mp4", "text": "Le son caractéristique de..." },
+        "beforeQuestion": { "audio": "/audio/80musique20.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur français est connu pour avoir chanté « Le coup de folie » ?",
         "answers": ["Michel Sardou", "Renaud", "Francis Cabrel", "Gilbert Montagné"],
         "correctIndex": 3,
-        "feedback": {"text": "C'était le son de Sun Records.", "image": "/images/80musique20.jpg" }
+        "feedback": {"text": "Gilbert Montagné", "image": "/images/80musique20.jpg" }
       }
     ]
   },
