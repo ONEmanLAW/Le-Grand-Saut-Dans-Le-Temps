@@ -1,20 +1,21 @@
 <template>
   <div class="theme-count-screen">
     <h1 class="title fade-in" style="animation-delay: 0s;">Choisissez un thème</h1>
+    
     <div class="button-row">
-      <button
-        v-for="(theme, index) in selectedThemes"
-        :key="theme"
-        @click="selectTheme(theme)"
-        :disabled="!buttonsEnabled"
-        :class="{ disabled: !buttonsEnabled }"
-        :style="{
-          'animation-delay': `${0.3 + index * 0.2}s`,
-          backgroundColor: buttonColors[index]
-        }"
-      >
-        {{ capitalize(theme) }}
-      </button>
+      <div class="button-wrapper" v-for="(theme, index) in selectedThemes" :key="theme">
+        <button
+          @click="selectTheme(theme)"
+          :disabled="!buttonsEnabled"
+          :class="{ disabled: !buttonsEnabled }"
+          :style="{
+            'animation-delay': `${0.6 + index * 0.4}s`,
+            backgroundColor: buttonColors[index]
+          }"
+        >
+          {{ capitalize(theme) }}
+        </button>
+      </div>
     </div>
 
     <ButtonInputListener
@@ -40,7 +41,7 @@ export default {
   data() {
     return {
       selectedThemes: [],
-      buttonColors: ['#FF6B6B', '#4ECDC4'],
+      buttonColors: ['#47DEB1', '#F16565'],
       buttonsEnabled: false,
     }
   },
@@ -75,7 +76,7 @@ export default {
       return str.charAt(0).toUpperCase() + str.slice(1)
     },
     handleButtonPress(buttonId) {
-      const buttonMap = { A: 0, B: 1 }
+      const buttonMap = { A: 0, C: 1 }
       const index = buttonMap[buttonId]
 
       if (index !== undefined && index < this.selectedThemes.length) {
@@ -95,6 +96,7 @@ export default {
   height: 100vh;
   padding: 40px;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 .title {
@@ -102,7 +104,8 @@ export default {
   margin-bottom: 60px;
   text-align: center;
   opacity: 0;
-  animation: fadeInUp 0.6s forwards;
+  animation: fadeInUp 1.2s ease-out forwards;
+  width: 600px; 
 }
 
 .button-row {
@@ -111,28 +114,39 @@ export default {
   gap: 40px;
   justify-content: center;
   align-items: center;
+  overflow: visible;
+}
+
+.button-wrapper {
+  overflow: visible;
+  margin-bottom: 30px; 
+  position: relative;
+  width: 1170px; 
 }
 
 button {
-  width: 900px;
-  height: 180px;
-  font-size: 48px;
-  border: 3px solid black;
+  width: 1170px;
+  height: 225px;
+  border: none;
   border-radius: 16px;
   color: black;
   font-weight: bold;
+  cursor: pointer;
   opacity: 0;
-  animation: fadeInUp 0.6s forwards;
+  animation: fadeInUp 1.2s ease-out forwards;
   transition: filter 0.3s, opacity 0.3s;
+  position: relative;
+  z-index: 1;
+
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
 }
 
-/* Ajout de la classe disabled pour contrôler via CSS */
 button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Animation fadeInUp */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

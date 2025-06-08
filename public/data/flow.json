@@ -32,7 +32,7 @@
   {
     "objectId": "ThemeCount",
     "props": {
-      "themes": ["cinema", "musique"]
+      "themes": ["cinéma", "musique"]
     }
   },
   {
