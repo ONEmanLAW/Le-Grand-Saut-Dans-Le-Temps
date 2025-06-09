@@ -194,9 +194,14 @@ export default {
         this.answered = true;
 
         const isCorrect = index === this.currentQuestion.correctIndex;
+
+        // 🔊 Joue le son
         if (isCorrect) {
           this.score++;
           this.levelScores[this.currentDifficulty]++;
+          this.$refs.correctSound?.play();
+        } else {
+          this.$refs.wrongSound?.play();
         }
 
         this.feedback = isCorrect
@@ -207,17 +212,16 @@ export default {
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
 
-          // Si aucun son à jouer dans le feedback, on passe à l'étape suivante après 5 secondes
           if (!this.currentQuestion.feedback?.audio) {
             setTimeout(() => {
               this.nextStepAfterFeedback();
             }, 5000);
           }
 
-          // Sinon, le <audio> déclenchera nextStepAfterFeedback automatiquement via @ended
         }, 2000);
       }
     },
+
 
 
     handleButtonPress(buttonId) {
@@ -343,6 +347,9 @@ export default {
 </script>
 
 <template>
+  <audio ref="correctSound" src="/audio/correctSound.mp3" preload="auto"></audio>
+  <audio ref="wrongSound" src="/audio/wrongSound.mp3" preload="auto"></audio>
+
   <div
     class="question-screen"
     :class="{
@@ -396,6 +403,7 @@ export default {
           playsinline
           @ended="startQuestion"
           class="before-question-video"
+          controls
         ></video>
 
 
@@ -437,10 +445,7 @@ export default {
       </div>
     </div>
 
-    <div v-else-if="currentQuestion">
-      <p v-if="totalQuestionsToAsk > 0" class="question-number">
-        Question {{ totalQuestionsAsked + 1 }} / {{ totalQuestionsToAsk }}
-      </p>
+    <div v-else-if="currentQuestion" class="question-screen">
       <h2>{{ currentQuestion.question }}</h2>
       <ul class="answers-grid" :data-count="currentQuestion.answers.length">
         <li
@@ -480,116 +485,124 @@ export default {
 
 
 <style scoped>
+
+
+
 .question-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
-  padding: 40px;
+  padding: 50px 20px;
   font-family: 'Arial', sans-serif;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: all 0.3s ease;
   text-align: center;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
-.question-number {
-  color: #555;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-  align-self: flex-start;
-  margin-left: auto;
-  margin-right: auto;
+.question-screen h2 {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 70px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
 }
 
-h2 {
-  color: #333;
-  margin-bottom: 30px;
-}
-
+/* Répartition des réponses */
 .answers-grid {
   list-style: none;
   padding: 0;
-  margin-bottom: 30px;
+  margin: 0 auto;
   display: grid;
-  justify-content: center; /* centre la grille horizontale */
-  gap: 20px;
+  justify-content: center;
+  gap: 40px;
+  overflow: visible;
 }
 
+/* 2 réponses = 1 colonne */
 .answers-grid[data-count="2"] {
   grid-template-columns: 1fr;
-  width: fit-content; /* largeur juste ce qu'il faut */
-  margin: 0 auto; /* centre horizontalement le container */
 }
 
+/* 3 ou 4 réponses = 2 colonnes */
+.answers-grid[data-count="3"],
 .answers-grid[data-count="4"] {
   grid-template-columns: repeat(2, 1fr);
-  width: fit-content;
-  margin: 0 auto; /* centre horizontalement */
-  gap: 20px 40px;
+  gap: 40px 60px;
 }
 
+/* Chaque bloc de réponse */
 .answers-grid li {
   display: flex;
-  justify-content: center; /* centre horizontalement le bouton dans son li */
-  width: auto; /* pas de largeur fixe, prend la largeur du bouton */
+  justify-content: center;
+  width: auto;
+  position: relative;
+  overflow: visible;
 }
 
+/* Boutons stylés façon "question-count-screen" */
 .answers-grid button {
-  width: 454px;
-  height: 180px;
+  width: 560px;
+  height: 225px;
   font-size: 48px;
   font-weight: bold;
   cursor: pointer;
-  border: 3px solid black;
+  border: none;
   border-radius: 16px;
-  color: black;
-  background-color: transparent;
-  transition: filter 0.3s ease, background-color 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  box-sizing: border-box;
-  position: relative; /* nécessaire pour positionner le trait blanc */
-}
-
-/* Trait blanc sous le bouton */
-.answers-grid button::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 2.5%;
-  width: 95%;
-  height: 8px;
   background-color: white;
-  opacity: 0.7;
+  color: black;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
 }
 
+/* 2 réponses = version très large */
+.answers-grid[data-count="2"] button {
+  width: 1160px;
+  height: 225px;
+}
+
+/* Hover effect */
 .answers-grid button:hover:not(:disabled) {
   filter: brightness(85%);
-  background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Désactivé */
 .answers-grid button:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
-  opacity: 0.6;
 }
 
-/* États correct / incorrect */
+/* États correct/incorrect */
 .answers-grid li.correct button {
-  border-color: #28a745;
+  border: 3px solid #28a745;
   color: #28a745;
 }
 
 .answers-grid li.incorrect button {
-  border-color: #dc3545;
+  border: 3px solid #dc3545;
   color: #dc3545;
 }
 
-/* Après réponse, cacher les boutons non corrects */
+/* Animation fadeInUp */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cache les autres après sélection */
 .question-screen.answered-state .answers-grid li:not(.correct) {
   opacity: 0;
   pointer-events: none;
@@ -599,6 +612,8 @@ h2 {
 .hidden {
   display: none;
 }
+
+
 
 .fullscreen-message {
   position: absolute;
@@ -621,11 +636,15 @@ h2 {
 .before-question-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 .before-question-content h2 {
+  text-align: center;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .before-question-content audio {
@@ -648,14 +667,11 @@ h2 {
 }
 
 .before-question-video {
-  max-width: 100%; 
-  max-height: 300px; 
-  width: auto;       
-  height: auto;
-  display: block;
-  margin: 0 auto;   
-  border-radius: 8px; 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+
+  width: 100%;
+  height: 85%;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 

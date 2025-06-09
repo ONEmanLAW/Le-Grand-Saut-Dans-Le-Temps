@@ -7,6 +7,7 @@
       autoplay
       playsinline
       @ended="nextStep"
+      @click="handleClick"
     ></video>
   </div>
 </template>
@@ -20,12 +21,37 @@ export default {
   },
   data() {
     return {
-      selectedTheme: localStorage.getItem("selectedTheme") || ""
+      selectedTheme: localStorage.getItem("selectedTheme") || "",
+      clickCount: 0,
+      clickTimeout: null,
     };
   },
   computed: {
     currentVideo() {
       return this.videoSources?.[this.selectedTheme] || "";
+    }
+  },
+  methods: {
+    handleClick() {
+      this.clickCount++;
+
+      // Si 3 clics atteints, on skip la vidéo
+      if (this.clickCount >= 3) {
+        this.nextStep();
+        this.resetClicks();
+        return;
+      }
+
+      // Reset le compteur si pas 3 clics en moins de 1 seconde
+      clearTimeout(this.clickTimeout);
+      this.clickTimeout = setTimeout(() => {
+        this.resetClicks();
+      }, 1000);
+    },
+    resetClicks() {
+      this.clickCount = 0;
+      clearTimeout(this.clickTimeout);
+      this.clickTimeout = null;
     }
   }
 };

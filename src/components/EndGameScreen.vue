@@ -160,7 +160,6 @@ export default {
 
 .trophee-message {
   font-size: 48px;
-  color: #f4b400;
   margin-bottom: 40px;
 }
 
