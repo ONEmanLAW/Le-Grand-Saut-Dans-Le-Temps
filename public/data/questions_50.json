@@ -42,7 +42,7 @@
         "question": "Quel film est-ce ?",
         "answers": ["Les Grandes Familles", "La Traversée de Paris"],
         "correctIndex": 1,
-        "feedback": { "text": "Les Grandes Familles", "image": "/images/50cinema6.jpeg" }
+        "feedback": { "text": "La Traversée de Paris", "image": "/images/50cinema6.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema7Debut.mp4", "text": "REGARDER l'EXTRAIT" },

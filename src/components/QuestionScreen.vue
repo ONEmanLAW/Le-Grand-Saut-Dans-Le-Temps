@@ -215,10 +215,10 @@ export default {
           if (!this.currentQuestion.feedback?.audio) {
             setTimeout(() => {
               this.nextStepAfterFeedback();
-            }, 5000);
+            }, 6000);
           }
 
-        }, 2000);
+        }, 3000);
       }
     },
 
@@ -425,7 +425,7 @@ export default {
 
     <div v-else-if="isFeedback && currentQuestion?.feedback">
       <div class="feedback-content">
-        <h2>Feedback</h2>
+        <!-- <h2>Feedback</h2> -->  <!-- Supprimé -->
         <img
           v-if="currentQuestion.feedback.image"
           :src="currentQuestion.feedback.image"
@@ -444,6 +444,7 @@ export default {
         ></audio>
       </div>
     </div>
+
 
     <div v-else-if="currentQuestion" class="question-screen">
       <h2>{{ currentQuestion.question }}</h2>
@@ -679,21 +680,33 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 15px; 
+  padding: 20px;
 }
+
+
 
 .feedback-content h2 {
   margin-bottom: 20px;
 }
 
-.feedback-content img {
-  max-width: 300px;
-  margin-bottom: 20px;
+.feedback-content img.feedback-image {
+  max-width: 80vw;      /* pas plus large que 80% de l'écran */
+  max-height: 60vh;     /* pas plus haute que 60% de la hauteur écran */
+  width: auto;          /* largeur auto, laisse l'image décider */
+  height: auto;         /* hauteur auto, garde les proportions */
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
-.feedback-content p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+
+.feedback-content p.feedback-text {
+  text-align: center;
+  max-width: 600px;
+  margin-top: 40px;
+  font-weight: bold;
 }
 
 .feedback-content audio {
