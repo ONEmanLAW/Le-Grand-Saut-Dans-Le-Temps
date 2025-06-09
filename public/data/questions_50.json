@@ -32,7 +32,7 @@
         "beforeQuestion": { "video": "/videos/50cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
         "answers": ["Mon oncle", "Le Salaire de la peur"],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "feedback": { "text": "Le Salaire de la peur", "image": "/images/50cinema5.jpeg" }
       }
     ],
@@ -185,7 +185,7 @@
         "question": "« Dans les bars à la tombée du jour… »",
         "answers": ["Avec les copains", "Avec les marins"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "Charles Aznavour", "image": "50musique6.jpg" }
+        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique6.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -198,7 +198,7 @@
         "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
         "answers": ["Vrai", "Faux"],
         "correctIndex": 0,
-        "feedback": { "text": "Charles Aznavour", "image": "50musique8.jpg" }
+        "feedback": { "text": "Charles Aznavour", "image": "/images/50musique8.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique9Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },

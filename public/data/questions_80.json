@@ -100,7 +100,7 @@
         "question": "« Et soudain surgit face au vent… »",
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "80musique6.jpg" }
+        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "/images/80musique6.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -114,7 +114,7 @@
         "question": "Quel duo féminin a popularisé le tube « L'Amour à la plage » ?",
         "answers": ["Les Rita Mitsouko", "Niagara"],
         "correctIndex": 1,
-        "feedback": { "text": "Niagara", "image": "80musique8.jpg" }
+        "feedback": { "text": "Niagara", "image": "/images/80musique8.jpg" }
       },
       {
         "question": "« Vrai ou Faux : Mylène Farmer est née au Canada.",
@@ -132,25 +132,25 @@
     ],
     "hard": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique11Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« Un peu largée… »",
-        "answers": ["Tu me vises et tu me blesses", "Ils tirent sur mon cœur", "Tu me regardes et tu me dérobes", "un peu seule sur la terre"],
+        "beforeQuestion": { "audio": "/audio/80musique11Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Cargo de nuit… »",
+        "answers": ["Chargé d'amour et de mystère", "Le vent souffle fort dans ta vie", "J'avance sur ce quai humide", "Tu vogues loin de mon ennui"],
+        "correctIndex": 2,
+        "feedback": { "audio": "/audio/80musique11Fin.MP3", "text": "Axel Bauer", "image": "/images/80musique11.jpg" }
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique12Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Et j'vis comme une boule de flipper qui roule… »",
+        "answers": ["Au milieu des éclats", "Devant les néons", "Devant ton ordinateur", "Avec les oreillers du cœur en boule"],
         "correctIndex": 3,
-        "feedback": { "audio": "/audio/80musique11Fin.mp4", "text": "Marc Lavoine", "image": "/images/80musique11.jpg" }
+        "feedback": { "audio": "/audio/80musique12Fin.MP3", "text": "Corynne Charby", "image": "/images/80musique12.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique12.mp4", "text": "TROUVER LE BON GROUPE" },
-        "question": "Quel groupe a lancé le tube « Ça plane pour moi » en 1977 ?",
-        "answers": ["Téléphone", "Plastic Bertrand", "Indochine", "Niagara"],
-        "correctIndex": 1,
-        "feedback": { "text": "Plastic Bertrand", "image": "/images/80musique12.jpg" }
-      },
-      {
-        "beforeQuestion": { "audio": "/audio/80musique13Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« J'en ai assez de ce carcan… »",
-        "answers": ["Qui aime danser", "Qui m'enferme dans toutes ses règles", "Fidèle pour l'éternité", "Pour liaison compliquée"],
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique13Fin.mp4", "text": "Partenaire Particulier", "image": "/images/80musique13.jpg" }
+        "beforeQuestion": { "audio": "/audio/80musique13.MP3", "text": "TROUVER LE BON ARTISTE" },
+        "question": "Quel chanteur français a interprété la chanson « Marcia Baïla » ?",
+        "answers": ["Étienne Daho", "Alain Chamfort", "Rita Mitsouko", "Axel Bauer"],
+        "correctIndex": 2,
+        "feedback": { "text": "Rita Mitsouko", "image": "/images/80musique13.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -160,34 +160,34 @@
         "feedback": { "text": "Eddy Mitchell", "image": "/images/80musique14.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique15Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/80musique15Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Si vous voulez les caresses restez pas… »",
         "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j'aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j'oublie tout"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique15Fin.mp4", "text": "Jean Schultheis", "image": "/images/80musique15.jpg" }
+        "feedback": { "audio": "/audio/80musique15Fin.MP3", "text": "Elsa", "image": "/images/80musique15.jpg" }
       }
     ],
     "expert": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique16Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« Tout seul dans mon placard… »",
-        "answers": ["Qui rêve de talons", "Je défie le hasard", "Les yeux cernés de noir", "Je n'en fais qu'a ma tête"],
-        "correctIndex": 2,
-        "feedback": { "audio": "/audio/80musique16Fin.mp4", "text": "Mylène Farmer", "image": "/images/80musique16.jpg" }
+        "beforeQuestion": { "audio": "/audio/80musique16Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« S'offrir ce qui n'a pas de prix… »",
+        "answers": ["Comme un éclair dans une nuit", "Un peu de rêve à notre vie", "Même si le temps nous l'interdit", "Quand le silence devient folie"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/80musique16Fin.MP3", "text": "Herbert Léonard", "image": "/images/80musique16.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique17.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur français a popularisé la chanson « Envole-moi » en 1984 ?",
-        "answers": ["Daniel Balavoine", "Patrick Bruel", "Jean-Jacques Goldman", "Michel Berger"],
+        "beforeQuestion": { "audio": "/audio/80musique17.MP3", "text": "TROUVER LE BON ARTISTE" },
+        "question": "Quel groupe français a interprété le titre « Nuit sauvage » en 1988 ?",
+        "answers": ["Les Rita Mitsouko", "Images", "Les Avions", "Début de Soirée"],
         "correctIndex": 2,
-        "feedback": { "text": "Jean-Jacques Goldman", "image": "/images/80musique17.jpg" }
+        "feedback": { "text": "Les Avions", "image": "/images/80musique17.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique18.mp4", "text": "TROUVER LA BONNE ARTISTE" },
-        "question": "Quel chanteuse est célèbre pour son titre « Eve, lève toi » ?",
-        "answers": ["France Galle", "Barbara", "Julie Pietri", "Lio"],
-        "correctIndex": 2,
-        "feedback": {"text": "Julie Pietri", "image": "/images/80musique18.jpg" }
+        "beforeQuestion": { "audio": "/audio/80musique18Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Quand je la regarde… »",
+        "answers": ["Qui pleure dans un monde trop réel", "Moi l'homme loup", "Dont les rêves ne sont qu'un leurre", "Qui vole au vent comme un adieu"],
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/80musique18Fin.MP3", "text": "Jean-Jacques Lafon", "image": "/images/80musique18.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -197,11 +197,11 @@
         "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" }
       },
       {
-        "beforeQuestion": { "audio": "/audio/80musique20.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur français est connu pour avoir chanté « Le coup de folie » ?",
-        "answers": ["Michel Sardou", "Renaud", "Francis Cabrel", "Gilbert Montagné"],
-        "correctIndex": 3,
-        "feedback": {"text": "Gilbert Montagné", "image": "/images/80musique20.jpg" }
+        "beforeQuestion": { "audio": "/audio/80musique20.MP3", "text": "TROUVER LE BON ARTISTE" },
+        "question": "Quel chanteur a débuté en duo avec Léopold Nord sur le titre « C'est l'amour » ?",
+        "answers": ["Alec Mansion", "Axel Bauer", "Alain Chamfort", "Philippe Russo"],
+        "correctIndex": 0,
+        "feedback": {"text": "Alec Mansion", "image": "/images/80musique20.jpg" }
       }
     ]
   },
