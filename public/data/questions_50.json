@@ -62,13 +62,13 @@
         "question": "Quel film est-ce ?",
         "answers": ["Les Grandes Familles", "Les Amants de Montparnasse"],
         "correctIndex": 1,
-        "feedback": { "text": "Les Amants de Montparnasse", "image": "/images/50musique9.jpeg" }
+        "feedback": { "text": "Les Amants de Montparnasse", "image": "/images/50cinema9.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Vous êtes jolie, mais vous n'avez pas de cœur. »",
         "answers": ["Les Amants de Montparnasse", "Le Plaisir"],
         "correctIndex": 1,
-        "feedback": { "text": "Le Plaisir", "image": "/images/50musique10.jpeg" }
+        "feedback": { "text": "Le Plaisir", "image": "/images/50cinema10.jpeg" }
       }
     ],
     "hard": [
@@ -77,33 +77,33 @@
         "question": "Quel film est-ce ?",
         "answers": ["Ascenseur pour l'échafaud", "Pickpocket", "Le Doulos", "Pépé le Moko"],
         "correctIndex": 1,
-        "feedback": { "text": "Pickpocket", "image": "/images/50musique11.jpeg" }
+        "feedback": { "text": "Pickpocket", "image": "/images/50cinema11.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Tu sais, la prison, c'est plus dur quand on a connu le luxe »",
         "answers": ["Razzia sur la chnouf", "Le Doulos", "Touchez pas au grisbi", "L'Air de Paris"],
         "correctIndex": 2,
-        "feedback": { "text": "Touchez pas au grisbi", "image": "/images/50musique12.jpeg" }
+        "feedback": { "text": "Touchez pas au grisbi", "image": "/images/50cinema12.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Il vaut mieux une mauvaise réputation qu'un bon mensonge »",
         "answers": ["Grisbi", "Bob le flambeur", "La Vérité sur Bébé Donge", "Le Plaisir"],
         "correctIndex": 1,
-        "feedback": { "text": "Bob le flambeur", "image": "/images/50musique13.jpeg" }
+        "feedback": { "text": "Bob le flambeur", "image": "/images/50cinema13.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema14Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
         "answers": ["Les Amants de Montparnasse", "La Marie du port", "Les Dames du bois de Boulogne", "La Ronde"],
         "correctIndex": 3,
-        "feedback": { "text": "La Ronde", "image": "/images/50musique14.jepg" }
+        "feedback": { "text": "La Ronde", "image": "/images/50cinema14.jepg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema15Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
         "answers": ["Les Portes de la nuit", "L'Air de Paris", "Les Amants de Montparnasse", "Le Sang à la tête"],
         "correctIndex": 0,
-        "feedback": { "text": "L'Air de Paris", "image": "/images/50musique15.jpeg" }
+        "feedback": { "text": "L'Air de Paris", "image": "/images/50cinema15.jpeg" }
       }
     ],
     "expert": [
@@ -112,32 +112,32 @@
         "question": "Quel film est-ce ?",
         "answers": ["Grisbi", "La Vérité sur Bébé Donge", "Bob le flambeur", "Le Plaisir"],
         "correctIndex": 2,
-        "feedback": { "text": "Bob le flambeur", "image": "/images/50musique16.jpeg" }
+        "feedback": { "text": "Bob le flambeur", "image": "/images/50cinema16.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Tu m'as appris la douleur. Et maintenant, tu veux que je t'aime encore ? »",
         "answers": ["La Vérité", "Les Amants de Montparnasse", "Casque d'or", "La Vérité sur Bébé Donge"],
         "correctIndex": 3,
-        "feedback": { "text": "La Vérité sur Bébé Donge", "image": "/images/50musique17.jpeg" }
+        "feedback": { "text": "La Vérité sur Bébé Donge", "image": "/images/50cinema17.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema18Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
         "answers": ["Ascenseur pour l'échafaud", "Le Trou", "Rafles sur la ville", "Casque d'or"],
         "correctIndex": 1,
-        "feedback": { "text": "Le Trou", "image": "/images/50musique18.jpeg" }
+        "feedback": { "text": "Le Trou", "image": "/images/50cinema18.jpeg" }
       },
       {
         "question": "Quel film est-ce ? « L'élégance, ce n'est pas ce que l'on montre, c'est ce que l'on cache. »",
         "answers": ["Madame de…", "Le Blé en herbe", "Elena et les hommes", "La Ronde"],
         "correctIndex": 0,
-        "feedback": { "text": "Madame de…", "image": "/images/50musique19.jpeg" }
+        "feedback": { "text": "Madame de…", "image": "/images/50cinema 19.jpeg" }
       },
       {
         "question": "Quel film est-ce ? « Si je dois être pendu, autant que ce soit pour un crime que j'ai commis. »",
         "answers": ["Casque d'or", "Le Trou", "Le Doulos", "Bob le flambeur"],
         "correctIndex": 0,
-        "feedback": { "text": "Casque d'or", "image": "/images/50musique20.jpeg" }
+        "feedback": { "text": "Casque d'or", "image": "/images/50cinema20.jpeg" }
       }
     ]
   },
@@ -256,8 +256,8 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique16Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Et chaque fois les feuilles mortes… »",
-        "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "Te rappellent à mon souvenir"],
-        "correctIndex": 3,
+        "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "De nos promesses"],
+        "correctIndex": 2,
         "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Serge Gainsbourg", "image": "/images/50musique16.jpg" }
       },
       {
@@ -270,7 +270,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique18.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
-        "answers": ["Charles Trenet", "Hubert Giraud", "Hubert Salentin", "Hubert Giraud"],
+        "answers": ["Charles Trenet", "Henri Salvador", "Hubert Salentin", "Hubert Giraud"],
         "correctIndex": 3,
         "feedback": { "text": "Hubert Giraud", "image": "/images/50musique18.jpg" }
       },

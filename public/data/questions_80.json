@@ -2,58 +2,143 @@
   "cinéma": {
     "easy": [
       {
-        "question": "Quel acteur célèbre a joué dans 'Chantons sous la pluie' (1952) ?",
-        "answers": ["Gene Kelly", "Fred Astaire", "Humphrey Bogart", "Marlon Brando"],
-        "correctIndex": 0,
-        "feedback": { "text": "Gene Kelly était la star de 'Chantons sous la pluie'." }
+        "beforeQuestion": { "video": "/videos/80cinema1Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Trois hommes et un couffin", "Les Bronzés font du ski"],
+        "correctIndex": 1,
+        "feedback": { "text": "Les Bronzés font du ski", "image": "/images/80cinema1.jpeg" }
       },
       {
-        "question": "Quel film de 1950 met en scène Gloria Swanson dans le rôle de Norma Desmond ?",
-        "answers": ["Sunset Boulevard", "All About Eve", "The Asphalt Jungle", "Born Yesterday"],
+        "beforeQuestion": { "video": "/videos/80cinema2Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Visiteurs", "Le Père Noël est une ordure"],
+        "correctIndex": 1,
+        "feedback": { "text": "Le Père Noël est une ordure", "image": "/images/80cinema2.jpeg" }
+      },
+      {
+        "question": "De quel film vient cette phrase ? « Vous n'auriez pas vu passer deux types un peu louches ? »",
+        "answers": ["Le Coup du parapluie", "Le Grand Bleu"],
         "correctIndex": 0,
-        "feedback": { "text": "'Sunset Boulevard' met en scène Gloria Swanson." }
+        "feedback": { "text": "Le Coup du parapluie", "image": "/images/80cinema3.jpeg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema4Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["La Boum", " Le Grand Chemin"],
+        "correctIndex": 0,
+        "feedback": { "text": "La Boum", "image": "/images/80cinema4.jpeg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/50cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Subway", "Le Grand Bleu"],
+        "correctIndex": 1,
+        "feedback": { "text": "Rififi", "image": "/images/80cinema5.png" }
       }
     ],
     "medium": [
       {
-        "question": "Quel réalisateur a dirigé 'Les Sept Samouraïs' (1954) ?",
-        "answers": ["Akira Kurosawa", "Yasujirō Ozu", "Kenji Mizoguchi", "Ingmar Bergman"],
+        "beforeQuestion": { "video": "/videos/80cinema6Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Sous-doués", "L'Étudiante"],
         "correctIndex": 0,
-        "feedback": { "text": "Le réalisateur des 'Sept Samouraïs' est Akira Kurosawa." }
+        "feedback": { "text": "Les Sous-doués", "image": "/images/80cinema6.jpeg" }
       },
       {
-        "question": "Dans 'Sur les quais' (1954), quel métier exerce le personnage de Marlon Brando avant de devenir docker ?",
-        "answers": ["Boxeur", "Chanteur", "Policier", "Chauffeur de taxi"],
+        "beforeQuestion": { "video": "/videos/80cinema7Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Les Bronzés", "Le Professionnel"],
         "correctIndex": 0,
-        "feedback": { "text": "Marlon Brando jouait un boxeur avant de devenir docker dans 'Sur les quais'." }
+        "feedback": { "text": "Les Bronzés", "image": "/images/80cinema7.jpeg" }
+      },
+      {
+        "question": "De quel film vient cette phrase ? « Tu sais que t'as une tête de gagnant ? »",
+        "answers": ["Inspecteur la Bavure", "Marche à l'ombre"],
+        "correctIndex": 1,
+        "feedback": { "text": "Marche à l'ombre", "image": "/images/80cinema8.jpeg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/80cinema9Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Le Dîner de cons", "La Chèvre"],
+        "correctIndex": 1,
+        "feedback": { "text": "La Chèvre", "image": "/images/80cinema9.jpeg" }
+      },
+      {
+        "question": "De quel film vient cette phrase ? « Quand on attaque l'empire, l'empire riposte. »",
+        "answers": ["Les Visiteurs", "Le Dîner de cons"],
+        "correctIndex": 1,
+        "feedback": { "text": "Le Dîner de cons", "image": "/images/80cinema10.jpeg" }
       }
     ],
     "hard": [
       {
-        "question": "Quel est le titre original du film 'À bout de souffle' (1960), souvent associé à la Nouvelle Vague et sorti à la toute fin des années 50 ?",
-        "answers": ["Breathless", "The 400 Blows", "Hiroshima Mon Amour", "Pickpocket"],
+        "beforeQuestion": { "video": "/videos/80cinema11Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Le Marginal", "L.627", "L'Indic", "Le Choix des armes"],
         "correctIndex": 0,
-        "feedback": { "text": "Le titre original de 'À bout de souffle' est 'Breathless'." }
+        "feedback": { "text": "Le Marginal", "image": "/images/80cinema11.jpeg" }
       },
       {
-        "question": "Quel film de 1959 a remporté l'Oscar du meilleur film étranger et est connu pour sa séquence de descente aux enfers ?",
-        "answers": ["Orfeu Negro (Black Orpheus)", "Les Fraises sauvages (Wild Strawberries)", "Le Septième Sceau (The Seventh Seal)", "Les Quatre Cents Coups (The 400 Blows)"],
+        "beforeQuestion": { "video": "/videos/80cinema12Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "De quel film vient cette phrase ? « Tu sais, la prison, c'est plus dur quand on a connu le luxe »",
+        "answers": ["Le Professionnel", "Le Choix des armes", "La Balance", "Le Battant"],
+        "correctIndex": 1,
+        "feedback": { "text": "Le Choix des armes", "image": "/images/80cinema12.jpeg" }
+      },
+      {
+        "question": "De quel film vient cette phrase ? « Je n'aime pas trop qu'on me marche sur les pieds. »",
+        "answers": ["Le Marginal", "Inspecteur la Bavure", "L'Arbalète", "Le Battant"],
         "correctIndex": 0,
-        "feedback": { "text": "'Orfeu Negro' a remporté l'Oscar du meilleur film étranger en 1959." }
+        "feedback": { "text": "Le Marginal", "image": "/images/80cinema13.jpeg" }
+      },
+      {
+        "question": "De quel film vient cette phrase ? « T'as pas les bases, mon pote. Pas les bases. »",
+        "answers": ["Tchao Pantin", " L'Été meurtrier", "Le Maître d'école", "Marche à l'ombre"],
+        "correctIndex": 3,
+        "feedback": { "text": "Marche à l'ombre", "image": "/images/80cinema14.jpeg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/80cinema15Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Manon des Sources", "Jean de Florette", "L'Été meurtrier", "Noce Blanche"],
+        "correctIndex": 2,
+        "feedback": { "text": "L'Été meurtrier", "image": "/images/80cinema15.jpeg" }
       }
     ],
     "expert": [
       {
-        "question": "Quel monteur est crédité pour le film 'Ben-Hur' (1959), un travail colossal pour l'époque ?",
-        "answers": ["Ralph E. Winters", "Margaret Booth", "William Hornbeck", "Anne Bauchens"],
-        "correctIndex": 0,
-        "feedback": { "text": "Le monteur crédité pour 'Ben-Hur' (1959) est Ralph E. Winters." }
+        "beforeQuestion": { "video": "/videos/80cinema16Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["La Dérobade", "Beau-père", "L'Amour braque", "La Femme flic"],
+        "correctIndex": 1,
+        "feedback": { "text": "Beau-père", "image": "/images/80cinema16.jpeg" }
       },
       {
-        "question": "Pour quel film de 1957 Ingmar Bergman a-t-il utilisé une narration introspective et des flashbacks complexes pour explorer les souvenirs d'un professeur âgé ?",
-        "answers": ["Les Fraises sauvages (Smultronstället)", "Le Septième Sceau (Det sjunde inseglet)", "Sourires d'une nuit d'été (Sommarnattens leende)", " Monika (Sommaren med Monika)"],
+        "beforeQuestion": { "video": "/videos/80cinema17Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Le Maître d'école", "Le Grand Chemin", "L'Argent de poche", "La Gloire de mon père"],
+        "correctIndex": 3,
+        "feedback": { "text": "La Gloire de mon père", "image": "/images/80cinema17.jpeg" }
+      },
+      {
+        "question": "De quel film vient cette phrase ? « T'as l'air fin, avec ton costard de tueur et ton flingue à deux balles. »",
+        "answers": ["La Balance", "Inspecteur Lavardin", "Le Professionnel", "Pour la peau d'un flic"],
+        "correctIndex": 1,
+        "feedback": { "text": "La Balance", "image": "/images/80cinema18.jpg" }
+      },
+      {
+        "question": "Quel film est-ce ? « Moi je vais pas faire 10 ans pour une caisse de whisky ! »",
+        "answers": ["Les Spécialistes", "Le Solitaire", "Le Marginal", "L'Arbalète"],
         "correctIndex": 0,
-        "feedback": { "text": "Ingmar Bergman a utilisé une narration introspective dans 'Les Fraises sauvages'." }
+        "feedback": { "text": "Les Spécialistes", "image": "/images/80cinema19.jpeg" }
+      },
+      {
+        "beforeQuestion": { "video": "/videos/80cinema20Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "question": "Quel film est-ce ?",
+        "answers": ["Sans toit ni loi", "Un homme amoureux", "Vivement dimanche !", "La Femme d'à côté"],
+        "correctIndex": 2,
+        "feedback": { "text": "Vivement dimanche !", "image": "/images/80cinema20.jpeg" }
       }
     ]
   },
