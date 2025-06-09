@@ -1,68 +1,9 @@
-<!-- <template>
-  <div class="waiting-scan-container">
-    <p>En attente du scan du badge…</p>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'WaitingScan',
-  props: {
-    nextStep: Function
-  },
-  inject: ['ws'],
-  data() {
-    return {
-      canTriggerLongScan: true
-    }
-  },
-  mounted() {
-    if (this.ws) {
-      this.ws.onmessage = (event) => {
-        const message = JSON.parse(event.data)
-        if (
-          typeof message.data === 'string' &&
-          message.data.startsWith('LONG_SCAN_OK_') &&
-          this.canTriggerLongScan
-        ) {
-          this.canTriggerLongScan = false
-          const rfidId = message.data.replace('LONG_SCAN_OK_', '')
-          localStorage.setItem(
-            'selectedEra',
-            rfidId === 'RFID_1' ? '50' : rfidId === 'RFID_2' ? '80' : ''
-          )
-          this.nextStep()
-        }
-      }
-    }
-  }
-}
-</script>
-
-<style scoped>
-.waiting-scan-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 52px;
-  font-weight: bold;
-  color: black;
-  height: 100vh;
-  user-select: none;
-}
-</style> -->
-
-
-
-
-
-
-
-<!-- Code With Debug here -->
-
 <template>
   <div class="waiting-scan-container" @click="handleClickDebug">
-    <h1 class="title pulse">Poser le badge sur l'époque de votre choix !</h1>
+    <div class="title-wrapper">
+      <h1 class="title pulse">Poser le badge sur l’époque</h1>
+      <h1 class="subtitle pulse">de votre choix !</h1>
+    </div>
   </div>
 </template>
 
@@ -94,8 +35,6 @@ export default {
         }
       }
     }
-
-    // **Debug clavier et debug 3 clics souris automatique supprimés**
   },
   beforeUnmount() {
     clearTimeout(this.clickTimer)
@@ -117,14 +56,11 @@ export default {
       }
     },
 
-    // Suppression de handleKeydown (debug clavier)
-
     handleClickDebug() {
       this.clickCount++
       clearTimeout(this.clickTimer)
 
       this.clickTimer = setTimeout(() => {
-        // Garder le comportement normal 3 clics rapides pour "debug tactile"
         if (this.clickCount === 3) {
           console.log('🧪 Mode debug activé (3 clics) : année 50')
           this.handleScan('50')
@@ -133,7 +69,7 @@ export default {
           this.handleScan('80')
         }
         this.clickCount = 0
-      }, 400) // 400ms délai pour taper rapidement
+      }, 400)
     }
   }
 }
@@ -144,17 +80,26 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 52px;
-  font-weight: bold;
-  color: black;
   height: 100vh;
   user-select: none;
   text-align: center;
   padding: 20px;
 }
 
-.title {
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.title,
+.subtitle {
+  font-size: 52px;
+  font-weight: bold;
+  color: #330006;
   text-transform: uppercase;
+  margin: 0;
 }
 
 @keyframes pulse {
@@ -176,5 +121,3 @@ export default {
   animation: pulse 2.5s ease-in-out infinite;
 }
 </style>
-
-

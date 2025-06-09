@@ -1,0 +1,14 @@
+Description=Service RFID pour Le-Grand-Saut-Dans-Le-Temps
+After=network.target
+
+[Service]
+Type=simple
+User=pi_hugo
+WorkingDirectory=/home/pi_hugo/Desktop/Le-Grand-Saut-Dans-Le-Temps
+ExecStart=/usr/bin/python3 /home/pi_hugo/Desktop/Le-Grand-Saut-Dans-Le-Temps/ma>
+Restart=on-failure
+StandardOutput=append:/home/pi_hugo/log_rfid.txt
+StandardError=append:/home/pi_hugo/log_rfid.txt
+
+[Install]
+WantedBy=multi-user.target

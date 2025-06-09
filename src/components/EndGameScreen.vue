@@ -1,27 +1,53 @@
+<!-- EndGameScreen.vue -->
 <template>
   <div class="end-game-screen">
-    <h1>Résultat final</h1>
+    <h1 class="congrats">🎉 Félicitations ! 🎉</h1>
+    <p class="finished">Vous avez terminé tous les niveaux du jeu.</p>
+    
     <p class="score">Score : {{ score }} / {{ questions }}</p>
-    <p class="trophee" v-if="trophee">{{ tropheeMessage }}</p>
-    <p v-else>Aucun trophée obtenu.</p>
-    <button @click="replayGame">Rejouer</button>
+    
+    <div class="trophee-container" v-if="trophee">
+      <p class="trophee-message">{{ tropheeMessage }}</p>
+    </div>
+    <p v-else class="no-trophee">Aucun trophée obtenu.</p>
+
+    <div class="button-row">
+      <div class="button-wrapper">
+        <button
+          @click="replayGame"
+          :disabled="buttonsDisabled"
+          :class="{ disabled: buttonsDisabled }"
+        >
+          Rejouer
+        </button>
+      </div>
+    </div>
+
+    <!-- Écouteur de bouton A, B, C, D -->
+    <ButtonInputListener
+      :onButtonPress="handleButtonPress"
+      :active="true"
+    />
   </div>
 </template>
 
 <script>
 import confetti from 'canvas-confetti'
+import ButtonInputListener from './ButtonInputListener.vue' // adapte le chemin
 
 export default {
+  components: { ButtonInputListener },
   data() {
     return {
       score: 0,
       questions: 0,
-      trophee: ''
+      trophee: '',
+      buttonsDisabled: true, // tous les boutons désactivés
     }
   },
   computed: {
     tropheeMessage() {
-      if (this.trophee === 'or') return "Trophée d'or 🎉"
+      if (this.trophee === 'or') return "Trophée d'or 🥇"
       if (this.trophee === 'argent') return "Trophée d'argent 🥈"
       if (this.trophee === 'bronze') return "Trophée de bronze 🥉"
       return ''
@@ -66,17 +92,16 @@ export default {
       const duration = 10000
       const animationEnd = Date.now() + duration
       const defaults = {
-        startVelocity: 40,    // un peu plus rapide
+        startVelocity: 40,
         spread: 360,
         ticks: 60,
         gravity: 0.5,
-        scalar: 1.5,          // taille 1.5x plus grande
+        scalar: 1.5,
         origin: { y: 0 }
       }
 
       const interval = setInterval(() => {
         const timeLeft = animationEnd - Date.now()
-
         if (timeLeft <= 0) {
           clearInterval(interval)
           return
@@ -88,13 +113,17 @@ export default {
           particleCount,
           origin: { x: Math.random(), y: 0 }
         }))
-      }, 200)  // un peu plus fréquent aussi
+      }, 200)
     },
-
     replayGame() {
       localStorage.removeItem('score')
       localStorage.removeItem('questionCount')
       window.location.reload()
+    },
+    handleButtonPress(button) {
+      if (button === 'A') {
+        this.replayGame()
+      }
     }
   }
 }
@@ -107,23 +136,90 @@ export default {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: 'Arial', sans-serif;
   padding: 20px;
   text-align: center;
 }
-.score {
-  font-size: 3rem;
-  font-weight: bold;
-  margin: 20px 0;
-}
-.trophee {
-  font-size: 2rem;
+
+.congrats {
+  font-size: 72px;
   margin-bottom: 40px;
-  color: goldenrod;
 }
+
+.finished {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: #330006;
+}
+
+.score {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #330006;
+}
+
+.trophee-message {
+  font-size: 48px;
+  color: #f4b400;
+  margin-bottom: 40px;
+}
+
+.no-trophee {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.button-wrapper {
+  overflow: visible;
+  margin-bottom: 40px;
+  position: relative;
+  width: 1160px;
+}
+
 button {
-  font-size: 1.5rem;
-  padding: 10px 30px;
+  width: 1160px;
+  height: 225px;
+  border: none;
+  border-radius: 16px;
+  font-weight: bold;
   cursor: pointer;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  transition: filter 0.3s, opacity 0.3s;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
+  background-color: #47DEB1;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button.disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
