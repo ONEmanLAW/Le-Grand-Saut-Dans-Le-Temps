@@ -1,6 +1,6 @@
 <template>
   <div class="start-screen" @click="handleClick">
-    <h1 class="start-button">APPUYER POUR COMMENCER</h1>
+    <h1 class="start-button">BUZZEZ POUR COMMENCER</h1>
 
     <ButtonInputListener
       :active="true"
