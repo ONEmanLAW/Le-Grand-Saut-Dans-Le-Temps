@@ -1,65 +1,88 @@
 <template>
-  <div class="video-screen">
-    <video
-      ref="videoPlayer"
-      class="video-player"
-      :src="currentVideo"
-      autoplay
-      playsinline
-      muted
-      @ended="handleEnded"
-    ></video>
+  <div class="start-screen">
+    <div
+      v-if="showText"
+      class="start-text animated"
+    >
+      Bienvenue dans les années {{ selectedEra }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'EraVideoScreen',
+  name: 'EraIntroScreen',
   props: {
-    nextStep: Function,
-    videoSources: Object
+    nextStep: Function
   },
   data() {
     return {
-      selectedEra: localStorage.getItem('selectedEra') || null
+      selectedEra: localStorage.getItem('selectedEra') || '',
+      showText: false
     }
   },
-  computed: {
-    currentVideo() {
-      return this.videoSources?.[this.selectedEra] || ''
-    }
-  },
-  methods: {
-    handleEnded() {
-      if (this.selectedEra) {
-        this.$emit('era-selected', this.selectedEra)
-        if (typeof this.nextStep === 'function') {
-          this.nextStep()
-        }
+  mounted() {
+    this.showText = true
+
+    // Cache le texte après 4s
+    setTimeout(() => {
+      this.showText = false
+    }, 4000)
+
+    // Passe à l'étape suivante
+    setTimeout(() => {
+      if (typeof this.nextStep === 'function') {
+        this.nextStep()
       }
-    }
+    }, 4000)
   }
 }
 </script>
 
 <style scoped>
-.video-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+.start-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  margin: 0;
-  padding: 0;
+  width: 100vw;
+  background-color: #FFAE59;
   overflow: hidden;
-  z-index: 9999;
-  background: black;
 }
 
-.video-player {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
+.start-text {
+  color: #330006;
+  font-size: 64px;
+  font-weight: bold;
+  font-family: 'Berlin', sans-serif;
+  text-transform: uppercase;
+  padding: 40px 80px;
+  border: 6px solid #330006;
+  border-radius: 20px;
+  text-align: center;
+  opacity: 0;
+}
+
+.animated {
+  animation: pulse-once 4s ease-in-out forwards;
+}
+
+@keyframes pulse-once {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 }
 </style>

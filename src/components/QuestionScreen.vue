@@ -581,7 +581,7 @@ export default {
 }
 
 /* États correct/incorrect */
-.answers-grid li.correct button {
+/* .answers-grid li.correct button {
   border: 3px solid #28a745;
   color: #28a745;
 }
@@ -589,7 +589,7 @@ export default {
 .answers-grid li.incorrect button {
   border: 3px solid #dc3545;
   color: #dc3545;
-}
+} */
 
 /* Animation fadeInUp */
 @keyframes fadeInUp {

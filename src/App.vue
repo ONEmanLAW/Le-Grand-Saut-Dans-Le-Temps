@@ -130,9 +130,9 @@ export default {
   background-color: #FFAE59;
 }
 .bg-era-50 {
-  background-image: url('/images/era50.png');
+  background-image: url('/images/era80.png');
 }
 .bg-era-80 {
-  background-image: url('/images/era80.png');
+  background-image: url('/images/era50.png');
 }
 </style>
