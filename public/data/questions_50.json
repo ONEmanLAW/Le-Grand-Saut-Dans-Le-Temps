@@ -4,6 +4,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
         "feedback": { "text": "Les Vacances de Monsieur Hulot", "image": "/images/50cinema1.jpeg" }

@@ -78,8 +78,10 @@ export default {
   font-family: 'Berlin', sans-serif;
   text-transform: uppercase;
   padding: 40px 80px;
-  border: 6px solid #330006;
-  border-radius: 20px;
+  border-top: 6px solid #330006;
+  border-bottom: 6px solid #330006;
+  border-left: none;
+  border-right: none;
   text-align: center;
   opacity: 0;
 }

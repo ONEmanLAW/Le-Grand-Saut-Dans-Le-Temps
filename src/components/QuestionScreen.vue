@@ -179,20 +179,40 @@ export default {
       this.transitionVideo = false;
       this.isEndVideoPlaying = false;
 
-      if (
-        this.currentQuestionIndexInLevel < this.questionsPerLevel &&
-        this.totalQuestionsAsked < this.totalQuestionsToAsk
-      ) {
+      if (this.currentQuestionIndexInLevel < this.questionsPerLevel && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         const questions = this.questionsInCurrentDifficulty;
         const index = this.currentQuestionIndexInLevel % questions.length;
         this.currentQuestion = questions[index];
         this.selectedAnswer = null;
         this.answered = false;
-        this.buttonsEnabled = true; // ✅ Active les boutons
+        this.buttonsEnabled = true; // Active les boutons
+
+        // STOP autres médias éventuels
+        if (this.$refs.beforeQuestionAudio) {
+          this.$refs.beforeQuestionAudio.pause();
+          this.$refs.beforeQuestionAudio.currentTime = 0;
+        }
+        if (this.$refs.beforeQuestionVideo) {
+          this.$refs.beforeQuestionVideo.pause();
+          this.$refs.beforeQuestionVideo.currentTime = 0;
+        }
+
+        // Joue le son de la question si défini
+        this.$nextTick(() => {
+          const audioElement = this.$refs.questionAudio;
+          if (audioElement && this.currentQuestion.audio) {
+            audioElement.currentTime = 0;
+            audioElement.play().catch(e => {
+              console.warn('Lecture audio question bloquée :', e);
+            });
+          }
+        });
       } else {
         this.startTransitionOrEnd();
       }
     },
+
+
     selectAnswer(index) {
       if (!this.answered && this.currentQuestion && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
         this.buttonsEnabled = false;
@@ -356,6 +376,8 @@ export default {
   <audio ref="correctSound" src="/audio/correctSound.mp3" preload="auto"></audio>
   <audio ref="wrongSound" src="/audio/wrongSound.mp3" preload="auto"></audio>
 
+  <audio ref="questionAudio" :src="currentQuestion?.audio || ''" preload="auto"></audio>
+
   <div
     class="question-screen"
     :class="{
@@ -369,7 +391,7 @@ export default {
 
     <div v-else-if="preparingQuestion">
       <div class="fullscreen-message">
-        <h1>{{ questionNumberDisplay }}</h1>
+        <h1 class="questionTextNumber">{{ questionNumberDisplay }}</h1>
       </div>
     </div>
 
@@ -640,6 +662,15 @@ export default {
   font-family: 'Berlin', sans-serif;
 }
 
+.questionTextNumber {
+  border-top: 6px solid #330006;
+  border-bottom: 6px solid #330006;
+  border-left: none;
+  border-right: none;
+  text-transform: uppercase;
+  font-size: 72px;
+}
+
 /* Styles "Before Question" */
 .before-question-content {
   display: flex;
@@ -682,7 +713,6 @@ export default {
   object-fit: contain;
 }
 
-
 .feedback-content {
   display: flex;
   flex-direction: column;
@@ -691,8 +721,6 @@ export default {
   gap: 15px; 
   padding: 20px;
 }
-
-
 
 .feedback-content h2 {
   margin-bottom: 20px;
@@ -731,8 +759,8 @@ export default {
 }
 
 .countdown-text {
-  font-size: 55px;
-  color: #330006;;
+  font-size: 72px;
+  color: #330006;
   font-weight: bold;
   user-select: none;
   text-align: center;

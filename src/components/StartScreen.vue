@@ -49,11 +49,14 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   padding: 40px 80px;
-  border: 6px solid #330006;
-  border-radius: 20px;
+  border-top: 6px solid #330006;
+  border-bottom: 6px solid #330006;
+  border-left: none;
+  border-right: none;
   animation: pulse 2.5s ease-in-out infinite;
   opacity: 0;
 }
+
 
 @keyframes pulse {
   0% {

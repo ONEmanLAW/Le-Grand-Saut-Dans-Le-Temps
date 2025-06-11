@@ -22,7 +22,6 @@ export default {
     }
   },
   mounted() {
-    // WebSocket listen
     if (this.ws) {
       this.ws.onmessage = (event) => {
         const message = JSON.parse(event.data)
@@ -49,6 +48,7 @@ export default {
 
       if (era) {
         localStorage.setItem('selectedEra', era)
+        this.$emit('era-selected', era)  // <-- ici l’emit
         this.nextStep()
       } else {
         console.warn('🟡 RFID ID non reconnu :', rfidId)
