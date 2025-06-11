@@ -18,23 +18,44 @@ export default {
   data() {
     return {
       selectedEra: localStorage.getItem('selectedEra') || '',
-      showText: false
+      showText: false,
+      audio: null
     }
   },
   mounted() {
     this.showText = true
+
+    // Selon l'ère choisie, charge le son correspondant
+    if (this.selectedEra === '50') {
+      this.audio = new Audio('/audio/sound50troll.mp3')
+    } else if (this.selectedEra === '80') {
+      this.audio = new Audio('/audio/sound50troll.mp3')
+    }
+
+    if (this.audio) {
+      this.audio.play().catch(() => {
+        console.warn('Autoplay bloqué, le son sera joué après interaction')
+      })
+    }
 
     // Cache le texte après 4s
     setTimeout(() => {
       this.showText = false
     }, 4000)
 
-    // Passe à l'étape suivante
+    // Passe à l'étape suivante après 4s
     setTimeout(() => {
       if (typeof this.nextStep === 'function') {
         this.nextStep()
       }
     }, 4000)
+  },
+  beforeUnmount() {
+    // Libère la ressource audio (optionnel)
+    if (this.audio) {
+      this.audio.pause()
+      this.audio = null
+    }
   }
 }
 </script>

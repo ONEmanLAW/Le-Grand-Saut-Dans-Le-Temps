@@ -91,6 +91,12 @@ export default {
     },
     questionsInCurrentDifficulty() {
       return this.questionsData?.[this.currentTheme]?.[this.currentDifficulty] || [];
+    },
+    dynamicAnswerColors() {
+      const count = this.currentQuestion?.answers?.length || 0;
+      return count === 2
+        ? ['#47DEB1', '#F16565']
+        : ['#47DEB1', '#FF8FC3', '#F16565', '#A695FF'];
     }
   },
   methods: {
@@ -461,7 +467,8 @@ export default {
           <button
             @click="selectAnswer(index)"
             :disabled="answered"
-            :style="{ backgroundColor: answerColors[index % answerColors.length] }"
+            :style="{ backgroundColor: dynamicAnswerColors[index % dynamicAnswerColors.length] }"
+
           >
             {{ answer }}
           </button>
