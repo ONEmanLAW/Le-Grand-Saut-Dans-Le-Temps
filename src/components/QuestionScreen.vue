@@ -9,6 +9,7 @@ export default {
       questionsData: null,
       currentQuestionIndexInLevel: 0,
       currentDifficultyIndex: 0,
+      progressPercent: 0,
       difficulties: ['easy', 'medium', 'hard', 'expert'],
       transitionVideos: {
         medium: {
@@ -111,6 +112,12 @@ export default {
       if (audioElement && !audioElement.paused) {
         audioElement.pause();
         audioElement.currentTime = 0;
+      }
+    },
+    updateProgress() {
+      const audio = this.$refs.fullTrackAudio;
+      if (audio && audio.duration) {
+        this.progressPercent = (audio.currentTime / audio.duration) * 100;
       }
     },
     prepareQuestionDisplay() {
@@ -464,11 +471,20 @@ export default {
       ref="fullTrackAudio"
       :src="currentQuestion.fullTrack"
       @ended="onFullTrackEnded"
-      controls
+      @timeupdate="updateProgress"
       autoplay
     ></audio>
+
+    <!-- Progress bar custom -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-circle" :style="{ left: progressPercent + '%' }"></div>
+      </div>
+    </div>
+
     <p>Cliquez sur un bouton ou sur l'écran pour passer la musique</p>
   </div>
+
 
 
   <div
@@ -524,7 +540,6 @@ export default {
           playsinline
           @ended="startQuestion"
           class="before-question-video"
-          controls
         ></video>
 
 
@@ -533,7 +548,6 @@ export default {
           v-else-if="currentQuestion.beforeQuestion.audio"
           ref="beforeQuestionAudio"
           :src="currentQuestion.beforeQuestion.audio"
-          controls
           @ended="startQuestion"
         ></audio>
 
@@ -956,6 +970,74 @@ export default {
     transform: translateY(0);
   }
 }
+
+.fulltrack-player-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.fulltrack-player-screen audio {
+  display: none;
+}
+
+.progress-bar-container {
+  background-color: #FFAE59;
+  padding: 20px 40px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 30px auto;
+  box-sizing: border-box;
+
+  /* Animation fade-in vers le haut */
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #330006;
+  border-radius: 3px;
+  position: relative;
+
+  overflow: visible;
+}
+
+.progress-circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  background-color: #330006;
+  border-radius: 50%;
+  transition: left 0.1s linear;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
 
 
 </style>
