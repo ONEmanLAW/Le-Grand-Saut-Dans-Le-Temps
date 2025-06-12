@@ -7,6 +7,9 @@ export default {
   data() {
     return {
       questionsData: null,
+      beforeAudioProgress: 0,
+      beforeAudioDuration: 0,
+
       currentQuestionIndexInLevel: 0,
       currentDifficultyIndex: 0,
       progressPercent: 0,
@@ -120,6 +123,20 @@ export default {
         this.progressPercent = (audio.currentTime / audio.duration) * 100;
       }
     },
+    initBeforeAudioDuration() {
+      const audio = this.$refs.beforeQuestionAudio;
+      if (audio) {
+        this.beforeAudioDuration = audio.duration;
+      }
+    },
+
+    updateBeforeAudioProgress() {
+      const audio = this.$refs.beforeQuestionAudio;
+      if (audio && this.beforeAudioDuration) {
+        this.beforeAudioProgress = (audio.currentTime / this.beforeAudioDuration) * 100;
+      }
+    },
+
     prepareQuestionDisplay() {
       this.preparingQuestion = true;
       this.questionNumberDisplay = `QUESTION ${this.totalQuestionsAsked + 1} / ${this.totalQuestionsToAsk}`;
@@ -549,7 +566,20 @@ export default {
           ref="beforeQuestionAudio"
           :src="currentQuestion.beforeQuestion.audio"
           @ended="startQuestion"
+          @timeupdate="updateBeforeAudioProgress"
+          @loadedmetadata="initBeforeAudioDuration"
+          playsinline
         ></audio>
+
+      <!-- Barre de progression custom -->
+      <div v-if="currentQuestion.beforeQuestion.audio" class="progress-bar-container">
+        <div class="progress-bar">
+          <div
+            class="progress-circle"
+            :style="{ left: beforeAudioProgress + '%' }"
+          ></div>
+        </div>
+      </div>
 
         <!-- Sinon affiche un bouton si pas de média -->
         <button v-else @click="startQuestion" class="start-button">
@@ -584,20 +614,18 @@ export default {
     <div v-else-if="currentQuestion" class="question-screen">
       <h2>{{ currentQuestion.question }}</h2>
       <ul class="answers-grid" :data-count="currentQuestion.answers.length">
-        <li
+       <li
           v-for="(answer, index) in currentQuestion.answers"
           :key="index"
           :class="{
             correct: answered && index === currentQuestion.correctIndex,
-            incorrect: answered && index === selectedAnswer && index !== currentQuestion.correctIndex,
-            hidden: answered && index !== currentQuestion.correctIndex && index !== selectedAnswer
+            faded: answered && index !== currentQuestion.correctIndex
           }"
         >
           <button
             @click="selectAnswer(index)"
             :disabled="answered"
             :style="{ backgroundColor: dynamicAnswerColors[index % dynamicAnswerColors.length] }"
-
           >
             {{ answer }}
           </button>
@@ -679,6 +707,18 @@ export default {
   overflow: visible;
 }
 
+.answers-grid li.correct button {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.answers-grid li.faded button {
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 /* Boutons stylés façon "question-count-screen" */
 .answers-grid button {
   width: 560px;
@@ -740,14 +780,16 @@ export default {
 }
 
 /* Cache les autres après sélection */
-.question-screen.answered-state .answers-grid li:not(.correct) {
+/* .question-screen.answered-state .answers-grid li:not(.correct) {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-}
+} */
 
-.hidden {
-  display: none;
+.faded {
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 
@@ -990,7 +1032,7 @@ export default {
 
 .progress-bar-container {
   background-color: #FFAE59;
-  padding: 20px 40px;
+  padding: 25px 40px;
   border-radius: 12px;
   width: 80%;
   max-width: 1000px;
