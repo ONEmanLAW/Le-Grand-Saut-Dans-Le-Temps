@@ -170,7 +170,7 @@
         "answers": ["Pour adoucir ton cœur", "Y'a des marins qui dorment"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique1.jpg" },
-        "fullTrack": "/audio/sound50troll.mp3"
+        "fullTrack": "/audio/50musique1Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique2.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -178,7 +178,9 @@
         "audio": "/audio/50musique2question.mp3",
         "answers": ["Marcel Amont","Tino Rossi"],
         "correctIndex": 1,
-        "feedback": { "text": "Tino Rossi", "image": "/images/50musique2.jpg" }
+        "feedback": { "text": "Tino Rossi", "image": "/images/50musique2.jpg" },
+        "fullTrack": "/audio/50musique2Entiere.mp3"
+        
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique3.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -186,7 +188,8 @@
         "audio": "/audio/50musique3question.mp3",
         "answers": ["Yves Montand", "Charles Aznavour"],
         "correctIndex": 0,
-        "feedback": { "text": "Yves Montand", "image": "/images/50musique3.jpg" }
+        "feedback": { "text": "Yves Montand", "image": "/images/50musique3.jpg" },
+        "fullTrack": "/audio/50musique3Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique4Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -194,7 +197,8 @@
         "audio": "/audio/50musique4question.mp3",
         "answers": ["Ta musique est plus jolie", "Et nous vivions heureux"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique4.jpg" }
+        "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique4.jpg" },
+        "fullTrack": "/audio/50musique4Entiere.mp3"
       },
        {
         "beforeQuestion": { "audio": "/audio/50musique5Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -202,7 +206,8 @@
         "audio": "/audio/50musique5question.mp3",
         "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique5Fin.mp4", "text": "Dalida", "image": "/images/50musique5.jpg" }
+        "feedback": { "audio": "/audio/50musique5Fin.mp4", "text": "Dalida", "image": "/images/50musique5.jpg" },
+        "fullTrack": "/audio/50musique5Entiere.mp3"
       }
     ],
     "medium": [
@@ -212,7 +217,8 @@
         "audio": "/audio/50musique6question.mp3",
         "answers": ["Avec les copains", "Avec les marins"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique6.jpg" }
+        "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique6.jpg" },
+        "fullTrack": "/audio/50musique6Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -220,7 +226,8 @@
         "audio": "/audio/50musique7question.mp3",
         "answers": ["Dalida", "Mireille Mathieu"],
         "correctIndex": 0,
-        "feedback": { "text": "Dalida", "image": "/images/50musique7.jpg" }
+        "feedback": { "text": "Dalida", "image": "/images/50musique7.jpg" },
+        "fullTrack": "/audio/50musique7Entiere.mp3"
       },
       {
         "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
@@ -235,7 +242,8 @@
         "answers": ["Les rues sont vides", "Je n'ai pas sommeil"],
         "audio": "/audio/50musique9question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "Jacques Dutronc", "image": "/images/50musique9.jpg" }
+        "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "Jacques Dutronc", "image": "/images/50musique9.jpg" },
+        "fullTrack": "/audio/50musique9Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique10.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -243,7 +251,8 @@
         "answers": ["Gilbert Bécaud", "Charles Aznavour"],
         "audio": "/audio/50musique10question.mp3",
         "correctIndex": 0,
-        "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique10.jpg" }
+        "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique10.jpg" },
+        "fullTrack": "/audio/50musique10Entiere.mp3"
       }    
     ],
     "hard": [
@@ -253,7 +262,8 @@
         "answers": ["Avec ses souvenirs que je ne veux plus", "Avec ses souvenirs que je reconnais", "Il me fait le coup du souvient toi", "Et me chante encore ce que je fuis"],
         "audio": "/audio/50musique11question.mp3",
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique11.jpg" }
+        "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique11.jpg" },
+        "fullTrack": "/audio/50musique11Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique12.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -261,7 +271,8 @@
         "answers": ["Francis Cabrel", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
         "audio": "/audio/50musique12question.mp3",
         "correctIndex": 2,
-        "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique12.jpg" }
+        "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique12.jpg" },
+        "fullTrack": "/audio/50musique12Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique13Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -269,7 +280,8 @@
         "answers": ["Sans rien dire", "Dans un souffle, dans un cri", "Du temps que je suis belle", "Dans l'ombre de la nuit"],
         "audio": "/audio/50musique13question.mp3",
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique13Fin.mp4", "text": "Barbara", "image": "/images/50musique13.jpg" }
+        "feedback": { "audio": "/audio/50musique13Fin.mp4", "text": "Barbara", "image": "/images/50musique13.jpg" },
+        "fullTrack": "/audio/50musique13Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique14Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -277,7 +289,8 @@
         "answers": ["C'est un drôle de petit jeu", "Part sans peur et sans espoir", "Part, on l'attend chaque jour ", "Part vers un avenir flou"],
         "audio": "/audio/50musique14question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Yves Montand", "image": "/images/50musique14.jpg" }
+        "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Yves Montand", "image": "/images/50musique14.jpg" },
+        "fullTrack": "/audio/50musique14Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique15.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -285,7 +298,8 @@
         "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
         "audio": "/audio/50musique15question.mp3",
         "correctIndex": 0,
-        "feedback": { "text": "Michel Legrand", "image": "/images/50musique15.jpg" }
+        "feedback": { "text": "Michel Legrand", "image": "/images/50musique15.jpg" },
+        "fullTrack": "/audio/50musique15Entiere.mp3"
       }
     ],
     "expert": [
@@ -295,7 +309,8 @@
         "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "De nos promesses"],
         "audio": "/audio/50musique16question.mp3",
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Serge Gainsbourg", "image": "/images/50musique16.jpg" }
+        "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Serge Gainsbourg", "image": "/images/50musique16.jpg" },
+        "fullTrack": "/audio/50musique16Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique17.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -303,7 +318,8 @@
         "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
         "audio": "/audio/50musique17question.mp3",
         "correctIndex": 0,
-        "feedback": { "text": "Bourvil", "image": "/images/50musique17.jpg" }
+        "feedback": { "text": "Bourvil", "image": "/images/50musique17.jpg" },
+        "fullTrack": "/audio/50musique17Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique18.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -311,7 +327,8 @@
         "answers": ["Charles Trenet", "Henri Salvador", "Hubert Salentin", "Hubert Giraud"],
         "audio": "/audio/50musique18question.mp3",
         "correctIndex": 3,
-        "feedback": { "text": "Hubert Giraud", "image": "/images/50musique18.jpg" }
+        "feedback": { "text": "Hubert Giraud", "image": "/images/50musique18.jpg" },
+        "fullTrack": "/audio/50musique18Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -319,7 +336,8 @@
         "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
         "audio": "/audio/50musique19question.mp3",
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/50musique19Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique19.jpg" }
+        "feedback": { "audio": "/audio/50musique19Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique19.jpg" },
+        "fullTrack": "/audio/50musique19Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique20Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -327,7 +345,8 @@
         "answers": ["Je serai là, toute à vous", "Vous avez l'air d'un môme…", "Je chanterai nos jours heureux", "Le temps n'aura pas de prise"],
         "audio": "/audio/50musique20question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique20Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique20.jpg" }
+        "feedback": { "audio": "/audio/50musique20Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique20.jpg" },
+        "fullTrack": "/audio/50musique20Entiere.mp3"
       }
     ]
   },
