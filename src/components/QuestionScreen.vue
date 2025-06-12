@@ -292,12 +292,23 @@ export default {
 
 
     handleButtonPress(buttonId) {
+      // Si on est sur l'écran de choix Oui / Non
+      if (this.awaitFullTrackChoice) {
+        if (buttonId === 'A') {
+          this.onFullTrackChoice(true); // Oui
+        } else if (buttonId === 'C') {
+          this.onFullTrackChoice(false); // Non
+        }
+        return;
+      }
 
+      // Si on est en train d'écouter la musique full track
       if (this.playingFullTrack) {
         this.skipFullTrack();
         return;
       }
 
+      // Si les boutons sont désactivés ou pas de réponse en cours
       if (!this.buttonsEnabled || !this.currentQuestion?.answers) return;
 
       const answerCount = this.currentQuestion.answers.length;
@@ -305,11 +316,9 @@ export default {
       let index;
 
       if (answerCount === 2) {
-        // Mapping spécial pour 2 réponses : A = 0, C = 1
         const map = { A: 0, C: 1 };
         index = map[buttonId];
       } else {
-        // Mapping normal pour 3 ou 4 réponses
         const map = { A: 0, B: 1, C: 2, D: 3 };
         index = map[buttonId];
       }
@@ -318,6 +327,7 @@ export default {
         this.selectAnswer(index);
       }
     },
+
     nextStepAfterFeedback() {
       this.isFeedback = false;
 
@@ -435,11 +445,18 @@ export default {
 
 
     <!-- Écran Oui / Non pour écouter musique entièrement -->
-  <div v-if="awaitFullTrackChoice" class="fulltrack-choice-screen">
-    <p>Voulez-vous écouter la musique entièrement ?</p>
-    <button @click="onFullTrackChoice(true)">Oui</button>
-    <button @click="onFullTrackChoice(false)">Non</button>
-  </div>
+    <div v-if="awaitFullTrackChoice" class="fulltrack-choice-screen">
+      <p>Voulez-vous écouter la musique entièrement ?</p>
+      <div class="button-row">
+        <div class="button-wrapper">
+          <button class="yes" @click="onFullTrackChoice(true)">Oui</button>
+        </div>
+        <div class="button-wrapper">
+          <button class="no" @click="onFullTrackChoice(false)">Non</button>
+        </div>
+      </div>
+    </div>
+
 
   <!-- Interface lecture fullTrack -->
   <div v-if="playingFullTrack" class="fulltrack-player-screen" @click="skipFullTrack">
@@ -580,7 +597,7 @@ export default {
 
     <!-- ButtonInputListener : gestion des boutons physiques -->
     <ButtonInputListener
-      :active="buttonsEnabled"
+      :active="buttonsEnabled || awaitFullTrackChoice"
       :onButtonPress="handleButtonPress"
     />
   </div>
@@ -843,7 +860,6 @@ export default {
   font-family: 'Berlin', sans-serif;
 }
 
-
 .transition-video {
   position: fixed;
   top: 0;
@@ -851,61 +867,94 @@ export default {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: 9999; /* pour être sûr qu'elle soit au-dessus */
-  pointer-events: none; /* pour ne pas bloquer les clics */
+  z-index: 9999;
 }
 
 
-.fulltrack-choice-screen,
-.fulltrack-player-screen {
-  width: 100%;
-  min-height: 100vh; /* au moins la hauteur visible */
+
+.fulltrack-choice-screen {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 70px;
+  box-sizing: border-box;
+  color: white;
+  overflow: hidden;
+  font-family: 'Berlin', sans-serif;
+}
+
+.fulltrack-choice-screen p {
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  width: 600px;
+  font-size: 55px;
+  font-family: 'Berlin', sans-serif;
+}
+
+/* Conteneur vertical pour les boutons */
+.fulltrack-choice-screen .button-row {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   justify-content: center;
   align-items: center;
-  background-color: #121212cc; /* un fond sombre semi-transparent */
-  color: white;
-  font-size: 1.8rem;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 10; /* juste pour assurer priorité visuelle */
+  overflow: visible;
 }
 
-.fulltrack-choice-screen p,
-.fulltrack-player-screen p {
-  margin-bottom: 2rem;
+/* Wrapper individuel pour chaque bouton */
+.fulltrack-choice-screen .button-wrapper {
+  overflow: visible;
+  margin-bottom: 40px;
+  position: relative;
+  width: 1160px;
 }
 
-.fulltrack-choice-screen button,
-.fulltrack-player-screen button {
-  background-color: #47DEB1;
+/* Boutons */
+.fulltrack-choice-screen button {
+  width: 1160px;
+  height: 225px;
   border: none;
-  padding: 15px 30px;
-  margin: 0 15px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #121212;
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  transition: filter 0.3s, opacity 0.3s;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
+  font-family: 'Berlin', sans-serif;
 }
 
-.fulltrack-choice-screen button:hover,
-.fulltrack-player-screen button:hover {
-  background-color: #39c59c;
+/* Bouton "Oui" */
+.fulltrack-choice-screen button.yes {
+  background-color: #47DEB1;
+  font-size: 55px;
+  font-family: 'NeutraText', sans-serif;
 }
 
-.fulltrack-player-screen audio {
-  width: 80%;
-  max-width: 600px;
-  margin-bottom: 2rem;
-  outline: none;
+/* Bouton "Non" */
+.fulltrack-choice-screen button.no {
+  background-color: #F16565;
+  font-size: 55px;
+  font-family: 'NeutraText', sans-serif;
 }
 
-/* Optionnel : si tu veux éviter que la page scroll en arrière-plan */
-body, html {
-  overflow: hidden;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
