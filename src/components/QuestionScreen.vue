@@ -104,6 +104,13 @@ export default {
       this.isFeedback = false;
       this.prepareQuestionDisplay();
     },
+    stopQuestionAudio() {
+      const audioElement = this.$refs.questionAudio;
+      if (audioElement && !audioElement.paused) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+      }
+    },
     prepareQuestionDisplay() {
       this.preparingQuestion = true;
       this.questionNumberDisplay = `QUESTION ${this.totalQuestionsAsked + 1} / ${this.totalQuestionsToAsk}`;
@@ -215,6 +222,7 @@ export default {
 
     selectAnswer(index) {
       if (!this.answered && this.currentQuestion && this.totalQuestionsAsked < this.totalQuestionsToAsk) {
+        this.stopQuestionAudio();
         this.buttonsEnabled = false;
         this.selectedAnswer = index;
         this.answered = true;
