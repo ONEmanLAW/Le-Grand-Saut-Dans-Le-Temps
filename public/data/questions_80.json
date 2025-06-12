@@ -307,7 +307,8 @@
         "answers": ["Comme un éclair dans une nuit", "Un peu de rêve à notre vie", "Même si le temps nous l'interdit", "Quand le silence devient folie"],
         "audio": "/audio/80musique16question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique16Fin.MP3", "text": "Herbert Léonard", "image": "/images/80musique16.jpg" }
+        "feedback": { "audio": "/audio/80musique16Fin.MP3", "text": "Herbert Léonard", "image": "/images/80musique16.jpg" },
+        "fullTrack": "/audio/80musique16Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique17.MP3", "text": "TROUVER LE BON ARTISTE" },
