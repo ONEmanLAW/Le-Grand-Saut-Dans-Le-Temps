@@ -74,7 +74,7 @@ export default {
     if (!window.backgroundMusic) {
       const audio = new Audio('/audio/background.mp3')
       audio.loop = true
-      audio.volume = 0.5
+      audio.volume = 1
       // Tenter de jouer la musique, catch erreur autoplay si bloque
       audio.play().catch(() => {
         console.warn('Autoplay bloqué, musique démarrera après interaction utilisateur')

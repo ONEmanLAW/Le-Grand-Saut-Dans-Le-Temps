@@ -35,7 +35,7 @@ export default {
     this.$nextTick(() => {
       const player = this.$refs.tropheeVideoPlayer
       if (player) {
-        player.volume = 1.0 // Assure que le volume est à fond
+        player.volume = 1.0
         player.play().catch(err => {
           console.warn('Lecture auto refusée par le navigateur :', err)
         })
@@ -47,7 +47,12 @@ export default {
       const correctAnswers = this.score
       const questions = this.questions
 
-      if (questions === 8) {
+      if (questions === 4) {
+        if (correctAnswers === 4) this.trophee = 'or'
+        else if (correctAnswers === 3) this.trophee = 'argent'
+        else if (correctAnswers === 2) this.trophee = 'bronze'
+        else this.trophee = 'none'
+      } else if (questions === 8) {
         if (correctAnswers >= 7) this.trophee = 'or'
         else if (correctAnswers >= 5) this.trophee = 'argent'
         else if (correctAnswers >= 4) this.trophee = 'bronze'
@@ -61,11 +66,6 @@ export default {
         if (correctAnswers >= 13) this.trophee = 'or'
         else if (correctAnswers >= 10) this.trophee = 'argent'
         else if (correctAnswers >= 8) this.trophee = 'bronze'
-        else this.trophee = 'none'
-      } else if (questions === 20) {
-        if (correctAnswers >= 16) this.trophee = 'or'
-        else if (correctAnswers >= 13) this.trophee = 'argent'
-        else if (correctAnswers >= 10) this.trophee = 'bronze'
         else this.trophee = 'none'
       } else {
         this.trophee = 'none'
@@ -89,7 +89,6 @@ export default {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: black;
   z-index: 9999;
 }
 

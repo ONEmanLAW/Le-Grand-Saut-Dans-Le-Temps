@@ -1,7 +1,13 @@
 <!-- EndGameScreen.vue -->
 <template>
   <div class="end-game-screen">
-    <h1 class="congrats">🎉 Félicitations ! 🎉</h1>
+    <!-- Musique de fond -->
+    <audio ref="bgMusic" autoplay loop>
+      <source src="/audio/backgroundEnd.mp3" type="audio/mpeg" />
+      Votre navigateur ne supporte pas l'audio HTML5.
+    </audio>
+
+    <h1 class="congrats"> Félicitations ! </h1>
     <p class="finished">Vous avez terminé tous les niveaux du jeu.</p>
     
     <p class="score">Score : {{ score }} / {{ questions }}</p>
@@ -33,7 +39,7 @@
 
 <script>
 import confetti from 'canvas-confetti'
-import ButtonInputListener from './ButtonInputListener.vue' // adapte le chemin
+import ButtonInputListener from './ButtonInputListener.vue'
 
 export default {
   components: { ButtonInputListener },
@@ -42,14 +48,14 @@ export default {
       score: 0,
       questions: 0,
       trophee: '',
-      buttonsDisabled: true, // tous les boutons désactivés
+      buttonsDisabled: true
     }
   },
   computed: {
     tropheeMessage() {
-      if (this.trophee === 'or') return "Trophée d'or 🥇"
-      if (this.trophee === 'argent') return "Trophée d'argent 🥈"
-      if (this.trophee === 'bronze') return "Trophée de bronze 🥉"
+      if (this.trophee === 'or') return "Trophée d'or"
+      if (this.trophee === 'argent') return "Trophée d'argent"
+      if (this.trophee === 'bronze') return "Trophée de bronze"
       return ''
     }
   },
@@ -58,34 +64,43 @@ export default {
     this.questions = parseInt(localStorage.getItem('questionCount') || '0')
     this.determineTrophee()
     this.launchConfetti()
+    this.playMusic()
   },
   methods: {
+    playMusic() {
+      const audio = this.$refs.bgMusic
+      if (audio && audio.paused) {
+        audio.play().catch(() => {
+          // En cas de blocage du navigateur (auto-play policy)
+        })
+      }
+    },
     determineTrophee() {
       const correctAnswers = this.score
       const questions = this.questions
 
-      if (questions === 8) {
+      if (questions === 4) {
+        if (correctAnswers === 4) this.trophee = 'or'
+        else if (correctAnswers === 3) this.trophee = 'argent'
+        else if (correctAnswers === 2) this.trophee = 'bronze'
+        else this.trophee = 'none'
+      } else if (questions === 8) {
         if (correctAnswers >= 7) this.trophee = 'or'
         else if (correctAnswers >= 5) this.trophee = 'argent'
         else if (correctAnswers >= 4) this.trophee = 'bronze'
-        else this.trophee = ''
+        else this.trophee = 'none'
       } else if (questions === 12) {
         if (correctAnswers >= 10) this.trophee = 'or'
         else if (correctAnswers >= 8) this.trophee = 'argent'
         else if (correctAnswers >= 6) this.trophee = 'bronze'
-        else this.trophee = ''
+        else this.trophee = 'none'
       } else if (questions === 16) {
         if (correctAnswers >= 13) this.trophee = 'or'
         else if (correctAnswers >= 10) this.trophee = 'argent'
         else if (correctAnswers >= 8) this.trophee = 'bronze'
-        else this.trophee = ''
-      } else if (questions === 20) {
-        if (correctAnswers >= 16) this.trophee = 'or'
-        else if (correctAnswers >= 13) this.trophee = 'argent'
-        else if (correctAnswers >= 10) this.trophee = 'bronze'
-        else this.trophee = ''
+        else this.trophee = 'none'
       } else {
-        this.trophee = ''
+        this.trophee = 'none'
       }
     },
     launchConfetti() {
@@ -128,6 +143,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped>
 .end-game-screen {

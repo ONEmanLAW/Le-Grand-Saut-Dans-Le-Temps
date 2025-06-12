@@ -12,6 +12,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema2Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Rififi", "Les Diaboliques"],
         "correctIndex": 1,
         "feedback": { "text": "Les Diaboliques", "image": "/images/50cinema2.jpeg" }
@@ -19,12 +20,14 @@
       {
         "question": "De quel film vient cette phrase ? « On ne fait pas d'omelette sans casser des œufs. »",
         "answers": ["Le Salaire de la peur", "Les Diaboliques"],
+        "audio": "/audio/sound50troll.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Le Salaire de la peur", "image": "/images/50cinema3.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema4Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Rififi", "Touchez pas au grisbi"],
         "correctIndex": 0,
         "feedback": { "text": "Rififi", "image": "/images/50cinema4.jpeg" }
@@ -32,6 +35,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Mon oncle", "Le Salaire de la peur"],
         "correctIndex": 1,
         "feedback": { "text": "Le Salaire de la peur", "image": "/images/50cinema5.jpeg" }

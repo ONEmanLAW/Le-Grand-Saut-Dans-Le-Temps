@@ -1,5 +1,11 @@
 <template>
   <div class="start-screen" @click="handleClick">
+    <!-- Musique de fond -->
+    <audio ref="bgMusic" autoplay loop>
+      <source src="/audio/background.mp3" type="audio/mpeg" />
+      Votre navigateur ne supporte pas l'audio HTML5.
+    </audio>
+
     <h1 class="start-button">BUZZEZ POUR COMMENCER</h1>
 
     <ButtonInputListener
@@ -20,12 +26,22 @@ export default {
   },
   methods: {
     handleClick() {
+      this.playMusic()
       this.nextStep()
     },
     handleButtonPress(buttonId) {
       const validButtons = ['A', 'B', 'C', 'D']
       if (validButtons.includes(buttonId)) {
+        this.playMusic()
         this.nextStep()
+      }
+    },
+    playMusic() {
+      const audio = this.$refs.bgMusic
+      if (audio && audio.paused) {
+        audio.play().catch(() => {
+          // Gestion silencieuse en cas de blocage par le navigateur
+        })
       }
     }
   }
@@ -56,7 +72,6 @@ export default {
   animation: pulse 2.5s ease-in-out infinite;
   opacity: 0;
 }
-
 
 @keyframes pulse {
   0% {

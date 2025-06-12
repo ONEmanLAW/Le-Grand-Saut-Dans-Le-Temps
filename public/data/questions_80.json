@@ -4,6 +4,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema1Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Trois hommes et un couffin", "Les Bronzés font du ski"],
         "correctIndex": 1,
         "feedback": { "text": "Les Bronzés font du ski", "image": "/images/80cinema1.jpeg" }
@@ -11,6 +12,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema2Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Les Visiteurs", "Le Père Noël est une ordure"],
         "correctIndex": 1,
         "feedback": { "text": "Le Père Noël est une ordure", "image": "/images/80cinema2.jpeg" }
@@ -18,12 +20,14 @@
       {
         "question": "De quel film vient cette phrase ? « Vous n'auriez pas vu passer deux types un peu louches ? »",
         "answers": ["Le Coup du parapluie", "Le Grand Bleu"],
+        "audio": "/audio/sound50troll.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Le Coup du parapluie", "image": "/images/80cinema3.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema4Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["La Boum", " Le Grand Chemin"],
         "correctIndex": 0,
         "feedback": { "text": "La Boum", "image": "/images/80cinema4.jpeg" }
@@ -31,6 +35,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/sound50troll.mp3",
         "answers": ["Subway", "Le Grand Bleu"],
         "correctIndex": 1,
         "feedback": { "text": "Rififi", "image": "/images/80cinema5.png" }

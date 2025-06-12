@@ -1,5 +1,11 @@
 <template>
   <div class="waiting-scan-container" @click="handleClickDebug">
+    <!-- Musique de fond -->
+    <audio ref="bgMusic" autoplay loop>
+      <source src="/audio/background.mp3" type="audio/mpeg" />
+      Votre navigateur ne supporte pas l'audio HTML5.
+    </audio>
+
     <div class="title-wrapper">
       <h1 class="title pulse">Poser le badge sur l’époque</h1>
       <h1 class="subtitle pulse">de votre choix !</h1>
@@ -22,6 +28,8 @@ export default {
     }
   },
   mounted() {
+    this.playMusic()
+
     if (this.ws) {
       this.ws.onmessage = (event) => {
         const message = JSON.parse(event.data)
@@ -39,6 +47,15 @@ export default {
     clearTimeout(this.clickTimer)
   },
   methods: {
+    playMusic() {
+      const audio = this.$refs.bgMusic
+      if (audio && audio.paused) {
+        audio.play().catch(() => {
+          // Échec silencieux si bloqué par navigateur
+        })
+      }
+    },
+
     handleScan(rfidId) {
       if (!this.canTriggerLongScan) return
 
@@ -48,7 +65,7 @@ export default {
 
       if (era) {
         localStorage.setItem('selectedEra', era)
-        this.$emit('era-selected', era)  // <-- ici l’emit
+        this.$emit('era-selected', era)
         this.nextStep()
       } else {
         console.warn('🟡 RFID ID non reconnu :', rfidId)
