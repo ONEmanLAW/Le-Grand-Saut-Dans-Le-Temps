@@ -4,7 +4,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema1Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/80cinema1question.mp3",
         "answers": ["Trois hommes et un couffin", "Les Bronzés font du ski"],
         "correctIndex": 1,
         "feedback": { "text": "Les Bronzés font du ski", "image": "/images/80cinema1.jpeg" }
@@ -12,7 +12,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema2Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/80cinema2question.mp3",
         "answers": ["Les Visiteurs", "Le Père Noël est une ordure"],
         "correctIndex": 1,
         "feedback": { "text": "Le Père Noël est une ordure", "image": "/images/80cinema2.jpeg" }
@@ -20,31 +20,32 @@
       {
         "question": "De quel film vient cette phrase ? « Vous n'auriez pas vu passer deux types un peu louches ? »",
         "answers": ["Le Coup du parapluie", "Le Grand Bleu"],
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/80cinema3question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Le Coup du parapluie", "image": "/images/80cinema3.jpeg" }
       },
       {
-        "beforeQuestion": { "video": "/videos/50cinema4Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "beforeQuestion": { "video": "/videos/80cinema4Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/80cinema4question.mp3",
         "answers": ["La Boum", " Le Grand Chemin"],
         "correctIndex": 0,
         "feedback": { "text": "La Boum", "image": "/images/80cinema4.jpeg" }
       },
       {
-        "beforeQuestion": { "video": "/videos/50cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "beforeQuestion": { "video": "/videos/80cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/80cinema5question.mp3",
         "answers": ["Subway", "Le Grand Bleu"],
         "correctIndex": 1,
-        "feedback": { "text": "Rififi", "image": "/images/80cinema5.png" }
+        "feedback": { "text": "Le Grand Bleu", "image": "/images/80cinema5.png" }
       }
     ],
     "medium": [
       {
         "beforeQuestion": { "video": "/videos/80cinema6Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema6question.mp3",
         "answers": ["Les Sous-doués", "L'Étudiante"],
         "correctIndex": 0,
         "feedback": { "text": "Les Sous-doués", "image": "/images/80cinema6.jpeg" }
@@ -52,12 +53,14 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema7Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema7question.mp3",
         "answers": ["Les Bronzés", "Le Professionnel"],
         "correctIndex": 0,
         "feedback": { "text": "Les Bronzés", "image": "/images/80cinema7.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Tu sais que t'as une tête de gagnant ? »",
+        "audio": "/audio/80cinema8question.mp3",
         "answers": ["Inspecteur la Bavure", "Marche à l'ombre"],
         "correctIndex": 1,
         "feedback": { "text": "Marche à l'ombre", "image": "/images/80cinema8.jpeg" }
@@ -65,12 +68,14 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema9Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema9question.mp3",
         "answers": ["Le Dîner de cons", "La Chèvre"],
         "correctIndex": 1,
         "feedback": { "text": "La Chèvre", "image": "/images/80cinema9.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Quand on attaque l'empire, l'empire riposte. »",
+        "audio": "/audio/80cinema10question.mp3",
         "answers": ["Les Visiteurs", "Le Dîner de cons"],
         "correctIndex": 1,
         "feedback": { "text": "Le Dîner de cons", "image": "/images/80cinema10.jpeg" }
@@ -80,6 +85,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema11Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema11question.mp3",
         "answers": ["Le Marginal", "L.627", "L'Indic", "Le Choix des armes"],
         "correctIndex": 0,
         "feedback": { "text": "Le Marginal", "image": "/images/80cinema11.jpeg" }
@@ -87,18 +93,21 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema12Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "De quel film vient cette phrase ? « Tu sais, la prison, c'est plus dur quand on a connu le luxe »",
+        "audio": "/audio/80cinema12question.mp3",
         "answers": ["Le Professionnel", "Le Choix des armes", "La Balance", "Le Battant"],
         "correctIndex": 1,
         "feedback": { "text": "Le Choix des armes", "image": "/images/80cinema12.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Je n'aime pas trop qu'on me marche sur les pieds. »",
+        "audio": "/audio/80cinema13question.mp3",
         "answers": ["Le Marginal", "Inspecteur la Bavure", "L'Arbalète", "Le Battant"],
         "correctIndex": 0,
         "feedback": { "text": "Le Marginal", "image": "/images/80cinema13.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « T'as pas les bases, mon pote. Pas les bases. »",
+        "audio": "/audio/80cinema14question.mp3",
         "answers": ["Tchao Pantin", " L'Été meurtrier", "Le Maître d'école", "Marche à l'ombre"],
         "correctIndex": 3,
         "feedback": { "text": "Marche à l'ombre", "image": "/images/80cinema14.jpeg" }
@@ -106,6 +115,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema15Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema15question.mp3",
         "answers": ["Manon des Sources", "Jean de Florette", "L'Été meurtrier", "Noce Blanche"],
         "correctIndex": 2,
         "feedback": { "text": "L'Été meurtrier", "image": "/images/80cinema15.jpeg" }
@@ -115,12 +125,14 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema16Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema16question.mp3",
         "answers": ["La Dérobade", "Beau-père", "L'Amour braque", "La Femme flic"],
         "correctIndex": 1,
         "feedback": { "text": "Beau-père", "image": "/images/80cinema16.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/80cinema17Debut.mp4", "text": "REGARDER l'EXTRAIT" },
+        "audio": "/audio/80cinema17question.mp3",
         "question": "Quel film est-ce ?",
         "answers": ["Le Maître d'école", "Le Grand Chemin", "L'Argent de poche", "La Gloire de mon père"],
         "correctIndex": 3,
@@ -128,12 +140,14 @@
       },
       {
         "question": "De quel film vient cette phrase ? « T'as l'air fin, avec ton costard de tueur et ton flingue à deux balles. »",
+        "audio": "/audio/80cinema18question.mp3",
         "answers": ["La Balance", "Inspecteur Lavardin", "Le Professionnel", "Pour la peau d'un flic"],
         "correctIndex": 1,
         "feedback": { "text": "La Balance", "image": "/images/80cinema18.jpg" }
       },
       {
-        "question": "Quel film est-ce ? « Moi je vais pas faire 10 ans pour une caisse de whisky ! »",
+        "question": "De quel film vient cette phrase ? « Moi je vais pas faire 10 ans pour une caisse de whisky ! »",
+        "audio": "/audio/80cinema19question.mp3",
         "answers": ["Les Spécialistes", "Le Solitaire", "Le Marginal", "L'Arbalète"],
         "correctIndex": 0,
         "feedback": { "text": "Les Spécialistes", "image": "/images/80cinema19.jpeg" }
@@ -141,6 +155,7 @@
       {
         "beforeQuestion": { "video": "/videos/80cinema20Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/80cinema20question.mp3",
         "answers": ["Sans toit ni loi", "Un homme amoureux", "Vivement dimanche !", "La Femme d'à côté"],
         "correctIndex": 2,
         "feedback": { "text": "Vivement dimanche !", "image": "/images/80cinema20.jpeg" }
@@ -153,12 +168,14 @@
         "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Voyage, voyage… plus loin que la nuit et le jour… » ",
         "answers": ["Dans l'espace inouï de l'amour", "Plus loin que le vent"],
+        "audio": "/audio/80musique1question.mp3",
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "Desireless", "image": "/images/80musique1.jpg" }
       },
       {
         "question": "Vrai ou Faux : Joe Dassin chantait aussi en italien et en espagnol.",
         "answers": ["Vrai", "Faux"],
+        "audio": "/audio/80musique2question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Joe Dassin", "image": "/images/80musique2.jpg" }
       },
@@ -166,6 +183,7 @@
          "beforeQuestion": { "audio": "/audio/80musique3.mp4", "text": "TROUVER LA BONNE ARTISTE" },
         "question": "Qui chantait « Toute première fois » en 1986 ?",
         "answers": ["Vanessa Paradis", "Jeanne Mas"],
+        "audio": "/audio/80musique3question.mp3",
         "correctIndex": 1,
         "feedback": {"text": "Jeanne Mas", "image": "/images/80musique3.jpg" }
       },
@@ -173,6 +191,7 @@
         "beforeQuestion": { "audio": "/audio/80musique4Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Joe le taxi… c'est sa vie le rhum au mambo… »",
         "answers": ["Embouteillage", "Il est comme ça"],
+        "audio": "/audio/80musique4question.mp3",
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "Vanessa Paradis", "image": "/images/80musique4.jpg" }
       },
@@ -180,6 +199,7 @@
         "beforeQuestion": { "audio": "/audio/80musique5.mp4", "text": "TROUVER LE BON GROUPE" },
         "question": "Quel groupe français est célèbre pour la chanson « Les démons de minuit » ?",
         "answers": ["Indochine", "Images"],
+        "audio": "/audio/80musique5question.mp3",
         "correctIndex": 1,
         "feedback": {"text": "Images", "image": "/images/80musique5.jpg" }
       }
@@ -189,6 +209,7 @@
         "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Et soudain surgit face au vent… »",
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
+        "audio": "/audio/80musique6question.mp3",
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "/images/80musique6.jpg" }
       },
@@ -196,6 +217,7 @@
         "beforeQuestion": { "audio": "/audio/80musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Qui a écrit et interprété « Quand la musique est bonne » ?",
         "answers": ["Daniel Balavoine", "Jean-Jacques Goldman"],
+        "audio": "/audio/80musique7question.mp3",
         "correctIndex": 1,
         "feedback": { "text": "Jean-Jacques Goldman", "image": "/images/80musique7.jpg" }
       },
@@ -203,12 +225,14 @@
         "beforeQuestion": { "audio": "/audio/80musique8.mp4", "text": "TROUVER LE BON GROUPE" },
         "question": "Quel duo féminin a popularisé le tube « L'Amour à la plage » ?",
         "answers": ["Les Rita Mitsouko", "Niagara"],
+        "audio": "/audio/80musique8question.mp3",
         "correctIndex": 1,
         "feedback": { "text": "Niagara", "image": "/images/80musique8.jpg" }
       },
       {
         "question": "« Vrai ou Faux : Mylène Farmer est née au Canada.",
         "answers": ["Vrai", "Faux"],
+        "audio": "/audio/80musique9question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Mylène Farmer", "image": "/images/80musique9.jpg" }
       },
@@ -216,6 +240,7 @@
         "beforeQuestion": { "audio": "/audio/80musique10Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« En rouge et noir, j'afficherai mon coeur… »",
         "answers": ["En échange d'une trêve de douceur", "Qui me fait peur"],
+        "audio": "/audio/80musique10question.mp3",
         "correctIndex": 0,
         "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "Jeanne Mas", "image": "/images/80musique10.jpg" }
       }    
@@ -225,6 +250,7 @@
         "beforeQuestion": { "audio": "/audio/80musique11Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Cargo de nuit… »",
         "answers": ["Chargé d'amour et de mystère", "Le vent souffle fort dans ta vie", "J'avance sur ce quai humide", "Tu vogues loin de mon ennui"],
+        "audio": "/audio/80musique11question.mp3",
         "correctIndex": 2,
         "feedback": { "audio": "/audio/80musique11Fin.MP3", "text": "Axel Bauer", "image": "/images/80musique11.jpg" }
       },
@@ -232,13 +258,15 @@
         "beforeQuestion": { "audio": "/audio/80musique12Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Et j'vis comme une boule de flipper qui roule… »",
         "answers": ["Au milieu des éclats", "Devant les néons", "Devant ton ordinateur", "Avec les oreillers du cœur en boule"],
+        "audio": "/audio/80musique12question.mp3",
         "correctIndex": 3,
         "feedback": { "audio": "/audio/80musique12Fin.MP3", "text": "Corynne Charby", "image": "/images/80musique12.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique13.MP3", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur français a interprété la chanson « Marcia Baïla » ?",
+        "question": "Quel chanteur a interprété la chanson « Marcia Baïla » ?",
         "answers": ["Étienne Daho", "Alain Chamfort", "Rita Mitsouko", "Axel Bauer"],
+        "audio": "/audio/80musique13question.mp3",
         "correctIndex": 2,
         "feedback": { "text": "Rita Mitsouko", "image": "/images/80musique13.jpg" }
       },
@@ -246,6 +274,7 @@
         "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a écrit « Couleur menthe à l'eau » en 1980 ?",
         "answers": ["Christophe", "Alain Bashung", "Eddy Mitchell", "Gérard Manset"],
+        "audio": "/audio/80musique14question.mp3",
         "correctIndex": 2,
         "feedback": { "text": "Eddy Mitchell", "image": "/images/80musique14.jpg" }
       },
@@ -253,6 +282,7 @@
         "beforeQuestion": { "audio": "/audio/80musique15Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Si vous voulez les caresses restez pas… »",
         "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j'aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j'oublie tout"],
+        "audio": "/audio/80musique15question.mp3",
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique15Fin.MP3", "text": "Elsa", "image": "/images/80musique15.jpg" }
       }
@@ -262,13 +292,15 @@
         "beforeQuestion": { "audio": "/audio/80musique16Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« S'offrir ce qui n'a pas de prix… »",
         "answers": ["Comme un éclair dans une nuit", "Un peu de rêve à notre vie", "Même si le temps nous l'interdit", "Quand le silence devient folie"],
+        "audio": "/audio/80musique16question.mp3",
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique16Fin.MP3", "text": "Herbert Léonard", "image": "/images/80musique16.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique17.MP3", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel groupe français a interprété le titre « Nuit sauvage » en 1988 ?",
+        "question": "Quel groupe a interprété le titre « Nuit sauvage » en 1988 ?",
         "answers": ["Les Rita Mitsouko", "Images", "Les Avions", "Début de Soirée"],
+        "audio": "/audio/80musique17question.mp3",
         "correctIndex": 2,
         "feedback": { "text": "Les Avions", "image": "/images/80musique17.jpg" }
       },
@@ -276,6 +308,7 @@
         "beforeQuestion": { "audio": "/audio/80musique18Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Quand je la regarde… »",
         "answers": ["Qui pleure dans un monde trop réel", "Moi l'homme loup", "Dont les rêves ne sont qu'un leurre", "Qui vole au vent comme un adieu"],
+        "audio": "/audio/80musique18question.mp3",
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique18Fin.MP3", "text": "Jean-Jacques Lafon", "image": "/images/80musique18.jpg" }
       },
@@ -283,6 +316,7 @@
         "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« J'ai fais un voeux… »",
         "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
+        "audio": "/audio/80musique19question.mp3",
         "correctIndex": 1,
         "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" }
       },
@@ -290,6 +324,7 @@
         "beforeQuestion": { "audio": "/audio/80musique20.MP3", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a débuté en duo avec Léopold Nord sur le titre « C'est l'amour » ?",
         "answers": ["Alec Mansion", "Axel Bauer", "Alain Chamfort", "Philippe Russo"],
+        "audio": "/audio/80musique20question.mp3",
         "correctIndex": 0,
         "feedback": {"text": "Alec Mansion", "image": "/images/80musique20.jpg" }
       }

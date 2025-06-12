@@ -4,7 +4,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema1Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/50cinema1question.mp3",
         "answers": ["Les Vacances de Monsieur Hulot", "La Traversée de Paris"],
         "correctIndex": 0,
         "feedback": { "text": "Les Vacances de Monsieur Hulot", "image": "/images/50cinema1.jpeg" }
@@ -12,7 +12,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema2Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/50cinema2question.mp3",
         "answers": ["Rififi", "Les Diaboliques"],
         "correctIndex": 1,
         "feedback": { "text": "Les Diaboliques", "image": "/images/50cinema2.jpeg" }
@@ -20,14 +20,14 @@
       {
         "question": "De quel film vient cette phrase ? « On ne fait pas d'omelette sans casser des œufs. »",
         "answers": ["Le Salaire de la peur", "Les Diaboliques"],
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/50cinema3question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Le Salaire de la peur", "image": "/images/50cinema3.jpeg" }
       },
       {
         "beforeQuestion": { "video": "/videos/50cinema4Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/50cinema4question.mp3",
         "answers": ["Rififi", "Touchez pas au grisbi"],
         "correctIndex": 0,
         "feedback": { "text": "Rififi", "image": "/images/50cinema4.jpeg" }
@@ -35,7 +35,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema5Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
-        "audio": "/audio/sound50troll.mp3",
+        "audio": "/audio/50cinema5question.mp3",
         "answers": ["Mon oncle", "Le Salaire de la peur"],
         "correctIndex": 1,
         "feedback": { "text": "Le Salaire de la peur", "image": "/images/50cinema5.jpeg" }
@@ -45,6 +45,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema6Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema6question.mp3",
         "answers": ["Les Grandes Familles", "La Traversée de Paris"],
         "correctIndex": 1,
         "feedback": { "text": "La Traversée de Paris", "image": "/images/50cinema6.jpeg" }
@@ -52,12 +53,14 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema7Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema7question.mp3",
         "answers": ["Les Quatre Cents Coups", "Le Salaire de la peur"],
         "correctIndex": 0,
         "feedback": { "text": "Les Quatre Cents Coups", "image": "/images/50cinema7.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Ce que j'aime chez vous, c'est votre absence totale d'élégance. »",
+        "audio": "/audio/50cinema8question.mp3",
         "answers": ["Les Dames du Bois de Boulogne", "Quai des Orfèvres"],
         "correctIndex": 0,
         "feedback": { "text": "Les Dames du Bois de Boulogne", "image": "/images/50cinema8.jpeg" }
@@ -65,12 +68,14 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema9Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema9question.mp3",
         "answers": ["Les Grandes Familles", "Les Amants de Montparnasse"],
         "correctIndex": 1,
         "feedback": { "text": "Les Amants de Montparnasse", "image": "/images/50cinema9.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Vous êtes jolie, mais vous n'avez pas de cœur. »",
+        "audio": "/audio/50cinema10question.mp3",
         "answers": ["Les Amants de Montparnasse", "Le Plaisir"],
         "correctIndex": 1,
         "feedback": { "text": "Le Plaisir", "image": "/images/50cinema10.jpeg" }
@@ -80,18 +85,21 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema11Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema11question.mp3",
         "answers": ["Ascenseur pour l'échafaud", "Pickpocket", "Le Doulos", "Pépé le Moko"],
         "correctIndex": 1,
         "feedback": { "text": "Pickpocket", "image": "/images/50cinema11.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Tu sais, la prison, c'est plus dur quand on a connu le luxe »",
+        "audio": "/audio/50cinema12question.mp3",
         "answers": ["Razzia sur la chnouf", "Le Doulos", "Touchez pas au grisbi", "L'Air de Paris"],
         "correctIndex": 2,
         "feedback": { "text": "Touchez pas au grisbi", "image": "/images/50cinema12.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Il vaut mieux une mauvaise réputation qu'un bon mensonge »",
+        "audio": "/audio/50cinema13question.mp3",
         "answers": ["Grisbi", "Bob le flambeur", "La Vérité sur Bébé Donge", "Le Plaisir"],
         "correctIndex": 1,
         "feedback": { "text": "Bob le flambeur", "image": "/images/50cinema13.jpeg" }
@@ -99,6 +107,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema14Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema14question.mp3",
         "answers": ["Les Amants de Montparnasse", "La Marie du port", "Les Dames du bois de Boulogne", "La Ronde"],
         "correctIndex": 3,
         "feedback": { "text": "La Ronde", "image": "/images/50cinema14.jepg" }
@@ -106,6 +115,7 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema15Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema15question.mp3",
         "answers": ["Les Portes de la nuit", "L'Air de Paris", "Les Amants de Montparnasse", "Le Sang à la tête"],
         "correctIndex": 0,
         "feedback": { "text": "L'Air de Paris", "image": "/images/50cinema15.jpeg" }
@@ -115,12 +125,14 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema16Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema16question.mp3",
         "answers": ["Grisbi", "La Vérité sur Bébé Donge", "Bob le flambeur", "Le Plaisir"],
         "correctIndex": 2,
         "feedback": { "text": "Bob le flambeur", "image": "/images/50cinema16.jpeg" }
       },
       {
         "question": "De quel film vient cette phrase ? « Tu m'as appris la douleur. Et maintenant, tu veux que je t'aime encore ? »",
+        "audio": "/audio/50cinema17question.mp3",
         "answers": ["La Vérité", "Les Amants de Montparnasse", "Casque d'or", "La Vérité sur Bébé Donge"],
         "correctIndex": 3,
         "feedback": { "text": "La Vérité sur Bébé Donge", "image": "/images/50cinema17.jpeg" }
@@ -128,18 +140,21 @@
       {
         "beforeQuestion": { "video": "/videos/50cinema18Debut.mp4", "text": "REGARDER l'EXTRAIT" },
         "question": "Quel film est-ce ?",
+        "audio": "/audio/50cinema18question.mp3",
         "answers": ["Ascenseur pour l'échafaud", "Le Trou", "Rafles sur la ville", "Casque d'or"],
         "correctIndex": 1,
         "feedback": { "text": "Le Trou", "image": "/images/50cinema18.jpeg" }
       },
       {
-        "question": "Quel film est-ce ? « L'élégance, ce n'est pas ce que l'on montre, c'est ce que l'on cache. »",
+        "question": "De quel film vient cette phrase ? « L'élégance, ce n'est pas ce que l'on montre, c'est ce que l'on cache. »",
+        "audio": "/audio/50cinema19question.mp3",
         "answers": ["Madame de…", "Le Blé en herbe", "Elena et les hommes", "La Ronde"],
         "correctIndex": 0,
         "feedback": { "text": "Madame de…", "image": "/images/50cinema 19.jpeg" }
       },
       {
-        "question": "Quel film est-ce ? « Si je dois être pendu, autant que ce soit pour un crime que j'ai commis. »",
+        "question": "De quel film vient cette phrase ? « Si je dois être pendu, autant que ce soit pour un crime que j'ai commis. »",
+        "audio": "/audio/50cinema20question.mp3",
         "answers": ["Casque d'or", "Le Trou", "Le Doulos", "Bob le flambeur"],
         "correctIndex": 0,
         "feedback": { "text": "Casque d'or", "image": "/images/50cinema20.jpeg" }
@@ -151,6 +166,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique1Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Dans le port d'Amsterdam… »",
+        "audio": "/audio/50musique1question.mp3",
         "answers": ["Pour adoucir ton cœur", "Y'a des marins qui dorment"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique1.jpg" },
@@ -158,14 +174,16 @@
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique2.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur français est célèbre pour la chanson “Petit papa Noël” ?",
+        "question": "Quel chanteur est célèbre pour la chanson “Petit papa Noël” ?",
+        "audio": "/audio/50musique2question.mp3",
         "answers": ["Marcel Amont","Tino Rossi"],
         "correctIndex": 1,
         "feedback": { "text": "Tino Rossi", "image": "/images/50musique2.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique3.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur français a popularisé le tube “C'est si bon” ?",
+        "question": "Quel chanteur a popularisé le tube “C'est si bon” ?",
+        "audio": "/audio/50musique3question.mp3",
         "answers": ["Yves Montand", "Charles Aznavour"],
         "correctIndex": 0,
         "feedback": { "text": "Yves Montand", "image": "/images/50musique3.jpg" }
@@ -173,6 +191,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique4Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« La bohème, la bohème… »",
+        "audio": "/audio/50musique4question.mp3",
         "answers": ["Ta musique est plus jolie", "Et nous vivions heureux"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/50musique4Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique4.jpg" }
@@ -180,6 +199,7 @@
        {
         "beforeQuestion": { "audio": "/audio/50musique5Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Mon petit Bambino… »",
+        "audio": "/audio/50musique5question.mp3",
         "answers": ["Ta jolie guitare", "Elle est jolie pourtant"],
         "correctIndex": 0,
         "feedback": { "audio": "/audio/50musique5Fin.mp4", "text": "Dalida", "image": "/images/50musique5.jpg" }
@@ -189,6 +209,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique6Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Dans les bars à la tombée du jour… »",
+        "audio": "/audio/50musique6question.mp3",
         "answers": ["Avec les copains", "Avec les marins"],
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique6Fin.mp4", "text": "Charles Aznavour", "image": "/images/50musique6.jpg" }
@@ -196,6 +217,7 @@
       {
         "beforeQuestion": { "audio": "/audio/50musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Qui a popularisé la chanson “Gondolier” en 1957 ?",
+        "audio": "/audio/50musique7question.mp3",
         "answers": ["Dalida", "Mireille Mathieu"],
         "correctIndex": 0,
         "feedback": { "text": "Dalida", "image": "/images/50musique7.jpg" }
@@ -203,6 +225,7 @@
       {
         "question": "Vrai ou Faux : Charles Aznavour a aussi eu une carrière d'acteur ?",
         "answers": ["Vrai", "Faux"],
+        "audio": "/audio/50musique8question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Charles Aznavour", "image": "/images/50musique8.jpg" }
       },
@@ -210,13 +233,15 @@
         "beforeQuestion": { "audio": "/audio/50musique9Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Il est cinq heures, Paris se lève… »",
         "answers": ["Les rues sont vides", "Je n'ai pas sommeil"],
+        "audio": "/audio/50musique9question.mp3",
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique9Fin.mp4", "text": "Jacques Dutronc", "image": "/images/50musique9.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique10.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur a écrit la chanson “Et maintenant”, reprise par de nombreux artistes ?",
+        "question": "Quel chanteur a écrit la chanson “Et maintenant”?",
         "answers": ["Gilbert Bécaud", "Charles Aznavour"],
+        "audio": "/audio/50musique10question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique10.jpg" }
       }    
@@ -224,8 +249,9 @@
     "hard": [
       {
         "beforeQuestion": { "audio": "/audio/50musique11Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« Padam, padam, padam… Il arrive en courant derrière moi… »",
+        "question": "« Il arrive en courant derrière moi… »",
         "answers": ["Avec ses souvenirs que je ne veux plus", "Avec ses souvenirs que je reconnais", "Il me fait le coup du souvient toi", "Et me chante encore ce que je fuis"],
+        "audio": "/audio/50musique11question.mp3",
         "correctIndex": 2,
         "feedback": { "audio": "/audio/50musique11Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique11.jpg" }
       },
@@ -233,6 +259,7 @@
         "beforeQuestion": { "audio": "/audio/50musique12.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel compositeur et chanteur a créé l'hymne “L'orange”  ?",
         "answers": ["Francis Cabrel", "Jacques Brel", "Gilbert Bécaud", "Charles Trenet"],
+        "audio": "/audio/50musique12question.mp3",
         "correctIndex": 2,
         "feedback": { "text": "Gilbert Bécaud", "image": "/images/50musique12.jpg" }
       },
@@ -240,6 +267,7 @@
         "beforeQuestion": { "audio": "/audio/50musique13Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« J'aime mieux m'en aller… »",
         "answers": ["Sans rien dire", "Dans un souffle, dans un cri", "Du temps que je suis belle", "Dans l'ombre de la nuit"],
+        "audio": "/audio/50musique13question.mp3",
         "correctIndex": 2,
         "feedback": { "audio": "/audio/50musique13Fin.mp4", "text": "Barbara", "image": "/images/50musique13.jpg" }
       },
@@ -247,6 +275,7 @@
         "beforeQuestion": { "audio": "/audio/50musique14Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« A la guerre, à la guerre »",
         "answers": ["C'est un drôle de petit jeu", "Part sans peur et sans espoir", "Part, on l'attend chaque jour ", "Part vers un avenir flou"],
+        "audio": "/audio/50musique14question.mp3",
         "correctIndex": 0,
         "feedback": { "audio": "/audio/50musique14Fin.mp4", "text": "Yves Montand", "image": "/images/50musique14.jpg" }
       },
@@ -254,6 +283,7 @@
         "beforeQuestion": { "audio": "/audio/50musique15.mp4", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a composé la musique du film “Les Parapluies de Cherbourg” en 1964 ?",
         "answers": ["Michel Legrand", "Maurice Jarre", "Georges Delerue", "Francis Lai"],
+        "audio": "/audio/50musique15question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Michel Legrand", "image": "/images/50musique15.jpg" }
       }
@@ -263,20 +293,23 @@
         "beforeQuestion": { "audio": "/audio/50musique16Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Et chaque fois les feuilles mortes… »",
         "answers": ["Des jours heureux", "Du temps passé", "Te rappellent à mon souvenir", "De nos promesses"],
+        "audio": "/audio/50musique16question.mp3",
         "correctIndex": 2,
         "feedback": { "audio": "/audio/50musique16Fin.mp4", "text": "Serge Gainsbourg", "image": "/images/50musique16.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique17.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Qui a interprété “Ma p'tite chanson” avec succès en 1953 ?",
+        "question": "Qui a interprété “Ma p'tite chanson” en 1953 ?",
         "answers": ["Bourvil", "Henri Salvador", "Marcel Amont", "Luis Mariano"],
+        "audio": "/audio/50musique17question.mp3",
         "correctIndex": 0,
         "feedback": { "text": "Bourvil", "image": "/images/50musique17.jpg" }
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique18.mp4", "text": "TROUVER LE BON ARTISTE" },
-        "question": "Quel chanteur a composé la musique de la chanson « Sous le ciel de Paris » ?",
+        "question": "Quel chanteur a composé la musique « Sous le ciel de Paris » ?",
         "answers": ["Charles Trenet", "Henri Salvador", "Hubert Salentin", "Hubert Giraud"],
+        "audio": "/audio/50musique18question.mp3",
         "correctIndex": 3,
         "feedback": { "text": "Hubert Giraud", "image": "/images/50musique18.jpg" }
       },
@@ -284,6 +317,7 @@
         "beforeQuestion": { "audio": "/audio/50musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Moi je t'offrirais des perles de pluie… »",
         "answers": ["Pour adoucir ton cœur", "Cueillies dans les cieux", "Venues de pays où il ne pleut pas", "Brillant sous le soleil"],
+        "audio": "/audio/50musique19question.mp3",
         "correctIndex": 2,
         "feedback": { "audio": "/audio/50musique19Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique19.jpg" }
       },
@@ -291,6 +325,7 @@
         "beforeQuestion": { "audio": "/audio/50musique20Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Allez venez Milord… »",
         "answers": ["Je serai là, toute à vous", "Vous avez l'air d'un môme…", "Je chanterai nos jours heureux", "Le temps n'aura pas de prise"],
+        "audio": "/audio/50musique20question.mp3",
         "correctIndex": 1,
         "feedback": { "audio": "/audio/50musique20Fin.mp4", "text": "Édith Piaf", "image": "/images/50musique20.jpg" }
       }
