@@ -170,7 +170,8 @@
         "answers": ["Dans l'espace inouï de l'amour", "Plus loin que le vent"],
         "audio": "/audio/80musique1question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "Desireless", "image": "/images/80musique1.jpg" }
+        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "Desireless", "image": "/images/80musique1.jpg" },
+        "fullTrack": "/audio/80musique1Entiere.mp3"
       },
       {
         "question": "Vrai ou Faux : Joe Dassin chantait aussi en italien et en espagnol.",
@@ -185,7 +186,8 @@
         "answers": ["Vanessa Paradis", "Jeanne Mas"],
         "audio": "/audio/80musique3question.mp3",
         "correctIndex": 1,
-        "feedback": {"text": "Jeanne Mas", "image": "/images/80musique3.jpg" }
+        "feedback": {"text": "Jeanne Mas", "image": "/images/80musique3.jpg" },
+        "fullTrack": "/audio/80musique3Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique4Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -193,7 +195,8 @@
         "answers": ["Embouteillage", "Il est comme ça"],
         "audio": "/audio/80musique4question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "Vanessa Paradis", "image": "/images/80musique4.jpg" }
+        "feedback": { "audio": "/audio/80musique4Fin.mp4", "text": "Vanessa Paradis", "image": "/images/80musique4.jpg" },
+        "fullTrack": "/audio/80musique4Entiere.mp3"
       },
        {
         "beforeQuestion": { "audio": "/audio/80musique5.mp4", "text": "TROUVER LE BON GROUPE" },
@@ -201,7 +204,8 @@
         "answers": ["Indochine", "Images"],
         "audio": "/audio/80musique5question.mp3",
         "correctIndex": 1,
-        "feedback": {"text": "Images", "image": "/images/80musique5.jpg" }
+        "feedback": {"text": "Images", "image": "/images/80musique5.jpg" },
+        "fullTrack": "/audio/80musique5Entiere.mp3"
       }
     ],
     "medium": [
@@ -211,7 +215,8 @@
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "audio": "/audio/80musique6question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "/images/80musique6.jpg" }
+        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "/images/80musique6.jpg" },
+        "fullTrack": "/audio/80musique6Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique7.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -219,7 +224,8 @@
         "answers": ["Daniel Balavoine", "Jean-Jacques Goldman"],
         "audio": "/audio/80musique7question.mp3",
         "correctIndex": 1,
-        "feedback": { "text": "Jean-Jacques Goldman", "image": "/images/80musique7.jpg" }
+        "feedback": { "text": "Jean-Jacques Goldman", "image": "/images/80musique7.jpg" },
+        "fullTrack": "/audio/80musique7Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique8.mp4", "text": "TROUVER LE BON GROUPE" },
@@ -227,7 +233,8 @@
         "answers": ["Les Rita Mitsouko", "Niagara"],
         "audio": "/audio/80musique8question.mp3",
         "correctIndex": 1,
-        "feedback": { "text": "Niagara", "image": "/images/80musique8.jpg" }
+        "feedback": { "text": "Niagara", "image": "/images/80musique8.jpg" },
+        "fullTrack": "/audio/80musique8Entiere.mp3"
       },
       {
         "question": "« Vrai ou Faux : Mylène Farmer est née au Canada.",
@@ -242,7 +249,8 @@
         "answers": ["En échange d'une trêve de douceur", "Qui me fait peur"],
         "audio": "/audio/80musique10question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "Jeanne Mas", "image": "/images/80musique10.jpg" }
+        "feedback": { "audio": "/audio/80musique10Fin.mp4", "text": "Jeanne Mas", "image": "/images/80musique10.jpg" },
+        "fullTrack": "/audio/80musique10Entiere.mp3"
       }    
     ],
     "hard": [
@@ -252,7 +260,8 @@
         "answers": ["Chargé d'amour et de mystère", "Le vent souffle fort dans ta vie", "J'avance sur ce quai humide", "Tu vogues loin de mon ennui"],
         "audio": "/audio/80musique11question.mp3",
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/80musique11Fin.MP3", "text": "Axel Bauer", "image": "/images/80musique11.jpg" }
+        "feedback": { "audio": "/audio/80musique11Fin.MP3", "text": "Axel Bauer", "image": "/images/80musique11.jpg" },
+        "fullTrack": "/audio/80musique11Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique12Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -260,7 +269,8 @@
         "answers": ["Au milieu des éclats", "Devant les néons", "Devant ton ordinateur", "Avec les oreillers du cœur en boule"],
         "audio": "/audio/80musique12question.mp3",
         "correctIndex": 3,
-        "feedback": { "audio": "/audio/80musique12Fin.MP3", "text": "Corynne Charby", "image": "/images/80musique12.jpg" }
+        "feedback": { "audio": "/audio/80musique12Fin.MP3", "text": "Corynne Charby", "image": "/images/80musique12.jpg" },
+        "fullTrack": "/audio/80musique12Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique13.MP3", "text": "TROUVER LE BON ARTISTE" },
@@ -268,7 +278,8 @@
         "answers": ["Étienne Daho", "Alain Chamfort", "Rita Mitsouko", "Axel Bauer"],
         "audio": "/audio/80musique13question.mp3",
         "correctIndex": 2,
-        "feedback": { "text": "Rita Mitsouko", "image": "/images/80musique13.jpg" }
+        "feedback": { "text": "Rita Mitsouko", "image": "/images/80musique13.jpg" },
+        "fullTrack": "/audio/80musique13Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique14.mp4", "text": "TROUVER LE BON ARTISTE" },
@@ -276,7 +287,8 @@
         "answers": ["Christophe", "Alain Bashung", "Eddy Mitchell", "Gérard Manset"],
         "audio": "/audio/80musique14question.mp3",
         "correctIndex": 2,
-        "feedback": { "text": "Eddy Mitchell", "image": "/images/80musique14.jpg" }
+        "feedback": { "text": "Eddy Mitchell", "image": "/images/80musique14.jpg" },
+        "fullTrack": "/audio/80musique14Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique15Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -284,7 +296,8 @@
         "answers": ["Pas chez moi, je suis fou", "Pas chez moi, moi j'aime sans sentiments", "Pas chez moi, sans vous", "Pas chez moi, j'oublie tout"],
         "audio": "/audio/80musique15question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique15Fin.MP3", "text": "Elsa", "image": "/images/80musique15.jpg" }
+        "feedback": { "audio": "/audio/80musique15Fin.MP3", "text": "Elsa", "image": "/images/80musique15.jpg" },
+        "fullTrack": "/audio/80musique15Entiere.mp3"
       }
     ],
     "expert": [
@@ -302,7 +315,8 @@
         "answers": ["Les Rita Mitsouko", "Images", "Les Avions", "Début de Soirée"],
         "audio": "/audio/80musique17question.mp3",
         "correctIndex": 2,
-        "feedback": { "text": "Les Avions", "image": "/images/80musique17.jpg" }
+        "feedback": { "text": "Les Avions", "image": "/images/80musique17.jpg" },
+        "fullTrack": "/audio/80musique17Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique18Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -310,7 +324,8 @@
         "answers": ["Qui pleure dans un monde trop réel", "Moi l'homme loup", "Dont les rêves ne sont qu'un leurre", "Qui vole au vent comme un adieu"],
         "audio": "/audio/80musique18question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique18Fin.MP3", "text": "Jean-Jacques Lafon", "image": "/images/80musique18.jpg" }
+        "feedback": { "audio": "/audio/80musique18Fin.MP3", "text": "Jean-Jacques Lafon", "image": "/images/80musique18.jpg" },
+        "fullTrack": "/audio/80musique18Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
@@ -318,7 +333,8 @@
         "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
         "audio": "/audio/80musique19question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" }
+        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" },
+        "fullTrack": "/audio/80musique19Entiere.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/80musique20.MP3", "text": "TROUVER LE BON ARTISTE" },
@@ -326,7 +342,8 @@
         "answers": ["Alec Mansion", "Axel Bauer", "Alain Chamfort", "Philippe Russo"],
         "audio": "/audio/80musique20question.mp3",
         "correctIndex": 0,
-        "feedback": {"text": "Alec Mansion", "image": "/images/80musique20.jpg" }
+        "feedback": {"text": "Alec Mansion", "image": "/images/80musique20.jpg" },
+        "fullTrack": "/audio/80musique20Entiere.mp3"
       }
     ]
   },
