@@ -153,7 +153,8 @@
         "question": "« Dans le port d'Amsterdam… »",
         "answers": ["Pour adoucir ton cœur", "Y'a des marins qui dorment"],
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique1.jpg" }
+        "feedback": { "audio": "/audio/50musique1Fin.mp4", "text": "Jacques Brel", "image": "/images/50musique1.jpg" },
+        "fullTrack": "/audio/sound50troll.mp3"
       },
       {
         "beforeQuestion": { "audio": "/audio/50musique2.mp4", "text": "TROUVER LE BON ARTISTE" },

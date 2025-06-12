@@ -47,6 +47,8 @@ export default {
       isBeforeQuestion: false,
       isFeedback: false,
       gameFinished: false,
+      awaitFullTrackChoice: false,
+      playingFullTrack: false,
       score: 0,
       levelScores: {
         easy: 0,
@@ -256,9 +258,46 @@ export default {
       }
     },
 
+    onFullTrackChoice(yes) {
+      this.awaitFullTrackChoice = false;
+      if (yes) {
+        this.playingFullTrack = true;
+        this.buttonsEnabled = true;  // Activer boutons A,B,C,D pour skip
+        this.$nextTick(() => {
+          this.$refs.fullTrackAudio.play().catch(e => {
+            console.warn("Lecture fullTrack bloquée", e);
+          });
+        });
+      } else {
+        this.totalQuestionsAsked++;
+        this.moveToNextStep();
+      }
+    },
+
+    skipFullTrack() {
+      if (!this.playingFullTrack) return;
+      this.$refs.fullTrackAudio.pause();
+      this.$refs.fullTrackAudio.currentTime = 0;
+      this.playingFullTrack = false;
+      this.totalQuestionsAsked++;
+      this.moveToNextStep();
+    },
+
+    onFullTrackEnded() {
+      this.playingFullTrack = false;
+      this.totalQuestionsAsked++;
+      this.moveToNextStep();
+    },
+
 
 
     handleButtonPress(buttonId) {
+
+      if (this.playingFullTrack) {
+        this.skipFullTrack();
+        return;
+      }
+
       if (!this.buttonsEnabled || !this.currentQuestion?.answers) return;
 
       const answerCount = this.currentQuestion.answers.length;
@@ -281,11 +320,19 @@ export default {
     },
     nextStepAfterFeedback() {
       this.isFeedback = false;
-      this.totalQuestionsAsked++;
-      if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
-        this.playEndVideo();
+
+      // Check si musique avec fullTrack existe
+      const fullTrack = this.currentQuestion?.fullTrack;
+      if (fullTrack) {
+        this.awaitFullTrackChoice = true; // Affiche écran Oui/Non
+        this.buttonsEnabled = false;       // Désactive les réponses classiques
       } else {
-        this.moveToNextStep();
+        this.totalQuestionsAsked++;
+        if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
+          this.playEndVideo();
+        } else {
+          this.moveToNextStep();
+        }
       }
     },
     moveToNextStep() {
@@ -385,6 +432,27 @@ export default {
   <audio ref="wrongSound" src="/audio/wrongSound.mp3" preload="auto"></audio>
 
   <audio ref="questionAudio" :src="currentQuestion?.audio || ''" preload="auto"></audio>
+
+
+    <!-- Écran Oui / Non pour écouter musique entièrement -->
+  <div v-if="awaitFullTrackChoice" class="fulltrack-choice-screen">
+    <p>Voulez-vous écouter la musique entièrement ?</p>
+    <button @click="onFullTrackChoice(true)">Oui</button>
+    <button @click="onFullTrackChoice(false)">Non</button>
+  </div>
+
+  <!-- Interface lecture fullTrack -->
+  <div v-if="playingFullTrack" class="fulltrack-player-screen" @click="skipFullTrack">
+    <audio
+      ref="fullTrackAudio"
+      :src="currentQuestion.fullTrack"
+      @ended="onFullTrackEnded"
+      controls
+      autoplay
+    ></audio>
+    <p>Cliquez sur un bouton ou sur l'écran pour passer la musique</p>
+  </div>
+
 
   <div
     class="question-screen"
@@ -787,6 +855,58 @@ export default {
   pointer-events: none; /* pour ne pas bloquer les clics */
 }
 
+
+.fulltrack-choice-screen,
+.fulltrack-player-screen {
+  width: 100%;
+  min-height: 100vh; /* au moins la hauteur visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212cc; /* un fond sombre semi-transparent */
+  color: white;
+  font-size: 1.8rem;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 10; /* juste pour assurer priorité visuelle */
+}
+
+.fulltrack-choice-screen p,
+.fulltrack-player-screen p {
+  margin-bottom: 2rem;
+}
+
+.fulltrack-choice-screen button,
+.fulltrack-player-screen button {
+  background-color: #47DEB1;
+  border: none;
+  padding: 15px 30px;
+  margin: 0 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #121212;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.fulltrack-choice-screen button:hover,
+.fulltrack-player-screen button:hover {
+  background-color: #39c59c;
+}
+
+.fulltrack-player-screen audio {
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  outline: none;
+}
+
+/* Optionnel : si tu veux éviter que la page scroll en arrière-plan */
+body, html {
+  overflow: hidden;
+}
 
 
 </style>
