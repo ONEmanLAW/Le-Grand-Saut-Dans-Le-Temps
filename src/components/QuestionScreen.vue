@@ -581,10 +581,7 @@ export default {
         </div>
       </div>
 
-        <!-- Sinon affiche un bouton si pas de média -->
-        <button v-else @click="startQuestion" class="start-button">
-          Commencer la question
-        </button>
+
       </div>
     </div>
 
@@ -947,7 +944,7 @@ export default {
   text-align: center;
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
-  width: 600px;
+  width: 800px;
   font-size: 55px;
   font-family: 'Berlin', sans-serif;
 }
@@ -977,7 +974,6 @@ export default {
   border: none;
   border-radius: 16px;
   font-weight: bold;
-  font-size: 1.5rem;
   cursor: pointer;
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
