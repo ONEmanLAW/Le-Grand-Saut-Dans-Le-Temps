@@ -1,6 +1,5 @@
 <template>
   <div class="start-screen" @click="handleClick">
-    <!-- Musique de fond -->
     <audio ref="bgMusic" autoplay loop>
       <source src="/audio/background.mp3" type="audio/mpeg" />
       Votre navigateur ne supporte pas l'audio HTML5.

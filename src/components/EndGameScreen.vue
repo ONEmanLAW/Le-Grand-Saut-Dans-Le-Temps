@@ -1,7 +1,5 @@
-<!-- EndGameScreen.vue -->
 <template>
   <div class="end-game-screen">
-    <!-- Musique de fond -->
     <audio ref="bgMusic" autoplay loop>
       <source src="/audio/backgroundEnd.mp3" type="audio/mpeg" />
       Votre navigateur ne supporte pas l'audio HTML5.

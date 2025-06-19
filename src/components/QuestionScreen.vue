@@ -61,10 +61,10 @@ export default {
         expert: 0
       },
       isEndVideoPlaying: false,
-      buttonsEnabled: false, // 🔥 Gère l’état actif/inactif des boutons
+      buttonsEnabled: false, 
 
       showCountdownBeforeMedia: false,
-      countdownPhase: null, // 'attention', 'countdown', or null
+      countdownPhase: null,
       countdownValue: 3,
     };
   },
@@ -218,9 +218,8 @@ export default {
         this.currentQuestion = questions[index];
         this.selectedAnswer = null;
         this.answered = false;
-        this.buttonsEnabled = true; // Active les boutons
+        this.buttonsEnabled = true;
 
-        // STOP autres médias éventuels
         if (this.$refs.beforeQuestionAudio) {
           this.$refs.beforeQuestionAudio.pause();
           this.$refs.beforeQuestionAudio.currentTime = 0;
@@ -230,7 +229,6 @@ export default {
           this.$refs.beforeQuestionVideo.currentTime = 0;
         }
 
-        // Joue le son de la question si défini
         this.$nextTick(() => {
           const audioElement = this.$refs.questionAudio;
           if (audioElement && this.currentQuestion.audio) {
@@ -255,7 +253,7 @@ export default {
 
         const isCorrect = index === this.currentQuestion.correctIndex;
 
-        // 🔊 Joue le son
+
         if (isCorrect) {
           this.score++;
           this.levelScores[this.currentDifficulty]++;
@@ -268,7 +266,6 @@ export default {
           ? 'Correct !'
           : `Incorrect. La bonne réponse était : ${this.currentQuestion.answers[this.currentQuestion.correctIndex]}`;
 
-        // Attend 2 secondes avant d'afficher le feedback
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
 
@@ -286,7 +283,7 @@ export default {
       this.awaitFullTrackChoice = false;
       if (yes) {
         this.playingFullTrack = true;
-        this.buttonsEnabled = true;  // Activer boutons A,B,C,D pour skip
+        this.buttonsEnabled = true;  
         this.$nextTick(() => {
           this.$refs.fullTrackAudio.play().catch(e => {
             console.warn("Lecture fullTrack bloquée", e);
@@ -316,23 +313,23 @@ export default {
 
 
     handleButtonPress(buttonId) {
-      // Si on est sur l'écran de choix Oui / Non
+ 
       if (this.awaitFullTrackChoice) {
         if (buttonId === 'A') {
-          this.onFullTrackChoice(true); // Oui
+          this.onFullTrackChoice(true); 
         } else if (buttonId === 'C') {
-          this.onFullTrackChoice(false); // Non
+          this.onFullTrackChoice(false); 
         }
         return;
       }
 
-      // Si on est en train d'écouter la musique full track
+    
       if (this.playingFullTrack) {
         this.skipFullTrack();
         return;
       }
 
-      // Si les boutons sont désactivés ou pas de réponse en cours
+      
       if (!this.buttonsEnabled || !this.currentQuestion?.answers) return;
 
       const answerCount = this.currentQuestion.answers.length;
@@ -355,11 +352,11 @@ export default {
     nextStepAfterFeedback() {
       this.isFeedback = false;
 
-      // Check si musique avec fullTrack existe
+      // je te déteste IOS /// 
       const fullTrack = this.currentQuestion?.fullTrack;
       if (fullTrack) {
-        this.awaitFullTrackChoice = true; // Affiche écran Oui/Non
-        this.buttonsEnabled = false;       // Désactive les réponses classiques
+        this.awaitFullTrackChoice = true;
+        this.buttonsEnabled = false;      
       } else {
         this.totalQuestionsAsked++;
         if (this.totalQuestionsAsked >= this.totalQuestionsToAsk) {
@@ -402,7 +399,7 @@ export default {
         this.$nextTick(() => {
           const video = this.$refs.transitionVideoPlayer;
           if (video && this.transitionVideoSource) {
-            video.muted = false; // 👈 ACTIVE LE SON
+            video.muted = false; 
             video.play().catch((e) => {
               console.warn('Lecture vidéo bloquée :', e);
             });
@@ -468,7 +465,7 @@ export default {
   <audio ref="questionAudio" :src="currentQuestion?.audio || ''" preload="auto"></audio>
 
 
-    <!-- Écran Oui / Non pour écouter musique entièrement -->
+
     <div v-if="awaitFullTrackChoice" class="fulltrack-choice-screen">
       <p>Voulez-vous écouter la musique entièrement ?</p>
       <div class="button-row">
@@ -482,7 +479,6 @@ export default {
     </div>
 
 
-  <!-- Interface lecture fullTrack -->
   <div v-if="playingFullTrack" class="fulltrack-player-screen" @click="skipFullTrack">
     <audio
       ref="fullTrackAudio"
@@ -492,7 +488,6 @@ export default {
       autoplay
     ></audio>
 
-    <!-- Progress bar custom -->
     <div class="progress-bar-container">
       <div class="progress-bar">
         <div class="progress-circle" :style="{ left: progressPercent + '%' }"></div>
@@ -521,7 +516,6 @@ export default {
       </div>
     </div>
 
-    <!-- Video de transition ou de fin -->
     <div v-if="transitionVideo && transitionVideoSource">
       <video
         ref="transitionVideoPlayer"
@@ -549,7 +543,7 @@ export default {
           </div>
         </div>
 
-        <!-- Affiche la vidéo si elle existe -->
+        <!-- Soit l'audio soit la video -->
         <video
             v-if="currentQuestion.beforeQuestion.video"
           ref="beforeQuestionVideo"
@@ -560,7 +554,6 @@ export default {
         ></video>
 
 
-        <!-- Sinon affiche l'audio si elle existe -->
         <audio
           v-else-if="currentQuestion.beforeQuestion.audio"
           ref="beforeQuestionAudio"
@@ -570,8 +563,8 @@ export default {
           @loadedmetadata="initBeforeAudioDuration"
           playsinline
         ></audio>
+        
 
-      <!-- Barre de progression custom -->
       <div v-if="currentQuestion.beforeQuestion.audio" class="progress-bar-container">
         <div class="progress-bar">
           <div
@@ -587,7 +580,6 @@ export default {
 
     <div v-else-if="isFeedback && currentQuestion?.feedback">
       <div class="feedback-content">
-        <!-- <h2>Feedback</h2> -->  <!-- Supprimé -->
         <img
           v-if="currentQuestion.feedback.image"
           :src="currentQuestion.feedback.image"
@@ -634,7 +626,7 @@ export default {
       <p>{{ feedback || 'Fin de la partie !' }}</p>
     </div>
 
-    <!-- ButtonInputListener : gestion des boutons physiques -->
+    <!--Pour boutton -->
     <ButtonInputListener
       :active="buttonsEnabled || awaitFullTrackChoice"
       :onButtonPress="handleButtonPress"
@@ -672,7 +664,7 @@ export default {
   animation: fadeInUp 1.2s ease-out forwards;
 }
 
-/* Répartition des réponses */
+
 .answers-grid {
   list-style: none;
   padding: 0;
@@ -683,19 +675,22 @@ export default {
   overflow: visible;
 }
 
-/* 2 réponses = 1 colonne */
+/*
+ 2 réponses = 1 colonne
+*/
 .answers-grid[data-count="2"] {
   grid-template-columns: 1fr;
 }
 
-/* 3 ou 4 réponses = 2 colonnes */
+/*
+ 3 ou 4 réponses = 2 colonnes
+*/
 .answers-grid[data-count="3"],
 .answers-grid[data-count="4"] {
   grid-template-columns: repeat(2, 1fr);
   gap: 40px 60px;
 }
 
-/* Chaque bloc de réponse */
 .answers-grid li {
   display: flex;
   justify-content: center;
@@ -716,7 +711,7 @@ export default {
   transition: opacity 0.3s ease;
 }
 
-/* Boutons stylés façon "question-count-screen" */
+
 .answers-grid button {
   width: 560px;
   height: 225px;
@@ -736,18 +731,20 @@ export default {
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
 }
 
-/* 2 réponses = version très large */
+/* 
+2 réponses = version très large
+ */
 .answers-grid[data-count="2"] button {
   width: 1160px;
   height: 225px;
 }
 
-/* Hover effect */
+
 .answers-grid button:hover:not(:disabled) {
   filter: brightness(85%);
 }
 
-/* Désactivé */
+
 .answers-grid button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -764,7 +761,8 @@ export default {
   color: #dc3545;
 } */
 
-/* Animation fadeInUp */
+
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -776,7 +774,7 @@ export default {
   }
 }
 
-/* Cache les autres après sélection */
+
 /* .question-screen.answered-state .answers-grid li:not(.correct) {
   opacity: 0;
   pointer-events: none;
@@ -817,7 +815,7 @@ export default {
   font-size: 72px;
 }
 
-/* Styles "Before Question" */
+
 .before-question-content {
   display: flex;
   flex-direction: column;
@@ -873,10 +871,10 @@ export default {
 }
 
 .feedback-content img.feedback-image {
-  max-width: 80vw;      /* pas plus large que 80% de l'écran */
-  max-height: 60vh;     /* pas plus haute que 60% de la hauteur écran */
-  width: auto;          /* largeur auto, laisse l'image décider */
-  height: auto;         /* hauteur auto, garde les proportions */
+  max-width: 80vw;
+  max-height: 60vh;  
+  width: auto;          
+  height: auto;    
   border-radius: 8px;
   display: block;
   margin: 0 auto;
@@ -949,7 +947,7 @@ export default {
   font-family: 'Berlin', sans-serif;
 }
 
-/* Conteneur vertical pour les boutons */
+
 .fulltrack-choice-screen .button-row {
   display: flex;
   flex-direction: column;
@@ -959,7 +957,6 @@ export default {
   overflow: visible;
 }
 
-/* Wrapper individuel pour chaque bouton */
 .fulltrack-choice-screen .button-wrapper {
   overflow: visible;
   margin-bottom: 40px;
@@ -967,7 +964,7 @@ export default {
   width: 1160px;
 }
 
-/* Boutons */
+
 .fulltrack-choice-screen button {
   width: 1160px;
   height: 225px;
@@ -984,14 +981,14 @@ export default {
   font-family: 'Berlin', sans-serif;
 }
 
-/* Bouton "Oui" */
+
 .fulltrack-choice-screen button.yes {
   background-color: #47DEB1;
   font-size: 55px;
   font-family: 'NeutraText', sans-serif;
 }
 
-/* Bouton "Non" */
+
 .fulltrack-choice-screen button.no {
   background-color: #F16565;
   font-size: 55px;
@@ -1035,7 +1032,7 @@ export default {
   margin: 30px auto;
   box-sizing: border-box;
 
-  /* Animation fade-in vers le haut */
+
   opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
 }

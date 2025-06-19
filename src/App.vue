@@ -1,5 +1,4 @@
 <template>
-  <!-- Ajout d'une classe dynamique selon l'époque -->
   <div
     @touchstart.passive="handleTouch"
     :class="['app-container', backgroundEraClass]"
@@ -53,7 +52,7 @@ export default {
       currentIndex: 0,
       tapCount: 0,
       tapTimer: null,
-      selectedEra: null,  // Pas d'époque choisie au départ
+      selectedEra: null, 
     }
   },
   computed: {
@@ -96,9 +95,8 @@ export default {
       }, 500)
     },
     onEraSelected(era) {
-      // Ne change le fond que si l'utilisateur a fait un vrai choix (ignore '50' par défaut sans localStorage)
       if (era === '50' && !localStorage.getItem('selectedEra')) {
-        // Ignore cette valeur par défaut automatique
+        // Ignore cette valeur par défaut
         return
       }
       this.selectedEra = era
@@ -107,8 +105,7 @@ export default {
   },
   mounted() {
     this.loadFlow()
-    // Ne pas précharger selectedEra depuis localStorage pour éviter le changement automatique
-    // this.selectedEra = localStorage.getItem('selectedEra') || null
+    
   }
 }
 </script>
@@ -125,7 +122,7 @@ export default {
   transition: background-image 0.5s ease-in-out;
 }
 
-/* Classes pour fond selon époque */
+
 .bg-default {
   background-color: #FFAE59;
 }

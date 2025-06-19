@@ -17,7 +17,7 @@ class WSServer:
                 try:
                     data = json.loads(message)
                 except json.JSONDecodeError:
-                    print("❌ Erreur JSON dans le message reçu")
+                    print("❌ Erreur JSON ")
                     await websocket.send(json.dumps({"status": "ERREUR_FORMAT_MESSAGE"}))
                     continue
 
@@ -25,9 +25,9 @@ class WSServer:
                 if "client_name" in data:
                     client_name = data["client_name"]
 
-                    # Enregistre ou met à jour le websocket pour ce client_name
+                    ## Enregistre ou met à jour le websocket pour ce client_name si jamais on essaie de reconnecter c ok
                     self.clients[client_name] = websocket
-                    print(f"✅ Client {client_name} enregistré ou mis à jour")
+                    print(f"✅ Client {client_name} enregistree ou mis à jour")
 
                     # Réponse pour la présentation
                     response = {"status": "PRESENTATION_OK"}
@@ -41,7 +41,6 @@ class WSServer:
                             "src": data["src"],
                             "data": data["data"]
                         }
-                        # Si le message vient du navigateur, on ajoute speak:true
                         if data["src"] == "browser" and dest == "raspberry":
                             payload["speak"] = True
 
@@ -62,7 +61,7 @@ class WSServer:
     async def start(self):
         print(f"🚀 Serveur WebSocket en écoute sur {self.host}:{self.port}")
         async with websockets.serve(self.handler, self.host, self.port, max_size=None):
-            await asyncio.Future()  # run forever
+            await asyncio.Future() # run pour toujours et a jamais
 
 # Lancement du serveur avec gestion propre de Ctrl+C
 if __name__ == "__main__":

@@ -1,3 +1,5 @@
+Code utiliser au lancement du raspberry Pi pour que au boot il ce lance direct.
+
 Description=Service RFID pour Le-Grand-Saut-Dans-Le-Temps
 After=network.target
 

@@ -25,7 +25,6 @@ export default {
   mounted() {
     this.showText = true
 
-    // Selon l'ère choisie, charge le son correspondant
     if (this.selectedEra === '50') {
       this.audio = new Audio('/audio/sound50troll.mp3')
     } else if (this.selectedEra === '80') {
@@ -38,12 +37,10 @@ export default {
       })
     }
 
-    // Cache le texte après 4s
     setTimeout(() => {
       this.showText = false
     }, 4000)
 
-    // Passe à l'étape suivante après 4s
     setTimeout(() => {
       if (typeof this.nextStep === 'function') {
         this.nextStep()
@@ -51,7 +48,6 @@ export default {
     }, 4000)
   },
   beforeUnmount() {
-    // Libère la ressource audio (optionnel)
     if (this.audio) {
       this.audio.pause()
       this.audio = null

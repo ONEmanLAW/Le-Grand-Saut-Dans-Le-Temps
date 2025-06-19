@@ -49,7 +49,6 @@ export default {
     const shuffled = this.shuffleArray(this.themes)
     this.selectedThemes = shuffled.slice(0, 2)
     this.enableButtons()
-    // Ne pas relancer la musique ici (elle tourne déjà)
   },
   methods: {
     enableButtons() {
@@ -65,7 +64,6 @@ export default {
       console.log('Theme sélectionné:', theme)
       localStorage.setItem('selectedTheme', theme)
 
-      // Stop musique à la fin de cette page
       if (window.backgroundMusic) {
         window.backgroundMusic.pause()
         window.backgroundMusic.currentTime = 0

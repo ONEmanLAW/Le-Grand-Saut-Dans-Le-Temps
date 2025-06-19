@@ -70,18 +70,16 @@ export default {
   },
   mounted() {
     this.enableButtons()
-    // Démarre la musique si elle n'existe pas encore
     if (!window.backgroundMusic) {
       const audio = new Audio('/audio/background.mp3')
       audio.loop = true
       audio.volume = 1
-      // Tenter de jouer la musique, catch erreur autoplay si bloque
+
       audio.play().catch(() => {
         console.warn('Autoplay bloqué, musique démarrera après interaction utilisateur')
       })
       window.backgroundMusic = audio
     } else if (window.backgroundMusic.paused) {
-      // Relance si en pause
       window.backgroundMusic.play().catch(() => {})
     }
   },

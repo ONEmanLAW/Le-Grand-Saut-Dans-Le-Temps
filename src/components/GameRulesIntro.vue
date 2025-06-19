@@ -20,40 +20,31 @@ export default {
   },
   data() {
     return {
-      clickCount: 0 // Initialize click counter
+      clickCount: 0
     };
   },
   mounted() {
-    // You might still want this if autoplay is sometimes blocked,
-    // though the playsinline and autoplay attributes generally handle most cases.
+ 
+
     const video = this.$refs.videoPlayer;
     video.play().catch(error => {
       console.warn("Video autoplay prevented:", error);
-      // Fallback or user prompt to play video could go here
     });
   },
   methods: {
-    /**
-     * Handles clicks on the screen to enable a debug skip feature.
-     * After 3 clicks, the video will be skipped.
-     */
     handleScreenClick() {
       this.clickCount++;
       if (this.clickCount >= 3) {
         this.skipVideo();
       }
     },
-    /**
-     * Skips the current video by pausing it, jumping to the end,
-     * and triggering the next step in the application flow.
-     */
     skipVideo() {
       const video = this.$refs.videoPlayer;
       if (video) {
-        video.pause(); // Stop playback
-        video.currentTime = video.duration; // Jump to the end of the video
-        this.nextStep(); // Call the nextStep prop to advance
-        this.clickCount = 0; // Reset the click count for future use
+        video.pause(); 
+        video.currentTime = video.duration; 
+        this.nextStep(); 
+        this.clickCount = 0;
       }
     }
   }
@@ -72,8 +63,7 @@ export default {
   overflow: hidden;
   z-index: 9999;
   background: black;
-  /* Make sure this div is on top and clickable */
-  cursor: pointer; /* Give a visual cue that it's interactive */
+  cursor: pointer;
 }
 
 .video-player {
@@ -81,11 +71,9 @@ export default {
   height: 100vh;
   object-fit: cover;
   display: block;
-  /* Position the video relative to its parent .game-rules-intro-screen
-     to ensure the click handler on the parent is effective. */
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* Place the video behind the clickable area if needed */
+  z-index: -1;
 }
 </style>

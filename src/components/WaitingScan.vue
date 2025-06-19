@@ -1,13 +1,12 @@
 <template>
   <div class="waiting-scan-container" @click="handleClickDebug">
-    <!-- Musique de fond -->
     <audio ref="bgMusic" autoplay loop>
       <source src="/audio/background.mp3" type="audio/mpeg" />
       Votre navigateur ne supporte pas l'audio HTML5.
     </audio>
 
     <div class="title-wrapper">
-      <h1 class="title pulse">Poser le badge sur l’époque</h1>
+      <h1 class="title pulse">Poser le badge sur l'époque</h1>
       <h1 class="subtitle pulse">de votre choix !</h1>
     </div>
   </div>
@@ -51,7 +50,6 @@ export default {
       const audio = this.$refs.bgMusic
       if (audio && audio.paused) {
         audio.play().catch(() => {
-          // Échec silencieux si bloqué par navigateur
         })
       }
     },
