@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+src/components/WebSocketClient.vue
+other/server/serverWb.py
