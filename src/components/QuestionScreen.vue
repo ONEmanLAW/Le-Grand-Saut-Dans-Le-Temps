@@ -494,7 +494,7 @@ export default {
       </div>
     </div>
 
-    <p>Cliquez sur un bouton ou sur l'écran pour passer la musique</p>
+    <p class="textForMusique">Cliquez sur un des buzzers pour passer</p>
   </div>
 
 
@@ -787,6 +787,10 @@ export default {
   transition: opacity 0.3s ease;
 }
 
+.textForMusique {
+  margin-top: 40px;
+}
+
 
 
 .fullscreen-message {
@@ -1029,7 +1033,7 @@ export default {
   border-radius: 12px;
   width: 80%;
   max-width: 1000px;
-  margin: 30px auto;
+  margin: 200px auto;
   box-sizing: border-box;
 
 

@@ -165,7 +165,7 @@
     "easy": [
       {
         "beforeQuestion": { "audio": "/audio/50musique1Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« Dans le port d'Amsterdam… »",
+        "question": "« Dans le port d'Amsterdam…»",
         "audio": "/audio/50musique1question.mp3",
         "answers": ["Pour adoucir ton cœur", "Y'a des marins qui dorment"],
         "correctIndex": 1,

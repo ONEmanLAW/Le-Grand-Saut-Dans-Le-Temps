@@ -25,11 +25,11 @@ export default {
   mounted() {
     this.showText = true
 
-    if (this.selectedEra === '50') {
-      this.audio = new Audio('/audio/sound50troll.mp3')
-    } else if (this.selectedEra === '80') {
-      this.audio = new Audio('/audio/sound50troll.mp3')
-    }
+    // if (this.selectedEra === '50') {
+    //   this.audio = new Audio('/audio/sound50troll.mp3')
+    // } else if (this.selectedEra === '80') {
+    //   this.audio = new Audio('/audio/sound50troll.mp3')
+    // }
 
     if (this.audio) {
       this.audio.play().catch(() => {
