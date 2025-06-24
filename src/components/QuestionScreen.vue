@@ -309,31 +309,48 @@ export default {
       this.totalQuestionsAsked++;
       this.moveToNextStep();
     },
+    restartFullTrack() {
+      const audio = this.$refs.fullTrackAudio;
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play().catch(e => {
+          console.warn("Erreur lors du redémarrage de la musique", e);
+        });
+      }
+    },
+
 
 
 
     handleButtonPress(buttonId) {
- 
+      // Choix initial de jouer ou non le fullTrack
       if (this.awaitFullTrackChoice) {
         if (buttonId === 'A') {
-          this.onFullTrackChoice(true); 
+          this.onFullTrackChoice(true);
         } else if (buttonId === 'C') {
-          this.onFullTrackChoice(false); 
+          this.onFullTrackChoice(false);
         }
         return;
       }
 
-    
+      // Contrôle pendant la lecture du full track
       if (this.playingFullTrack) {
-        this.skipFullTrack();
+        if (buttonId === 'A') {
+          console.log("ESP32: bouton A → skipFullTrack()");
+          this.skipFullTrack(); // appelle directement la méthode
+        } else if (buttonId === 'C') {
+          console.log("ESP32: bouton C → restartFullTrack()");
+          this.restartFullTrack(); // appelle directement la méthode
+        }
         return;
       }
 
-      
+      // Répondre à une question
       if (!this.buttonsEnabled || !this.currentQuestion?.answers) return;
 
       const answerCount = this.currentQuestion.answers.length;
-
       let index;
 
       if (answerCount === 2) {
@@ -348,6 +365,9 @@ export default {
         this.selectAnswer(index);
       }
     },
+
+
+
 
     nextStepAfterFeedback() {
       this.isFeedback = false;
@@ -479,14 +499,15 @@ export default {
     </div>
 
 
-  <div v-if="playingFullTrack" class="fulltrack-player-screen" @click="skipFullTrack">
+  <div v-if="playingFullTrack" class="fulltrack-player-screen" >
     <audio
       ref="fullTrackAudio"
       :src="currentQuestion.fullTrack"
       @ended="onFullTrackEnded"
       @timeupdate="updateProgress"
-      autoplay
     ></audio>
+
+    <h1>Écoutez la musique</h1>
 
     <div class="progress-bar-container">
       <div class="progress-bar">
@@ -494,7 +515,19 @@ export default {
       </div>
     </div>
 
-    <p class="textForMusique">Cliquez sur un des buzzers pour passer</p>
+    <!-- Boutons personnalisés -->
+   <div class="button-row">
+      <div class="button-wrapper">
+        <button class="button1" @click.stop="skipFullTrack">
+          <i class="fas fa-arrow-right fa-5x"></i>
+        </button>
+      </div>
+      <div class="button-wrapper">
+        <button class="button2" @click.stop="restartFullTrack">
+          <i class="fas fa-rotate-left fa-5x"></i>
+        </button>
+      </div>
+    </div>
   </div>
 
 
@@ -1016,7 +1049,7 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 40px;
+  padding: 20px;
   box-sizing: border-box;
   color: white;
   text-align: center;
@@ -1033,7 +1066,7 @@ export default {
   border-radius: 12px;
   width: 80%;
   max-width: 1000px;
-  margin: 200px auto;
+  margin: 20px auto;
   box-sizing: border-box;
 
 
@@ -1075,7 +1108,50 @@ export default {
 }
 
 
+.button-row {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
 
+.button-wrapper {
+  overflow: visible;
+  margin-bottom: 20px; 
+  position: relative;
+  width: 1160px; 
+}
+
+button {
+  width: 1160px;
+  height: 225px;
+  border: none;
+  border-radius: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+  transition: filter 0.3s, opacity 0.3s;
+  position: relative;
+  z-index: 1;
+
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
+}
+
+.button1 {
+  background-color: #47DEB1;
+}
+
+.button2 {
+  background-color: #F16565;
+}
+
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 
 
