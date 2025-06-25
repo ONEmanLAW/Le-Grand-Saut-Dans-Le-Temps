@@ -302,6 +302,24 @@
     ],
     "expert": [
       {
+        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« J'ai fais un voeux… »",
+        "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
+        "audio": "/audio/80musique19question.mp3",
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" },
+        "fullTrack": "/audio/80musique19Entiere.mp3"
+      },
+      {
+        "beforeQuestion": { "audio": "/audio/80musique18Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "question": "« Quand je la regarde… »",
+        "answers": ["Qui pleure dans un monde trop réel", "Moi l'homme loup", "Dont les rêves ne sont qu'un leurre", "Qui vole au vent comme un adieu"],
+        "audio": "/audio/80musique18question.mp3",
+        "correctIndex": 1,
+        "feedback": { "audio": "/audio/80musique18Fin.MP3", "text": "Jean-Jacques Lafon", "image": "/images/80musique18.jpg" },
+        "fullTrack": "/audio/80musique18Entiere.mp3"
+      },
+      {
         "beforeQuestion": { "audio": "/audio/80musique16Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« S'offrir ce qui n'a pas de prix… »",
         "answers": ["Comme un éclair dans une nuit", "Un peu de rêve à notre vie", "Même si le temps nous l'interdit", "Quand le silence devient folie"],
@@ -319,24 +337,7 @@
         "feedback": { "text": "Les Avions", "image": "/images/80musique17.jpg" },
         "fullTrack": "/audio/80musique17Entiere.mp3"
       },
-      {
-        "beforeQuestion": { "audio": "/audio/80musique18Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« Quand je la regarde… »",
-        "answers": ["Qui pleure dans un monde trop réel", "Moi l'homme loup", "Dont les rêves ne sont qu'un leurre", "Qui vole au vent comme un adieu"],
-        "audio": "/audio/80musique18question.mp3",
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique18Fin.MP3", "text": "Jean-Jacques Lafon", "image": "/images/80musique18.jpg" },
-        "fullTrack": "/audio/80musique18Entiere.mp3"
-      },
-      {
-        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
-        "question": "« J'ai fais un voeux… »",
-        "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
-        "audio": "/audio/80musique19question.mp3",
-        "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" },
-        "fullTrack": "/audio/80musique19Entiere.mp3"
-      },
+      
       {
         "beforeQuestion": { "audio": "/audio/80musique20.MP3", "text": "TROUVER LE BON ARTISTE" },
         "question": "Quel chanteur a débuté en duo avec Léopold Nord sur le titre « C'est l'amour » ?",
