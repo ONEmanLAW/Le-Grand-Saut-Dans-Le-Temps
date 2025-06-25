@@ -170,7 +170,7 @@
         "answers": ["Dans l'espace inouï de l'amour", "Plus loin que le vent"],
         "audio": "/audio/80musique1question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "Desireless", "image": "/images/80musique1.jpg" },
+        "feedback": { "audio": "/audio/80musique1Fin.mp4", "text": "Desireless", "video": "/videos/video80Musique1.mp4" },
         "fullTrack": "/audio/80musique1Entiere.mp3"
       },
       {
@@ -215,7 +215,7 @@
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "audio": "/audio/80musique6question.mp3",
         "correctIndex": 0,
-        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "image": "/images/80musique6.jpg" },
+        "feedback": { "audio": "/audio/80musique6Fin.mp4", "text": "Indochine", "video": "/videos/video80Musique2.mp4" },
         "fullTrack": "/audio/80musique6Entiere.mp3"
       },
       {
@@ -260,7 +260,7 @@
         "answers": ["Chargé d'amour et de mystère", "Le vent souffle fort dans ta vie", "J'avance sur ce quai humide", "Tu vogues loin de mon ennui"],
         "audio": "/audio/80musique11question.mp3",
         "correctIndex": 2,
-        "feedback": { "audio": "/audio/80musique11Fin.MP3", "text": "Axel Bauer", "image": "/images/80musique11.jpg" },
+        "feedback": { "audio": "/audio/80musique11Fin.MP3", "text": "Axel Bauer", "video": "/videos/video80Musique3.mp4" },
         "fullTrack": "/audio/80musique11Entiere.mp3"
       },
       {
@@ -307,7 +307,7 @@
         "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
         "audio": "/audio/80musique19question.mp3",
         "correctIndex": 1,
-        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "image": "/images/80musique19.jpg" },
+        "feedback": { "audio": "/audio/80musique19Fin.mp4", "text": "Étienne Daho", "video": "/videos/video80Musique4.mp4" },
         "fullTrack": "/audio/80musique19Entiere.mp3"
       },
       {

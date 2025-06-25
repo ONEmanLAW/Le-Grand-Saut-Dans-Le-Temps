@@ -4,6 +4,7 @@ import ButtonInputListener from './ButtonInputListener.vue'
 export default {
   components: { ButtonInputListener },
   props: ['flowObject', 'nextStep'],
+  emits: ['eraSelected'],
   data() {
     return {
       questionsData: null,
@@ -253,7 +254,6 @@ export default {
 
         const isCorrect = index === this.currentQuestion.correctIndex;
 
-
         if (isCorrect) {
           this.score++;
           this.levelScores[this.currentDifficulty]++;
@@ -269,15 +269,19 @@ export default {
         this.timeoutId = setTimeout(() => {
           this.isFeedback = true;
 
-          if (!this.currentQuestion.feedback?.audio) {
+          const feedback = this.currentQuestion.feedback || {};
+
+          if (!feedback.audio && !feedback.video) {
             setTimeout(() => {
               this.nextStepAfterFeedback();
             }, 6000);
           }
 
+
         }, 3000);
       }
     },
+
 
     onFullTrackChoice(yes) {
       this.awaitFullTrackChoice = false;
@@ -598,7 +602,7 @@ export default {
         ></audio>
         
 
-      <div v-if="currentQuestion.beforeQuestion.audio" class="progress-bar-container">
+      <div v-if="currentQuestion.beforeQuestion.audio" class="progress-bar-container-musique">
         <div class="progress-bar">
           <div
             class="progress-circle"
@@ -619,9 +623,20 @@ export default {
           alt="Feedback Image"
           class="feedback-image"
         />
+
         <p v-if="currentQuestion.feedback.text" class="feedback-text">
           {{ currentQuestion.feedback.text }}
         </p>
+
+        <video
+          v-if="currentQuestion.feedback.video"
+          :src="currentQuestion.feedback.video"
+          muted
+          autoplay
+          loop
+          class="feedback-video-musique"
+        ></video>
+
         <audio
           v-if="currentQuestion.feedback.audio"
           ref="feedbackAudio"
@@ -631,6 +646,8 @@ export default {
         ></audio>
       </div>
     </div>
+
+
 
 
     <div v-else-if="currentQuestion" class="question-screen">
@@ -929,6 +946,13 @@ export default {
   margin-bottom: 20px;
 }
 
+.feedback-video-musique {
+  width: 125%;
+  height: 85%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
 .countdown-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -1067,6 +1091,20 @@ export default {
   width: 80%;
   max-width: 1000px;
   margin: 20px auto;
+  box-sizing: border-box;
+
+
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.progress-bar-container-musique {
+  background-color: #FFAE59;
+  padding: 25px 40px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 250px auto;
   box-sizing: border-box;
 
 
