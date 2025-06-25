@@ -165,7 +165,7 @@
   "musique": {
     "easy": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/80musique1Debut.mp4", "text": "ÉCOUTEZ LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Voyage, voyage… plus loin que la nuit et le jour… » ",
         "answers": ["Dans l'espace inouï de l'amour", "Plus loin que le vent"],
         "audio": "/audio/80musique1question.mp3",
@@ -210,7 +210,7 @@
     ],
     "medium": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/80musique6Debut.mp4", "text": "ÉCOUTEZ LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Et soudain surgit face au vent… »",
         "answers": ["Le vrai héro de tout les temps", "En pleine terreur à Manicouagan"],
         "audio": "/audio/80musique6question.mp3",
@@ -255,7 +255,7 @@
     ],
     "hard": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique11Debut.MP3", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/80musique11Debut.MP3", "text": "ÉCOUTEZ LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« Cargo de nuit… »",
         "answers": ["Chargé d'amour et de mystère", "Le vent souffle fort dans ta vie", "J'avance sur ce quai humide", "Tu vogues loin de mon ennui"],
         "audio": "/audio/80musique11question.mp3",
@@ -302,7 +302,7 @@
     ],
     "expert": [
       {
-        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTER LA MUSIQUE ET COMPLÉTER LES PAROLES" },
+        "beforeQuestion": { "audio": "/audio/80musique19Debut.mp4", "text": "ÉCOUTEZ LA MUSIQUE ET COMPLÉTER LES PAROLES" },
         "question": "« J'ai fais un voeux… »",
         "answers": ["Tes lèvres brûlent mes faiblesses", "Le feu d'un duel au soleil", "Prise au piège tu te rendras", "Ton regard éclaire mes silences"],
         "audio": "/audio/80musique19question.mp3",

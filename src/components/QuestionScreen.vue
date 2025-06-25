@@ -779,6 +779,7 @@ export default {
   animation: fadeInUp 1.2s ease-out forwards;
 
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 1);
+  line-height: 60px;
 }
 
 /* 
